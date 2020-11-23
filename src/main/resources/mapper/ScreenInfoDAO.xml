@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDAO">
+	<select id="select" resultType="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO">
+		SELECT 
+			wr_uid "uid", wr_subject subject, wr_content content, wr_name name, 
+			wr_viewcnt viewcnt, wr_regdate regdate 
+		FROM test_write 
+		ORDER BY wr_uid DESC
+	</select>
+	
+	
+	<!-- view.do -->
+	<select id="selectByUid" resultType="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO">
+		SELECT 
+			wr_uid "uid", wr_subject subject, wr_content content, wr_name name, 
+			wr_viewcnt viewcnt, wr_regdate regdate 
+		FROM test_write 
+		WHERE wr_uid=#{uid}
+	</select>
+	
+	
+	<!-- 조회수 증가 -->
+	<update id="incViewCnt" flushCache="true">
+		UPDATE test_write
+		SET wr_viewcnt = wr_viewcnt + 1
+		WHERE wr_uid = #{param1}
+	</update>
+	
+	
+	<!-- updateOk.do -->
+	<!-- 
+	<update id="update" flushCache="true"
+		parameterType="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO">
+		UPDATE test_write
+		SET wr_subject = #{subject}, wr_content = #{content}
+		WHERE wr_uid = #{uid}
+	</update>
+	-->
+	<update id="update" flushCache="true">
+		UPDATE test_write
+		SET wr_subject = #{a.subject}, wr_content = #{a.content}
+		WHERE wr_uid = #{param1}
+	</update>
+	
+	
+	<!-- deleteOk.do -->
+	<delete id="deleteByUid" flushCache="true">
+		DELETE FROM test_write
+		WHERE wr_uid = #{uid}
+	</delete>
+	
+	
+	<select id="searchBySubject" resultType="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO">
+		<![CDATA[
+			SELECT * FROM test_write WHERE uid < 10 
+		]]>
+	</select>
+	 
+	 
+	 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
