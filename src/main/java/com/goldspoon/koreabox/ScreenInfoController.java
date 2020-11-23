@@ -23,6 +23,7 @@ public class ScreenInfoController {
 	
 	private ScreenInfoCommand command;
 	
+	
 	// MyBatis
 	private SqlSession sqlSession;
 	
