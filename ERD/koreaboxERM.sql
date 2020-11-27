@@ -274,5 +274,28 @@ COMMENT ON COLUMN tb_showinfo.shw_seatLine IS '상영관의 좌석 열';
 COMMENT ON COLUMN tb_showinfo.shw_regDate IS '상영 등록일';
 COMMENT ON COLUMN tb_showinfo.shw_expireFlag IS '상영 만료 플래그(1이면 상영만료)';
 
+desc tb_showinfo;
+SELECT * FROM tabs;
 
+SELECT * FROM TB_RESERVE;
+SELECT * FROM TB_SHOWINFO;
 
+INSERT INTO TB_RESERVE (RES_NUM ,RES_MOVIENUM ,RES_MOVIENAME ,RES_SCREENNUM ,RES_SCREENNAME ,RES_DATE ,RES_TIME ,RES_SEAT ,RES_TOTALPEOPLE ,
+RES_MEMBERUID ,RES_MEMBERID ,RES_PAYTIME ,RES_PAY ,RES_CODE )
+VALUES (1, 1,'스물',1,'A관','2020-12-30', 5, '1번',3,1,'TEST',SYSDATE,21000,'A2020123011');
+
+INSERT INTO TB_RESERVE (RES_NUM ,RES_MOVIENUM ,RES_MOVIENAME ,RES_SCREENNUM ,RES_SCREENNAME ,RES_DATE ,RES_TIME ,RES_SEAT ,RES_TOTALPEOPLE ,
+RES_MEMBERUID ,RES_MEMBERID ,RES_PAYTIME ,RES_PAY ,RES_CODE )
+VALUES (19, 2,'크리스탈',2,'B관','2020-12-31', 2, '2번',2,2,'TEST2',SYSDATE,14000,'A2020123112');
+
+INSERT INTO TB_SHOWINFO (shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,shw_time,shw_seatCnt,shw_seatRow,
+	shw_seatLine,shw_regDate,shw_expireFlag)
+VALUES(1,1,'스물',1,'A관','2020-11-26',10,1,1,1,SYSDATE,0);
+
+INSERT INTO TB_SHOWINFO (shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,shw_time,shw_seatCnt,shw_seatRow,
+	shw_seatLine,shw_regDate,shw_expireFlag)
+VALUES(3,1,'스물',1,'A관','2020-11-26',20,1,1,1,SYSDATE,0);
+
+INSERT INTO TB_SHOWINFO (shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,shw_time,shw_seatCnt,shw_seatRow,
+	shw_seatLine,shw_regDate,shw_expireFlag)
+VALUES(6,1,'스물',1,'A관','2020-11-28',20,1,1,1,SYSDATE,0);
