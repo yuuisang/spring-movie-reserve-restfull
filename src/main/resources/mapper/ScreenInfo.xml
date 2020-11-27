@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldspoon.koreabox.screeninfo.beans.IAjaxDAO">
+
+	<!-- /list.ajax 
+		parameter: page, pageRows
+	 -->
+	<select id="selectFromRow" resultType="com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO">
+		<![CDATA[
+		SELECT
+			scr_num, 
+			scr_name, 
+			scr_seatRow, 
+			scr_seatLine
+		FROM 
+			(SELECT ROWNUM AS RNUM, T.* FROM 
+				(SELECT * FROM tb_screeninfo ORDER BY scr_num DESC) T) 
+		WHERE 
+			RNUM >= #{from} AND RNUM < (#{from} + #{pageRows})		
+		]]>
+	</select>
+
+
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM tb_screeninfo
+	</select>
+
+
+	<insert id="insert" flushCache="true">
+		INSERT INTO tb_screeninfo
+			(scr_num, scr_name, scr_seatRow, scr_seatLine)
+		VALUES
+			(SEQ_tb_screeninfo_scr_num.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+
+
+	<!-- /deleteOk.ajax : 글(들) 삭제 
+		 parameter :  uid(들)
+	 -->
+	 
+	 <delete id="deleteByNum" flushCache="true"
+	 	parameterType="int">
+	 
+	 	DELETE FROM tb_screeninfo
+	 	WHERE scr_num = #{scr_num}
+	 </delete>
+
+
+</mapper>
+

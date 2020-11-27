@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+body{
+	padding: 0;
+	margin : 0;
+	width: 100%;
+	height: 900px;
+	display: flex;
+	justify-content: center;
+}
+
+.container{
+	width: 1200px;
+	justify-content: center;
+	border : 1px solid #333;
+}
+#title{
+	margin-bottom: 50px;
+	border : 1px solid #333;
+}
+#title h2{
+	text-align: center;
+}
+
+#screenRegist{
+	width: 100%;
+	height: 20vh;
+	border : 1px solid #333;
+}
+#screenRegist h3, th,td{
+	text-align: center;
+}
+#screenInfo{
+	width: 100%;
+}
+
+#screenList{
+	width: 100%;
+	height: 60vh;
+	border : 1px solid #333;
+}
+#screenList h3{
+	text-align: center;
+}
+#screenTable{
+	width: 100%;
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+#screenTable th, td{
+	border: 1px solid #333;
+	border-collapse: collapse;
+	width: 20%;
+	text-align: center;
+}
+
+
+/* 페이징 */
+.center {
+    text-align: center;
+}
+
+ul.pagination{
+	list-style-type:none
+}
+
+ul.pagination li{
+    display: inline-block;
+}
+
+ul.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* border: 1px solid #ddd; */
+    /* margin: 0 4px; */
+    margin: 0px;
+}
+
+ul.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+ul.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* 하단 버튼 */
+.d01 {
+	margin : 5px 0px;
+}
+

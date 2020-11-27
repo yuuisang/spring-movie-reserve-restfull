@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldspoon.koreabox.showinfo.beans.IAjaxDAO">
+
+	
+	<select id="selectFromRow" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
+		<![CDATA[
+		SELECT
+			shw_num,
+			shw_movieNum,
+			shw_movieName,
+			shw_screenNum,
+			shw_screenName,
+			shw_date,
+			shw_time,
+			shw_seatCnt,
+			shw_seatRow,
+			shw_seatLine,
+			shw_regDate,
+			shw_expireFlag
+		FROM 
+			(SELECT ROWNUM AS RNUM, T.* FROM 
+				(SELECT * FROM tb_showinfo ORDER BY shw_num DESC) T) 
+		WHERE 
+			RNUM >= #{from} AND RNUM < (#{from} + #{pageRows})		
+		]]>
+	</select>
+	
+	
+	<!-- 상영스케쥴 모달창 필요정보 조회 -->
+	<select id="selectInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
+		<![CDATA[
+		SELECT
+			shw_num,
+			shw_movieNum,
+			shw_movieName,
+			shw_screenNum,
+			shw_screenName,
+			shw_date,
+			shw_time,
+			shw_seatCnt,
+			shw_seatRow,
+			shw_seatLine,
+			shw_regDate,
+			shw_expireFlag
+		FROM 
+			tb_showinfo
+		WHERE 
+			shw_num = #{shw_num}	
+		]]>
+	</select>
+	
+	
+	<!-- 상영스케쥴 모달창 필요 전체 num 정보 조회 -->
+	<select id="selectAllInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
+		<![CDATA[
+		SELECT
+			shw_num,
+			shw_movieNum,
+			shw_movieName,
+			shw_screenNum,
+			shw_screenName,
+			shw_date,
+			shw_time,
+			shw_seatCnt,
+			shw_seatRow,
+			shw_seatLine,
+			shw_regDate,
+			shw_expireFlag
+		FROM 
+			tb_showinfo	
+		]]>
+	</select>
+	
+	
+	
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM tb_showinfo
+	</select>
+
+
+	<insert id="insert" flushCache="true">
+		INSERT INTO tb_showinfo
+			(
+			shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,
+			shw_time,shw_seatCnt,shw_seatRow,shw_seatLine,shw_regDate,shw_expireFlag
+			)
+		VALUES
+			(
+			SEQ_tb_showinfo_shw_num.nextval, 
+			#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}
+			)
+	</insert>
+
+
+	<!-- /deleteOk.ajax : 글(들) 삭제 
+		 parameter :  uid(들)
+	 -->
+	 
+	 <delete id="deleteByNum" flushCache="true"
+	 	parameterType="int">
+	 
+	 	DELETE FROM tb_showinfo
+	 	WHERE shw_num = #{shw_num}
+	 </delete>
+
+
+</mapper>
+
