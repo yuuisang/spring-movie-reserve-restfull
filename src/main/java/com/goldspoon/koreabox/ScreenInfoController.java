@@ -11,24 +11,23 @@ import com.goldspoon.koreabox.screeninfo.command.ScreenInfoCommand;
 @Controller
 @RequestMapping("/screen")
 public class ScreenInfoController {
-	
-	
-	// MyBatis
-	private SqlSession sqlSession;
-	
-	@Autowired
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-		ScreenInfoQuery.sqlSession = sqlSession;
-	}
-	
-	
-	@RequestMapping("/screeninfo")
-	public void screenInfo() {}
-	
-	
+   
+   
+   // MyBatis
+   private SqlSession sqlSession;
+   
+   @Autowired
+   public void setSqlSession(SqlSession sqlSession) {
+      this.sqlSession = sqlSession;
+      ScreenInfoQuery.sqlSession = sqlSession;
+   }
+   
+   
+   @RequestMapping("/screeninfo")
+   public void screenInfo() {}
+   
+   
 }
-
 
 
 

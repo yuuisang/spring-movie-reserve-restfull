@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+  .hover-mask a {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .hover-mask img {
+      width: 100%;
+      height: auto;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+    }
+    .hover-mask:hover img {
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+    .hover-mask a h2 {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 100%;
+      width: 100%;
+      padding: 45% 20px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.4);
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+    }
+    .hover-mask:hover a h2 {
+      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      filter: alpha(opacity=100);
+      opacity: 1;
+    }
+    .hover-mask .glyphicon {
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+      color: #fff;
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+    }
+    .hover-mask:hover .glyphicon {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      transition: all 0.5s linear;
+      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=1)";
+      filter: alpha(opacity=1);
+      opacity: 1;
+    }

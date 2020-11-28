@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldspoon.koreabox.reserveinfo.beans.ReserveInfoDAO">
+
+	<select id="selectFromRow" resultType="com.goldspoon.koreabox.reserveinfo.beans.ReserveInfoDTO">
+		<![CDATA[
+		SELECT
+			res_num res_num,
+			res_movieNum res_movieNum,
+			res_movieName res_movieName,
+			res_screenNum res_screenNum,
+			res_screenName res_screenName,
+			res_date res_date,
+			res_time res_time,
+			res_seat res_seat,
+			res_totalPeople res_totalPeople,
+			res_memberUid res_memberUid,
+			res_memberId res_memberId,
+			res_paytime res_paytime,
+			res_pay res_pay,
+			res_code res_code
+		FROM 
+			(SELECT ROWNUM AS RNUM, T.* FROM 
+				(SELECT * FROM tb_reserve ORDER BY res_num DESC) T) 
+		WHERE 
+			RNUM >= #{from} AND RNUM < (#{from} + #{pageRows})		
+		]]>
+	</select>
+	
+	<select id="countAll" resultType="int">
+		SELECT COUNT(*) FROM TB_RESERVE
+	</select>
+	
+	<delete id="deleteReserve" flushCache="true" parameterType="int">
+		DELETE FROM TB_RESERVE
+		WHERE RES_NUM = #{param1}
+	</delete>
+	
+	
+</mapper>	
