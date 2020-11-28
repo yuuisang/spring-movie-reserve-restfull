@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
 <%@page import="org.springframework.util.RouteMatcher.Route"%>
 <%@page import="com.goldspoon.koreabox.reserveuser.beans.ReserveUserDTO"%>
 <%@page import="java.util.HashSet"%>
@@ -17,9 +20,11 @@
 </head>
 <body>
 
+
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
 	<div id="dateChk" class="modal">
 		<!-- <form class="modal-content animate" id="frmWrite" name="frmWrite" Method="POST"> -->
+		<input type="hidden" id="aaa" value="${list}"/>
 		<div class="modal-content animate">
 			<div class="container">
 				<h3 class="title">날짜 선택</h3>
@@ -28,7 +33,7 @@
 				<div class="d01 btn_group_write">  <!-- 날짜 선택 a태그 -->
 					<c:forEach var="i" begin="0" end="${date.size()-1 }" step="1">
 						<!-- <a href="" class="default">${date[i] }</a><br> -->
-						<button id="dd" class="dateChkbtn" data-toggle="modal" data-target="#insertBlack"  data-notifyid="${date[i] }" value="${date[i] }">${date[i] }</button><br>
+						<button class="dateChkbtn" value="${date[i] }">${date[i] }</button><br>
 					</c:forEach>
 				</div>
 			</div>
@@ -36,11 +41,44 @@
 		<!-- </form> -->
 	</div>
 	
-	<div id="reserveform">
-		<div>
-			<div>날짜선택 <span id="dateselect">2020-12-30</span></div>
-			
+	<div id="list">
+		<table>
+			<tr>
+				<td>날짜</td>
+				<td id="selectdate"></td>
+			</tr>
+			<tr>
+				<td>영화</td>
+				<td><img alt="" src="${pageContext.request.contextPath }/resources/CSS/test/pp.jpg" width="100px" height="100px">
+				<span id="moviename"> ${list[0].shw_movieName }</span>
+				</td>
+			</tr>
+			<tr>
+				<td id="movietime">
+					
+				</td>
+			</tr>
+			<tr>
+				<td id="peopleCnt"></td>
+			</tr>
+			<tr>
+				<td id="seat"></td>
+			</tr>
+			<tr>
+				<td id="pay"></td>
+			</tr>
+		</table>
+		<%-- <div>
+			<div>날짜선택 <span id="selectdate"></span></div>
 		</div>
+		<hr>
+		<div>
+			<div>영화</div>
+			<img alt="" src="${pageContext.request.contextPath }/resources/CSS/test/pp.jpg" width="100px" height="100px">
+			<span id="moviename">영화이름</span>
+		</div> --%>
+			
+		
 	
 	</div>
 </body>

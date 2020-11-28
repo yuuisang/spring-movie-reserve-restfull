@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.goldspoon.koreabox.reserveuser.command.ReserveUserListCommand;
+// 뷰페이지 설정
 
 @Controller
 @RequestMapping("/reserve")
@@ -26,11 +26,11 @@ public class ReserveController {
 	
 	
 	@RequestMapping("/reserveuser")
-	public void reserveuser(int mov_num, Model model) {
-		System.out.println("컨트롤러단 -- mov_num : " + mov_num);
-		model.addAttribute("mov_num", mov_num);
-		new ReserveUserListCommand().execute(model);
-	}
+	public void reserveuser() {}
+//		System.out.println("컨트롤러단 -- mov_num : " + mov_num);
+//		model.addAttribute("mov_num", mov_num);
+//		new ReserveUserListCommand().execute(model);
+	
 	
 	@RequestMapping("/test")
 	public void test() {}

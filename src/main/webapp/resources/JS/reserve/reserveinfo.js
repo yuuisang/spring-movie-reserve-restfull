@@ -18,7 +18,7 @@ function loadPage(page){
     $.ajax({
         //   /reserve/{page}/{pageRows}
         //   현재  /reserve/reserveinfo
-        url : "./" + page + "/" + window.pageRows,
+        url : "../reserveinfo/" + page + "/" + window.pageRows,
         type : "GET",
         cache : false,
         success : function(data, status){
@@ -158,7 +158,7 @@ function deleteUid(res_num){
     // POST 방식
     $.ajax({
         //url : "deleteOk.ajax",
-        url : ".",
+        url : "../reserveinfo",
         type : "DELETE",
         data : "res_num=" + res_num,            
         cache : false,

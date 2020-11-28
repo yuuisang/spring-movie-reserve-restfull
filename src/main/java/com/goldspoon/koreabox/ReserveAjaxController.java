@@ -17,7 +17,7 @@ import com.goldspoon.koreabox.reserveinfo.command.ReserveInfoDeleteCommand;
 import com.goldspoon.koreabox.reserveinfo.command.ReserveInfoListCommand;
 
 @RestController
-@RequestMapping("/reserve")
+@RequestMapping("/reserveinfo")
 public class ReserveAjaxController {
 
 	@GetMapping("/{page}/{pageRows}")

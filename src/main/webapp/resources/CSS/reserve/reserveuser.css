@@ -51,6 +51,22 @@
 	cursor: pointer;
 }
 
+#list table { width: 50%;}
+#list table, #list th, #list td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#list td, #list th {
+	padding: 10px;	
+}
+
+#list .subject:hover {   /* 글 제목 위에 커서 올린 경우 */
+	text-decoration: underline;
+	color : orange;
+	cursor: pointer;
+}
+
 
 
 
