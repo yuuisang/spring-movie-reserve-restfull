@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldspoon.koreabox.movie.beans.MovieUserDAO">
+
+	<select id="select" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+		SELECT mov_num mov_num, mov_title mov_title,
+			mov_poster mov_poster, mov_openDate mov_openDate
+		FROM tb_movie ORDER 
+		BY mov_num DESC
+	</select>
+	
+	<select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+		SELECT mov_num mov_num, mov_title mov_title, mov_director mov_director, 
+			mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
+			mov_openDate mov_openDate, mov_grade mov_grade, mov_intro mov_intro,
+			mov_poster mov_poster, mov_still1 mov_still1, mov_still2 mov_still2,
+			mov_totalStar mov_totalStar, mov_countStar mov_countStar,
+			mov_still3 mov_still3
+		FROM tb_movie WHERE mov_num= #{mov_num}
+	</select>
+	
+	<select id="openBeforeList" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+	<![CDATA[
+		SELECT mov_num mov_num, mov_title mov_title,
+			mov_poster mov_poster, mov_openDate mov_openDate
+   			FROM tb_movie
+    	WHERE TO_CHAR(mov_openDate, 'YYYYMMDD') > TO_CHAR(sysdate, 'YYYYMMDD')
+    	]]>	
+	</select>
+	
+	<select id="openMovieNum" resultType="com.goldspoon.koreabox.movie.beans.ShowInfoDTO">
+		SELECT shw_movieNum 
+		FROM tb_showinfo 
+		ORDER BY shw_movieNum DESC
+	</select>
+	
+	<select id="openMovieList" 
+	resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO" 
+	parameterType="java.util.ArrayList">
+		SELECT mov_num mov_num, mov_title mov_title,
+			mov_poster mov_poster, mov_openDate mov_openDate
+			FROM tb_movie
+		WHERE mov_num IN (
+			<foreach collection="array" item="item" index="index" separator=",">
+				${item}
+			</foreach>
+			)
+	</select>
+	
+	<update id="updateRating" flushCache="true">
+		UPDATE tb_movie SET mov_totalStar = mov_totalStar+#{star_rating} WHERE mov_num = #{mov_num}
+	</update>
+	
+	<update id="ratingCnt" flushCache="true">
+		UPDATE tb_movie SET mov_countStar = mov_countStar + 1 WHERE mov_num = #{mov_num}
+	</update>
+
+</mapper>

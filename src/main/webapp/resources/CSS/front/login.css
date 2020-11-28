@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-repeat: no-repeat
+}
+
+input,
+textarea {
+    background-color: #F3E5F5;
+    padding: 8px 0px 8px 0px !important;
+    width: 100%;
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    border: none !important;
+    border-bottom: 1px solid #F3E5F5 !important;
+    font-size: 18px !important;
+    color: #000 !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #D32F2F !important;
+    outline-width: 0;
+    font-weight: 400
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.card {
+    border-radius: 0;
+    border: none;
+    position: relative
+}
+
+.card1 {
+    width: 50%
+}
+
+.card2 {
+    width: 50%;
+    height: 700px;
+    background-color: #E8EAF6
+}
+
+#image {
+    width: 80%;
+    height: 300px;
+    margin: auto
+}
+
+#logo {
+    position: absolute
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 0;
+    transition: all 300ms;
+    opacity: 0.5
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+    font-size: 80%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1
+}
+
+.btn-gray {
+    border-radius: 50px;
+    color: #fff;
+    background-color: #BDBDBD;
+    padding: 8px 40px
+}
+
+.btn-gray:hover {
+    color: #fff;
+    background-color: #D32F2F
+}
+
+a {
+    color: #000
+}
+
+a:hover {
+    color: #000
+}
+
+#google {
+    width: 20px;
+    height: 20px
+}
+
+.bottom {
+    bottom: 0;
+    position: absolute;
+    width: 100%
+}
+
+.sm-text {
+    font-size: 15px
+}
+
+@media screen and (max-width: 1200px) {
+    .card1 {
+        width: 100%;
+        padding: 10px 30px
+    }
+
+    .bottom {
+        position: relative
+    }
+
+    .card2 {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px !important
+    }
+
+    .card2 {
+        height: 400px
+    }
+}

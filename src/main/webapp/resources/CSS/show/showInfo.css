@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+body{
+	padding: 0;
+	margin : 0;
+	width: 100%;
+	height: 900px;
+	display: flex;
+	justify-content: center;
+}
+
+.container{
+	width: 1200px;
+	justify-content: center;
+	border : 1px solid #333;
+}
+#title{
+	margin-bottom: 50px;
+	border : 1px solid #333;
+}
+#title h2{
+	text-align: center;
+}
+
+#regist{
+	display: flex;
+	border: 1px solid #333;
+}
+#regist button{
+	justify-content: center;
+}
+
+
+#showScheduleList, #showScheduleListModal{
+	width: 100%;
+	height: 60vh;
+	border : 1px solid #333;
+}
+#showScheduleList h3, #showScheduleListModal h3{
+	text-align: center;
+}
+#showScheduleTable, #showScheduleTableModal{
+	width: 100%;
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+#showScheduleTable th, td, #showScheduleTableModal th, td{
+	border: 1px solid #333;
+	border-collapse: collapse;
+	width: 14%;
+	text-align: center;
+}
+#showScheduleTableModal th:nth-child(1){
+	width: 6%;
+}
+
+
+/* 페이징 */
+.center {
+    text-align: center;
+}
+
+ul.pagination{
+	list-style-type:none
+}
+
+ul.pagination li{
+    display: inline-block;
+}
+
+ul.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    /* border: 1px solid #ddd; */
+    /* margin: 0 4px; */
+    margin: 0px;
+}
+
+ul.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+ul.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* 하단 버튼 */
+.d01 {
+	margin : 5px 0px;
+}
+
+
+
+/* 모달 팝업 */
+.modal {   /* 모달 전체 적용 */	
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+	position : fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	padding-top: 40px;  /* 내부여백  */
+	overflow: auto;
+	
+	display : none;  /* 기본적으로 안보이기 */  
+}
+
+.modal .modal-content {
+	background-color: #fefefe;  /* 배경은 흰색 */
+	width: 70%;   /* 화면대비 80% */
+	height: 80%;
+	margin: 1.5% auto 15% auto;  /* 위에서 5%,  아래에서 15%, 좌우 중앙정렬 */
+	border: 1px solid #888;  /* 테두리 */
+}
+
+.modal .container {
+	width: 100%;
+	height: 100%;
+	/* padding: 15px; */
+	position: relative;  /* 이래야 안에 있는 absolute 들이 동작 */
+} 
+
+.modal .close {  /* close 버튼 */
+	font-size: 35px;	
+	font-weight: bold;
+	color: #000;
+	position: absolute;
+	right: 20px;
+	top: 0px;
+}
+
+.modal .close:hover,
+.modal .cloas:focus {
+	color: red;
+	cursor: pointer;
+}
+
+
+.modal input[type=text] {
+	width: 100%;
+	border: 1px solid #ccc;
+	margin: 8px 0;
+	padding: 12px 20px;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.modal textarea {
+	width: 100%;
+	border: 1px solid #ccc;
+	
+	/*padding: 12px 20px;
+	display: inline-block;
+	
+	margin: 8px 0;
+	*/
+}
+
+.modal .fullbtn {
+	width: 100%;
+	cursor: pointer;
+}
+
+
+
