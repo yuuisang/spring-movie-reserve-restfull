@@ -1,6 +1,32 @@
 var page = 1;
 var pageRows = 10;
 var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
+var data_shw;
+var data_scr_mov;
+var saveTime = new Array();
+saveTime[0] = 7;
+saveTime[1] = 11;
+saveTime[2] = 15;
+saveTime[3] = 19;
+saveTime[4] = 23;
+
+let today = new Date();
+
+let year = today.getFullYear(); // 년도
+let month = today.getMonth() + 1;  // 월
+let date = today.getDate();  // 날짜
+
+
+
+
+var chk_todayAdd = year+month+date;
+
+let hours = today.getHours(); // 시
+let minutes = today.getMinutes();  // 분
+let seconds = today.getSeconds();  // 초
+let milliseconds = today.getMilliseconds(); // 밀리초
+
+var chk_nowTime = hours;
 
 // 페이지 최초 로딩되면 게시글 목록 첫페이지분 로딩
 // [이전] 버튼 눌렀을때 -> 이전 페이지 게시글목록 로딩
@@ -8,39 +34,27 @@ var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
 
 
 $(document).ready(function(){
+	
     // 페이지 최초 로딩되면 1페이지 분량 읽어오기
     loadPage(page);
     
     // 모달 대화상자 close 버튼 눌리면
     $(".modal .close").click(function(){
+    	//loadPage(1);
         $(this).parents(".modal").hide();
     });
+    
+//    $(".btnRegistInit").click(function(){
+//    	//alert($(this).parents().attr('id'));
+//    	//alert($(this).parents().children("select[class='selectClass']").attr('value'));
+//
+//    	
+//    	scheduleOk();
+//    	
+//    	
+//    });
+    
 
-    /* 
-    // 글 작성 폼 submit 되면
-    $("#frmWrite").submit(function(){
-        $(this).parents(".modal").hide(); 
-        return chkWrite();
-    });
-    
-    
-    // 글 읽기 (view) 대화상자에서 삭제버튼 누르면 해당 글 (uid) 삭제 진행
-	$("#viewDelete").click(function(){
-		//var uid = $("#dlg_write input[name='uid']").val();
-		var uid = viewItem.uid;
-		if(deleteUid(uid)){  
-			$(this).parents(".modal").hide();  // 삭제 성공하면 대화상자 닫기
-		}
-	});
-	
-	// 글 읽기 (view) 대화상자에서 수정버튼 누르면
-	$("#viewUpdate").click(function(){
-		//alert('hh');
-		
-		setPopup("update")
-    
-	});
-	*/
     
 });
 
@@ -55,6 +69,7 @@ function loadPage(page){
       cache : false,
       success : function(data, status){
           if(status == "success"){
+        	  data_shw = data;
               if(updateList(data)){
                   // 화면 업데이트 후, 페이지 정보 업데이트 
               	
@@ -63,11 +78,7 @@ function loadPage(page){
               	
               }
           }
-      },
-      error : function(request,status,error) {
-			alert("loadPage() --> 에러코드 : "+request.status+"\n\n"+"에러메세지 : "+request.responseText+"\n\n"+"에러 : "+error);
-			
-		}
+      }
 
   });
 } // end loadPage()
@@ -96,8 +107,12 @@ function updateList(jsonObj){
             result += "<td>" + items[i].shw_screenName + "</td>\n";
             result += "<td>" + items[i].shw_date + "</td>\n";
             result += "<td>" + items[i].shw_time + "</td>\n";
-            result += "<td>" + items[i].shw_regDate + "</td>\n";
-            result += "<td><button type='button' id='btnManagement' data-uid='" + items[i].shw_num + "'>설정</button>" + "</td>\n";
+            if(items[i].shw_expireFlag == 0){
+            	result += "<td>상영중(" + items[i].shw_expireFlag + ")</td>\n";            	
+            }else{
+            	result += "<td>상영종료(" + items[i].shw_expireFlag + ")</td>\n";
+            }
+            //result += "<td><button type='button' id='btnManagement' data-uid='" + items[i].shw_num + "'>설정</button>" + "</td>\n";
             result += "</tr>\n";
         }
         $("#showScheduleTable tbody").html(result);   // 목록 업데이트
@@ -126,85 +141,6 @@ function updateList(jsonObj){
 } //end updateList()
 
 
-
-
-
-
-
-
-
-
-function addViewEvent(){
-	
-	// 해당 상영스케줄의 uid를 가지고 스케줄표를 열때
-	$("#showScheduleList #btnManagement").click(function(){
-		//alert($(this).text() + " : " + $(this).attr('data-uid')); // 확인해보자, 커스텀 데이터 사용 가능.
-		
-		// 읽어오기		
-		$.ajax({
-			//url : "view.ajax?uid=" + $(this).attr('data-uid'),
-			url : "./" + $(this).attr('data-uid'),
-			type : "GET",
-			cache : false,
-			success : function(data, status){
-				if(status == "success"){
-					if(data.status == "OK"){	
-						var chk = 1;
-						 if(setPopup(data, chk)){
-			                  // 화면 업데이트 후, 페이지 정보 업데이트 
-			              	
-			              	
-			              }
-						// 성공하면 내부 데이터 세팅하고 다이얼로그 보여주기
-						viewItem = data.data[0];
-
-						
-						$("#dlg_write").show();
-						
-						
-					} else {
-						alert("실패: " + data.message);
-					}
-				}
-			}
-		}); // end $.ajax()
-				
-	});
-	
-	
-	// 선택된 스케줄 없이 기본 스케줄 등록시
-	$("#btnRegist").click(function(){
-		
-		// 읽어오기		
-		$.ajax({
-			url : ".",
-			type : "GET",
-			cache : false,
-			success : function(data, status){
-				if(status == "success"){
-					if(data.status == "OK"){
-						var chk = 0;
-						 if(setPopup(data, chk)){
-			                  // 화면 업데이트 후, 페이지 정보 업데이트 
-			              }
-						// 성공하면 내부 데이터 세팅하고 다이얼로그 보여주기
-						viewItem = data.data[0];
-
-						
-						$("#dlg_write").show();
-						
-						
-					} else {
-						alert("실패: " + data.message);
-					}
-				}
-			}
-		}); // end $.ajax()
-				
-	});
-	
-	
-} // showView()
 
 
 
@@ -276,58 +212,748 @@ function changePageRows(){
 
 
 //대화상자 셋팅
-function setPopup(jsonObj, defaultChk){	
+function setPopup(jsonObj){	
 	
-	// 디폴트 설정일때
-	if(defaultChk == 0){
-		
+	resultDef = "";  // 최종 결과물
+	resultBefore = "";
+	resultAfter = "";
+	
+	month = today.getMonth() + 1;  // 월
+	date = today.getDate();  // 날짜
+	
+	if(month < 10){
+		month = "0" + month;
 	}
-	else{
-		//특정 shw_num 의 설정일때
-		
+	if(date < 10){
+		date = "0" + date;
 	}
 	
-	result = "";  // 최종 결과물
-
+	var chk_today = year+"-"+month+"-"+date;
+	
+	
     if(jsonObj.status == "OK"){
-        var count = jsonObj.count;
-        for(var i=0; i<count; i++){
-        	alert("jsonObj.data[i] : " +jsonObj.data[i].shw_screenName);        	
-        	alert("jsonObj.data[i] : " +jsonObj.data[i].shw_num);        	
-        }
-
-        var items = jsonObj.data;  // 상영스케줄 배열
-
-        var i;
-        let today = new Date();   
-
-        let year = today.getFullYear(); // 년도
-        let month = today.getMonth() + 1;  // 월
-        let date = today.getDate();  // 날짜
-
         
-        for(i = 0; i < count; i++){
-        	
-        	// 스케줄도 안정해져있고, 시간도 안지났을때 박스
-            result += "<tr>\n";
-            result += "<td>" + items[i].shw_screenName + "</td>\n";	// 상영관명 고정
-            result += "<td>" + year + '-' + month + '-' + date + '/'
-            		+ items[i].shw_screenName + '/ 시간' + "<br><br> <input type='text'/>"
-            		+ "<button type='button' id='btnManagement' data-uid='" + items[i].shw_num + "'>설정</button>"
-            		+ "</td>\n";
-            result += "</tr>\n";
-        }
-        $("#showScheduleTableModal tbody").html(result);   // 목록 업데이트
+        $("#showScheduleTitle").html("<h3>"+ chk_today + " 상영시간표</h3>");
+		$.ajax({
+			url : "./",
+			type : "GET",
+			cache : false,
+			success : function(data, status){
+				if(status == "success"){
+					data_scr_mov = data;
+					makeDefTable();
+					
+					for(var aa=0; aa<data.scr_shwInfo.length; aa++){
+						for(var bb=0; bb<6; bb++){
+							if(bb != 0){
+								$("#td"+aa+"행"+bb+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
+							}else{
+								$("#td"+aa+"행"+bb+"열").css('font-size', '30px'); //글자크기바꾸기
+							}
+						}
+					}
+					
+					makeAfterTable();
 
-       
-
-        return true;
+					//수정
+					//updateSchedule();
+					//삭제
+					//deleteSchedule();
+				}else{
+					alert("실패: " + data.message);
+				}
+			}
+		}); // end $.ajax()
     } else {
         alert("내용이 없습니다");
-        return false;
     }
+    
+
+	
+} // end setPopup()
+
+
+
+
+
+
+
+
+
+
+// 스케줄 등록
+//function registSchedule(){
+//	
+//	
+//}
+
+
+
+
+
+//function scheduleOk(){
+//	
+//
+//}
+
+
+
+
+
+
+//등록 후 부분 리로드
+function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_time){
+	
+	var row = i;
+	var column = j;
+	
+	//alert('함수들어오냐')
+	$.ajax({
+		url : "./",
+		type : "GET",
+		cache : false,
+		success : function(data, status){
+			if(status == "success"){	
+				
+				//alert('getajax i:'+ row + '/ j:' + column);
+				
+				var shw_num = 0;
+				var shw_expireFlag = "";
+				for(var i=0; i<data.data.length; i++){
+					if(data.data[i].shw_movieNum == mov_num && data.data[i].shw_movieName == mov_name
+						&& data.data[i].shw_screenNum == scr_num && data.data[i].shw_screenName == scr_name
+						&& data.data[i].shw_date == shw_date && data.data[i].shw_time == shw_time
+					){
+						//alert("일치하는 상영번호:"+data.data[i].shw_num);
+						shw_num = data.data[i].shw_num;
+						shw_expireFlag = data.data[i].shw_expireFlag;
+						
+						var init = "";
+						init +="상영번호 : " + shw_num + "<br>"
+							+ "상영날짜 : " + shw_date + "<br>"
+							+ "상영관명 : " + scr_name + "<br>"
+							+ "상영시간 : " + shw_time + "<br>"
+							+ "영화제목 : " + mov_name + "<br>"
+							+ "FLAG : " + shw_expireFlag + "<br>"
+							+ "<button type='button' class='btnUpdate' id='btnUpdate" + row + "_" + column 
+								+ "' value1='" + shw_num + "' value2='" + shw_date
+								+ "' value3='" + scr_name + "' value4='" + shw_time
+								+ "'>수정</button>&nbsp"
+							+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
+							+ "' value='" + shw_num 
+							+ "' value1='" + shw_date 
+							+ "' value2='" + scr_name 
+							+ "' value3='" + shw_time 
+							+ "'>삭제</button>"
+							;
+						
+						
+						$("#td"+ row +"행"+ column +"열").html(init);
+						$("#td"+ row +"행"+ column +"열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+					}
+				}
+				
+				$(".btnUpdate").click(function(){
+					var i = $(this).parents().attr('value1');
+					var j = $(this).parents().attr('value2');
+					var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
+					
+					//alert('i:'+i + ' / j:'+j); // td 의 행열 정확함
+					
+					//해당 td의 value1 = i, value2 = j;
+					//btnUpdatei_j(this)의  value1='" + shw_num + "' value2='" + shw_date"' value3='" + scr_name + "' value4='" + shw_time
+					//alert( $("#"+updateBtnId).attr('value1') )//shwnum 부정확함X 그냥this로찍는게 value 주입시점이 제일정확함 
+					//alert("shw_num : " + $(this).attr('value1') )//정확함
+					//alert("shw_date : " + $(this).attr('value2') )//정확함
+					//alert("scr_name : " + $(this).attr('value3') )//정확함
+					//alert("shw_time : " + $(this).attr('value4') )//정확함
+					
+					
+					var shw_num = $(this).attr('value1');
+					var shw_date = $(this).attr('value2');
+					var scr_name = $(this).attr('value3');
+					var shw_time = $(this).attr('value4');
+					var data = data_scr_mov;
+					
+					
+					var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
+					result += "<option value='noChoice'>영화선택</option>";
+					
+					for(var p=0;p<data.mov_numTitle.length;p++){
+						result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
+									+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
+					}
+					
+					result += "</select><br><br><br>";
+					
+					result += "<button type='button' class='btnUpdateOk' id='btnUpdateOk" + k + "'>수정</button>"
+					
+					
+					$("#td"+ i +"행"+ j +"열").html(result);
+					
+					
+					$(".btnUpdateOk").click(function(){
+						alert('수정완료되면 뜨는거')
+						
+						//alert(shw_num);
+						//alert($(this).attr('id'));
+						//alert($(this).parents().attr('id'));
+						var tdsid = $(this).parents().attr('id');
+						alert($(this).parents("#tdsid").text())
+						
+						var selectBoxId = $("#"+tdsid).children("select[class='selectClassOk']").attr('value');
+						//alert($("#" + selectBoxId + " option:selected").attr('value1'));
+						//alert($("#" + selectBoxId + " option:selected").attr('value2'));
+						var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
+						var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
+						
+						
+						$.ajax({
+							url : "./",
+							type : "PUT",
+							data : "shw_num=" + shw_num + "&shw_movieNum=" + mov_num + "&shw_movieName=" + mov_name,
+							cache : false,
+							success : function(data, status){
+								if(status == "success"){
+									alert('스케줄 수정에 성공했습니다.');
+									// 부분리로딩
+									
+									var init = "";
+									init +="상영번호 : " + shw_num + "<br>"
+										+ "상영날짜 : " + shw_date + "<br>"
+										+ "상영관명 : " + scr_name + "<br>"
+										+ "상영시간 : " + shw_time + "<br>"
+										+ "영화제목 : " + mov_name + "<br>"
+										+ "FLAG : " + 0 + "<br>"
+										+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
+											+ "' value1='" + shw_num + "' value2='" + shw_date
+											+ "' value3='" + scr_name + "' value4='" + shw_time
+											+ "'>수정</button>&nbsp"
+										+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
+											+ "' value='" + shw_num 
+											+ "' value1='" + shw_date 
+											+ "' value2='" + scr_name 
+											+ "' value3='" + shw_time 
+											+ "'>삭제</button>"
+										;
+									
+									
+									$("#td"+ i +"행"+ j +"열").html(init);
+									
+								}else{
+									alert("실패: " + data.message);
+								}
+							}
+						})
+						
+					})
+					
+				
+					
+					
+					
+				});
+				
+
+				
+				
+			}else{
+				alert("실패: " + data.message);
+			}
+		}
+	})
+	
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+//스케줄 삭제
+function deleteSchedule(){
+
+	$(".btnDelete").click(function(){
+		
+		var i = $(this).parents().attr('value1');
+		var j = $(this).parents().attr('value2');
+		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
+		
+		//alert('i:'+i + ' / j:'+j + ' / k:' + k); // td 의 행열 정확함
+		
+		//해당 td의 value1 = i, value2 = j;
+		//alert("shw_num : " + $(this).attr('value') )//정확함
+		//alert("shw_date : " + $(this).attr('value1') )//정확함
+		//alert("scr_name : " + $(this).attr('value2') )//정확함
+		//alert("shw_time : " + $(this).attr('value3') )//정확함
+		
+		var shw_num = $(this).attr('value');
+		var shw_date = $(this).attr('value1');
+		var scr_name = $(this).attr('value2');
+		var shw_time = $(this).attr('value3');
+		
+		// 읽어오기		
+		$.ajax({
+			url : "./",
+			type : "DELETE",
+			data : "shw_num=" + shw_num,
+			cache : false,
+			success : function(data, status){
+				if(status == "success"){
+					if(data.status == "OK"){
+						alert("스케줄 삭제를 완료했습니다.");
+						
+						$.ajax({
+							url : "./",
+							type : "GET",
+							cache : false,
+							success : function(data2, status){
+								if(status == "success"){
+									
+									var result = "";	       			
+									
+					    			result += 	shw_date + '/'
+					        					+ scr_name +  '/'
+					        					+ shw_time + "<br><br> " 
+					        					+ "<select id='selectBox"+ k +"' class='selectClass' value='selectBox" + k + "'>";
+									
+					    			result += "<option value='noChoice'>영화선택</option>";
+					    			
+									for(var q=0; q<data2.mov_numTitle.length; q++){
+										result += "<option value1='" + data2.mov_numTitle[q].mov_num + "' value2='" + data2.mov_numTitle[q].mov_title + "'>" 
+										+ "번호 : " +data2.mov_numTitle[q].mov_num + " / 제목 : " + data2.mov_numTitle[q].mov_title + "</option>";
+									}
+									
+									result += "</select>"
+					        		+ "<button type='button' class='btnRegistInit' id='btnRegist" + k + "'" 
+					        				+ " value1='" + shw_date + "' value2='" + data2.scr_shwInfo[i].scr_num
+											+ "' value3='" + scr_name + "' value4='" + shw_time 
+											+ "' value5='" + data2.scr_shwInfo[i].scr_seatRow + "' value6='" + data2.scr_shwInfo[i].scr_seatLine
+											+ "' value7='" + k
+											+ "' value8='" + i
+											+ "' value9='" + j
+									+ "'>등록</button>"
+					        		;
+									
+									$("#td"+i+"행"+j+"열").html(result);
+									$("#td"+i+"행"+j+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
+									
+
+								}
+							}
+						})
+						
+					} else {
+						alert("실패: " + data.message);
+					}
+				}
+			}
+		}); // end $.ajax()
+		
+		
+	});
+	
+	
+}
+
+// 함수화해야 ajax() 동작순서 안꼬임
+function makeDefTable(){	// 디폴트로 넣어주는 div들
+	
+	var k = 0;
+
+	// 행(줄)은 등록된 상영관 수 만큼
+	
+    for(var i = 0; i < data_scr_mov.scr_shwInfo.length; i++){
+    	
+    	resultDef += "<tr id='tr" + i + "'>\n";
+
+    	// 열(칸)은 지정 타임만큼(7,11,15,19,23시 총 5칸 + 맨앞에 영화관명 1칸)
+    	for(var j = 0; j < 6; j++){
+    		
+        	// 스케줄도 안정해져있고, 시간도 안지났을때 기준(디폴트)
+    		if(j==0){ // 상영관명 첫칸에 고정 
+    			resultDef += "<form id='frmRegist'><td id='td" + i + "행" + j + "열'>" + data_scr_mov.scr_shwInfo[i].scr_name + "</td>\n";	       			
+    		}else{
+    			
+    			resultDef += "<td class='td" + k + "' id='td" + i + "행" + j + "열' value1='" + i + "' value2='" + j + "' value3='" + k + "' + value4='" + saveTime[j-1] + "'>" 
+        					+ year + '-' + month + '-' + date + '/'
+        					+ data_scr_mov.scr_shwInfo[i].scr_name +  '/'
+        					+ saveTime[j-1] + "<br><br> " 
+        					+ "<select id='selectBox"+ k +"' class='selectClass' value='selectBox" + k + "'>";
+    						k++;
+    			resultDef += "<option value='noChoice'>영화선택</option>";
+    			
+				for(var aa=0;aa<data_scr_mov.mov_numTitle.length;aa++){
+					// 영화제목이 같은데 다른영화일수있으니, mov_num도있어야함 value1 = movnum value2 = movtitle
+					resultDef += "<option value1='" + data_scr_mov.mov_numTitle[aa].mov_num + "' value2='" + data_scr_mov.mov_numTitle[aa].mov_title + "'>" 
+								+ "번호 : " + data_scr_mov.mov_numTitle[aa].mov_num + " / 제목 : " + data_scr_mov.mov_numTitle[aa].mov_title + "</option>";
+				}
+    			
+				resultDef += "</select>"
+        		+ "<button type='button' class='btnRegistInit' id='btnRegist" + k + "'" 
+        				+ " value1='" + (year+"-"+month+"-"+date) + "' value2='" + data_scr_mov.scr_shwInfo[i].scr_num 
+						+ "' value3='" + data_scr_mov.scr_shwInfo[i].scr_name + "' value4='" + saveTime[j-1] 
+						+ "' value5='" + data_scr_mov.scr_shwInfo[i].scr_seatRow + "' value6='" + data_scr_mov.scr_shwInfo[i].scr_seatLine
+						+ "' value7='" + k
+						+ "' value8='" + i
+						+ "' value9='" + j
+				+ "'>등록</button>"
+        		+ "</td>"
+        		+ "<span id='aaa'></span>"
+        		+ "</form>"
+        		;
+				
+				//$("#td"+i+"행"+j+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기	
+				
+    		} // end if
+            
+        } // end for(v=j)
+    	
+    		resultDef += "</tr>\n";     
+    	
+    } // end for(v=i);
+    
+
+    
+    let changeHeight = data_scr_mov.scr_shwInfo.length * 15.5 +"%";
+    $(".modal .modal-content").css('height',changeHeight);	// 행개수에맞게 css height 유동적으로변경
+    $("#showScheduleTableModal tbody").html(resultDef);   // 목록 업데이트
+
+    $(".btnRegistInit").on("click",function(){
+		alert('스케줄 오케이 메소드')
+		alert($(this).attr('value1'))
+		alert($(this).attr('id'))
+		
+		if($("#" + $(this).parents().attr('id')).attr('value4') < hours){
+			alert("현재 시간보다 이전이므로 해당 시간은 등록이 불가능합니다.");
+			return;
+		}
+		
+		var selectBoxId = $(this).parents().children("select[class='selectClass']").attr('value');	
+		/*
+		if($("#" + selectBoxId).attr('value1') == undefined || $("#" + selectBoxId + " option:selected").attr('value1') == null){
+			alert("영화를 선택한 후 등록해주세요.");
+			return;
+		}
+		*/
+		
+		
+		var ttt = "";
+		ttt = "shw_movieNum="+$("#" + selectBoxId + " option:selected").attr('value1');
+		ttt += "&shw_movieName="+$("#" + selectBoxId + " option:selected").attr('value2');
+		ttt += "&shw_date="+$("#"+$(this).attr('id')).attr('value1');
+		ttt += "&shw_screenNum="+$("#"+$(this).attr('id')).attr('value2');
+		ttt += "&shw_screenName="+$("#"+$(this).attr('id')).attr('value3');
+		ttt += "&shw_time="+$("#"+$(this).attr('id')).attr('value4');
+		ttt += "&shw_seatRow="+$("#"+$(this).attr('id')).attr('value5');		
+		ttt += "&shw_seatLine="+$("#"+$(this).attr('id')).attr('value6');
+		ttt += "&shw_seatCnt="+($("#"+$(this).attr('id')).attr('value5')) * ($("#"+$(this).attr('id')).attr('value6'));
+		ttt += "&shw_expireFlag=0";
+		//ttt += "$shw_regDate=" + sysdate.format('{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}');
+		
+		var k = $("#"+$(this).attr('id')).attr('value7');
+		var i = $("#"+$(this).attr('id')).attr('value8');
+		var j = $("#"+$(this).attr('id')).attr('value9');
+		//alert(i);
+		//alert(j);
+		
+		// 리로드 파라미터값으로 체크
+		var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
+		var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
+		var scr_num = $("#"+$(this).attr('id')).attr('value2');
+		var scr_name = $("#"+$(this).attr('id')).attr('value3');
+		var shw_date = $("#"+$(this).attr('id')).attr('value1');
+		var shw_time = $("#"+$(this).attr('id')).attr('value4');
+		
+		
+		$.ajax({
+			url : "./",
+			type : "POST",
+			data : ttt,
+			cache : false,
+			success : function(data, status){
+				if(status == "success"){
+					alert('스케줄 등록에 성공했습니다.');
+					// 부분리로딩
+					
+					initReload(i,j,mov_num,mov_name,scr_num,scr_name,shw_date,shw_time);
+					
+					
+					
+				}else{
+					alert("실패: " + data.message);
+				}
+			}
+		})
+	});
+    
+    
+} // end makeDefTable()
+
+function makeAfterTable(){
+	var y = 0; // td카운트
+	var items = data_scr_mov.data;
+	// 행(줄)은 등록된 상영관 수 만큼
+
+	var chk_today = year+"-"+month+"-"+date;
+	
+
+    for(var i = 0; i < data_scr_mov.scr_shwInfo.length; i++){
+    	var chkDateList = new Array();
+		var cntDate = 0;
+		for(var u=0; u<data_scr_mov.data.length; u++){
+			if(data_scr_mov.data[u].shw_date == chk_today){ // 일단 스케줄이 오늘인거찾기
+				chkDateList[cntDate] = u;
+				cntDate++;
+			}
+		}
+		
+		
+		// 열(칸)은 지정 타임만큼(7,11,15,19,23시 총 5칸 + 맨앞에 영화관명 1칸)
+    	for(var j = 0; j < 6; j++){
+    		
+    		if(j==0){ // 상영관명 첫칸에 고정 
+    			//resultBefore += "<td id='td" + i + "행" + j + "열'>" + scr_name[i] + "</td>\n";	       			
+    		}else{
+    			
+    			
+    			for(var t=0; t<chkDateList.length; t++){ // chkDateList << items[이자리] 그니까 오늘총스케줄갯수
+    				
+    				var value = "";
+    				//
+    				function beforeTd(){
+						value += "상영번호 : " + items[chkDateList[t]].shw_num + "<br>"
+								+ "상영날짜 : " + items[chkDateList[t]].shw_date + "<br>"
+								+ "상영관명 : " + items[chkDateList[t]].shw_screenName + "<br>"
+								+ "상영시간 : " + items[chkDateList[t]].shw_time + "<br>"
+								+ "영화제목 : " + items[chkDateList[t]].shw_movieName + "<br>"
+								+ "FLAG : " + items[chkDateList[t]].shw_expireFlag
+								;
+						
+						return value;
+    				}
+    				
+    				function afterTd(){
+						value += "상영번호 : " + items[chkDateList[t]].shw_num + "<br>"
+								+ "상영날짜 : " + items[chkDateList[t]].shw_date + "<br>"
+								+ "상영관명 : " + items[chkDateList[t]].shw_screenName + "<br>"
+								+ "상영시간 : " + items[chkDateList[t]].shw_time + "<br>"
+								+ "영화제목 : " + items[chkDateList[t]].shw_movieName + "<br>"
+								+ "FLAG : " + items[chkDateList[t]].shw_expireFlag + "<br>"
+								+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
+									+ "' value1='" + items[chkDateList[t]].shw_num 
+									+ "' value2='" + items[chkDateList[t]].shw_date 
+									+ "' value3='" + items[chkDateList[t]].shw_screenName 
+									+ "' value4='" + items[chkDateList[t]].shw_time
+									+ "'>수정</button>&nbsp"
+									+ "<button type='button' class='btnDelete' id='btnDelete" + i + "_" + j
+									+ "' value='" + items[chkDateList[t]].shw_num        
+									+ "' value1='" +items[chkDateList[t]].shw_date       
+									+ "' value2='" +items[chkDateList[t]].shw_screenName 
+									+ "' value3='" +items[chkDateList[t]].shw_time       
+									+ "'>삭제</button>"
+									;
+						
+						return value;
+    				}
+    				
+    				
+    				
+    				if(items[chkDateList[t]].shw_time <= hours){ 
+    					// && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()
+    					// 이미 지났을때 
+    					
+    					if(items[chkDateList[t]].shw_time == saveTime[0] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text() ){ //7시상영일때
+    						beforeTd();    						
+    						$("#td"+ i +"행1열").html(value);
+    						$("#td"+ i +"행1열").css('background-color', 'rgba(200,150,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[1] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 11시
+    						beforeTd();    						
+    						$("#td"+ i +"행2열").html(value);
+    						$("#td"+ i +"행2열").css('background-color', 'rgba(200,150,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[2] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 15시
+    						beforeTd();    						
+    						$("#td"+ i +"행3열").html(value);
+    						$("#td"+ i +"행3열").css('background-color', 'rgba(200,150,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[3] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 19시
+    						beforeTd();    						
+    						$("#td"+ i +"행4열").html(value);
+    						$("#td"+ i +"행4열").css('background-color', 'rgba(200,150,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[4] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 23시
+    						beforeTd();    						
+    						$("#td"+ i +"행5열").html(value);
+    						$("#td"+ i +"행5열").css('background-color', 'rgba(200,150,100,0.3'); //색바꾸기
+    						 
+    					}        
+    				}else{
+    					// 아직 안지났을때
+    					
+    					if(items[chkDateList[t]].shw_time == saveTime[0] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ //7시상영일때
+    						afterTd();    						
+    						$("#td"+ i +"행1열").html(value);
+    						$("#td"+ i +"행1열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[1] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 11시
+    						afterTd();    						
+    						$("#td"+ i +"행2열").html(value);
+    						$("#td"+ i +"행2열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[2] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 15시
+    						afterTd();    						
+    						$("#td"+ i +"행3열").html(value);
+    						$("#td"+ i +"행3열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[3] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 19시
+    						afterTd();    						
+    						$("#td"+ i +"행4열").html(value);
+    						$("#td"+ i +"행4열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+    						 
+    					}if(items[chkDateList[t]].shw_time == saveTime[4] && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()){ // 23시
+    						afterTd();    						
+    						$("#td"+ i +"행5열").html(value);
+    						$("#td"+ i +"행5열").css('background-color', 'rgba(100,220,100,0.3'); //색바꾸기
+    						 
+    					}        
+    				}
+    				
+										
+				} // end for(v=t)
+    		} // end if
+    	} // end for(v=j)
+		
+		
+    } // end for(v=i)
+    
+	$(".btnUpdate").click(function(){
+		alert('수정버튼 눌렀음')
+		var i = $(this).parents().attr('value1');
+		var j = $(this).parents().attr('value2');
+		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
+		
+		//alert('i:'+i + ' / j:'+j); // td 의 행열 정확함
+		
+		//해당 td의 value1 = i, value2 = j;
+		//btnUpdatei_j(this)의  value1='" + shw_num + "' value2='" + shw_date"' value3='" + scr_name + "' value4='" + shw_time
+		//alert( $("#"+updateBtnId).attr('value1') )//shwnum 부정확함X 그냥this로찍는게 value 주입시점이 제일정확함 
+		//alert("shw_num : " + $(this).attr('value1') )//정확함
+		//alert("shw_date : " + $(this).attr('value2') )//정확함
+		//alert("scr_name : " + $(this).attr('value3') )//정확함
+		//alert("shw_time : " + $(this).attr('value4') )//정확함
+		
+		
+		var shw_num = $(this).attr('value1');
+		var shw_date = $(this).attr('value2');
+		var scr_name = $(this).attr('value3');
+		var shw_time = $(this).attr('value4');
+		var data = data_scr_mov;
+		
+		
+		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
+		result += "<option value='noChoice'>영화선택</option>";
+		
+		for(var p=0;p<data.mov_numTitle.length;p++){
+			result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
+						+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
+		}
+		
+		result += "</select><br><br><br>";
+		
+		result += "<button type='button' class='btnUpdateOk' id='btnUpdateOk" + k + "'>수정</button>"
+		
+		
+		$("#td"+ i +"행"+ j +"열").html(result);
+		
+
+		$(".btnUpdateOk").click(function(){
+			alert('수정완료되면 뜨는거')
+			
+			//alert(shw_num);
+			//alert($(this).attr('id'));
+			//alert($(this).parents().attr('id'));
+			var tdsid = $(this).parents().attr('id');
+			alert($(this).parents("#tdsid").text())
+			
+			var selectBoxId = $("#"+tdsid).children("select[class='selectClassOk']").attr('value');
+			//alert($("#" + selectBoxId + " option:selected").attr('value1'));
+			//alert($("#" + selectBoxId + " option:selected").attr('value2'));
+			var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
+			var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
+			
+			
+			$.ajax({
+				url : "./",
+				type : "PUT",
+				data : "shw_num=" + shw_num + "&shw_movieNum=" + mov_num + "&shw_movieName=" + mov_name,
+				cache : false,
+				success : function(data, status){
+					if(status == "success"){
+						alert('스케줄 수정에 성공했습니다.');
+						// 부분리로딩
+						
+						var init = "";
+						init +="상영번호 : " + shw_num + "<br>"
+							+ "상영날짜 : " + shw_date + "<br>"
+							+ "상영관명 : " + scr_name + "<br>"
+							+ "상영시간 : " + shw_time + "<br>"
+							+ "영화제목 : " + mov_name + "<br>"
+							+ "FLAG : " + 0 + "<br>"
+							+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
+								+ "' value1='" + shw_num + "' value2='" + shw_date
+								+ "' value3='" + scr_name + "' value4='" + shw_time
+								+ "'>수정</button>&nbsp"
+							+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
+								+ "' value='" + shw_num 
+								+ "' value1='" + shw_date 
+								+ "' value2='" + scr_name 
+								+ "' value3='" + shw_time 
+								+ "'>삭제</button>"
+							;
+						
+						
+						$("#td"+ i +"행"+ j +"열").html(init);
+						
+						
+					}else{
+						alert("실패: " + data.message);
+					}
+				}
+			})
+				
+		})
+		
+	});
+	
 	
 	
 	
 
-} // end setPopup()
+    //$("#showScheduleTableModal tbody").html(resultBefore);   // 목록 업데이트
+} // end makeBeforeTable()
+
+
+
+function addViewEvent(){
+	
+	$("#btnRegist").click(function(){
+		setPopup(data_shw);
+		$("#dlg_write").show();
+	});
+	
+
+	
+
+	
+} // showView()
+
+
+

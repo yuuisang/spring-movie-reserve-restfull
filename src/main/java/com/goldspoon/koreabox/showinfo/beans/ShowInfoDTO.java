@@ -11,7 +11,7 @@ public class ShowInfoDTO {
 	// 상영 고유번호
 	private int shw_num;
 	// 상영관리 해당 영화 고유번호
-	private String shw_movieNum;  
+	private int shw_movieNum;  
 	// 상영 영화 제목
 	private String shw_movieName;
 	// 상영관리 해당상영관 고유번호
@@ -32,8 +32,11 @@ public class ShowInfoDTO {
 	private Timestamp shw_regDate;
 	// 상영 만료 플래그(1이면 상영만료)
 	private int shw_expireFlag;
-
+	
+	
 }
+
+
 
 
 

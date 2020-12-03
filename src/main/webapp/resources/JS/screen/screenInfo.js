@@ -10,12 +10,7 @@ var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
 $(document).ready(function(){
     // 페이지 최초 로딩되면 1페이지 분량 읽어오기
     loadPage(page);
-    
-    // 상영관 등록 
-	$("#btnRegist").click(function(){
-		chkWrite();
-	});
-
+       
 });
 
 
@@ -31,30 +26,34 @@ function loadPage(page){
                     // 화면 업데이트 후, 페이지 정보 업데이트 
                 	
                     // 업데이트된 list 의 이벤트 동작...
-                    //addViewEvent();
+                	addViewEvent();
                 	
-                	// 해당 상영관 삭제
-                	$("#screenTable button").click(function(){
-                		var td = $(this).parent();
-                		var tr = td.parent();
-                		var td1 = tr.children(".scr_num");
-                		
-                		var scr_num = td1.text();
-                		
-                		// 선택한 영화관 고유번호 파라미터로 실어보냄
-                		deleteUid(scr_num);
-                	});
                 }
             }
-        },
-        error : function(request,status,error) {
-			alert("loadPage() --> 에러코드 : "+request.status+"\n\n"+"에러메세지 : "+request.responseText+"\n\n"+"에러 : "+error);
-			
-		}
+        }
 
     });
 } // end loadPage()
 
+function addViewEvent(){
+	
+	// 상영관 등록 
+	$("#btnRegist").click(function(){
+    	chkWrite();
+    });
+	
+	// 해당 상영관 삭제
+	$("#screenTable button").click(function(){
+		var td = $(this).parent();
+		var tr = td.parent();
+		var td1 = tr.children(".scr_num");
+		
+		var scr_num = td1.text();
+		
+		// 선택한 영화관 고유번호 파라미터로 실어보냄
+		deleteUid(scr_num);
+	});
+}
 
 function updateList(jsonObj){
     result = "";  // 최종 결과물
@@ -93,9 +92,12 @@ function updateList(jsonObj){
         $("#pageRows").html(txt);
 
         // 페이징 정보 업데이트
-        var pagination = buildPagination(jsonObj.writepages, jsonObj.totalpage, jsonObj.page, jsonObj.pageRows);
+        
+        var pagination = buildPagination(jsonObj.writepages, jsonObj.totalpage, jsonObj.page, jsonObj.pagerows);
         $("#pagination").html(pagination);
 
+    	
+    	
         return true;
     } else {
         alert("내용이 없습니다");
@@ -161,35 +163,31 @@ function changePageRows(){
 
 // 영화관 등록
 function chkWrite(){
-
+	// 특정 form 의 name 달린 form element 들의 value들을 string 타입으로 묶기
     // ex) name=aaa&subject=bbb&content=ccc   <-- string 타입
     var data = $("#frmRegist").serialize();
-    
+    //alert(data);
     $.ajax({
         url: ".",
         type: "POST",
         cache: false,
         data: data,
-
         success: function(data, status){
-            if(status == "success"){
+        	if(status == "success"){
                 if(data.status == "OK"){
-                    alert("INSERT 성공 " + data.count + "개:" + data.status);
-                    loadPage(1);   // 첫페이지 로딩
-                } else {
+                	//alert("INSERT 성공 " + data.count + "개:" + data.status);
+                	alert("상영관 등록이 완료되었습니다");
+                }else {
                     alert("INSERT 실패 " + data.status + " : " + data.message);
                 } 
             }
-        },
-        error : function(request,status,error) {
-			alert("chkWrite() --> 에러코드 : "+request.status+"\n\n"+"에러메세지 : "+request.responseText+"\n\n"+"에러 : "+error);
-			
-		}
+        }
     });
-
+    
     // request 후, 기존에 입력된 내용 지우기
     $('#frmRegist')[0].reset();
-
+    loadPage(1);
+    
     return false;
 }
 

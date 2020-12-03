@@ -21,7 +21,7 @@
 
 	<div id="screenRegist">
 		<h3>상영관 등록</h3>
-		<form id="frmRegist" name="frmRegist" method="POST">
+		<form id="frmRegist" name="frmRegist" method="POST" onsubmit="return false">
 			<table id="screenInfo">
 				<tr>
 					<th>상영관 명</th>

@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goldspoon.koreabox.showinfo.beans.IAjaxDAO">
 
-	
 	<select id="selectFromRow" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 		<![CDATA[
 		SELECT
@@ -27,7 +26,27 @@
 	</select>
 	
 	
-	<!-- 상영스케쥴 모달창 필요정보 조회 -->
+	<!-- 상영관정보 가져와야되서 필요 -->
+	<select id="selectAllScreenInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ScreenInfoDTO">
+		SELECT
+			scr_num,
+			scr_name,
+			scr_seatRow,
+			scr_seatLine
+		FROM tb_screeninfo
+	</select>
+	
+	
+	<!-- mov_num, mov_title 가져와야되서 필요 -->
+	<select id="selectAllMovieNumTitle" resultType="com.goldspoon.koreabox.showinfo.beans.MovieInfoDTO">
+		SELECT
+			mov_num,
+			mov_title 
+		FROM tb_movie
+	</select>
+	
+	
+	<!--
 	<select id="selectInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 		<![CDATA[
 		SELECT
@@ -49,9 +68,10 @@
 			shw_num = #{shw_num}	
 		]]>
 	</select>
+	-->
 	
 	
-	<!-- 상영스케쥴 모달창 필요 전체 num 정보 조회 -->
+	<!-- 상영스케쥴 모달창 필요 전체 정보 조회 -->
 	<select id="selectAllInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 		<![CDATA[
 		SELECT
@@ -79,7 +99,9 @@
 	</select>
 
 
-	<insert id="insert" flushCache="true">
+	<!--useGeneratedKeys="true" KeyColumn="shw_num" keyProperty="shw_num" -->
+	<insert id="insert" flushCache="true" 
+		parameterType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 		INSERT INTO tb_showinfo
 			(
 			shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,
@@ -88,22 +110,25 @@
 		VALUES
 			(
 			SEQ_tb_showinfo_shw_num.nextval, 
-			#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}
+			#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7, jdbcType=NUMERIC}, #{param8, jdbcType=NUMERIC}, #{param9, jdbcType=NUMERIC}, SYSDATE, 0
 			)
 	</insert>
+	
+	<update id="updateOk" flushCache="true"
+		parameterType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
+		UPDATE tb_showinfo
+		SET shw_movieNum = #{shw_movieNum}, shw_movieName = #{shw_movieName}
+		WHERE shw_num = #{shw_num}
+	</update>
 
 
-	<!-- /deleteOk.ajax : 글(들) 삭제 
-		 parameter :  uid(들)
-	 -->
-	 
 	 <delete id="deleteByNum" flushCache="true"
-	 	parameterType="int">
+	 	parameterType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 	 
 	 	DELETE FROM tb_showinfo
 	 	WHERE shw_num = #{shw_num}
 	 </delete>
-
-
+	 
+	 
 </mapper>
 

@@ -14,6 +14,7 @@ public class ShowInfoUpdateCommand implements ShowInfoCommand {
 	public void execute(Model model) {
 		// Model 안에 담긴 값(attribute) 꺼내기
 				ShowInfoDTO dto = (ShowInfoDTO)model.getAttribute("dto");
+				System.out.println("커맨드DTO : " + dto);
 				
 				// MyBatis 사용
 				IAjaxDAO dao = ShowInfoQuery.sqlSession.getMapper(IAjaxDAO.class);
@@ -22,10 +23,9 @@ public class ShowInfoUpdateCommand implements ShowInfoCommand {
 				StringBuffer message = new StringBuffer();
 				String status = "FAIL";
 				
-				System.out.println(dto);
 				int cnt = 0;
 				try {			
-					//cnt = dao.insert(dto., dto.getScr_seatRow(), dto.getScr_seatLine());
+					cnt = dao.updateOk(dto);
 					if(cnt == 0) {
 						message.append("[트랜잭션 실패: 0 insert]");
 					} else {

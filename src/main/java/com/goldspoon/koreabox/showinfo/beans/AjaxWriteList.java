@@ -26,6 +26,12 @@ public class AjaxWriteList extends AjaxWriteResult {
 	@JsonProperty("pagerows")
 	int pageRows;    // 한 '페이지' 에 몇개의 글을 리스트 할 것인가?
 	
+	@JsonProperty("scr_shwInfo")
+	List<ScreenInfoDTO> scr_shwInfo;
+	
+	@JsonProperty("mov_numTitle")
+	List<MovieInfoDTO> mov_numTitle;
+	
 }
 
 

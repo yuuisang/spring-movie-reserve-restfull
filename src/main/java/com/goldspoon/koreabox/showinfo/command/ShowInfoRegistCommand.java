@@ -1,5 +1,10 @@
 package com.goldspoon.koreabox.showinfo.command;
 
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.ui.Model;
 
 import com.goldspoon.koreabox.showinfo.ShowInfoQuery;
@@ -22,13 +27,25 @@ public class ShowInfoRegistCommand implements ShowInfoCommand {
 				String status = "FAIL";
 				
 				System.out.println(dto);
+				
+				
+				// Date객체로 로컬날짜시간받아서 SQL sysdate로 파싱
+//				SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+//				Date date = new Date();
+//				
+//				String now = sdf.format(date);
+//				java.sql.Timestamp sysdate = java.sql.Timestamp.valueOf(now);
+				
+				//System.out.println(now);
+				//dto.setShw_regDate(sysdate);
+				
 				int cnt = 0;
 				try {			
 					cnt = dao.insert(
-							dto.getShw_num(), dto.getShw_movieNum(), dto.getShw_movieName()
+							dto.getShw_movieNum(), dto.getShw_movieName()
 							,dto.getShw_screenNum(), dto.getShw_screenName(), dto.getShw_date()
 							,dto.getShw_time(), dto.getShw_seatCnt(), dto.getShw_seatRow(), dto.getShw_seatLine()
-							,dto.getShw_regDate(), dto.getShw_expireFlag()
+							, dto.getShw_expireFlag()
 							);
 					if(cnt == 0) {
 						message.append("[트랜잭션 실패: 0 insert]");

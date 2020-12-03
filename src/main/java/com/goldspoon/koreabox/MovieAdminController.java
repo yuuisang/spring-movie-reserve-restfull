@@ -142,6 +142,7 @@ public class MovieAdminController {
 		model.addAttribute("mov_num", mov_num);
 		new AdminReadMovie().execute(model);
 	}
+		
 	
 	@RequestMapping("/updateMovieOk")
 	public void updateMovieOk(MovieAdminDTO dto, Model model) {

@@ -39,6 +39,7 @@ public class ScreenInfoAjaxController {
       System.out.println("dto: " + dto + " / model : " + model);
       model.addAttribute("dto", dto);
       new ScreenInfoRegistCommand().execute(model);
+      System.out.println(model.getAttribute("status"));
       return buildResult(model);
    }
    
@@ -57,7 +58,7 @@ public class ScreenInfoAjaxController {
    public AjaxWriteResult buildResult(Model model) {
       AjaxWriteResult result = new AjaxWriteResult();
       
-      result.setStatus((String)model.getAttribute("status"));
+      result.setStatus((String) model.getAttribute("status"));
       result.setMessage((String)model.getAttribute("message"));
       result.setCount((Integer)model.getAttribute("result"));
       

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.goldspoon.koreabox.movie.beans.MovieAdminDTO;
 import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
 
 @MapperScan
@@ -23,9 +24,6 @@ public interface IAjaxDAO {
 			);
 	
 	
-	// 상영관리 테이블 칼럼조회(특정 shw_num)
-	public List<ShowInfoDTO> selectInfo(int uid);
-	
 	// 상영관리 테이블 칼럼조회(전체 shw_num)
 	public List<ShowInfoDTO> selectAllInfo();
 	
@@ -35,23 +33,29 @@ public interface IAjaxDAO {
 	
 	// 상영스케쥴 등록
 	public int insert(
-			 int shw_num,
-			 String shw_movieNum,  
-			 String shw_movieName,
-			 int shw_screenNum,
-			 String shw_screenName,
-			 String shw_date,
-			 int shw_time,
-			 int shw_seatCnt,
-			 int shw_seatRow,
-			 int shw_seatLine,
-			 Timestamp shw_regDate,
-			 int shw_expireFlag
-			);
+		 int shw_movieNum,  
+		 String shw_movieName,
+		 int shw_screenNum,
+		 String shw_screenName,
+		 String shw_date,
+		 int shw_time,
+		 int shw_seatCnt,
+		 int shw_seatRow,
+		 int shw_seatLine,
+		 int shw_expireFlag
+		);
 	
+	// 스케줄 수정
+	public int updateOk(ShowInfoDTO dto);
 	
 	// 특정 uid 상영스케쥴 삭제 하기
-	public int deleteByNum(int shw_num);
+	public int deleteByNum(ShowInfoDTO dto);
+	
+	// scr_name get
+	public List<ScreenInfoDTO> selectAllScreenInfo();
+	
+	// mov_title get
+	public List<MovieInfoDTO> selectAllMovieNumTitle();
 
 }
 
