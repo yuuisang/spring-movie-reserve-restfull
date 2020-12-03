@@ -29,6 +29,7 @@ public class ScreenInfoRegistCommand implements ScreenInfoCommand {
 						message.append("[트랜잭션 실패: 0 insert]");
 					} else {
 						status = "OK";
+						System.out.println(status);
 					}
 				} catch(Exception e) {
 					e.printStackTrace();

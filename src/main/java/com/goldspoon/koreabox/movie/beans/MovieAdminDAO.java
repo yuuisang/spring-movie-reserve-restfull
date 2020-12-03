@@ -10,6 +10,7 @@ import org.mybatis.spring.annotation.MapperScan;
 @MapperScan
 public interface MovieAdminDAO {
 	public List<MovieAdminDTO> select();
+	
 	public MovieAdminDTO read(int mov_num);
 //	public int insert(MovieDTO dto);
 	public int insert(

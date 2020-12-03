@@ -38,6 +38,7 @@
 		BY mov_num DESC
 	</select>
 	
+	
 	<select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
 			SELECT mov_num mov_num, mov_title mov_title, 
 			mov_director mov_director, mov_actors mov_actors, mov_genre mov_genre, 

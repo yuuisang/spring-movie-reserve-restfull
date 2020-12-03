@@ -9,7 +9,7 @@ body{
 	justify-content: center;
 }
 
-.container{
+#container{
 	width: 1200px;
 	justify-content: center;
 	border : 1px solid #333;
@@ -33,7 +33,6 @@ body{
 
 #showScheduleList, #showScheduleListModal{
 	width: 100%;
-	height: 60vh;
 	border : 1px solid #333;
 }
 #showScheduleList h3, #showScheduleListModal h3{
@@ -52,6 +51,12 @@ body{
 }
 #showScheduleTableModal th:nth-child(1){
 	width: 6%;
+}
+#showScheduleTableModal th{
+	font-size: 20px;
+}
+#showScheduleTableModal td{
+	font-size: 12px;
 }
 
 
@@ -106,7 +111,6 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	z-index: 1;
 	padding-top: 40px;  /* 내부여백  */
 	overflow: auto;
-	
 	display : none;  /* 기본적으로 안보이기 */  
 }
 
@@ -120,7 +124,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 
 .modal .container {
 	width: 100%;
-	height: 100%;
+	height : 100%;
 	/* padding: 15px; */
 	position: relative;  /* 이래야 안에 있는 absolute 들이 동작 */
 } 
@@ -140,7 +144,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	cursor: pointer;
 }
 
-
+/*
 .modal input[type=text] {
 	width: 100%;
 	border: 1px solid #ccc;
@@ -149,7 +153,9 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	display: inline-block;
 	box-sizing: border-box;
 }
+*/
 
+/*
 .modal textarea {
 	width: 100%;
 	border: 1px solid #ccc;
@@ -158,13 +164,24 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	display: inline-block;
 	
 	margin: 8px 0;
-	*/
 }
-
+*/
+/*
 .modal .fullbtn {
 	width: 100%;
 	cursor: pointer;
 }
+*/
 
+#showScheduleTitle{
+	text-align: center;
+}
 
+#showScheduleTableModal tbody td{
+	height: 130px;
+}
+
+.selectBox{
+	width:200px;
+}
 

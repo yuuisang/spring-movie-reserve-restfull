@@ -4,21 +4,22 @@ import org.springframework.ui.Model;
 
 import com.goldspoon.koreabox.showinfo.ShowInfoQuery;
 import com.goldspoon.koreabox.showinfo.beans.IAjaxDAO;
+import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
 
 public class ShowInfoDeleteCommand implements ShowInfoCommand {
 
 	@Override
 	public void execute(Model model) {
-		int cnt = 0;
 		IAjaxDAO dao = ShowInfoQuery.sqlSession.getMapper(IAjaxDAO.class);
 		
-		int shw_num = (int)model.getAttribute("shw_num");
+		ShowInfoDTO dto = (ShowInfoDTO)model.getAttribute("dto");
 	
 		StringBuffer message = new StringBuffer();
 		String status = "FAIL";
 		
+		int cnt = 0;
 		try {		
-			cnt = dao.deleteByNum(shw_num);
+			cnt = dao.deleteByNum(dto);
 			status = "OK";
 			
 			// cnt 가 0 이면 Arithmetic 에러 catchㄱㄱ

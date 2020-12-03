@@ -8,4 +8,5 @@ public class AjaxWriteResult {
 	String status;  // 처리 결과
 	String message;  // 결과 메세지
 	
+	int shw_num;	// shw_num 값 체크필요
 }

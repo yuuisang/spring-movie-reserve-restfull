@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.goldspoon.koreabox.showinfo.beans.AjaxWriteList;
 import com.goldspoon.koreabox.showinfo.beans.AjaxWriteResult;
+import com.goldspoon.koreabox.showinfo.beans.MovieInfoDTO;
+import com.goldspoon.koreabox.showinfo.beans.ScreenInfoDTO;
 import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoDeleteCommand;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoListCommand;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoRegistCommand;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoUpdateCommand;
-import com.goldspoon.koreabox.showinfo.command.ShowInfoViewCommand;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoViewDefCommand;
 
 @RestController
@@ -36,7 +37,7 @@ public class ShowInfoAjaxController {
 		return buildList(model);
 	}
 	
-	
+	/*
 	//@RequestMapping("/{uid}")  // /board/{uid}
 	@GetMapping("/{uid}")
 	public AjaxWriteList view(Model model, 
@@ -45,8 +46,9 @@ public class ShowInfoAjaxController {
 		new ShowInfoViewCommand().execute(model);
 		return buildListNoPaging(model);
 	}
+	*/
 	
-	
+	//@RequestMapping("")
 	@GetMapping("")
 	public AjaxWriteList viewDefault(Model model) {
 		new ShowInfoViewDefCommand().execute(model);
@@ -54,28 +56,28 @@ public class ShowInfoAjaxController {
 	}
 	
 	
-	//@RequestMapping(value = "/board/writeOk.ajax", method=RequestMethod.POST)
+	//
 	@PostMapping("")   
 	public AjaxWriteResult registOk(ShowInfoDTO dto, Model model) {
-		System.out.println("dto: " + dto + " / model : " + model);
+		System.out.println("컨트롤러dto: " + dto + "\n컨트롤러model : " + model +"\n");
 		model.addAttribute("dto", dto);
 		new ShowInfoRegistCommand().execute(model);
 		return buildResult(model);
 	}
-	
+	//
 	@PutMapping("")   
 	public AjaxWriteResult updateOk(ShowInfoDTO dto, Model model) {
-		System.out.println("dto: " + dto + " / model : " + model);
+		System.out.println("dto: " + dto + " \nmodel : " + model + "\n");
 		model.addAttribute("dto", dto);
 		new ShowInfoUpdateCommand().execute(model);
 		return buildResult(model);
 	}
 	
 	
-	//@RequestMapping(value = "/board/deleteOk.ajax",	method = RequestMethod.DELETE)
+	//
 	@DeleteMapping("")	
-	public AjaxWriteResult deleteOk(int scr_num, Model model) {
-		model.addAttribute("scr_num", scr_num);
+	public AjaxWriteResult deleteOk(ShowInfoDTO dto, Model model) {
+		model.addAttribute("dto", dto);
 		new ShowInfoDeleteCommand().execute(model);
 		return buildResult(model);
 	}
@@ -128,9 +130,13 @@ public class ShowInfoAjaxController {
 		result.setMessage((String)model.getAttribute("message"));
 		
 		List<ShowInfoDTO> list = (List<ShowInfoDTO>)model.getAttribute("list");
+		List<ScreenInfoDTO> scr_shwInfo = (List<ScreenInfoDTO>)model.getAttribute("scr_shwInfo");
+		List<MovieInfoDTO> mov_numTitle = (List<MovieInfoDTO>)model.getAttribute("mov_numTitle");
+		
 		result.setCount(list.size());
 		result.setList(list);
-		
+		result.setScr_shwInfo(scr_shwInfo);
+		result.setMov_numTitle(mov_numTitle);
 		
 		return result;
 	}

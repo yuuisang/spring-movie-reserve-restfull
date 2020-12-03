@@ -13,14 +13,14 @@
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 </head>
 <body>
-<div class="container">
+<div id="container">
 
 	<div id="title">
 		<h2>상영 정보 목록</h2>
 	</div>
 	
 	<div id="regist">
-		<button type="submit" id="btnRegist">스케쥴 등록</button>
+		<button type="submit" id="btnRegist">스케쥴 등록(설정)</button>
 	</div>
 	
 	
@@ -37,8 +37,6 @@
 					<th>상영관</th>
 					<th>상영날짜</th>
 					<th>상영시간</th>
-					<th>등록일</th>
-					<th>상영스케쥴 설정</th>
 				</thead>
 				<tbody>
 					<!-- JS에서 채울예정 -->
@@ -62,7 +60,7 @@
 	<form class="modal-content animate" id="frmWrite" name="frmWrite" method="post">
 		<div class="container">      
 			<div>
-				<h3>상영시간표 얍</h3>
+				<h3 id="showScheduleTitle">상영시간표</h3>
 			</div>
 			
 			<span class='close' title="Close Modal">&times;</span>
