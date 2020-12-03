@@ -27,8 +27,7 @@ public class ReserveUserDTO {
 	}
 
 	public ReserveUserDTO(int shw_num, int shw_movieNum, String shw_movieName, int shw_screenNum, String shw_screenName,
-			String shw_date, int shw_time, int shw_seatCnt, int shw_seatRow, int shw_seatLine,
-			int shw_expireFlag) {
+			String shw_date, int shw_time, int shw_seatCnt, int shw_seatRow, int shw_seatLine, int shw_expireFlag) {
 		super();
 		this.shw_num = shw_num;
 		this.shw_movieNum = shw_movieNum;
@@ -42,6 +41,8 @@ public class ReserveUserDTO {
 		this.shw_seatLine = shw_seatLine;
 		this.shw_expireFlag = shw_expireFlag;
 	}
+
+
 	
 	
 	

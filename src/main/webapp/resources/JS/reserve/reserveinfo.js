@@ -10,6 +10,9 @@ var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
 $(document).ready(function(){
     // 페이지 최초 로딩되면 1페이지 분량 읽어오기
     loadPage(page);
+    
+
+    
 });
 
 
@@ -65,7 +68,7 @@ function updateList(jsonObj){
             result += "<td>" + items[i].res_seat + "</td>\n";
             result += "<td>" + items[i].res_pay + "</td>\n";
             result += "<td>" + date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + "</td>\n";
-            result += "<td>" + "<div class='d01'>"+"<div class='left'>"+"<button type='submit' class='btnCancel btn danger'>"+"취소"+"</button>"+"</div>"+"</div>" + "</td>"
+            result += "<td>" + "<div class='d01'>"+"<div class='left'>"+"<button type='button' class='btnCancel btn danger'>"+"취소"+"</button>"+"</div>"+"</div>" + "</td>"
             result += "</tr>\n";
         }
         
@@ -144,9 +147,10 @@ function buildPagination(writePages, totalPage, curPage, pageRows){
 function addViewEvent(){
 	// 취소 버튼을 눌렀을때 event
 	 $(".btnCancel").click(function(){
- 		var res_num = $(this).parent().parent().parent().parent().children(".res_num").text();
- 		deleteUid(res_num);
- 	});
+		 alert('활동하고잇니')
+	 		var res_num = $(this).parent().parent().parent().parent().children(".res_num").text();
+	 		deleteUid(res_num);
+	 });
 }
 
 

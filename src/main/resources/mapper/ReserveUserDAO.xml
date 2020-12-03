@@ -19,7 +19,18 @@
 		WHERE shw_movieNum=#{mov_num}
 	</select>
 
+	<select id="reserveCntAll" resultType="int">
+		SELECT COUNT(*) FROM TB_RESERVE
+	</select>
 
+	<insert id="insert_tb_reserve" flushCache="true">
+		INSERT INTO TB_RESERVE
+		VALUES
+			(SEQ_tb_reserve_res_num.nextval,
+			#{res_movieNum},#{res_movieName},#{res_screenNum},#{res_screenName}
+			,#{res_date},#{res_time},#{res_seat},#{res_totalPeople},#{res_memberUid}
+			,#{res_memberId},SYSDATE,#{res_pay},#{res_code})
+	</insert>
 
 
 

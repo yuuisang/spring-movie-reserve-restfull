@@ -18,7 +18,7 @@ public class ReserveInfoDTO {
 	private String res_date;	// 영화상영 날짜
 	private int res_time;	// 영화상영 시간
 	private String res_seat;	// 예약 좌석 번호
-	private int totalPeople;	// 한번에 예약한 총인원수
+	private int res_totalPeople;	// 한번에 예약한 총인원수
 	private int res_memberUid;	// 회원 고유번호
 	private String res_memberId;	// 회원 아이디
 	private Timestamp res_paytime;	// 결제된 시간
@@ -32,7 +32,7 @@ public class ReserveInfoDTO {
 
 	// 매개변수 받는 생성자
 	public ReserveInfoDTO(int res_num, int res_movieNum, String res_movieName, int res_screenNum, String res_screenName,
-			String res_date, int res_time, String res_seat, int totalPeople, int res_memberUid, String res_memberId,
+			String res_date, int res_time, String res_seat, int res_totalPeople, int res_memberUid, String res_memberId,
 			Timestamp res_paytime, int res_pay, String res_code) {
 		super();
 		this.res_num = res_num;
@@ -43,7 +43,7 @@ public class ReserveInfoDTO {
 		this.res_date = res_date;
 		this.res_time = res_time;
 		this.res_seat = res_seat;
-		this.totalPeople = totalPeople;
+		this.res_totalPeople = res_totalPeople;
 		this.res_memberUid = res_memberUid;
 		this.res_memberId = res_memberId;
 		this.res_paytime = res_paytime;

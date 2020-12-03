@@ -26,10 +26,10 @@
 		<div class="clear"></div>
 		
 	<!-- 아이디로 찾기 -->
-	<form name="search">
+	<form name="search" onsubmit="return false">
 		예매아이디
 		<input type="text" name="res_memberId">
-		<button type="submit">찾기</button>
+		<button>찾기</button>
 	</form>
 		
 		
