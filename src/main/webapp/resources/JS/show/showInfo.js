@@ -96,8 +96,6 @@ $(document).ready(function(){
 					
 					initReload(i,j,mov_num,mov_name,scr_num,scr_name,shw_date,shw_time);
 					
-					
-					
 				}else{
 					alert("실패: " + data.message);
 				}
@@ -132,7 +130,16 @@ $(document).ready(function(){
 		var shw_time = $(this).attr('value4');
 		var data = data_scr_mov;
 		
-		
+		// 해당 스케줄에 예약한 사람이있으면 수정,삭제 불가능하게 처리
+		for(var chk=0; chk<data_scr_mov.res_shwInfo.length; chk++){
+			if(scr_name == data_scr_mov.res_shwInfo[chk].res_screenName
+			&& shw_date == data_scr_mov.res_shwInfo[chk].res_date
+			&& shw_time == data_scr_mov.res_shwInfo[chk].res_time
+			){
+				alert('해당 스케줄은 이미 예약된 고객이 있어 수정이 불가능합니다');
+				return false;
+			}
+		}
 		
 		
 		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
@@ -230,6 +237,19 @@ $(document).ready(function(){
 		var shw_date = $(this).attr('value1');
 		var scr_name = $(this).attr('value2');
 		var shw_time = $(this).attr('value3');
+		
+		
+		// 해당 스케줄에 예약한 사람이있으면 수정,삭제 불가능하게 처리
+		for(var chk=0; chk<data_scr_mov.res_shwInfo.length; chk++){
+			if(scr_name == data_scr_mov.res_shwInfo[chk].res_screenName
+			&& shw_date == data_scr_mov.res_shwInfo[chk].res_date
+			&& shw_time == data_scr_mov.res_shwInfo[chk].res_time
+			){
+				alert('해당 스케줄은 이미 예약된 고객이 있어 삭제가 불가능합니다');
+				return false;
+			}
+		}
+		
 		
 		// 읽어오기		
 		$.ajax({
