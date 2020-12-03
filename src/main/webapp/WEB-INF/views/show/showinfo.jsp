@@ -37,7 +37,6 @@
 					<th>상영관</th>
 					<th>상영날짜</th>
 					<th>상영시간</th>
-					<th>상영 만료여부(FLAG)</th>
 				</thead>
 				<tbody>
 					<!-- JS에서 채울예정 -->

@@ -44,16 +44,253 @@ $(document).ready(function(){
         $(this).parents(".modal").hide();
     });
     
-//    $(".btnRegistInit").click(function(){
-//    	//alert($(this).parents().attr('id'));
-//    	//alert($(this).parents().children("select[class='selectClass']").attr('value'));
-//
-//    	
-//    	scheduleOk();
-//    	
-//    	
-//    });
     
+    // 스케줄 등록버튼클릭
+    $(document).on("click",".btnRegistInit",function(event){
+		//alert($(this).attr('value1'))
+		
+		if($("#" + $(this).parents().attr('id')).attr('value4') <= hours){
+			alert("시간이 지났으므로 스케줄 등록이 불가능합니다.");
+			return;
+		}
+		
+		var selectBoxId = $(this).parents().children("select[class='selectClass']").attr('value');			
+		
+		var ttt = "";
+		ttt = "shw_movieNum="+$("#" + selectBoxId + " option:selected").attr('value1');
+		ttt += "&shw_movieName="+$("#" + selectBoxId + " option:selected").attr('value2');
+		ttt += "&shw_date="+$("#"+$(this).attr('id')).attr('value1');
+		ttt += "&shw_screenNum="+$("#"+$(this).attr('id')).attr('value2');
+		ttt += "&shw_screenName="+$("#"+$(this).attr('id')).attr('value3');
+		ttt += "&shw_time="+$("#"+$(this).attr('id')).attr('value4');
+		ttt += "&shw_seatRow="+$("#"+$(this).attr('id')).attr('value5');		
+		ttt += "&shw_seatLine="+$("#"+$(this).attr('id')).attr('value6');
+		ttt += "&shw_seatCnt="+($("#"+$(this).attr('id')).attr('value5')) * ($("#"+$(this).attr('id')).attr('value6'));
+		ttt += "&shw_expireFlag=0";
+		//ttt += "$shw_regDate=" + sysdate.format('{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}');
+		
+		var k = $("#"+$(this).attr('id')).attr('value7');
+		var i = $("#"+$(this).attr('id')).attr('value8');
+		var j = $("#"+$(this).attr('id')).attr('value9');
+		//alert(i);
+		//alert(j);
+		
+		// 리로드 파라미터값으로 체크
+		var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
+		var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
+		var scr_num = $("#"+$(this).attr('id')).attr('value2');
+		var scr_name = $("#"+$(this).attr('id')).attr('value3');
+		var shw_date = $("#"+$(this).attr('id')).attr('value1');
+		var shw_time = $("#"+$(this).attr('id')).attr('value4');
+		
+		
+		$.ajax({
+			url : "./",
+			type : "POST",
+			data : ttt,
+			cache : false,
+			success : function(data, status){
+				if(status == "success"){
+					alert('스케줄 등록에 성공했습니다.');
+					// 부분리로딩
+					
+					initReload(i,j,mov_num,mov_name,scr_num,scr_name,shw_date,shw_time);
+					
+					
+					
+				}else{
+					alert("실패: " + data.message);
+				}
+			}
+		})
+	}); // end registonclick()
+    
+    
+    
+    
+    
+    // 스케줄 수정 버튼클릭
+    $(document).on("click",".btnUpdate",function(event){
+		var i = $(this).parents().attr('value1');
+		var j = $(this).parents().attr('value2');
+		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
+		
+		//alert('i:'+i + ' / j:'+j); // td 의 행열 정확함
+		
+		//해당 td의 value1 = i, value2 = j;
+		//btnUpdatei_j(this)의  value1='" + shw_num + "' value2='" + shw_date"' value3='" + scr_name + "' value4='" + shw_time
+		//alert( $("#"+updateBtnId).attr('value1') )//shwnum 부정확함X 그냥this로찍는게 value 주입시점이 제일정확함 
+		//alert("shw_num : " + $(this).attr('value1') )//정확함
+		//alert("shw_date : " + $(this).attr('value2') )//정확함
+		//alert("scr_name : " + $(this).attr('value3') )//정확함
+		//alert("shw_time : " + $(this).attr('value4') )//정확함
+		
+		
+		var shw_num = $(this).attr('value1');
+		var shw_date = $(this).attr('value2');
+		var scr_name = $(this).attr('value3');
+		var shw_time = $(this).attr('value4');
+		var data = data_scr_mov;
+		
+		
+		
+		
+		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
+		result += "<option value='noChoice'>영화선택</option>";
+		
+		for(var p=0;p<data.mov_numTitle.length;p++){
+			result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
+						+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
+		}
+		
+		result += "</select><br><br><br>";
+		
+		result += "<button type='button' class='btnUpdateOk' id='btnUpdateOk" + k + "'>수정</button>"
+		
+		
+		$("#td"+ i +"행"+ j +"열").html(result);
+		
+		
+		$(".btnUpdateOk").click(function(){
+			//alert(shw_num);
+			//alert($(this).attr('id'));
+			//alert($(this).parents().attr('id'));
+			var tdsid = $(this).parents().attr('id');
+			
+			var selectBoxId = $("#"+tdsid).children("select[class='selectClassOk']").attr('value');
+			//alert($("#" + selectBoxId + " option:selected").attr('value1'));
+			//alert($("#" + selectBoxId + " option:selected").attr('value2'));
+			var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
+			var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
+			
+			
+			$.ajax({
+				url : "./",
+				type : "PUT",
+				data : "shw_num=" + shw_num + "&shw_movieNum=" + mov_num + "&shw_movieName=" + mov_name,
+				cache : false,
+				success : function(data, status){
+					if(status == "success"){
+						alert('스케줄 수정에 성공했습니다.');
+						
+						// 부분리로딩						
+						var init = "";
+						init +="상영번호 : " + shw_num + "<br>"
+							+ "상영날짜 : " + shw_date + "<br>"
+							+ "상영관명 : " + scr_name + "<br>"
+							+ "상영시간 : " + shw_time + "<br>"
+							+ "영화제목 : " + mov_name + "<br>"
+							//+ "FLAG : " + 0 + "<br>"
+							+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
+								+ "' value1='" + shw_num + "' value2='" + shw_date
+								+ "' value3='" + scr_name + "' value4='" + shw_time
+								+ "'>수정</button>&nbsp"
+							+ "<button type='button' class='btnDelete' id='btnDelete" + i + "_" + j
+								+ "' value='" + shw_num 
+								+ "' value1='" + shw_date 
+								+ "' value2='" + scr_name 
+								+ "' value3='" + shw_time 
+								+ "'>삭제</button>"
+							;
+						
+						
+						$("#td"+ i +"행"+ j +"열").html(init);
+						
+					}else{
+						alert("실패: " + data.message);
+					}
+				}
+			})
+			
+		})
+		
+	}); // end update
+    
+    
+    
+    
+    
+  //스케줄 삭제버튼클릭
+	//$(".btnDelete").click(function(){
+    $(document).on("click",".btnDelete",function(event){
+		
+		var i = $(this).parents().attr('value1');
+		var j = $(this).parents().attr('value2');
+		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
+		
+		//alert('i:'+i + ' / j:'+j + ' / k:' + k); // td 의 행열 정확함
+		
+		//해당 td의 value1 = i, value2 = j;
+		//alert("shw_num : " + $(this).attr('value') )//정확함
+		//alert("shw_date : " + $(this).attr('value1') )//정확함
+		//alert("scr_name : " + $(this).attr('value2') )//정확함
+		//alert("shw_time : " + $(this).attr('value3') )//정확함
+		
+		var shw_num = $(this).attr('value');
+		var shw_date = $(this).attr('value1');
+		var scr_name = $(this).attr('value2');
+		var shw_time = $(this).attr('value3');
+		
+		// 읽어오기		
+		$.ajax({
+			url : "./",
+			type : "DELETE",
+			data : "shw_num=" + shw_num,
+			cache : false,
+			success : function(data, status){
+				if(status == "success"){
+					if(data.status == "OK"){
+						alert("스케줄 삭제를 완료했습니다.");
+						
+						$.ajax({
+							url : "./",
+							type : "GET",
+							cache : false,
+							success : function(data2, status){
+								if(status == "success"){
+									
+									var result = "";	       			
+									
+					    			result += 	shw_date + '/'
+					        					+ scr_name +  '/'
+					        					+ shw_time + "<br><br> " 
+					        					+ "<select id='selectBox"+ k +"' class='selectClass' value='selectBox" + k + "'>";
+									
+					    			result += "<option value='noChoice'>영화선택</option>";
+					    			
+									for(var q=0; q<data2.mov_numTitle.length; q++){
+										result += "<option value1='" + data2.mov_numTitle[q].mov_num + "' value2='" + data2.mov_numTitle[q].mov_title + "'>" 
+										+ "번호 : " +data2.mov_numTitle[q].mov_num + " / 제목 : " + data2.mov_numTitle[q].mov_title + "</option>";
+									}
+									
+									result += "</select>"
+					        		+ "<button type='button' class='btnRegistInit' id='btnRegist" + k + "'" 
+					        				+ " value1='" + shw_date + "' value2='" + data2.scr_shwInfo[i].scr_num
+											+ "' value3='" + scr_name + "' value4='" + shw_time 
+											+ "' value5='" + data2.scr_shwInfo[i].scr_seatRow + "' value6='" + data2.scr_shwInfo[i].scr_seatLine
+											+ "' value7='" + k
+											+ "' value8='" + i
+											+ "' value9='" + j
+									+ "'>등록</button>"
+					        		;
+									
+									$("#td"+i+"행"+j+"열").html(result);
+									$("#td"+i+"행"+j+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
+									
+
+								}
+							}
+						})
+						
+					} else {
+						alert("실패: " + data.message);
+					}
+				}
+			}
+		}); // end $.ajax()
+		
+		
+	}); // end deleteOk()
 
     
 });
@@ -106,13 +343,7 @@ function updateList(jsonObj){
             result += "<td>" + items[i].shw_movieName + "</td>\n";
             result += "<td>" + items[i].shw_screenName + "</td>\n";
             result += "<td>" + items[i].shw_date + "</td>\n";
-            result += "<td>" + items[i].shw_time + "</td>\n";
-            if(items[i].shw_expireFlag == 0){
-            	result += "<td>상영중(" + items[i].shw_expireFlag + ")</td>\n";            	
-            }else{
-            	result += "<td>상영종료(" + items[i].shw_expireFlag + ")</td>\n";
-            }
-            //result += "<td><button type='button' id='btnManagement' data-uid='" + items[i].shw_num + "'>설정</button>" + "</td>\n";
+            result += "<td>" + items[i].shw_time + " 시</td>\n";
             result += "</tr>\n";
         }
         $("#showScheduleTable tbody").html(result);   // 목록 업데이트
@@ -255,10 +486,6 @@ function setPopup(jsonObj){
 					
 					makeAfterTable();
 
-					//수정
-					//updateSchedule();
-					//삭제
-					//deleteSchedule();
 				}else{
 					alert("실패: " + data.message);
 				}
@@ -278,36 +505,12 @@ function setPopup(jsonObj){
 
 
 
-
-
-
-// 스케줄 등록
-//function registSchedule(){
-//	
-//	
-//}
-
-
-
-
-
-//function scheduleOk(){
-//	
-//
-//}
-
-
-
-
-
-
 //등록 후 부분 리로드
 function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_time){
 	
 	var row = i;
 	var column = j;
 	
-	//alert('함수들어오냐')
 	$.ajax({
 		url : "./",
 		type : "GET",
@@ -334,12 +537,12 @@ function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_ti
 							+ "상영관명 : " + scr_name + "<br>"
 							+ "상영시간 : " + shw_time + "<br>"
 							+ "영화제목 : " + mov_name + "<br>"
-							+ "FLAG : " + shw_expireFlag + "<br>"
+							//+ "FLAG : " + shw_expireFlag + "<br>"
 							+ "<button type='button' class='btnUpdate' id='btnUpdate" + row + "_" + column 
 								+ "' value1='" + shw_num + "' value2='" + shw_date
 								+ "' value3='" + scr_name + "' value4='" + shw_time
 								+ "'>수정</button>&nbsp"
-							+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
+							+ "<button type='button' class='btnDelete' id='btnDelete" + i + "_" + j
 							+ "' value='" + shw_num 
 							+ "' value1='" + shw_date 
 							+ "' value2='" + scr_name 
@@ -353,108 +556,6 @@ function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_ti
 					}
 				}
 				
-				$(".btnUpdate").click(function(){
-					var i = $(this).parents().attr('value1');
-					var j = $(this).parents().attr('value2');
-					var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
-					
-					//alert('i:'+i + ' / j:'+j); // td 의 행열 정확함
-					
-					//해당 td의 value1 = i, value2 = j;
-					//btnUpdatei_j(this)의  value1='" + shw_num + "' value2='" + shw_date"' value3='" + scr_name + "' value4='" + shw_time
-					//alert( $("#"+updateBtnId).attr('value1') )//shwnum 부정확함X 그냥this로찍는게 value 주입시점이 제일정확함 
-					//alert("shw_num : " + $(this).attr('value1') )//정확함
-					//alert("shw_date : " + $(this).attr('value2') )//정확함
-					//alert("scr_name : " + $(this).attr('value3') )//정확함
-					//alert("shw_time : " + $(this).attr('value4') )//정확함
-					
-					
-					var shw_num = $(this).attr('value1');
-					var shw_date = $(this).attr('value2');
-					var scr_name = $(this).attr('value3');
-					var shw_time = $(this).attr('value4');
-					var data = data_scr_mov;
-					
-					
-					var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
-					result += "<option value='noChoice'>영화선택</option>";
-					
-					for(var p=0;p<data.mov_numTitle.length;p++){
-						result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
-									+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
-					}
-					
-					result += "</select><br><br><br>";
-					
-					result += "<button type='button' class='btnUpdateOk' id='btnUpdateOk" + k + "'>수정</button>"
-					
-					
-					$("#td"+ i +"행"+ j +"열").html(result);
-					
-					
-					$(".btnUpdateOk").click(function(){
-						alert('수정완료되면 뜨는거')
-						
-						//alert(shw_num);
-						//alert($(this).attr('id'));
-						//alert($(this).parents().attr('id'));
-						var tdsid = $(this).parents().attr('id');
-						alert($(this).parents("#tdsid").text())
-						
-						var selectBoxId = $("#"+tdsid).children("select[class='selectClassOk']").attr('value');
-						//alert($("#" + selectBoxId + " option:selected").attr('value1'));
-						//alert($("#" + selectBoxId + " option:selected").attr('value2'));
-						var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
-						var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
-						
-						
-						$.ajax({
-							url : "./",
-							type : "PUT",
-							data : "shw_num=" + shw_num + "&shw_movieNum=" + mov_num + "&shw_movieName=" + mov_name,
-							cache : false,
-							success : function(data, status){
-								if(status == "success"){
-									alert('스케줄 수정에 성공했습니다.');
-									// 부분리로딩
-									
-									var init = "";
-									init +="상영번호 : " + shw_num + "<br>"
-										+ "상영날짜 : " + shw_date + "<br>"
-										+ "상영관명 : " + scr_name + "<br>"
-										+ "상영시간 : " + shw_time + "<br>"
-										+ "영화제목 : " + mov_name + "<br>"
-										+ "FLAG : " + 0 + "<br>"
-										+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
-											+ "' value1='" + shw_num + "' value2='" + shw_date
-											+ "' value3='" + scr_name + "' value4='" + shw_time
-											+ "'>수정</button>&nbsp"
-										+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
-											+ "' value='" + shw_num 
-											+ "' value1='" + shw_date 
-											+ "' value2='" + scr_name 
-											+ "' value3='" + shw_time 
-											+ "'>삭제</button>"
-										;
-									
-									
-									$("#td"+ i +"행"+ j +"열").html(init);
-									
-								}else{
-									alert("실패: " + data.message);
-								}
-							}
-						})
-						
-					})
-					
-				
-					
-					
-					
-				});
-				
-
 				
 				
 			}else{
@@ -463,104 +564,10 @@ function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_ti
 		}
 	})
 	
-
-	
 }
 
 
 
-
-
-
-
-
-
-
-//스케줄 삭제
-function deleteSchedule(){
-
-	$(".btnDelete").click(function(){
-		
-		var i = $(this).parents().attr('value1');
-		var j = $(this).parents().attr('value2');
-		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
-		
-		//alert('i:'+i + ' / j:'+j + ' / k:' + k); // td 의 행열 정확함
-		
-		//해당 td의 value1 = i, value2 = j;
-		//alert("shw_num : " + $(this).attr('value') )//정확함
-		//alert("shw_date : " + $(this).attr('value1') )//정확함
-		//alert("scr_name : " + $(this).attr('value2') )//정확함
-		//alert("shw_time : " + $(this).attr('value3') )//정확함
-		
-		var shw_num = $(this).attr('value');
-		var shw_date = $(this).attr('value1');
-		var scr_name = $(this).attr('value2');
-		var shw_time = $(this).attr('value3');
-		
-		// 읽어오기		
-		$.ajax({
-			url : "./",
-			type : "DELETE",
-			data : "shw_num=" + shw_num,
-			cache : false,
-			success : function(data, status){
-				if(status == "success"){
-					if(data.status == "OK"){
-						alert("스케줄 삭제를 완료했습니다.");
-						
-						$.ajax({
-							url : "./",
-							type : "GET",
-							cache : false,
-							success : function(data2, status){
-								if(status == "success"){
-									
-									var result = "";	       			
-									
-					    			result += 	shw_date + '/'
-					        					+ scr_name +  '/'
-					        					+ shw_time + "<br><br> " 
-					        					+ "<select id='selectBox"+ k +"' class='selectClass' value='selectBox" + k + "'>";
-									
-					    			result += "<option value='noChoice'>영화선택</option>";
-					    			
-									for(var q=0; q<data2.mov_numTitle.length; q++){
-										result += "<option value1='" + data2.mov_numTitle[q].mov_num + "' value2='" + data2.mov_numTitle[q].mov_title + "'>" 
-										+ "번호 : " +data2.mov_numTitle[q].mov_num + " / 제목 : " + data2.mov_numTitle[q].mov_title + "</option>";
-									}
-									
-									result += "</select>"
-					        		+ "<button type='button' class='btnRegistInit' id='btnRegist" + k + "'" 
-					        				+ " value1='" + shw_date + "' value2='" + data2.scr_shwInfo[i].scr_num
-											+ "' value3='" + scr_name + "' value4='" + shw_time 
-											+ "' value5='" + data2.scr_shwInfo[i].scr_seatRow + "' value6='" + data2.scr_shwInfo[i].scr_seatLine
-											+ "' value7='" + k
-											+ "' value8='" + i
-											+ "' value9='" + j
-									+ "'>등록</button>"
-					        		;
-									
-									$("#td"+i+"행"+j+"열").html(result);
-									$("#td"+i+"행"+j+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
-									
-
-								}
-							}
-						})
-						
-					} else {
-						alert("실패: " + data.message);
-					}
-				}
-			}
-		}); // end $.ajax()
-		
-		
-	});
-	
-	
-}
 
 // 함수화해야 ajax() 동작순서 안꼬임
 function makeDefTable(){	// 디폴트로 넣어주는 div들
@@ -625,76 +632,14 @@ function makeDefTable(){	// 디폴트로 넣어주는 div들
     $(".modal .modal-content").css('height',changeHeight);	// 행개수에맞게 css height 유동적으로변경
     $("#showScheduleTableModal tbody").html(resultDef);   // 목록 업데이트
 
-    $(".btnRegistInit").on("click",function(){
-		alert('스케줄 오케이 메소드')
-		alert($(this).attr('value1'))
-		alert($(this).attr('id'))
-		
-		if($("#" + $(this).parents().attr('id')).attr('value4') < hours){
-			alert("현재 시간보다 이전이므로 해당 시간은 등록이 불가능합니다.");
-			return;
-		}
-		
-		var selectBoxId = $(this).parents().children("select[class='selectClass']").attr('value');	
-		/*
-		if($("#" + selectBoxId).attr('value1') == undefined || $("#" + selectBoxId + " option:selected").attr('value1') == null){
-			alert("영화를 선택한 후 등록해주세요.");
-			return;
-		}
-		*/
-		
-		
-		var ttt = "";
-		ttt = "shw_movieNum="+$("#" + selectBoxId + " option:selected").attr('value1');
-		ttt += "&shw_movieName="+$("#" + selectBoxId + " option:selected").attr('value2');
-		ttt += "&shw_date="+$("#"+$(this).attr('id')).attr('value1');
-		ttt += "&shw_screenNum="+$("#"+$(this).attr('id')).attr('value2');
-		ttt += "&shw_screenName="+$("#"+$(this).attr('id')).attr('value3');
-		ttt += "&shw_time="+$("#"+$(this).attr('id')).attr('value4');
-		ttt += "&shw_seatRow="+$("#"+$(this).attr('id')).attr('value5');		
-		ttt += "&shw_seatLine="+$("#"+$(this).attr('id')).attr('value6');
-		ttt += "&shw_seatCnt="+($("#"+$(this).attr('id')).attr('value5')) * ($("#"+$(this).attr('id')).attr('value6'));
-		ttt += "&shw_expireFlag=0";
-		//ttt += "$shw_regDate=" + sysdate.format('{yyyy}-{MM}-{dd} {hh}:{mm}:{ss}');
-		
-		var k = $("#"+$(this).attr('id')).attr('value7');
-		var i = $("#"+$(this).attr('id')).attr('value8');
-		var j = $("#"+$(this).attr('id')).attr('value9');
-		//alert(i);
-		//alert(j);
-		
-		// 리로드 파라미터값으로 체크
-		var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
-		var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
-		var scr_num = $("#"+$(this).attr('id')).attr('value2');
-		var scr_name = $("#"+$(this).attr('id')).attr('value3');
-		var shw_date = $("#"+$(this).attr('id')).attr('value1');
-		var shw_time = $("#"+$(this).attr('id')).attr('value4');
-		
-		
-		$.ajax({
-			url : "./",
-			type : "POST",
-			data : ttt,
-			cache : false,
-			success : function(data, status){
-				if(status == "success"){
-					alert('스케줄 등록에 성공했습니다.');
-					// 부분리로딩
-					
-					initReload(i,j,mov_num,mov_name,scr_num,scr_name,shw_date,shw_time);
-					
-					
-					
-				}else{
-					alert("실패: " + data.message);
-				}
-			}
-		})
-	});
+    
     
     
 } // end makeDefTable()
+
+
+
+
 
 function makeAfterTable(){
 	var y = 0; // td카운트
@@ -733,7 +678,7 @@ function makeAfterTable(){
 								+ "상영관명 : " + items[chkDateList[t]].shw_screenName + "<br>"
 								+ "상영시간 : " + items[chkDateList[t]].shw_time + "<br>"
 								+ "영화제목 : " + items[chkDateList[t]].shw_movieName + "<br>"
-								+ "FLAG : " + items[chkDateList[t]].shw_expireFlag
+								//+ "FLAG : " + items[chkDateList[t]].shw_expireFlag
 								;
 						
 						return value;
@@ -745,7 +690,7 @@ function makeAfterTable(){
 								+ "상영관명 : " + items[chkDateList[t]].shw_screenName + "<br>"
 								+ "상영시간 : " + items[chkDateList[t]].shw_time + "<br>"
 								+ "영화제목 : " + items[chkDateList[t]].shw_movieName + "<br>"
-								+ "FLAG : " + items[chkDateList[t]].shw_expireFlag + "<br>"
+								//+ "FLAG : " + items[chkDateList[t]].shw_expireFlag + "<br>"
 								+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
 									+ "' value1='" + items[chkDateList[t]].shw_num 
 									+ "' value2='" + items[chkDateList[t]].shw_date 
@@ -834,110 +779,7 @@ function makeAfterTable(){
 		
     } // end for(v=i)
     
-	$(".btnUpdate").click(function(){
-		alert('수정버튼 눌렀음')
-		var i = $(this).parents().attr('value1');
-		var j = $(this).parents().attr('value2');
-		var k = $(this).parents().attr('value3'); //셀렉박스아이디 : selectBox7 이런식 << 이게k
-		
-		//alert('i:'+i + ' / j:'+j); // td 의 행열 정확함
-		
-		//해당 td의 value1 = i, value2 = j;
-		//btnUpdatei_j(this)의  value1='" + shw_num + "' value2='" + shw_date"' value3='" + scr_name + "' value4='" + shw_time
-		//alert( $("#"+updateBtnId).attr('value1') )//shwnum 부정확함X 그냥this로찍는게 value 주입시점이 제일정확함 
-		//alert("shw_num : " + $(this).attr('value1') )//정확함
-		//alert("shw_date : " + $(this).attr('value2') )//정확함
-		//alert("scr_name : " + $(this).attr('value3') )//정확함
-		//alert("shw_time : " + $(this).attr('value4') )//정확함
-		
-		
-		var shw_num = $(this).attr('value1');
-		var shw_date = $(this).attr('value2');
-		var scr_name = $(this).attr('value3');
-		var shw_time = $(this).attr('value4');
-		var data = data_scr_mov;
-		
-		
-		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
-		result += "<option value='noChoice'>영화선택</option>";
-		
-		for(var p=0;p<data.mov_numTitle.length;p++){
-			result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
-						+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
-		}
-		
-		result += "</select><br><br><br>";
-		
-		result += "<button type='button' class='btnUpdateOk' id='btnUpdateOk" + k + "'>수정</button>"
-		
-		
-		$("#td"+ i +"행"+ j +"열").html(result);
-		
-
-		$(".btnUpdateOk").click(function(){
-			alert('수정완료되면 뜨는거')
-			
-			//alert(shw_num);
-			//alert($(this).attr('id'));
-			//alert($(this).parents().attr('id'));
-			var tdsid = $(this).parents().attr('id');
-			alert($(this).parents("#tdsid").text())
-			
-			var selectBoxId = $("#"+tdsid).children("select[class='selectClassOk']").attr('value');
-			//alert($("#" + selectBoxId + " option:selected").attr('value1'));
-			//alert($("#" + selectBoxId + " option:selected").attr('value2'));
-			var mov_num = $("#" + selectBoxId + " option:selected").attr('value1');
-			var mov_name = $("#" + selectBoxId + " option:selected").attr('value2');
-			
-			
-			$.ajax({
-				url : "./",
-				type : "PUT",
-				data : "shw_num=" + shw_num + "&shw_movieNum=" + mov_num + "&shw_movieName=" + mov_name,
-				cache : false,
-				success : function(data, status){
-					if(status == "success"){
-						alert('스케줄 수정에 성공했습니다.');
-						// 부분리로딩
-						
-						var init = "";
-						init +="상영번호 : " + shw_num + "<br>"
-							+ "상영날짜 : " + shw_date + "<br>"
-							+ "상영관명 : " + scr_name + "<br>"
-							+ "상영시간 : " + shw_time + "<br>"
-							+ "영화제목 : " + mov_name + "<br>"
-							+ "FLAG : " + 0 + "<br>"
-							+ "<button type='button' class='btnUpdate' id='btnUpdate" + i + "_" + j 
-								+ "' value1='" + shw_num + "' value2='" + shw_date
-								+ "' value3='" + scr_name + "' value4='" + shw_time
-								+ "'>수정</button>&nbsp"
-							+ "<button type='button' onclick='deleteSchedule()' class='btnDelete' id='btnDelete" + i + "_" + j
-								+ "' value='" + shw_num 
-								+ "' value1='" + shw_date 
-								+ "' value2='" + scr_name 
-								+ "' value3='" + shw_time 
-								+ "'>삭제</button>"
-							;
-						
-						
-						$("#td"+ i +"행"+ j +"열").html(init);
-						
-						
-					}else{
-						alert("실패: " + data.message);
-					}
-				}
-			})
-				
-		})
-		
-	});
-	
-	
-	
-	
-
-    //$("#showScheduleTableModal tbody").html(resultBefore);   // 목록 업데이트
+    
 } // end makeBeforeTable()
 
 
@@ -949,11 +791,7 @@ function addViewEvent(){
 		$("#dlg_write").show();
 	});
 	
-
-	
-
-	
-} // showView()
+} // addViewEvent()
 
 
 
