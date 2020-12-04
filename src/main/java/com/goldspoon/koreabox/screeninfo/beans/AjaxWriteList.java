@@ -12,6 +12,9 @@ public class AjaxWriteList extends AjaxWriteResult {
    @JsonProperty("data")
    List<ScreenInfoDTO> list;  // 데이터 목록
    
+   @JsonProperty("list2")
+   List<ShowInfoDTO> list2;  // 데이터 목록
+   
    int page;  // 현재 페이지 #
    
    @JsonProperty("totalpage")

@@ -19,6 +19,8 @@ public interface IAjaxDAO {
          @Param("pageRows") int pageRows
          );
    
+   public List<ShowInfoDTO> selectAllShowInfo();
+   
    // 전체 상영관 개수
    public int countAll();
    
