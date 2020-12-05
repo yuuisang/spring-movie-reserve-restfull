@@ -48,7 +48,7 @@ function addViewEvent(){
 		var td1 = tr.children(".scr_num");
 		
 		var scr_num = td1.text();
-		var bool;
+		var bool = true;
 		
 		$.ajax({
 	        url : "./" + page + "/" + window.pageRows,
@@ -58,18 +58,20 @@ function addViewEvent(){
 	        success : function(data, status){
 	        	
 	            if(status == "success"){
-            		outer : for(var chk=0; chk<data.list2.length; chk++){
-            			if(data.list2[chk].shw_screenNum == scr_num){
-            				alert('해당상영관은 상영스케줄이 예약되어 있으므로 삭제가 불가능합니다.');
-            				bool=false;
-            				break outer;
-            				//return false;
-            			} else {
-            				bool = true;
-            			}
-            			
-            			  
-            		}
+	            	if(data.list2.length >= 1){
+	            		outer : for(var chk=0; chk<data.list2.length; chk++){
+	            			if(data.list2[chk].shw_screenNum == scr_num){
+	            				alert('해당상영관은 상영스케줄이 예약되어 있으므로 삭제가 불가능합니다.');
+	            				bool=false;
+	            				break outer;
+	            				//return false;
+	            			} else {
+	            				bool = true;
+	            			}
+	            		}//end for
+	            		
+	            	}// end if
+	            
 	            	// 선택한 영화관 고유번호 파라미터로 실어보냄
         			deleteUid(scr_num,bool);
 	        		

@@ -117,7 +117,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 .modal .modal-content {
 	background-color: #fefefe;  /* 배경은 흰색 */
 	width: 70%;   /* 화면대비 80% */
-	height: 80%;
+	height: 100%;
 	margin: 1.5% auto 15% auto;  /* 위에서 5%,  아래에서 15%, 좌우 중앙정렬 */
 	border: 1px solid #888;  /* 테두리 */
 }
