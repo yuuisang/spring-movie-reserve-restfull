@@ -225,8 +225,8 @@ function seat_chk(){
 	var seatrow;  // 줄(행)
 	var result;	
 	var cnt = 1;	//좌석 번호
-	var reserveseat = new Array();	//원래 예약이 되있던 좌석
-	var leavecnt = 0;	// 예약된 좌석수
+	//var reserveseat = new Array();	//원래 예약이 되있던 좌석
+	
 	
 
 	
@@ -254,41 +254,23 @@ function seat_chk(){
 	$("#table").html(result);
 	$(".seatModal").show(); // 좌석 선택 모달창 보여주기
 	
-	$.ajax({	// tb_reserve의 정보가 들어있는 url 연결
-		url : "../reserveinfo/1/" + data_aa.reserveCntAll,
+	$.ajax({
+		//url : "view.ajax?uid=" + $(this).attr('data-uid'),
+		url : "../reserveuser/" + mov_num,
 		type : "GET",
 		cache : false,
 		success : function(data, status){
 			if(status == "success"){
-				for (var i = 0; i < data_aa.reserveCntAll; i++) {
-					if(data.data[i].res_totalPeople == 1 && data.data[i].res_screenName == $("#movietime option:selected").attr('value')
-							&& data.data[i].res_time == $("#movietime option:selected").attr('value2') && data.data[i].res_date == $("#movietime option:selected").attr('value3')){
-						
-						reserveseat.push(data.data[i].res_seat);
-						$("#box"+data.data[i].res_seat).attr("disabled", "disabled");
-						//$("#box"+data.data[i].res_seat +"+ label").css("background", "red");
-						$("#box"+data.data[i].res_seat).attr("type", "hidden")
-						//$("#box"+data.data[i].res_seat +"+ label").text("예약완료")
-						leavecnt++;
-					} else if(data.data[i].res_totalPeople != 1 && data.data[i].res_screenName == $("#movietime option:selected").attr('value')
-							&& data.data[i].res_time == $("#movietime option:selected").attr('value2') && data.data[i].res_date == $("#movietime option:selected").attr('value3')){
-						var seatArr = data.data[i].res_seat.split(",");
-						for (var j = 0; j < seatArr.length; j++) {
-							$("#box"+seatArr[j]).attr("disabled", "disabled");
-							reserveseat.push(seatArr[j]);
-							//$("#box"+seatArr[j] +"+ label").css("background", "red");
-							$("#box"+seatArr[j]).attr("type", "hidden")
-							leavecnt++;
-						}
-					}
-				}
-				if($("#mov_peoplecnt option:selected").attr('value') > (seatline*seatrow)-leavecnt){
-					alert('남아있는 좌석의 개수가 ' + ((seatline*seatrow)-leavecnt) + '자리 있습니다. 현재인원수는 예약이 불가합니다.')
-					$(".seatModal").hide();
-				}
+				var reserveCnt = data.reserveCntAll;
+				alert(reserveCnt)
+				modalseat(reserveCnt)
+				
 			}
 		}
 	}); // end $.ajax()
+	
+	
+	
 	
 	$("input[type='checkbox']").on("click",function(){		// 체크박스(좌석선택) 선택한 인원 이상 선택하면 비활성화 시키기
 		var peoplenum = $("#mov_peoplecnt").val()
@@ -309,6 +291,45 @@ function seat_chk(){
 	});
 	
 	}
+}
+
+function modalseat(reserveCnt){
+	var leavecnt = 0;	// 예약된 좌석수
+	$.ajax({	// tb_reserve의 정보가 들어있는 url 연결
+		url : "../reserveinfo/1/" + reserveCnt,
+		type : "GET",
+		cache : false,
+		success : function(data, status){
+			if(status == "success"){
+				for (var i = 0; i < reserveCnt; i++) {
+					if(data.data[i].res_totalPeople == 1 && data.data[i].res_screenName == $("#movietime option:selected").attr('value')
+							&& data.data[i].res_time == $("#movietime option:selected").attr('value2') && data.data[i].res_date == $("#movietime option:selected").attr('value3')){
+						alert($("#box"+data.data[i].res_seat).val())
+						//reserveseat.push(data.data[i].res_seat);
+						$("#box"+data.data[i].res_seat).attr("disabled", "disabled");
+						//$("#box"+data.data[i].res_seat +"+ label").css("background", "red");
+						$("#box"+data.data[i].res_seat).attr("type", "hidden")
+						//$("#box"+data.data[i].res_seat +"+ label").text("예약완료")
+						leavecnt++;
+					} else if(data.data[i].res_totalPeople != 1 && data.data[i].res_screenName == $("#movietime option:selected").attr('value')
+							&& data.data[i].res_time == $("#movietime option:selected").attr('value2') && data.data[i].res_date == $("#movietime option:selected").attr('value3')){
+						var seatArr = data.data[i].res_seat.split(",");
+						for (var j = 0; j < seatArr.length; j++) {
+							$("#box"+seatArr[j]).attr("disabled", "disabled");
+							//reserveseat.push(seatArr[j]);
+							//$("#box"+seatArr[j] +"+ label").css("background", "red");
+							$("#box"+seatArr[j]).attr("type", "hidden")
+							leavecnt++;
+						}
+					}
+				}
+				if($("#mov_peoplecnt option:selected").attr('value') > (seatline*seatrow)-leavecnt){
+					alert('남아있는 좌석의 개수가 ' + ((seatline*seatrow)-leavecnt) + '자리 있습니다. 현재인원수는 예약이 불가합니다.')
+					$(".seatModal").hide();
+				}
+			}
+		}
+	}); // end $.ajax()
 }
 	
 function success(){
@@ -357,77 +378,66 @@ function reserve_sucbtn(){	// 마지막 예매 버튼을 눌렀을때
 
 function reservenow(reserveCnt) {
 	
-	var final = true;
+	var seatoverlapChk;
+	var seatoverlapChk2;
+	
+
 	$.ajax({ // tb_reserve의 정보가 들어있는 url 연결
 		url : "../reserveinfo/1/" + reserveCnt,
 		type : "GET",
 		cache : false,
 		success : function(data, status) {
 			if (status == "success") {
-				for (var i = 0; i < reserveCnt; i++) {
-					var seatoverlapChk = new Array();
-					var seatoverlapChk2 = new Array();
+				var final = true;
+				outer : for (var i = 0; i < reserveCnt; i++) {
+					
 					if (data.data[i].res_screenName == $("#movietime option:selected").attr('value')
 							&& data.data[i].res_time == $("#movietime option:selected").attr('value2')
 							&& data.data[i].res_date == $("#movietime option:selected").attr('value3')
 							&& data.data[i].res_movieNum == mov_num) {
-						alert('첫번째 if')
 //						&& data.data[i].res_seat == $("#seatnumplus").text()
-						seatoverlapChk.push(data.data[i].res_seat.split(","));	// 이미 예약된좌석들
-						seatoverlapChk2.push($("#seatnumplus").text().split(","))	// 예약하려고 누른 좌석
-						alert('싯1 '+seatoverlapChk)
-						alert('싯2 '+seatoverlapChk2)
-						
-						
-						
-						
-						if(seatoverlapChk.length < seatoverlapChk2.length){
-							alert('두번째 if')
-							for (var j = 0; j < seatoverlapChk2.length; j++) {
-								alert('싯1 같냐고'+seatoverlapChk[j])
-								alert('싯2 같냐고'+seatoverlapChk2[j])
-								if(seatoverlapChk[j] == seatoverlapChk2[j]){
-									alert('세번째-1 if')
-									final = false;
-									alert('파이널 :'+final)
+						seatoverlapChk = (data.data[i].res_seat.split(","));	// 이미 예약된좌석들
+						seatoverlapChk2 = ($("#seatnumplus").text().split(","))	// 예약하려고 누른 좌석
+							 for (var k = 0; k < seatoverlapChk.length; k++) {
+								for (var j = 0; j < seatoverlapChk2.length; j++) {
+									//alert('싯1 같냐고'+seatoverlapChk[k])
+									//alert('싯2 같냐고'+seatoverlapChk2[j])
+									if(seatoverlapChk[k] == seatoverlapChk2[j]){
+										alert('예약이 되지 않았습니다. 다시 시도해주세요')
+										final = false;
+										break outer;
+									} else {
+										final = true;
+									}
 								}
 							}
-						} else {
-							for (var j = 0; j < seatoverlapChk.length; j++) {
-								alert('싯1 같냐고'+seatoverlapChk[j])
-								alert('싯2 같냐고'+seatoverlapChk2[j])
-								if(seatoverlapChk[j] == seatoverlapChk2[j]){
-									alert('세번째-2 if')
-									final = false;
-									alert('파이널 :'+final)
-								}
-							}
-						}
 						
-						
-						
-						
-						
-					} else {
-						
-						final = true;
 					}
 					
+				}//outer
+				if(reserveCnt==0){
+					final = true;
+					reservefinal(final)
+				} else {
+					alert('확인 ' + final)
+					reservefinal(final)
 				}
-				
 			}
-			reservefinal(final)
+			
 		}
+	
 	}); // end $.ajax()
 
+	
+	
 }
 
 
 function reservefinal(final) {
-	alert(final)
 	var screenNum;
 	
 	if(final){
+		
 		for (var i = 0; i < data_aa.data.length; i++) {
 			if (data_aa.data[i].shw_movieNum == mov_num
 					&& data_aa.data[i].shw_screenName == $(
@@ -462,7 +472,6 @@ function reservefinal(final) {
 			data : param,
 
 			success : function(data, status) {
-				alert(param)
 				if (status == "success") {
 					if (data.status == "OK") {
 						alert("예약이 완료되었습니다 ");
@@ -474,9 +483,11 @@ function reservefinal(final) {
 				}
 			}
 		});
-	} else {
-		alert('예약을 다시 시도해주세요.')
+		
 	}
+	
+
+
 	
 
 }
