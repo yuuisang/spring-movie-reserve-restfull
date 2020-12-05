@@ -96,8 +96,6 @@ $(document).ready(function(){
 					
 					initReload(i,j,mov_num,mov_name,scr_num,scr_name,shw_date,shw_time);
 					
-					
-					
 				}else{
 					alert("실패: " + data.message);
 				}
@@ -132,7 +130,16 @@ $(document).ready(function(){
 		var shw_time = $(this).attr('value4');
 		var data = data_scr_mov;
 		
-		
+		// 해당 스케줄에 예약한 사람이있으면 수정,삭제 불가능하게 처리
+		for(var chk=0; chk<data_scr_mov.res_shwInfo.length; chk++){
+			if(scr_name == data_scr_mov.res_shwInfo[chk].res_screenName
+			&& shw_date == data_scr_mov.res_shwInfo[chk].res_date
+			&& shw_time == data_scr_mov.res_shwInfo[chk].res_time
+			){
+				alert('해당 스케줄은 이미 예약된 고객이 있어 수정이 불가능합니다');
+				return false;
+			}
+		}
 		
 		
 		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
@@ -230,6 +237,19 @@ $(document).ready(function(){
 		var shw_date = $(this).attr('value1');
 		var scr_name = $(this).attr('value2');
 		var shw_time = $(this).attr('value3');
+		
+		
+		// 해당 스케줄에 예약한 사람이있으면 수정,삭제 불가능하게 처리
+		for(var chk=0; chk<data_scr_mov.res_shwInfo.length; chk++){
+			if(scr_name == data_scr_mov.res_shwInfo[chk].res_screenName
+			&& shw_date == data_scr_mov.res_shwInfo[chk].res_date
+			&& shw_time == data_scr_mov.res_shwInfo[chk].res_time
+			){
+				alert('해당 스케줄은 이미 예약된 고객이 있어 삭제가 불가능합니다');
+				return false;
+			}
+		}
+		
 		
 		// 읽어오기		
 		$.ajax({
@@ -461,36 +481,56 @@ function setPopup(jsonObj){
 	
 	var chk_today = year+"-"+month+"-"+date;
 	
-	
     if(jsonObj.status == "OK"){
-        
-        $("#showScheduleTitle").html("<h3>"+ chk_today + " 상영시간표</h3>");
-		$.ajax({
+    	
+    	$.ajax({
 			url : "./",
 			type : "GET",
 			cache : false,
 			success : function(data, status){
 				if(status == "success"){
-					data_scr_mov = data;
-					makeDefTable();
-					
-					for(var aa=0; aa<data.scr_shwInfo.length; aa++){
-						for(var bb=0; bb<6; bb++){
-							if(bb != 0){
-								$("#td"+aa+"행"+bb+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
-							}else{
-								$("#td"+aa+"행"+bb+"열").css('font-size', '30px'); //글자크기바꾸기
-							}
+					if(data.scr_shwInfo.length == 0){
+			        	alert('등록된 상영관이 없어 상영 스케줄을 설정할 수 없습니다.');
+			        	return;
+			        }else{
+			        	
+			        	data_scr_mov = data;
+
+						$("#showScheduleTitle").html("<h3>"+ chk_today + " 상영시간표</h3>");
+						makeDefTable();
+						
+						if(data.scr_shwInfo.length != 0){
+							for(var aa=0; aa<data.scr_shwInfo.length; aa++){
+								for(var bb=0; bb<6; bb++){
+									if(bb != 0){
+										$("#td"+aa+"행"+bb+"열").css('background-color', 'rgba(135,206,240,0.4'); //색바꾸기
+									}else{
+										$("#td"+aa+"행"+bb+"열").css('font-size', '30px'); //글자크기바꾸기
+									}
+								}
+							}						
 						}
-					}
+						
+						makeAfterTable();
+			        	
+			    		$("#dlg_write").show();
+			    		
+			        }// end if
 					
-					makeAfterTable();
 
 				}else{
 					alert("실패: " + data.message);
 				}
 			}
 		}); // end $.ajax()
+    	
+    	
+    	
+        
+        
+        
+		
+		
     } else {
         alert("내용이 없습니다");
     }
@@ -628,8 +668,13 @@ function makeDefTable(){	// 디폴트로 넣어주는 div들
     
 
     
-    let changeHeight = data_scr_mov.scr_shwInfo.length * 15.5 +"%";
-    $(".modal .modal-content").css('height',changeHeight);	// 행개수에맞게 css height 유동적으로변경
+    let changeHeight = data_scr_mov.scr_shwInfo.length * 17 +"%";
+    if(data_scr_mov.scr_shwInfo.length <= 4){
+    	$(".modal .modal-content").css('height','80%');	// 행개수에맞게 css height 유동적으로변경    	    	
+    }else{
+    	//alert(data_scr_mov.scr_shwInfo.length);
+    	$(".modal .modal-content").css('height',changeHeight);	// 행개수에맞게 css height 유동적으로변경
+    }
     $("#showScheduleTableModal tbody").html(resultDef);   // 목록 업데이트
 
     
@@ -788,7 +833,7 @@ function addViewEvent(){
 	
 	$("#btnRegist").click(function(){
 		setPopup(data_shw);
-		$("#dlg_write").show();
+		//$("#dlg_write").show();
 	});
 	
 } // addViewEvent()

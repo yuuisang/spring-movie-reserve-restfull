@@ -56,6 +56,9 @@ public interface IAjaxDAO {
 	
 	// mov_title get
 	public List<MovieInfoDTO> selectAllMovieNumTitle();
+	
+	// res info get
+	public List<ReserveInfoDTO> selectAllReserveInfo();
 
 }
 

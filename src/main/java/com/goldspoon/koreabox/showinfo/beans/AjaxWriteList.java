@@ -31,6 +31,9 @@ public class AjaxWriteList extends AjaxWriteResult {
 	
 	@JsonProperty("mov_numTitle")
 	List<MovieInfoDTO> mov_numTitle;
+
+	@JsonProperty("res_shwInfo")
+	List<ReserveInfoDTO> res_shwInfo;
 	
 }
 

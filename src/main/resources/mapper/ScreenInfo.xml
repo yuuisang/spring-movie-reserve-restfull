@@ -19,6 +19,28 @@
 			RNUM >= #{from} AND RNUM < (#{from} + #{pageRows})		
 		]]>
 	</select>
+	
+	<select id="selectAllShowInfo" resultType="com.goldspoon.koreabox.screeninfo.beans.ShowInfoDTO">
+		<![CDATA[
+		SELECT
+			shw_num,
+			shw_movieNum,
+			shw_movieName,
+			shw_screenNum,
+			shw_screenName,
+			shw_date,
+			shw_time,
+			shw_seatCnt,
+			shw_seatRow,
+			shw_seatLine,
+			shw_regDate,
+			shw_expireFlag
+		FROM 
+			tb_showinfo
+		]]>
+	</select>
+	
+	
 
 
 	<select id="countAll" resultType="int">

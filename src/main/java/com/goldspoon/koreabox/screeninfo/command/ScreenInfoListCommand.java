@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import com.goldspoon.koreabox.screeninfo.ScreenInfoQuery;
 import com.goldspoon.koreabox.screeninfo.beans.IAjaxDAO;
 import com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO;
+import com.goldspoon.koreabox.screeninfo.beans.ShowInfoDTO;
 
 
 public class ScreenInfoListCommand implements ScreenInfoCommand {
@@ -17,6 +18,7 @@ public class ScreenInfoListCommand implements ScreenInfoCommand {
             IAjaxDAO dao = ScreenInfoQuery.sqlSession.getMapper(IAjaxDAO.class);
          
             List<ScreenInfoDTO> list = null;
+            List<ShowInfoDTO> list2 = null;
             
             // 페이징 관련 세팅값
             int page = 1;  // 현재 페이지 (디폴트 1 page)
@@ -25,24 +27,6 @@ public class ScreenInfoListCommand implements ScreenInfoCommand {
             int totalPage = 0; // 총 몇 페이지 분량?
             int totalCnt = 0;  // 글은 총 몇개인가?
             
-//            String param;
-//            param = (String)model.getAttribute("page");
-//            if(param != null && !param.trim().equals("")) {
-//               try {
-//                  page = Integer.parseInt(param);
-//               } catch(NumberFormatException e) {
-//                  
-//               }
-//            }
-//            
-//            param = (String)model.getAttribute("pageRows");
-//            if(param != null && !param.trim().equals("")) {
-//               try {
-//                  pageRows = Integer.parseInt(param);
-//               } catch(NumberFormatException e) {
-//                  
-//               }      
-//            }
             
             page = (Integer)model.getAttribute("page");
             pageRows = (Integer)model.getAttribute("pageRows");
@@ -64,6 +48,7 @@ public class ScreenInfoListCommand implements ScreenInfoCommand {
                int fromRow = (page - 1) * pageRows + 1;
                
                list = dao.selectFromRow(fromRow, pageRows);
+               list2 = dao.selectAllShowInfo();
                
                if(list == null) {
                   message.append("[리스트할 데이터가 없습니다]");
@@ -78,6 +63,7 @@ public class ScreenInfoListCommand implements ScreenInfoCommand {
             model.addAttribute("status", status);
             model.addAttribute("message", message.toString());
             model.addAttribute("list", list);
+            model.addAttribute("list2",list2);
             
             model.addAttribute("page", page);
             model.addAttribute("totalPage", totalPage);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.goldspoon.koreabox.screeninfo.beans.AjaxWriteList;
 import com.goldspoon.koreabox.screeninfo.beans.AjaxWriteResult;
 import com.goldspoon.koreabox.screeninfo.beans.ScreenInfoDTO;
+import com.goldspoon.koreabox.screeninfo.beans.ShowInfoDTO;
 import com.goldspoon.koreabox.screeninfo.command.ScreenInfoDeleteCommand;
 import com.goldspoon.koreabox.screeninfo.command.ScreenInfoListCommand;
 import com.goldspoon.koreabox.screeninfo.command.ScreenInfoRegistCommand;
@@ -74,8 +75,10 @@ public class ScreenInfoAjaxController {
       result.setMessage((String)model.getAttribute("message"));
       
       List<ScreenInfoDTO> list = (List<ScreenInfoDTO>)model.getAttribute("list");
+      List<ShowInfoDTO> list2 = (List<ShowInfoDTO>) model.getAttribute("list2");
       result.setCount(list.size());
       result.setList(list);
+      result.setList2(list2);
       
       // 페이징 할때만 필요한 것들
       try {

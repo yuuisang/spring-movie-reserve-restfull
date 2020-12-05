@@ -46,6 +46,26 @@
 	</select>
 	
 	
+	<!-- 상영스케줄 관리시 예약테이블 먼저조회해야되서 필요-->
+	<select id="selectAllReserveInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ReserveInfoDTO">
+		SELECT
+		   res_num,	
+		   res_movieNum,
+		   res_movieName,
+		   res_screenNum,
+		   res_screenName,
+		   res_date,
+		   res_time,
+		   res_seat,
+		   res_totalPeople,
+		   res_memberUid,
+		   res_memberId,
+		   res_paytime,
+		   res_pay,
+		   res_code			
+		FROM tb_reserve			
+	</select>
+	
 	<!--
 	<select id="selectInfo" resultType="com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO">
 		<![CDATA[

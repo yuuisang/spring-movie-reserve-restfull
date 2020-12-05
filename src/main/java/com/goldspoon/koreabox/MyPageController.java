@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.goldspoon.koreabox.showinfo.ShowInfoQuery;
 
 @Controller
-@RequestMapping("/show")
-public class ShowInfoController {
+@RequestMapping("/mypage")
+public class MyPageController {
 	
 	
 	// MyBatis
@@ -22,8 +22,11 @@ public class ShowInfoController {
 	}
 	
 	
-	@RequestMapping("/showinfo")
-	public void showInfo() {}
+	@RequestMapping("/resManage")
+	public void resManage() {}
+
+	@RequestMapping("/userInfo")
+	public void userInfo() {}
 	
 	
 }

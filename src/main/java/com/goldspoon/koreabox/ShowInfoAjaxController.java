@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.goldspoon.koreabox.showinfo.beans.AjaxWriteList;
 import com.goldspoon.koreabox.showinfo.beans.AjaxWriteResult;
 import com.goldspoon.koreabox.showinfo.beans.MovieInfoDTO;
+import com.goldspoon.koreabox.showinfo.beans.ReserveInfoDTO;
 import com.goldspoon.koreabox.showinfo.beans.ScreenInfoDTO;
 import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
 import com.goldspoon.koreabox.showinfo.command.ShowInfoDeleteCommand;
@@ -132,11 +133,14 @@ public class ShowInfoAjaxController {
 		List<ShowInfoDTO> list = (List<ShowInfoDTO>)model.getAttribute("list");
 		List<ScreenInfoDTO> scr_shwInfo = (List<ScreenInfoDTO>)model.getAttribute("scr_shwInfo");
 		List<MovieInfoDTO> mov_numTitle = (List<MovieInfoDTO>)model.getAttribute("mov_numTitle");
+		List<ReserveInfoDTO> res_shwInfo = (List<ReserveInfoDTO>)model.getAttribute("res_shwInfo");
+		
 		
 		result.setCount(list.size());
 		result.setList(list);
 		result.setScr_shwInfo(scr_shwInfo);
 		result.setMov_numTitle(mov_numTitle);
+		result.setRes_shwInfo(res_shwInfo);
 		
 		return result;
 	}

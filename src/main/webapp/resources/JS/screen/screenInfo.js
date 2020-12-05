@@ -24,7 +24,6 @@ function loadPage(page){
             if(status == "success"){
                 if(updateList(data)){
                     // 화면 업데이트 후, 페이지 정보 업데이트 
-                	
                     // 업데이트된 list 의 이벤트 동작...
                 	addViewEvent();
                 	
@@ -49,9 +48,40 @@ function addViewEvent(){
 		var td1 = tr.children(".scr_num");
 		
 		var scr_num = td1.text();
+		var bool = true;
 		
-		// 선택한 영화관 고유번호 파라미터로 실어보냄
-		deleteUid(scr_num);
+		$.ajax({
+	        url : "./" + page + "/" + window.pageRows,
+	        type : "GET",
+	        cache : false,
+	        async : false,
+	        success : function(data, status){
+	        	
+	            if(status == "success"){
+	            	if(data.list2.length >= 1){
+	            		outer : for(var chk=0; chk<data.list2.length; chk++){
+	            			if(data.list2[chk].shw_screenNum == scr_num){
+	            				alert('해당상영관은 상영스케줄이 예약되어 있으므로 삭제가 불가능합니다.');
+	            				bool=false;
+	            				break outer;
+	            				//return false;
+	            			} else {
+	            				bool = true;
+	            			}
+	            		}//end for
+	            		
+	            	}// end if
+	            
+	            	// 선택한 영화관 고유번호 파라미터로 실어보냄
+        			deleteUid(scr_num,bool);
+	        		
+	            }
+	       
+	        }
+
+	    });
+		
+		
 	});
 }
 
@@ -195,33 +225,33 @@ function chkWrite(){
 
 
 // 특정 uid 의 글 삭제하기
-function deleteUid(scr_num){
-		
-	if(!confirm(scr_num + " 해당 상영관을 삭제하시겠습니까?")) return false;
+function deleteUid(scr_num,bool){
 	
-	// POST 방식
-	$.ajax({
-		url : ".",
-		type : "DELETE",
-		data : "scr_num=" + scr_num,
-		cache : false,
-		success : function(data, status){
-			if(status == "success"){
-				if(data.status == "OK"){						
-					alert("DELETE성공 " + data.count + "개:");  // 설사 이미 지워져서 0개를 리턴해도 성공이다.
-					loadPage(window.page);  // 현제페이지 로딩
-				} else {
-					alert("DELETE실패 " + data.message);
-					return false;
+	if(bool){
+		if(!confirm("해당 상영관을 삭제하시겠습니까?")) return false;
+		
+		// POST 방식
+		$.ajax({
+			url : ".",
+			type : "DELETE",
+			data : "scr_num=" + scr_num,
+			cache : false,
+			async : false,
+			success : function(data, status){
+				if(status == "success"){
+					if(data.status == "OK"){						
+						//alert("DELETE성공 " + data.count + "개:");  // 설사 이미 지워져서 0개를 리턴해도 성공이다.
+						loadPage(window.page);  // 현제페이지 로딩
+					} else {
+						//alert("DELETE실패 " + data.message);
+						//return false;
+					}
 				}
 			}
-		},
-        error : function(request,status,error) {
-			alert("에러코드 : "+request.status+"\n\n"+"에러메세지 : "+request.responseText+"\n\n"+"에러 : "+error);
-			
-		}
-	});
+		});
+	}
+
 	
-	return true;
+	//return true;
 } // end deleteUid(uid)
 

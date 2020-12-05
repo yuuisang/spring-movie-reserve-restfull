@@ -291,28 +291,18 @@ INSERT INTO TB_MOVIE
 VALUES (4, '신과함께','호날두','메시,손흥민,아구에로,드록바','액션',130, '2020-12-01', '등급미정', '줄거리줄거리줄거리~~1ㅁㅁㅁ1~' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
 
 SELECT * FROM tabs;
-
 SELECT * FROM TB_MOVIE;
 SELECT * FROM TB_RESERVE;
 SELECT * FROM TB_SHOWINFO;
 SELECT * FROM TB_SCREENINFO;
-
-INSERT INTO TB_SHOWINFO 
-values(SEQ_tb_showinfo_shw_num.nextval, 4, '신과함께', 4, 'C', '2020-12-03', 19, 30, 30, 30, sysdate, 0);
-
-INSERT INTO TB_SHOWINFO 
-values(0, 3, '어벤저스', 61, 'W', '2020-12-01', 7, 1, 1, 1, sysdate, 0);
-
-<<<<<<< HEAD
 SELECT * FROM tb_reserve;
 
-INSERT INTO TB_SHOWINFO values(7,7,'극한직업',2,'B','20201125',120,15,50,50,sysdate,0);
+
 
 INSERT INTO TB_RESERVE (RES_NUM ,RES_MOVIENUM ,RES_MOVIENAME ,RES_SCREENNUM ,RES_SCREENNAME ,RES_DATE ,RES_TIME ,RES_SEAT ,RES_TOTALPEOPLE ,
 RES_MEMBERUID ,RES_MEMBERID ,RES_PAYTIME ,RES_PAY ,RES_CODE )
-VALUES (2, 1,'스물',1,'A','2020-12-04', 15, '4번',1,1,'TEST',SYSDATE,9000,'A2020120415');
+VALUES (SEQ_tb_reserve_res_num.nextval, 1,'7번방의선물',102,'A','2020-12-05', 15, '4번',1,1,'TESTID',SYSDATE,9000,'A2020120415');
 
-=======
-DELETE FROM TB_SCREENINFO;
+DELETE FROM TB_RESERVE;
 DELETE FROM TB_SHOWINFO;
->>>>>>> branch 'master' of https://github.com/devYoooo/KOREABOX.git
+
