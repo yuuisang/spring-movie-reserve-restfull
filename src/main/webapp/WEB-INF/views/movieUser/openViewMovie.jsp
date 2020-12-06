@@ -226,7 +226,7 @@
 							   		<label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str5" value="5"></label>
 									<input type="hidden" name="cmt_movieNum" value="${list.mov_num }"/>
 									<input type="hidden" name="cmt_movieName" value="${list.mov_title }"/>
-									<input type="hidden" name="cmt_memberUid" value="1"/>
+									<input type="hidden" name="cmt_memberUid" value="${mem_uid }"/>
 								</div>
 							
 							

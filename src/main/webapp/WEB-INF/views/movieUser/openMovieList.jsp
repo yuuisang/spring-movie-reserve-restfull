@@ -56,6 +56,7 @@
 					<img class="card-img-top" src="../resources/upload/${dto.mov_poster}" alt="" style="width:300px; height:300px;"/><br>
 					<span>${dto.mov_title }</span>										
 					<h2><a href="${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1" class="glyphicon glyphicon-search">상세보기</a></h2>
+					<h2><a href="${pageContext.request.contextPath }/여기에 url입력해주세요" class="glyphicon glyphicon-search">예약</a></h2>
 					</div>
 				</c:forEach>
 			</c:otherwise>

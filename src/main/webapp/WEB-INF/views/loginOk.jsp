@@ -22,11 +22,16 @@
 			history.back();
 		</script>
 	</c:when>
+	<c:when test="${result == 2 }">
+		<script>
+			alert("관리자 로그인 성공");
+			location.href = "${pageContext.request.contextPath }/movieAdmin/managementMovie";
+		</script>
+	</c:when>
 	<c:otherwise>
 		<script>
 			alert("로그인 성공");
 			location.href = "${pageContext.request.contextPath }";
-			
 		</script>
 	</c:otherwise>
 </c:choose>

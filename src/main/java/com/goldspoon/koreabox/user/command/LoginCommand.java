@@ -32,14 +32,25 @@ public class LoginCommand implements Command{
 		
 		try {
 			if(mem_id != null && mem_pw != null && mem_id.trim().length()>0 && mem_pw.trim().length()>0) {
-			loginDto = dao.login(mem_id, mem_pw);
-			System.out.println("loginDTO : " + loginDto.toString());
-			result = 1;
-			session.setAttribute("mem_uid", loginDto.getMem_uid());
-			session.setAttribute("mem_id", loginDto.getMem_id());
-			model.addAttribute("mem_uid", loginDto.getMem_uid());
-			model.addAttribute("mem_id", loginDto.getMem_id());
-			model.addAttribute("result", result);
+			if(mem_id.equals("admin")&&mem_pw.equals("1234")) {
+				loginDto = dao.login(mem_id, mem_pw);
+				System.out.println("loginDTO : " + loginDto.toString());
+				result = 2;
+				session.setAttribute("mem_uid", 0);
+				session.setAttribute("mem_id", "admin");
+				model.addAttribute("mem_uid", loginDto.getMem_uid());
+				model.addAttribute("mem_id", loginDto.getMem_id());
+				model.addAttribute("result", result);
+			}else {
+				loginDto = dao.login(mem_id, mem_pw);
+				System.out.println("loginDTO : " + loginDto.toString());
+				result = 1;
+				session.setAttribute("mem_uid", loginDto.getMem_uid());
+				session.setAttribute("mem_id", loginDto.getMem_id());
+				model.addAttribute("mem_uid", loginDto.getMem_uid());
+				model.addAttribute("mem_id", loginDto.getMem_id());
+				model.addAttribute("result", result);
+			}
 			}else if(mem_id == null && mem_id.trim().length()==0){
 				error = 1;	// 아이디를 입력 안했을 때
 				model.addAttribute("error", error);

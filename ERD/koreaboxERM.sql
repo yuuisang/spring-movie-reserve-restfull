@@ -88,6 +88,7 @@ CREATE TABLE tb_member
 	PRIMARY KEY (mem_uid)
 );
 
+INSERT INTO tb_member values(0,'admin','1234', '관리자', '2020-01-01', '000-0000-0000', 'admin@koreabox.com', sysdate);
 
 CREATE TABLE tb_movie
 (
