@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- CSS파일 -->
-<link rel="stylesheet" href="${path}/resources/CSS/front/managerTheme.css">
+<link rel="stylesheet" href="${path}/resources/CSS/main/managerTheme.css">
 
 
 <title>Insert title here</title>
@@ -34,7 +34,7 @@
 
 				<div id="navbarSupportedContent" class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a href="#"
+						<li class="nav-item active"><a href="${path }/movieAdmin/managementMovie"
 							class="nav-link text-uppercase font-weight-bold">영화 관리 <span
 								class="sr-only">(current)</span></a></li>
 						<li class="nav-item"><a href="#"
@@ -48,7 +48,7 @@
 						<!-- 관리자 버튼 자리 -->
 						<button type="button" class="btn btn-secondary btn-sm">관리자</button>
 						&nbsp;
-						<button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
+						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>
 						&nbsp;
 						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}'">사용자 페이지</button>
 					</ul>
@@ -62,7 +62,7 @@
 	</div>
 
 
-	<script type="text/javascript" src="JS/theme.js"></script>
+	<script type="text/javascript" src="${path }/resources/JS/main/theme.js"></script>
 
 </body>
 </html>
