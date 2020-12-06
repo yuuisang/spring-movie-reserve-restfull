@@ -56,7 +56,13 @@
 					<img class="card-img-top" src="../resources/upload/${dto.mov_poster}" alt="" style="width:300px; height:300px;"/><br>
 					<span>${dto.mov_title }</span>										
 					<h2><a href="${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1" class="glyphicon glyphicon-search">상세보기</a></h2>
-					<h2><a href="${pageContext.request.contextPath }/여기에 url입력해주세요" class="glyphicon glyphicon-search">예약</a></h2>
+					<form action="../reserve/reserveuser" name="frm1">
+					<input type="hidden" name="mov_num" value="${dto.mov_num }">
+					<input type="hidden" name="mov_poster" value="${dto.mov_poster }">
+					<button type="submit" id="aa">예매하기</button>
+					<!-- <h2><a href="javascript:frm1.submit();" class="glyphicon glyphicon-search">예약</a></h2> -->
+					</form>
+					
 					</div>
 				</c:forEach>
 			</c:otherwise>
