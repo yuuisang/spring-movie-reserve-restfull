@@ -3,12 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%--
-<% int uid = (int)session.getAttribute("mem_uid"); %>
-<script>var uid = <%= uid %>;</script>
+<% 
+	if(session.getAttribute("mem_uid") != null){
+		int uid = (int)session.getAttribute("mem_uid"); 		
+		%><script>var uid = <%= uid %>; alert(uid);</script>
 
- --%>
- <script>var uid = 1;</script>
  
 <!DOCTYPE html>
 <html>
@@ -48,3 +47,8 @@
 
 </body>
 </html>
+
+<% } else{%>
+	<script>alert("로그인이 필요합니다"); location.href="../login"</script>
+	<%}
+%>

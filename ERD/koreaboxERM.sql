@@ -299,6 +299,7 @@ SELECT * FROM tb_reserve;
 SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_COMMENT;
 
+INSERT INTO TB_MEMBER values(0,'admin','1234','관리자','1993-10-03','010-1111-1111','admin@naver.com',sysdate);
 INSERT INTO TB_MEMBER values(1,'test1','1234','유의상','1993-10-03','010-1234-1234','aaa@naver.com',sysdate);
 
 INSERT INTO TB_COMMENT values(0,2,'리뷰리뷰',sysdate,1,'이끼',1,'test1');

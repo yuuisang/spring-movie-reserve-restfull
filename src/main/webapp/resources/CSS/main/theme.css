@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+/*메뉴*/
+.navbar {
+    transition: all 0.4s;
+      height : 100px;
+
+	font-family: 'Noto Sans KR', sans-serif;
+  
+   
+}
+
+.navbar .nav-link {
+    color: black;
+    
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #000;
+    font-size: 30px;
+
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: #fff;
+  
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+        
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #555;
+    }
+}
+
+#themeDiv{
+	
+	margin-top: 50px;
+	
+}
+
+.text-small {
+    font-size: 0.9rem !important;
+}
+
+
+
+

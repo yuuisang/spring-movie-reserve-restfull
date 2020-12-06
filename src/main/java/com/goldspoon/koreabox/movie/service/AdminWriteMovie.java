@@ -20,26 +20,73 @@ public class AdminWriteMovie implements Service{
 	@Override
 	public void execute(Model model) {
 		MovieAdminDTO dto = (MovieAdminDTO)model.getAttribute("dto");
-//		BWriteDAO dao = new BWriteDAO();
-//		int result = dao.insert(dto);
-		
-		String mov_title = (String)model.getAttribute("mov_title");
-		String mov_director = (String)model.getAttribute("mov_director");
-		String mov_actors = (String)model.getAttribute("mov_actors");
-		String mov_genre = (String)model.getAttribute("mov_genre");
-		int mov_runtime = (Integer)model.getAttribute("mov_runtime");
-		String mov_openDate = (String)model.getAttribute("mov_openDate");
-		String mov_grade = (String)model.getAttribute("mov_grade");
-		String mov_intro = (String)model.getAttribute("mov_intro");
-		String mov_poster = (String)model.getAttribute("mov_poster");
-		String mov_still1 = (String)model.getAttribute("mov_still1");
-		String mov_still2 = (String)model.getAttribute("mov_still2");
-		String mov_still3 = (String)model.getAttribute("mov_still3");
-		
-		
-		
 		// MyBatis 사용
 		MovieAdminDAO dao = Common.sqlSession.getMapper(MovieAdminDAO.class);
+		
+		String mov_title = "";
+		String mov_director = "";
+		String mov_actors = "";
+		String mov_genre = "";
+		int mov_runtime = 0;
+		String mov_openDate = "";
+		String mov_grade = "";
+		String mov_intro = "";
+		String mov_poster = "";
+		String mov_still1 = "";
+		String mov_still2 = "";
+		String mov_still3 = "";
+		
+		try {
+			mov_title = (String)model.getAttribute("mov_title");
+			mov_director = (String)model.getAttribute("mov_director");
+			mov_actors = (String)model.getAttribute("mov_actors");
+			mov_genre = (String)model.getAttribute("mov_genre");
+			mov_runtime = (Integer)model.getAttribute("mov_runtime");
+			mov_openDate = (String)model.getAttribute("mov_openDate");
+			mov_grade = (String)model.getAttribute("mov_grade");
+			mov_intro = (String)model.getAttribute("mov_intro");
+			mov_poster = (String)model.getAttribute("mov_poster");
+			mov_still1 = (String)model.getAttribute("mov_still1");
+			mov_still2 = (String)model.getAttribute("mov_still2");
+			mov_still3 = (String)model.getAttribute("mov_still3");
+			
+		} catch (Exception e) {
+			model.addAttribute("error", 0);
+		}
+
+		
+		if (mov_title != null && mov_director != null && mov_actors != null && mov_genre != null && mov_runtime != 0
+				&& mov_openDate != null && mov_grade != null && mov_intro != null && mov_poster != null
+				&& mov_still1 != null && mov_still2 != null && mov_still3 != null && mov_title.trim().length() > 0
+				&& mov_director.trim().length() > 0 && mov_actors.trim().length() > 0 && mov_genre.trim().length() > 0
+				&& mov_openDate.trim().length() > 0 && mov_grade.trim().length() > 0 && mov_intro.trim().length() > 0
+				&& mov_poster.trim().length() > 0 && mov_still1.trim().length() > 0 && mov_still2.trim().length() > 0
+				&& mov_still3.trim().length() > 0) {
+			System.out.println("mov_intro : " + mov_intro +"-------------------");
+			try {
+				model.addAttribute("result", dao.insert(
+						mov_title,
+						mov_director,
+						mov_actors,
+						mov_genre,
+						mov_runtime,
+						mov_openDate,
+						mov_grade,
+						mov_intro,
+						mov_poster,
+						mov_still1,
+						mov_still2,
+						mov_still3
+						));
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+			model.addAttribute("error", 1);
+		}
+		
+
 		
 //		dto.setMov_countStar((Integer)dto.getMov_countStar());
 //		dto.setMov_runtime((Integer)dto.getMov_runtime());
@@ -61,26 +108,7 @@ public class AdminWriteMovie implements Service{
 		
 		
 //		System.out.println(dto.toString());
-		System.out.println("mov_intro : " + mov_intro +"-------------------");
-		try {
-			model.addAttribute("result", dao.insert(
-					mov_title,
-					mov_director,
-					mov_actors,
-					mov_genre,
-					mov_runtime,
-					mov_openDate,
-					mov_grade,
-					mov_intro,
-					mov_poster,
-					mov_still1,
-					mov_still2,
-					mov_still3
-					));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
 		
 		// auto-generated 된 uid 값 확인
 //		System.out.println("생성된 uid 는" + dto.getMov_num());

@@ -10,11 +10,23 @@
 			history.back();
 		</script>
 	</c:when>
-
+	<c:when test="${error == 1 }">
+		<script>
+			alert("빈칸을 입력해 주세요");
+			history.back();
+		</script>
+	</c:when>
+	
+	<c:when test="${error == 0 }">
+		<script>
+			alert("러닝타임은 숫자로 입력해 주세요");
+			history.back();
+		</script>
+	</c:when>
 	<c:otherwise>
 		<script>
 			alert("등록 성공, 리스트를 출력합니다");
-			location.href = "${pageContext.request.contextPath }/movieAdmin/managementMovie?page=1";
+			location.href = "${pageContext.request.contextPath }/movieAdmin/managementMovie";
 		</script>
 	</c:otherwise>
 </c:choose>
