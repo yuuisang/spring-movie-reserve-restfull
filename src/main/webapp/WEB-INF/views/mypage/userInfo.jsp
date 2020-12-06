@@ -6,7 +6,7 @@
 <% 
 	if(session.getAttribute("mem_uid") != null){
 		int uid = (int)session.getAttribute("mem_uid"); 		
-		%><script>var uid = <%= uid %>; alert(uid);</script>
+		%><script>var uid = <%= uid %>;</script>
 
  
 <!DOCTYPE html>

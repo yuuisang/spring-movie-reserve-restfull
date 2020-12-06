@@ -1,5 +1,6 @@
 var data_aa;	// ajax reserveuser (showinfo tb)
 var seatbtn_bool = 1;
+
 /*var nullchk = $("#mov_time option:selected").attr('value') == null || $("#mov_time option:selected").attr('value2') == null
 || $("#mov_peoplecnt option:selected").attr('value') == null || $("#mov_time option:selected").attr('value') == '' 
 	|| $("#mov_time option:selected").attr('value2') == '' || $("#mov_peoplecnt option:selected").attr('value') == '';*/
@@ -82,6 +83,7 @@ $(document).ready(function(){
 
 //page번째 목록 읽어오기
 function loadPage(mov_num){
+	
 	$.ajax({
 		//url : "view.ajax?uid=" + $(this).attr('data-uid'),
 		url : "../reserveuser/" + mov_num,
@@ -435,8 +437,8 @@ function reservenow(reserveCnt) {
 
 function reservefinal(final) {
 	var screenNum;
-	
 	if(final){
+		
 		
 		for (var i = 0; i < data_aa.data.length; i++) {
 			if (data_aa.data[i].shw_movieNum == mov_num
@@ -458,13 +460,13 @@ function reservefinal(final) {
 		param += "&res_seat=" + $("#seatnumplus").text();
 		param += "&res_totalPeople="
 				+ $("#mov_peoplecnt option:selected").attr('value');
-		param += "&res_memberUid=" + "1";
-		param += "&res_memberId=" + "wendyyi";
+		param += "&res_memberUid=" + mem_uid;
+		param += "&res_memberId=" + mem_id;
 		param += "&res_pay=" + $("#pay").text().replace("원", "");
 		param += "&res_code=" + $("#mov_time option:selected").attr('value')
 				+ $('#selectdate').text().replace(/-/g, "")
 				+ $("#mov_time option:selected").attr('value2') + 1;
-
+		
 		$.ajax({
 			url : "../reserveuser",
 			type : "POST",
