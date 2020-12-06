@@ -276,21 +276,6 @@ COMMENT ON COLUMN tb_showinfo.shw_regDate IS '상영 등록일';
 COMMENT ON COLUMN tb_showinfo.shw_expireFlag IS '상영 만료 플래그(1이면 상영만료)';
 
 
-INSERT INTO TB_MOVIE
-VALUES (0, '이끼','봉준호','이병헌,김범수,조인성,신민아','스릴러',120, '2020-12-30', '등급미정', '줄거리줄거리줄거리' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
-
-INSERT INTO TB_MOVIE
-VALUES (1, '7번방의선물','류승범','김민희,박선영,강하늘,아이유','로맨스',150, '2020-12-28', '등급미정', '줄거리줄거리줄거리~~~' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
-
-INSERT INTO TB_MOVIE
-VALUES (2, '이끼','장항준','소지섭,권상우,한고은,박시연','로맨스',110, '2020-12-04', '등급미정', '줄거리줄거리줄거리~~11~' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
-
-INSERT INTO TB_MOVIE
-VALUES (3, '어벤저스','유의상','로다주,오이형,외계인,너구리','SF',180, '2020-11-30', '등급미정', '줄거리줄거리줄거리~~1ㅁㅁㅁ1~' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
-
-INSERT INTO TB_MOVIE
-VALUES (4, '신과함께','호날두','메시,손흥민,아구에로,드록바','액션',130, '2020-12-01', '등급미정', '줄거리줄거리줄거리~~1ㅁㅁㅁ1~' ,0,0,0,SYSDATE,'미정','미정','미정','미정');
-
 SELECT * FROM tabs;
 SELECT * FROM TB_MOVIE;
 SELECT * FROM TB_RESERVE;
@@ -301,19 +286,9 @@ SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_COMMENT;
 
 INSERT INTO TB_MEMBER values(0,'admin','1234','관리자','1993-10-03','010-1111-1111','admin@naver.com',sysdate);
-INSERT INTO TB_MEMBER values(1,'test1','1234','유의상','1993-10-03','010-1234-1234','aaa@naver.com',sysdate);
-
-INSERT INTO TB_COMMENT values(0,2,'리뷰리뷰',sysdate,1,'이끼',1,'test1');
-
-INSERT INTO TB_RESERVE (RES_NUM ,RES_MOVIENUM ,RES_MOVIENAME ,RES_SCREENNUM ,RES_SCREENNAME ,RES_DATE ,RES_TIME ,RES_SEAT ,RES_TOTALPEOPLE ,
-RES_MEMBERUID ,RES_MEMBERID ,RES_PAYTIME ,RES_PAY ,RES_CODE )
-VALUES (SEQ_tb_reserve_res_num.nextval, 1,'7번방의선물',102,'A','2020-12-05', 19, '4번',1,1,'TESTID',SYSDATE,9000,'A2020120415');
-
-INSERT INTO TB_RESERVE (RES_NUM ,RES_MOVIENUM ,RES_MOVIENAME ,RES_SCREENNUM ,RES_SCREENNAME ,RES_DATE ,RES_TIME ,RES_SEAT ,RES_TOTALPEOPLE ,
-RES_MEMBERUID ,RES_MEMBERID ,RES_PAYTIME ,RES_PAY ,RES_CODE )
-VALUES (SEQ_tb_reserve_res_num.nextval, 1,'7번방의선물',102,'A','2020-12-05', 15, '4번',1,2,'TESTID',SYSDATE,9000,'A2020120415');
 
 DELETE FROM TB_RESERVE;
 DELETE FROM TB_SHOWINFO;
 DELETE FROM TB_MEMBER;
+DELETE FROM TB_MOVIE;
 

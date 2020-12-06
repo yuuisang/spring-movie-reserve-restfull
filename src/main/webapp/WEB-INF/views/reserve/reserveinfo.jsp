@@ -13,6 +13,8 @@
 <script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveinfo.js"></script>
 </head>
 <body>
+
+	
 	<h2>예매 관리 목록</h2>
 
 	

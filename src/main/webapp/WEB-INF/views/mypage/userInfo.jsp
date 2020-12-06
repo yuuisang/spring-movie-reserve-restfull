@@ -4,9 +4,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% 
-	if(session.getAttribute("mem_uid") != null){
+	if((int)session.getAttribute("mem_uid") != 0){
 		int uid = (int)session.getAttribute("mem_uid"); 		
-		%><script>var uid = <%= uid %>; alert(uid);</script>
+%><script>var uid = <%= uid %>;</script>
 
  
 <!DOCTYPE html>
@@ -20,6 +20,7 @@
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 </head>
 <body>
+
 
 <div class="container">
 	

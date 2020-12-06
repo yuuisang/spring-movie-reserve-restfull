@@ -47,6 +47,8 @@ public class LoginCommand implements Command{
 				result = 1;
 				session.setAttribute("mem_uid", loginDto.getMem_uid());
 				session.setAttribute("mem_id", loginDto.getMem_id());
+				System.out.println(session.getAttribute("mem_id"));
+				System.out.println(session.getAttribute("mem_uid"));
 				model.addAttribute("mem_uid", loginDto.getMem_uid());
 				model.addAttribute("mem_id", loginDto.getMem_id());
 				model.addAttribute("result", result);

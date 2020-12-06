@@ -9,6 +9,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
+<%
+	int uid = (int) session.getAttribute("mem_uid");
+	String id = (String) session.getAttribute("mem_id");
+	int mov_num = Integer.parseInt(request.getParameter("mov_num"));
+	String mov_poster = request.getParameter("mov_poster");
+	System.out.println("user id : " + id);
+	System.out.println("user uid : " + uid);
+%>
+
+	<script>
+	var mem_uid = <%=uid%>;
+	var mem_id = "<%=id%>";
+	var mov_num = <%= mov_num %>;
+	var mov_poster = "<%= mov_poster %>";
+	var path = "${pageContext.request.contextPath }";
+	</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,15 +37,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<% int mov_num = Integer.parseInt(request.getParameter("mov_num")); %>
-<% String mov_poster = request.getParameter("mov_poster"); 
-%>
 
-<script>
-	var path = "${pageContext.request.contextPath }";
-	var mov_num = <%= mov_num %>
-	var mov_poster = <%= mov_poster %>
-</script>
+	
 
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
 	<div id="dateChk" class="modal">
@@ -116,4 +128,5 @@
 <script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveuser.js"></script>
 </body>
 </html>
+
 
