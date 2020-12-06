@@ -16,7 +16,7 @@
 <div id="container">
 
 	<div id="title">
-		<h2>상영 정보 목록</h2>
+		<h2>상영 스케줄 관리</h2>
 	</div>
 	
 	<div id="regist">
@@ -59,8 +59,8 @@
 <div id="dlg_write" class="modal">
 	<form class="modal-content animate" id="frmWrite" name="frmWrite" method="post">
 		<div class="container">      
-			<div>
-				<h3 id="showScheduleTitle">상영시간표</h3>
+			<div id="showScheduleTitle">
+				<!-- JS -->
 			</div>
 			
 			<span class='close' title="Close Modal">&times;</span>
