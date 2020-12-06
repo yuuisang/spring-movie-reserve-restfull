@@ -2,28 +2,35 @@ package com.goldspoon.koreabox.mypage.command;
 
 import org.springframework.ui.Model;
 
-import com.goldspoon.koreabox.showinfo.ShowInfoQuery;
-import com.goldspoon.koreabox.showinfo.beans.IAjaxDAO;
-import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
+import com.goldspoon.koreabox.mypage.MyPageQuery;
+import com.goldspoon.koreabox.mypage.beans.IAjaxDAO;
+import com.goldspoon.koreabox.mypage.beans.UserInfoDTO;
+
 
 public class UserInfoDeleteCommand implements UserInfoCommand {
 
 	@Override
 	public void execute(Model model) {
-		IAjaxDAO dao = ShowInfoQuery.sqlSession.getMapper(IAjaxDAO.class);
+		IAjaxDAO dao = MyPageQuery.sqlSession.getMapper(IAjaxDAO.class);
 		
-		ShowInfoDTO dto = (ShowInfoDTO)model.getAttribute("dto");
+		UserInfoDTO dto = (UserInfoDTO)model.getAttribute("dto");
 	
 		StringBuffer message = new StringBuffer();
 		String status = "FAIL";
 		
 		int cnt = 0;
+		int cnt2 = 0;
+		int cnt3 = 0;
 		try {		
 			cnt = dao.deleteByNum(dto);
+			cnt2 = dao.deleteResByNum(dto);
+			cnt3 = dao.deleteCommByNum(dto);
 			status = "OK";
 			
-			// cnt 가 0 이면 Arithmetic 에러 catchㄱㄱ
+			// cnt 가 0 이면 Arithmetic 에러 catch
 			int chkResult = 1 / cnt;
+			int chkResult2 = 1 / cnt2;
+			int chkResult3 = 1 / cnt3;
 		} catch(Exception e) {
 			e.printStackTrace();
 			message.append("[에러: " + e.getMessage() + "]");

@@ -1,7 +1,7 @@
 package com.goldspoon.koreabox.mypage;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MyPageQuery {
 	

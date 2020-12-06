@@ -3,6 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%--
+<% int uid = (int)session.getAttribute("mem_uid"); %>
+<script>var uid = <%= uid %>;</script>
+
+ --%>
+ <script>var uid = 1;</script>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,23 +23,27 @@
 <body>
 
 <div class="container">
-
-	<div id="title">
-		<h2>개인정보수정</h2>
-	</div>
 	
-	<div class="containerInner">
-	
-		<div id="userUpdate">
-				
+	<div id="userUpdate">
+		<div id="title1">
+			<h2>회원정보수정</h2>
 		</div>
-		
-		<div id="userDelete">
-			
+		<div id="initUpdate">
+			<!-- JS에서처리 -->
 		</div>
 		
 	</div>
 	
+	<div id="userDelete">
+		<div id="title2">
+			<h2>회원탈퇴</h2>
+		</div>
+		<div id="initDelete">
+			<!-- JS에서처리 -->
+		</div>
+		
+	</div>
+		
 </div>
 
 </body>

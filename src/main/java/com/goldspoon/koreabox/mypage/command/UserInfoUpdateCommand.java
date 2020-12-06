@@ -2,9 +2,9 @@ package com.goldspoon.koreabox.mypage.command;
 
 import org.springframework.ui.Model;
 
-import com.goldspoon.koreabox.showinfo.ShowInfoQuery;
-import com.goldspoon.koreabox.showinfo.beans.IAjaxDAO;
-import com.goldspoon.koreabox.showinfo.beans.ShowInfoDTO;
+import com.goldspoon.koreabox.mypage.MyPageQuery;
+import com.goldspoon.koreabox.mypage.beans.IAjaxDAO;
+import com.goldspoon.koreabox.mypage.beans.UserInfoDTO;
 
 
 public class UserInfoUpdateCommand implements UserInfoCommand {
@@ -13,11 +13,11 @@ public class UserInfoUpdateCommand implements UserInfoCommand {
 	@Override
 	public void execute(Model model) {
 		// Model 안에 담긴 값(attribute) 꺼내기
-				ShowInfoDTO dto = (ShowInfoDTO)model.getAttribute("dto");
+				UserInfoDTO dto = (UserInfoDTO)model.getAttribute("dto");
 				System.out.println("커맨드DTO : " + dto);
 				
 				// MyBatis 사용
-				IAjaxDAO dao = ShowInfoQuery.sqlSession.getMapper(IAjaxDAO.class);
+				IAjaxDAO dao = MyPageQuery.sqlSession.getMapper(IAjaxDAO.class);
 				
 				// response 에 필요한 값들
 				StringBuffer message = new StringBuffer();

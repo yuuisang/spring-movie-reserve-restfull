@@ -2,67 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goldspoon.koreabox.mypage.beans.IAjaxDAO">
 
-	<!--
-
-	<select id="selectFromRow" resultType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
+	<select id="selectByNum" resultType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
 		<![CDATA[
 		SELECT
-			shw_num,
-			shw_movieNum,
-			shw_movieName,
-			shw_screenNum,
-			shw_screenName,
-			shw_date,
-			shw_time,
-			shw_seatCnt,
-			shw_seatRow,
-			shw_seatLine,
-			shw_regDate,
-			shw_expireFlag
+			mem_uid,
+			mem_id,
+			mem_pw,
+			mem_name,
+			mem_birth,
+			mem_phone,
+			mem_email,
+			mem_regDate
 		FROM 
-			(SELECT ROWNUM AS RNUM, T.* FROM 
-				(SELECT * FROM tb_mypage ORDER BY shw_num DESC) T) 
+			tb_member
 		WHERE 
-			RNUM >= #{from} AND RNUM < (#{from} + #{pageRows})		
+			mem_uid = #{param1}	
 		]]>
 	</select>
-	
-	
-	<select id="countAll" resultType="int">
-		SELECT count(*) FROM tb_mypage
-	</select>
-
-
-	<insert id="insert" flushCache="true" 
-		parameterType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
-		INSERT INTO tb_mypage
-			(
-			shw_num,shw_movieNum,shw_movieName,shw_screenNum,shw_screenName,shw_date,
-			shw_time,shw_seatCnt,shw_seatRow,shw_seatLine,shw_regDate,shw_expireFlag
-			)
-		VALUES
-			(
-			SEQ_tb_mypage_shw_num.nextval, 
-			#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7, jdbcType=NUMERIC}, #{param8, jdbcType=NUMERIC}, #{param9, jdbcType=NUMERIC}, SYSDATE, 0
-			)
-	</insert>
+		
 	
 	<update id="updateOk" flushCache="true"
 		parameterType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
-		UPDATE tb_mypage
-		SET shw_movieNum = #{shw_movieNum}, shw_movieName = #{shw_movieName}
-		WHERE shw_num = #{shw_num}
+		
+		UPDATE tb_member
+		SET mem_pw = #{mem_pw}, mem_phone = #{mem_phone}
+		WHERE mem_uid = #{mem_uid}
+		
 	</update>
 
 
 	 <delete id="deleteByNum" flushCache="true"
 	 	parameterType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
-	 
+	 	
 	 	DELETE FROM tb_member
-	 	WHERE shw_num = #{shw_num}
+	 	WHERE mem_uid = #{mem_uid}
+	 	
 	 </delete>
 	 
-	 -->
+	 
+	 <delete id="deleteResByNum" flushCache="true"
+	 	parameterType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
+	 	
+	 	DELETE FROM tb_reserve
+	 	WHERE res_memberUid = #{mem_uid}
+	 	
+	 </delete>
+	 
+	 <delete id="deleteCommByNum" flushCache="true"
+	 	parameterType="com.goldspoon.koreabox.mypage.beans.UserInfoDTO">
+	 	
+	 	DELETE FROM tb_comment
+	 	WHERE cmt_memberUid = #{mem_uid}
+	 	
+	 </delete>
+	 
 	 
 	 
 </mapper>
