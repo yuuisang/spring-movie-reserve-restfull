@@ -13,7 +13,7 @@ public class MovieUserDTO {
 	private String mov_actors;
 	private String mov_genre;
 	private int mov_runtime;
-	private Date mov_openDate;
+	private String mov_openDate;
 	private String mov_grade;
 	private String mov_intro;
 	private int mov_totalStar;

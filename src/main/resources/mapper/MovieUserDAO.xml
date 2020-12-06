@@ -2,57 +2,110 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goldspoon.koreabox.movie.beans.MovieUserDAO">
 
-	<select id="select" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
-		SELECT mov_num mov_num, mov_title mov_title,
-			mov_poster mov_poster, mov_openDate mov_openDate
-		FROM tb_movie ORDER 
-		BY mov_num DESC
-	</select>
-	
-	<select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
-		SELECT mov_num mov_num, mov_title mov_title, mov_director mov_director, 
-			mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
-			mov_openDate mov_openDate, mov_grade mov_grade, mov_intro mov_intro,
-			mov_poster mov_poster, mov_still1 mov_still1, mov_still2 mov_still2,
-			mov_totalStar mov_totalStar, mov_countStar mov_countStar,
-			mov_still3 mov_still3
-		FROM tb_movie WHERE mov_num= #{mov_num}
-	</select>
-	
-	<select id="openBeforeList" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
-	<![CDATA[
-		SELECT mov_num mov_num, mov_title mov_title,
-			mov_poster mov_poster, mov_openDate mov_openDate
-   			FROM tb_movie
-    	WHERE TO_CHAR(mov_openDate, 'YYYYMMDD') > TO_CHAR(sysdate, 'YYYYMMDD')
-    	]]>	
-	</select>
-	
-	<select id="openMovieNum" resultType="com.goldspoon.koreabox.movie.beans.ShowInfoDTO">
-		SELECT shw_movieNum 
-		FROM tb_showinfo 
-		ORDER BY shw_movieNum DESC
-	</select>
-	
-	<select id="openMovieList" 
-	resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO" 
-	parameterType="java.util.ArrayList">
-		SELECT mov_num mov_num, mov_title mov_title,
-			mov_poster mov_poster, mov_openDate mov_openDate
-			FROM tb_movie
-		WHERE mov_num IN (
-			<foreach collection="array" item="item" index="index" separator=",">
-				${item}
-			</foreach>
-			)
-	</select>
-	
-	<update id="updateRating" flushCache="true">
-		UPDATE tb_movie SET mov_totalStar = mov_totalStar+#{star_rating} WHERE mov_num = #{mov_num}
-	</update>
-	
-	<update id="ratingCnt" flushCache="true">
-		UPDATE tb_movie SET mov_countStar = mov_countStar + 1 WHERE mov_num = #{mov_num}
-	</update>
+   <select id="select" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+      SELECT mov_num mov_num, mov_title mov_title,
+         mov_poster mov_poster, mov_openDate mov_openDate
+      FROM tb_movie ORDER 
+      BY mov_num DESC
+   </select>
+   
+   <select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+      SELECT mov_num mov_num, mov_title mov_title, mov_director mov_director, 
+         mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
+         mov_openDate mov_openDate, mov_grade mov_grade, mov_intro mov_intro,
+         mov_poster mov_poster, mov_still1 mov_still1, mov_still2 mov_still2,
+         mov_totalStar mov_totalStar, mov_countStar mov_countStar,
+         mov_still3 mov_still3
+      FROM tb_movie WHERE mov_num= #{mov_num}
+   </select>
+   
+   <select id="openBeforeList" resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO">
+   <![CDATA[
+      SELECT mov_num mov_num, mov_title mov_title,
+         mov_poster mov_poster, mov_openDate mov_openDate
+            FROM tb_movie
+       WHERE mov_openDate > TO_CHAR(sysdate, 'YYYY-MM-DD')
+       ]]>   
+   </select>
+   
+   <select id="openMovieNum" resultType="com.goldspoon.koreabox.movie.beans.ShowInfoDTO">
+      SELECT shw_movieNum 
+      FROM tb_showinfo 
+      ORDER BY shw_movieNum DESC
+   </select>
+   
+   <select id="openMovieList" 
+   resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO" 
+   parameterType="java.util.ArrayList">
+      SELECT mov_num mov_num, mov_title mov_title,
+         mov_poster mov_poster, mov_openDate mov_openDate
+         FROM tb_movie
+      WHERE mov_num IN (
+         <foreach collection="array" item="item" index="index" separator=",">
+            ${item}
+         </foreach>
+         )
+   </select>
+   
+   <select id="starRatingSearch" resultType="int">
+      SELECT cmt_star cmt_star
+      FROM tb_comment WHERE cmt_num = #{param1}
+   </select>
+   
+   <update id="starRatingUpdate" flushCache="true"
+         parameterType="com.goldspoon.koreabox.movie.beans.CommentDTO">
+      UPDATE tb_movie SET mov_totalStar = mov_totalStar+#{cmt_star} WHERE mov_num = #{cmt_movieNum}
+   </update>
+   
+   <update id="starRatingCnt" flushCache="true">
+      UPDATE tb_movie SET mov_countStar = mov_countStar + 1 WHERE mov_num = #{mov_num}
+   </update>
+   
+   <insert id="commentWrite" flushCache="true">
+      INSERT INTO tb_comment
+         (cmt_num, cmt_star, cmt_content, cmt_regDate, cmt_movieNum,
+         cmt_movieName, cmt_memberUid, cmt_memberId)
+      VALUES
+         (SEQ_tb_comment_cmt_num.nextval, #{cwdto.cmt_star}, #{cwdto.cmt_content}, 
+         SYSDATE, #{cwdto.cmt_movieNum}, #{cwdto.cmt_movieName}, #{cwdto.cmt_memberUid}, 
+         #{cwdto.cmt_memberId}
+         )
+
+   </insert>
+   
+   <select id="commentList" resultType="com.goldspoon.koreabox.movie.beans.CommentDTO">
+   <![CDATA[
+      SELECT cmt_num cmt_num, cmt_star cmt_star,
+         cmt_content cmt_content, cmt_regDate cmt_regDate, 
+         cmt_movieNum cmt_movieNum, cmt_movieName cmt_movieName, 
+         cmt_memberUid cmt_memberUid, cmt_memberId cmt_memberId
+      FROM
+         (SELECT ROWNUM AS RNUM, T.* FROM 
+            (SELECT * FROM tb_comment ORDER BY cmt_regDate DESC) T) 
+      WHERE 
+         RNUM >= #{from} AND RNUM < (#{from} + 10) AND cmt_movieNum = #{param1}
+      ]]>   
+   </select>
+   
+   <select id="countAllComment" resultType="int">
+      SELECT count(*) FROM tb_comment WHERE cmt_movieNum = #{param1}
+   </select>
+
+   <delete id="commentDelete" flushCache="true">
+      DELETE FROM tb_comment WHERE cmt_num = #{param1}
+   </delete>
+   
+   <update id="starRatingDelete"  flushCache="true">
+      UPDATE tb_movie SET mov_totalStar = mov_totalStar-#{param1} 
+      WHERE mov_num = #{param2}
+   </update>
+   
+   <update id="starCntDelete" flushCache="true">
+      UPDATE tb_movie SET mov_countStar = mov_countStar - 1 WHERE mov_num = #{param1}
+   </update>
+   
+   <update id="commentUpdate" flushCache="true">
+      UPDATE tb_comment SET cmt_content = #{param1} WHERE cmt_num = #{param2}
+   </update>
 
 </mapper>

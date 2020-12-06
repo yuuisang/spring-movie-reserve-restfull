@@ -83,6 +83,33 @@
 
 
 
+	<!-- java mail pwSearch -->
+	<beans:bean id="mailSender"
+	class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<beans:property name="port" value="587" />
+	<beans:property name="defaultEncoding" value="utf-8" />
+	<beans:property name="username"
+		value="koreaBoxS2@gmail.com" />
+	<beans:property name="password" value="koreabox@1234" />
+
+	<beans:property name="javaMailProperties">
+		<beans:props>
+			<beans:prop key="mail.smtp.host">smtp.gmail.com</beans:prop>
+			<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+			<beans:prop key="mail.smtp.auth">true</beans:prop>
+			<beans:prop key="mail.smtp.debug">true</beans:prop>
+
+		</beans:props>
+	</beans:property>
+
+	</beans:bean>
+	
+	
+	<beans:bean id="email" class="com.goldspoon.koreabox.email.Email">
+    </beans:bean>
+    <beans:bean id="emailSender" class="com.goldspoon.koreabox.email.EmailSender">
+    </beans:bean>
+
 
 
 </beans:beans>
