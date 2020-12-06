@@ -18,19 +18,11 @@ let date = today.getDate();  // 날짜
 
 
 
-
-var chk_todayAdd = year+month+date;
-
 let hours = today.getHours(); // 시
 let minutes = today.getMinutes();  // 분
 let seconds = today.getSeconds();  // 초
 let milliseconds = today.getMilliseconds(); // 밀리초
 
-var chk_nowTime = hours;
-
-// 페이지 최초 로딩되면 게시글 목록 첫페이지분 로딩
-// [이전] 버튼 눌렀을때 -> 이전 페이지 게시글목록 로딩
-// [다음] 버튼 눌렀을때 -> 다음 페이지 게시글목록 로딩
 
 
 $(document).ready(function(){
@@ -43,6 +35,47 @@ $(document).ready(function(){
     	//loadPage(1);
         $(this).parents(".modal").hide();
     });
+    
+    
+    
+
+    // 이전날
+    $(document).on("click","#btnBack",function(event){
+    	$(".modal .close").trigger("click");
+    	
+    	// 비교할 실제로컬 날짜
+    	todayChk = new Date();
+    	let yearChk = today.getFullYear(); // 년도
+    	let monthChk = today.getMonth() + 1;  // 월
+    	let dateChk = today.getDate();  // 날짜
+    	
+    	if(date >= dateChk){
+    		date = date - 1;
+    		setPopup(data_shw);    		
+    	}else{
+    		alert('스케줄 설정은 오늘기준 내일/모레 까지 가능합니다.');
+    	}
+    });
+    
+    // 다음날
+    $(document).on("click","#btnNext",function(event){
+    	$(".modal .close").trigger("click");
+    	
+    	// 비교할 실제로컬 날짜
+    	todayChk = new Date();
+    	let yearChk = today.getFullYear(); // 년도
+    	let monthChk = today.getMonth() + 1;  // 월
+    	let dateChk = today.getDate();  // 날짜
+    	
+    	if(date <= dateChk + 2){
+    		date = date + 1;
+    		setPopup(data_shw);    		
+    	}else{
+    		alert('스케줄 설정은 오늘기준 내일/모레 까지 가능합니다.');
+    	}
+    });
+    
+    
     
     
     // 스케줄 등록버튼클릭
@@ -311,7 +344,9 @@ $(document).ready(function(){
 		
 		
 	}); // end deleteOk()
-
+    
+    
+    
     
 });
 
@@ -495,8 +530,14 @@ function setPopup(jsonObj){
 			        }else{
 			        	
 			        	data_scr_mov = data;
+			        	
+			        	var topResult = "";
+			        		topResult += "<br><br><button type='button' id='btnBack'>Back</button>&nbsp&nbsp&nbsp"
+			        					+ "<span>"+ chk_today + " 상영시간표</span>&nbsp&nbsp&nbsp"
+			        					+ "<button type='button' id='btnNext'>Next</button><br><br>";
 
-						$("#showScheduleTitle").html("<h3>"+ chk_today + " 상영시간표</h3>");
+			        	
+						$("#showScheduleTitle").html(topResult);
 						makeDefTable();
 						
 						if(data.scr_shwInfo.length != 0){

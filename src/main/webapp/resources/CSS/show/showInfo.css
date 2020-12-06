@@ -176,6 +176,10 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 #showScheduleTitle{
 	text-align: center;
 }
+#showScheduleTitle span{
+	font-size: 20px;
+	font-weight: bold;
+}
 
 #showScheduleTableModal tbody td{
 	height: 130px;
