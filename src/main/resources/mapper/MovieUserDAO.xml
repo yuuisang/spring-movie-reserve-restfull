@@ -108,4 +108,7 @@
       UPDATE tb_comment SET cmt_content = #{param1} WHERE cmt_num = #{param2}
    </update>
 
+	<select id="commentUserChk" resultType="int">
+		SELECT cmt_num FROM tb_comment WHERE cmt_movieNum = #{param1} AND cmt_memberUid = #{param2}
+	</select>
 </mapper>

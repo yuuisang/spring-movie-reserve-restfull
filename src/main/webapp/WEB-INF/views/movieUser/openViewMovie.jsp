@@ -206,7 +206,11 @@
 			</div>
 		</div>
 		
-
+    <%
+	// 현재 로그인 상태인지 확인
+	if(session.getAttribute("mem_id") != null){
+	String mem_id = (String)session.getAttribute("mem_id");
+	%>
 		<!-- 평점 / 리뷰 쓰는 곳 -->
 		<div class="row" id="box4">
 			<div class="col-md-12 text-center">
@@ -244,7 +248,7 @@
 						</div>
 				
 			</div>
-		
+		<% } %>
 		<div class="row" id="box5">
 			<div class="col-md-12">
 			<div class="col-sm-12 text-left">
@@ -310,8 +314,11 @@
               <p>${dto.cmt_content }</p>
       		  </div>
       		  <div align="right" id = "reviewBtn">
+      		  
+			<c:if test="${mem_uid == dto.cmt_memberUid }">
 				<button type="button" class="btn btn-outline-danger" onclick="location.href='commentDeleteOk?cmt_num=${dto.cmt_num}&cmt_movieNum=${dto.cmt_movieNum }'">삭제</button>
 				<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#updateModal${status.index}">수정</button>
+			</c:if>
 			  </div>
 						<form action="commentUpdateOk">
 							<div class="modal fade" id="updateModal${status.index}">

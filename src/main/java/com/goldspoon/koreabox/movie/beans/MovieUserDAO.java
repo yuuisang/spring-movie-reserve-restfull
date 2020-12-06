@@ -28,4 +28,6 @@ public interface MovieUserDAO {
 	public int updateRating(@Param("mov_num") int mov_num, @Param("star_rating") int star_rating);
 	public int ratingCnt(int mov_num);
 	public int countAllComment(int mov_num);
+	
+	public Integer commentUserChk(int cmt_movieNum, int cmt_memberUid);
 }

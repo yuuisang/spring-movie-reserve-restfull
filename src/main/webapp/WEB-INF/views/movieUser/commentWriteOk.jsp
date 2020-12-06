@@ -22,6 +22,12 @@
 			location.href = "${pageContext.request.contextPath }/login";
 		</script>
 	</c:when>
+	<c:when test="${error == 4 }">
+		<script>
+			alert("이미 댓글을 작성 하셨습니다.");
+			history.back();
+		</script>
+	</c:when>
 	<c:when test="${result == 0 }">
 		<script>
 			alert("등록실패 !!!");
