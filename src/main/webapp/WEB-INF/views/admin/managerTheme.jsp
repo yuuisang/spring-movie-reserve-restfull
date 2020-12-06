@@ -22,7 +22,7 @@
 	<header class="header">
 		<nav class="navbar navbar-expand-lg fixed-top ">
 			<div class="container">
-				<a href="#" class="navbar-brand text-uppercase font-weight-bold">KOREA
+				<a href="${pageContext.request.contextPath }/movieAdmin/managementMovie" class="navbar-brand text-uppercase font-weight-bold">KOREA
 					BOX</a>
 				<button type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
@@ -34,14 +34,14 @@
 
 				<div id="navbarSupportedContent" class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a href="#"
+						<li class="nav-item active"><a href="${pageContext.request.contextPath }/movieAdmin/managementMovie"
 							class="nav-link text-uppercase font-weight-bold">영화 관리 <span
 								class="sr-only">(current)</span></a></li>
-						<li class="nav-item"><a href="#"
+						<li class="nav-item"><a href="${pageContext.request.contextPath }/reserve/reserveinfo"
 							class="nav-link text-uppercase font-weight-bold">예매관리</a></li>
-						<li class="nav-item"><a href="#"
-							class="nav-link text-uppercase font-weight-bold">상영관리</a></li>
-						<li class="nav-item"><a href="#"
+						<li class="nav-item"><a href="${pageContext.request.contextPath }/show/showinfo"
+							class="nav-link text-uppercase font-weight-bold">상영스케줄관리</a></li>
+						<li class="nav-item"><a href="${pageContext.request.contextPath }/screen/screeninfo"
 							class="nav-link text-uppercase font-weight-bold">상영관 관리</a></li>
 						<li class="nav-item"><a href="#"
 							class="nav-link text-uppercase font-weight-bold">회원관리</a></li>
@@ -50,7 +50,7 @@
 						&nbsp;
 						<button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
 						&nbsp;
-						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}'">사용자 페이지</button>
+						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}'">일반사용자시점 페이지</button>
 					</ul>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 	</div>
 
 
-	<script type="text/javascript" src="JS/theme.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/JS/main/theme.js"></script>
 
 </body>
 </html>

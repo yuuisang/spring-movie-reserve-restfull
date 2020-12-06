@@ -38,6 +38,8 @@
 </head>
 <body>
 
+	
+
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
 	<div id="dateChk" class="modal">
 		<!-- <form class="modal-content animate" id="frmWrite" name="frmWrite" Method="POST"> -->
