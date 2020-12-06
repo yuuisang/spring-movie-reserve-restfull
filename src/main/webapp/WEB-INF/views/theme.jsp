@@ -62,7 +62,14 @@
 							</div></li>
 						<button type="button" class="btn btn-secondary btn-sm">${mem_id }</button>
 						&nbsp;
-						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>
+						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>&nbsp;
+						<%
+						if(session.getAttribute("mem_id").equals("admin")){
+						%>
+						<button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/movieAdmin/managementMovie'">관리자 페이지</button>
+						<%
+						}
+						%>
 					</ul>
 				</div>
 			</div>
