@@ -126,6 +126,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	height : 100%;
 	/* padding: 15px; */
 	position: relative;  /* 이래야 안에 있는 absolute 들이 동작 */
+	border : none;
 } 
 
 .modal .close {  /* close 버튼 */
