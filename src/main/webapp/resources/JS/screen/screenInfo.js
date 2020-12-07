@@ -1,3 +1,13 @@
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+});
+
 var page = 1;
 var pageRows = 10;
 var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
@@ -104,7 +114,7 @@ function updateList(jsonObj){
             result += "<td>" + items[i].scr_name + "</td>\n";
             result += "<td>" + items[i].scr_seatRow + "</td>\n";
             result += "<td>" + items[i].scr_seatLine + "</td>\n";
-            result += "<td><button type='submit' class='btn danger' id='btnDelete"+ items[i].scr_num +"'>삭제</button>" + "</td>\n";
+            result += "<td><button type='submit' class='btn btn-secondary btn-sm' id='btnDelete"+ items[i].scr_num +"'>삭제</button>" + "</td>\n";
             result += "</tr>\n";
         }
         $("#screenTable tbody").html(result);   // 목록 업데이트

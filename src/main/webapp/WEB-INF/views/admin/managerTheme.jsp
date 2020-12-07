@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- CSS파일 -->
-<link rel="stylesheet" href="${path}/resources/CSS/front/managerTheme.css">
+<link rel="stylesheet" href="${path}/resources/CSS/main/managerTheme.css">
 
 
 <title>Insert title here</title>
@@ -48,7 +48,7 @@
 						<!-- 관리자 버튼 자리 -->
 						<button type="button" class="btn btn-secondary btn-sm">관리자</button>
 						&nbsp;
-						<button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
+						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>
 						&nbsp;
 						<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='${path}'">일반사용자시점 페이지</button>
 					</ul>

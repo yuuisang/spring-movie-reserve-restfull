@@ -1,3 +1,13 @@
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+});
+
 var page = 1;
 var pageRows = 10;
 var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터

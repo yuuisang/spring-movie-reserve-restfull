@@ -30,7 +30,7 @@
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
 	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="${path }/resources/CSS/front/managerMemberList.css">
+	<link rel="stylesheet" type="text/css" href="${path }/resources/CSS/main/managerMemberList.css">
 	
 	<!-- 파비콘 설정-->
 	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
@@ -127,7 +127,7 @@
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="${path }/resources/JS/front/managerMemberList.js"></script>
+	<script type="text/javascript" src="${path }/resources/JS/main/managerMemberList.js"></script>
 </body>
 
 <script>

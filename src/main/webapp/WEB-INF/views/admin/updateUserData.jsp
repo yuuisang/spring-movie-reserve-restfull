@@ -24,8 +24,6 @@
 
 
 	
-	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="CSS/.css">
 	
 	<!-- 파비콘 설정-->
 	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
@@ -84,15 +82,13 @@
             <tr>
             <th></th>
             <td>
-            <div align="right">
-              <button type="button" class="btn btn-info btn-sm">탈퇴하기</button>     
-              </div>      
+                
              </td>
              </tr>
             <tr>
                 <td colspan="2">
-                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
                 <input type="submit" class="btn btn-primary" value="수정">
+                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
                 </td>
             </tr>
              
