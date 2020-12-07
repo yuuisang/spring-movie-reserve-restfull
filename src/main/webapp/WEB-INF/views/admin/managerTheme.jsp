@@ -44,7 +44,7 @@
 							class="nav-link text-uppercase font-weight-bold">상영스케줄관리</a></li>
 						<li class="nav-item"><a href="${pageContext.request.contextPath }/screen/screeninfo"
 							class="nav-link text-uppercase font-weight-bold">상영관 관리</a></li>
-						<li class="nav-item"><a href="#"
+						<li class="nav-item"><a href="${pageContext.request.contextPath }/admin/managerMemberList"
 							class="nav-link text-uppercase font-weight-bold">회원관리</a></li>
 						<!-- 관리자 버튼 자리 -->
 						<button type="button" class="btn btn-secondary btn-sm">관리자</button>

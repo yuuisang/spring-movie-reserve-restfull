@@ -1,3 +1,13 @@
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+});
+
 var page = 1;
 var pageRows = 10;
 var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
@@ -48,14 +58,20 @@ $(document).ready(function(){
     	let yearChk = today.getFullYear(); // 년도
     	let monthChk = today.getMonth() + 1;  // 월
     	let dateChk = today.getDate();  // 날짜
+    	var tempdate = date * 1; // date 넘버타입으로 바꿈
     	
-    	if(date >= dateChk){
-    		date = date - 1;
-    		setPopup(data_shw);    		
+    	if(date > dateChk){
+    		tempdate = tempdate - 1;
+    		date = tempdate;
+    		setPopup(data_shw); 
     	}else{
     		alert('스케줄 설정은 오늘기준 내일/모레 까지 가능합니다.');
+    		date = today.getDate();
+    		setPopup(data_shw);
     	}
+    	
     });
+    
     
     // 다음날
     $(document).on("click","#btnNext",function(event){
@@ -65,13 +81,17 @@ $(document).ready(function(){
     	todayChk = new Date();
     	let yearChk = today.getFullYear(); // 년도
     	let monthChk = today.getMonth() + 1;  // 월
-    	let dateChk = today.getDate();  // 날짜
+    	let dateChk = today.getDate();  // 날짜 기본 넘버타입
+    	var tempdate = date * 1; // date 넘버타입으로 바꿈
     	
-    	if(date <= dateChk + 2){
-    		date = date + 1;
+    	if(tempdate <= dateChk + 2){
+    		tempdate = tempdate + 1;
+    		date = tempdate;
     		setPopup(data_shw);    		
     	}else{
     		alert('스케줄 설정은 오늘기준 내일/모레 까지 가능합니다.');
+    		date = today.getDate();
+    		setPopup(data_shw); 
     	}
     });
     
@@ -499,13 +519,12 @@ function changePageRows(){
 
 //대화상자 셋팅
 function setPopup(jsonObj){	
-	
 	resultDef = "";  // 최종 결과물
 	resultBefore = "";
 	resultAfter = "";
 	
-	month = today.getMonth() + 1;  // 월
-	date = today.getDate();  // 날짜
+	//month = today.getMonth() + 1;  // 월
+	//date = today.getDate();  // 날짜
 	
 	if(month < 10){
 		month = "0" + month;

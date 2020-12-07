@@ -16,8 +16,6 @@
 	String id = (String) session.getAttribute("mem_id");
 	int mov_num = Integer.parseInt(request.getParameter("mov_num"));
 	String mov_poster = request.getParameter("mov_poster");
-	System.out.println("user id : " + id);
-	System.out.println("user uid : " + uid);
 %>
 
 	<script>
@@ -33,12 +31,14 @@
 <head>
 <meta charset="UTF-8">
 <title>예매(사용자)</title>
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/reserve/reserveuser.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveuser.js"></script>
+
 </head>
 <body>
 
-	
 
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
 	<div id="dateChk" class="modal">
@@ -122,10 +122,10 @@
 		
 	
 	</div>
-	<div id="successbtn">버튼</div>
+	<div id="successbtn"></div>
 	
 	
-<script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveuser.js"></script>
+
 </body>
 </html>
 
