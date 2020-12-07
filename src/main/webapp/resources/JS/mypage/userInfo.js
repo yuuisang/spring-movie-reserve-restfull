@@ -125,6 +125,7 @@ function deleteUserInfo(){
 	      success : function(data, status){
 	          if(status == "success"){
 	        	  alert('회원탈퇴완료');
+	        	  location.href = path + "/logOut";
 	        	  // 예약, 댓글 테이블에 접근해서 커맨드에서 삭제까지완료
 	        	  // 여기서 메인페이지로 보내면 됨
 	        	  

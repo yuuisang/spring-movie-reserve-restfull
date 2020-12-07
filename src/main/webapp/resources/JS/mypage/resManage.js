@@ -1,6 +1,6 @@
 var page = 1;
 var pageRows = 10;
-var res_memberUid = 1;
+var res_memberUid = mem_uid;
 $(document).ready(function(){
     // 페이지 최초 로딩되면 1페이지 분량 읽어오기
     loadPage(page);
@@ -16,13 +16,7 @@ function loadPage(page){
         cache : false,
         success : function(data, status){
             if(status == "success"){
-                //alert("정상적으로 받았쥬?");
-            	
-//            	viewItem = data.data[0];
-
                 if(updateList(data)){
-                    // 화면 업데이트 후, 페이지 정보 업데이트 
-                    // 업데이트된 list 의 이벤트 동작...
                     addViewEvent();
                 }
             }
@@ -79,7 +73,6 @@ function updateList(jsonObj){
                 	result += "<td>취소불가"+"</td>"
                 }
             }
-           // result += "<td>" + "<div class='d01'>"+"<div class='left'>"+"<button type='button' class='btnCancel btn danger'>"+"취소"+"</button>"+"</div>"+"</div>" + "</td>"
             result += "</tr>\n";
         }
         
@@ -156,7 +149,6 @@ function buildPagination(writePages, totalPage, curPage, pageRows){
 function addViewEvent(){
 	// 취소 버튼을 눌렀을때 event
 	 $(".btnCancel").click(function(){
-		 alert('활동하고잇니')
 	 		var res_num = $(this).parent().parent().parent().parent().children(".res_num").text();
 	 		deleteUid(res_num);
 	 });

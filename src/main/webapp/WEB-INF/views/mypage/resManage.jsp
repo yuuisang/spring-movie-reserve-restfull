@@ -3,6 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%
+	int uid = (int) session.getAttribute("mem_uid");
+	String id = (String) session.getAttribute("mem_id");
+%>
+
+	<script>
+	var mem_uid = <%=uid%>;
+	var mem_id = "<%=id%>";
+	</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +22,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/JS/mypage/resManage.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- 아이콘 -->
+	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	
+	<!-- 구글폰트 -->
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+	
+	<!-- 파비콘 설정-->
+	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 </head>
 <body>
-
-	<h2>현재 예매 정보 목록</h2>
-	<h3>(관람일이 지난 영화는 취소 할 수 없습니다.)</h3>
+	<jsp:include page="../theme.jsp" />
+	
+	<h3>현재 예매 정보 목록</h3>
+	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
 
 	
 	
