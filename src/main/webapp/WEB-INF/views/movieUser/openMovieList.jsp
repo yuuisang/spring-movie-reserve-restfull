@@ -42,7 +42,7 @@
 <body>
 	<!-- 메뉴바  -->
 	<jsp:include page="../theme.jsp" />
-<button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
+	<button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
 
         
         
