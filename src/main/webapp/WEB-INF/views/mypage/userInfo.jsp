@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% 
-	if((int)session.getAttribute("mem_uid") != 0){
+	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
 		int uid = (int)session.getAttribute("mem_uid"); 		
 %>
 <script>
