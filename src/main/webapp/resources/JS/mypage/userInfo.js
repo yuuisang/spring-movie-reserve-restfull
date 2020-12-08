@@ -112,9 +112,6 @@ function updateUserInfo(){
 
 function deleteUserInfo(){
 	
-	alert("uid: "+ uid);
-	alert($("#deleteChk").val());
-	
 	var serialize = "mem_uid=" + uid;
 	
 	$.ajax({
