@@ -6,23 +6,20 @@
 	padding: 0;
 	font-family: 'Noto Sans KR', sans-serif;
 }
+
+
+
 #emailImg{
 	
 
-width: 55%;
- height: 110%; 
+width: 200px;
+ height: auto; 
  text-align: center;
 margin-left: 25%;
+
 	
 }
 
-#btn{
-	
-	width: 300px;
-	height : 40px;
-
-
-}
 
 #btnDiv{
 	
@@ -32,9 +29,4 @@ margin-top: 5%;
 	
 }
 
-.mailsend{
 
-	width: 400px;
-
-	background-color: pink;
-}

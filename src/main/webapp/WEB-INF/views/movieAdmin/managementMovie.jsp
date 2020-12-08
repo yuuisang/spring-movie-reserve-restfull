@@ -49,7 +49,7 @@
 <div class = "container-fluid" >
 <hr>
 <div class = "container">
-관리자 영화 관리
+KOREA BOX 관리자 영화 관리
 </div>
 <hr>
 </div>

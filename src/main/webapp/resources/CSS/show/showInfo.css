@@ -8,14 +8,16 @@ body{
 }
 
 .container{
-	width: 1200px;
+
 	display : block;
 	justify-content: center;
-	border : 1px solid #333;
+
 }
 #title{
 	margin-bottom: 50px;
-	border : 1px solid #333;
+		margin-top: 60px;
+	padding-bottom: 10%;
+
 }
 #title h2{
 	text-align: center;
@@ -23,7 +25,7 @@ body{
 
 #regist{
 	display: flex;
-	border: 1px solid #333;
+
 }
 #regist button{
 	justify-content: center;
@@ -32,18 +34,18 @@ body{
 
 #showScheduleList, #showScheduleListModal{
 	width: 100%;
-	border : 1px solid #333;
+
 }
 #showScheduleList h3, #showScheduleListModal h3{
 	text-align: center;
 }
 #showScheduleTable, #showScheduleTableModal{
 	width: 100%;
-	border: 1px solid #333;
+
 	border-collapse: collapse;
 }
 #showScheduleTable th, td, #showScheduleTableModal th, td{
-	border: 1px solid #333;
+
 	border-collapse: collapse;
 	width: 14%;
 	text-align: center;

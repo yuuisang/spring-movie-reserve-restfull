@@ -56,14 +56,14 @@ KOREA BOX  관리자 회원 관리
 <div class = "container">
 		<div class="row" id = "list">
 			<div class="col-sm-12">
-				<h2>영화 리스트</h2>
+				<h2>회원 리스트</h2>
 				<br>
 			</div>
 		</div>
 
 <div class="col-sm-12">
 <div class = "tableDiv">
-<table id="table" class="table table-hover " style = "width: 110%">
+<table id="table" class="table table-hover " style = "width: 100%">
  <thead class="thead-dark">
   <tr class="header">
 
@@ -94,10 +94,10 @@ KOREA BOX  관리자 회원 관리
                   <td>${dto.mem_regDate }</td>
                   <form action="updateUserData">
                   <input type="hidden" name="mem_uid" value="${dto.mem_uid }"/>
-                  <td><button  type="submit" class="btn btn-primary">수정</button>
+                  <td><button  type="submit" class="btn btn-outline-secondary btn-sm">수정</button>
                   </form>
                   &nbsp;
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop${status.index }">삭제</button></td>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#staticBackdrop${status.index }">삭제</button></td>
                   
                   
                   

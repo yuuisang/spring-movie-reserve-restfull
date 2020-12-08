@@ -26,8 +26,8 @@
 	<!-- CSS파일 -->
 	<link rel="stylesheet" type="text/css" href="${path }/resources/CSS/main/.css">
 	
-   <!-- 파비콘 설정-->
-   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+	<!-- 파비콘 설정-->
+	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
@@ -35,8 +35,32 @@
 
 	<jsp:include page="theme.jsp" />
 
+		<div class="container">
+			<hr>
+			sdfsdfsdf
+			<hr>
 
+		</div>
 
+<div class="container justify-content-center align-items-center">
+	<div class = "row">
+    <div class="col-md-12">
+            <div class="col-md-12 text-center"> <img src="${path }/resources/img/pwMail.png" width=460px" id = "emailImg"> 
+            <span class="d-block mt-3">인증메일이 발송되었습니다.</span>
+            <span class="d-block mt-3">메일을 통해 비밀번호를 찾을 수 있습니다.</span>
+            <br>
+            <br>
+            <br>
+                <div class="mx-5">
+                    <div class="col-md-12"> 
+                     <button class="btn btn-outline-primary btn-lg " type="button" id = "btn" onclick="location.href='${path}/login'">로그인</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <button class="btn btn-outline-primary btn-lg" type="button"  id = "btn" onclick="location.href='${path}/'">메인화면</button> 
+                     </div>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
 
 
 	<jsp:include page="footer.jsp" />
