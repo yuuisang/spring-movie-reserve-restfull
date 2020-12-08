@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
     
     <!-- 관리자 영화 등록 페이지 -->
 <!DOCTYPE html>
@@ -19,9 +22,8 @@
 	<!-- CSS파일 -->
 	<link rel="stylesheet" type="text/css" href="CSS/.css">
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
-
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 <title>KOREA BOX</title>
 </head>
 <body>

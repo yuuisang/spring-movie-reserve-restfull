@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +23,14 @@
 <!-- 구글 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- 파비콘 설정-->
-<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 
 <title>상영 관리</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/show/showInfo.css">
+<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/show/showInfo.css">
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/resources/JS/show/showInfo.js"></script>
+<script src="${path}/resources/JS/show/showInfo.js"></script>
 </head>
 <body>
 	

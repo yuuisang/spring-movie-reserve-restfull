@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
@@ -38,11 +38,36 @@
 	<!-- 구글폰트 -->
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 </head>
+
+
+
 <body>
-	<jsp:include page="../theme.jsp" />
+	<jsp:include page="../admin/managerTheme.jsp" />
+	
+	
+		<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX  관리자 회원 관리
+</div>
+<hr>
+</div>
+
+
+
+<div class = "container">
+		<div class="row" id = "list">
+			<div class="col-sm-12">
+				<h2>영화 리스트</h2>
+				<br>
+			</div>
+		</div>
+	</div>
+	
 	
 	<h3>현재 예매 정보 목록</h3>
 	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
@@ -86,6 +111,7 @@
 		</ul>
 	</div>
 
+	<jsp:include page="../admin/managerFooter.jsp" />
 
 </body>
 </html>

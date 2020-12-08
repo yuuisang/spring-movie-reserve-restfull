@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,26 +21,51 @@
 <!-- 구글 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- 파비콘 설정-->
-<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- CSS파일 -->
+
+   <link rel="stylesheet" type="text/css" href="${path}/resources/CSS/reserve/reserveinfo.css"/>
+
+
+
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 <title>예매 관리 페이지(관리자)</title>
 
-<!-- 스타일, js 라이브러리 -->
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/reserve/reserveinfo.css"/>
-<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveinfo.js"></script>
+
+
 </head>
 <body>
 <jsp:include page="../admin/managerTheme.jsp" />
 	
-	<h2>예매 관리 목록</h2>
+		
+		<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX  관리자 회원 관리
+</div>
+<hr>
+</div>
+
+
+
+<div class = "container">
+		<div class="row" id = "list">
+			<div class="col-sm-12">
+				<h2>예매 목록 리스트</h2>
+				<br>
+			</div>
+		</div>
+	</div>
+
+<div class = "container">
 
 	<div id="list">
 		<div class="clear"></div>
 		<form id="frmList" name="frmList">
-			<table id="reserveTable">
-				<thead>
+			<table  id="table" class="table table-hover" >
+				<thead class="thead-dark">
 					<th>번호</th>
 					<th>예매번호</th>
 					<th>예매자</th>
@@ -55,9 +83,7 @@
 				</tbody>
 			</table>
 		</form>
-		
-		
-	
+		</div>
 	</div>
 	
 	<div class="clear"></div>
@@ -68,6 +94,16 @@
 		</ul>
 	</div>
 
+
+<jsp:include page="../admin/managerFooter.jsp" />
+
+
+<!-- JS 파일 -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+
+<script src="${path}/resources/JS/reserve/reserveinfo.js"></script>
 
 </body>
 </html>

@@ -12,6 +12,31 @@
 .danger {background-color: #f44336;} /* Red */ 
 .danger:hover {background: #da190b;}
 
+#list{
+
+	
+	margin-top: 60px;
+	padding-bottom: 10%;
+}
+
+
+#listTable{
+
+		width: 100%;
+	table-layout: fixed;
+
+
+	
+}
+
+#listTable tr td{
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
 
 /* 글 목록 */
 #list table { width: 100%;}

@@ -35,7 +35,7 @@
    <link rel="stylesheet" href="${path }/resources/CSS/main/openMovieList.css">
    
    <!-- 파비콘 설정-->
-   <link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
@@ -44,77 +44,6 @@
    <jsp:include page="../theme.jsp" />
    <button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
 
-        
-        
-         <c:choose>
-         <c:when test="${empty list || fn:length(list) == 0 }">
-         </c:when>
-
-         <c:otherwise>
-            <c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
-               <div class="col-xs-6 col-sm-3 hover-mask">
-               <img class="card-img-top" src="../resources/upload/${dto.mov_poster}" alt="" style="width:300px; height:300px;"/><br>
-               <span>${dto.mov_title }</span>                              
-               <h2><a href="${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1" class="glyphicon glyphicon-search">상세보기</a></h2>
-               <form action="../reserve/reserveuser" name="frm1">
-               <input type="hidden" name="mov_num" value="${dto.mov_num }">
-               <input type="hidden" name="mov_poster" value="${dto.mov_poster }">
-               <button type="submit" id="aa">예매하기</button>
-               <!-- <h2><a href="javascript:frm1.submit();" class="glyphicon glyphicon-search">예약</a></h2> -->
-               </form>
-               
-               </div>
-            </c:forEach>
-         </c:otherwise>
-      </c:choose>
-
-
-
-        <!------------------ Hover Effect Style : Demo - 9 -------------
-        <div class="container mt-40">
-            <h3 class="text-center">Hover Effect Style : Demo - 9</h3>
-            <div class="row mt-30">
-                <div class="col-md-4 col-sm-6">
-                    <div class="box9">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-1.jpg">
-                        <div class="box-content">
-                            <h3 class="title">Williamson</h3>
-                            <ul class="icon">
-                                <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="box9">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-2.jpg">
-                        <div class="box-content">
-                            <h3 class="title">Kristiana</h3>
-                            <ul class="icon">
-                                <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="box9">
-                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-3.jpg">
-                        <div class="box-content">
-                            <h3 class="title">Kristiana</h3>
-                            <ul class="icon">
-                                <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
--->
 
 
 <div class="container gallery-container">
@@ -186,6 +115,92 @@
     </div>
     </div>
    
+
+        
+        <div class="container gallery-container">
+           <h1>Bootstrap 3 Gallery</h1>
+
+    <p class="text-center">Grid Layout With Zoom Effect</p>
+    <div class="tz-gallery">
+    
+        <div class="row">
+         <c:choose>
+         <c:when test="${empty list || fn:length(list) == 0 }">
+         </c:when>
+
+         <c:otherwise>
+            <c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
+              <div class="col-sm-6 col-md-4">
+                       <a class="lightbox" href="${path }/resources/upload/${dto.mov_poster}">
+                    <img src="${path }/resources/upload/${dto.mov_poster}" style="width:300px; height:300px;" alt="Bridge">
+                    </a>
+               <span>${dto.mov_title }</span>                              
+               <form action="../reserve/reserveuser" name="frm1">
+               <input type="hidden" name="mov_num" value="${dto.mov_num }">
+               <input type="hidden" name="mov_poster" value="${dto.mov_poster }">
+               <button onclick="location.href='${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1'" class="btn btn-outline-secondary">상세보기</button>
+               <button class = "btn btn-outline-secondary" type="submit" id="aa">예매하기</button>
+               <!-- <h2><a href="javascript:frm1.submit();" class="glyphicon glyphicon-search">예약</a></h2> -->
+               </form>
+               
+               </div>
+            </c:forEach>
+         </c:otherwise>
+      </c:choose>
+      </div>
+      </div>
+      </div>
+     
+
+
+
+        <!------------------ Hover Effect Style : Demo - 9 -------------
+        <div class="container mt-40">
+            <h3 class="text-center">Hover Effect Style : Demo - 9</h3>
+            <div class="row mt-30">
+                <div class="col-md-4 col-sm-6">
+                    <div class="box9">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-1.jpg">
+                        <div class="box-content">
+                            <h3 class="title">Williamson</h3>
+                            <ul class="icon">
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                <li><a href="#"><i class="fa fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="box9">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-2.jpg">
+                        <div class="box-content">
+                            <h3 class="title">Kristiana</h3>
+                            <ul class="icon">
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                <li><a href="#"><i class="fa fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="box9">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo147/images/img-3.jpg">
+                        <div class="box-content">
+                            <h3 class="title">Kristiana</h3>
+                            <ul class="icon">
+                                <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                <li><a href="#"><i class="fa fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+-->
+
+
    
    <jsp:include page="../footer.jsp" />
 

@@ -24,10 +24,8 @@
 
 
    
-   
    <!-- 파비콘 설정-->
-   <link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
-
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 <title>KOREA BOX</title>
 </head>
 <body>

@@ -300,7 +300,7 @@
 
 <div class="container">
     <header class="text-center">
-        <h1>Mesonry Image gallery</h1>
+        <h1></h1>
         </header>
 	<div class="row">
 	  <div class="col-md-8 col-sm-12 co-xs-12 gal-item">

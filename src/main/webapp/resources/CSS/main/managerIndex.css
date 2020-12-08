@@ -7,31 +7,3 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-#list{
-
-	
-	margin-top: 60px;
-	padding-bottom: 10%;
-}
-
-
-#listTable{
-
-		width: 100%;
-	table-layout: fixed;
-
-
-	
-}
-
-#listTable tr td{
-
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-.movieBtn{
-
-padding: 100px;
-}

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<c:set var="path" value="${pageContext.request.contextPath}" />
     <!-- 상영 예정작 -->
 <c:choose>
 	<c:when test="${result == 0 }">
@@ -32,8 +33,8 @@
 	<!-- CSS파일 -->
 	<link rel="stylesheet" type="text/css" href="CSS/.css">
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>

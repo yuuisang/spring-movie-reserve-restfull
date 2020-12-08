@@ -27,6 +27,9 @@
 	<!-- CSS파일 -->
 	<link rel="stylesheet" href="${path }/resources/CSS/main/signUp.css">
 	
+	<!-- 파비콘 설정-->
+    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+	
 <title>KOREA BOX</title>
 </head>
 <body>
@@ -54,7 +57,8 @@
 										<!-- 슬라이드 1 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/signUpimg.jpg" class="img-fluid profile-pic">
+												<img src="https://i.imgur.com/IjkibdE.jpg"
+													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">John Paul</h6>
 											<small class="mb-2">UI/UX Designer</small>
@@ -70,7 +74,7 @@
 										<!-- 슬라이드 2 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/signUpimg2.jpg"
+												<img src="https://i.imgur.com/oW8Wpwi.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Ximena Vegara</h6>
@@ -87,7 +91,7 @@
 										<!-- 슬라이드 3 -->
 										<div class="carousel-item active card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/signUpimg3.jpg"
+												<img src="https://i.imgur.com/EUYNvE1.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Lena Maria</h6>
@@ -101,11 +105,27 @@
 											</p>
 										</div>
 
-
 										<!-- 슬라이드 4 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/img1.jpg" class="img-fluid profile-pic">
+												<img src="https://i.imgur.com/ndQx2Rg.jpg"
+													class="img-fluid profile-pic">
+											</div>
+											<h6 class="font-weight-bold mt-5">Richard Finch</h6>
+											<small class="mb-2">UI/UX Designer</small>
+											<hr width="50%">
+											<p class="content mt-2 mb-0">
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
+												aute irure dolor in reprehenderit in voluptate velit esse
+												cillum dolore eu fugiat nulla pariatur.
+											</p>
+										</div>
+
+										<!-- 슬라이드 5 -->
+										<div class="carousel-item card border-0 card-0">
+											<div class="text-center">
+												<img src="img/img1.jpg" class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Marielle Haag</h6>
 											<small class="mb-2">Backend Developer</small>
@@ -120,10 +140,6 @@
 									</div>
 								</div>
 							</div>
-
-									</div>
-								</div>
-							</div>
 							<div
 								class="row px-3 text-center justify-content-center mb-0 social">
 								<span class="fa fa-facebook-square mx-2"></span> <span
@@ -132,7 +148,7 @@
 									class="fa fa-youtube-play mx-2"></span>
 							</div>
 						</div>
-
+					</div>
 
 					<!-- input 창 -->
  
@@ -163,6 +179,7 @@
 														                 <div class="valid-feedback">  사용 가능한 이름입니다. </div>
 														  <div class="invalid-feedback" id="nameerrMsg">이름을 입력 해 주세요.</div>
 													</td>
+									
 												</div>
 											</tr>
 
@@ -172,9 +189,9 @@
 													<td><input type="text" name="mem_id" id = "mem_id"
 														class="form-control item " pattern="^[a-z][a-z\d]{4,15}$" placeholder="영문/숫자  15자 이내" required>
 													</td>
+						
 													
-													<td><button class="btn btn-info btn-sm mb-2 "
-															type="submit" id="idOkbtn">중복확인</button>
+													<td>
 													<span id="idcheck"></span></td>
 												</div>
 											</tr>
@@ -187,6 +204,7 @@
 													<td><input type="password" name="mem_pw" id ="pw"
 														class="form-control item" onchange="check_pw()" pattern="(?=.*\d{1,10})(?=.*[~`!@#$%\^&*()-+=]{1,10})(?=.*[a-zA-Z]{2,10}).{8,20}$"
 														placeholder="영문+숫자+특수문자 20자 이내 " required></td>
+
 											</tr>
 
 
@@ -232,14 +250,11 @@
 											<td><input type="email" name="mem_email" pattern="^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$"
 												class="form-control item" 
 												required></td>
-											<td><button class="btn btn-info btn-sm" type="button"
-													id="emailChk">이메일 인증</button></td>
+									
 										</div>
 
 									</tr>
 
-
-		
 									<tr><td></td></tr>
 									<tr><td></td></tr>
 									<tr><td></td></tr>
@@ -259,73 +274,6 @@
 									</form>
 									</div>
 								
-									
-					<!-- 			
-								         <form action="signupOk.do" class = "needs-validation" method="post" novalidate>
-
-            <div class="form-icon" style="background-color: #C8C7ED">
-               <span><i class="icon icon-user"></i></span>
-
-            </div>
-            <div class="form-group">
-               <input type="text" class="form-control item" id="userID" minlength="5" maxlength="15"
-                placeholder="UserID" name="user_id" required>
-                  <div class="invalid-feedback" id="iderrMsg">아이디를 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="password" class="form-control item" id="password" minlength="5" maxlength="15"
-               placeholder="Password" name="user_pw" required>
-                  <div class="invalid-feedback" id="pwerrMsg">비밀번호를 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="text" class="form-control item" id="username" minlength="2" maxlength="10"
-               placeholder="UserName" name="user_name" required>
-                  <div class="invalid-feedback" id="nameerrMsg">이름을 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="email" class="form-control item" id="email"
-               placeholder="Email" name="user_email" required>
-                  <div class="invalid-feedback" id="emailerrMsg">이메일을 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="tel" class="form-control item" id="phone-number" 
-               placeholder="Phone Number" name="user_phone" required>
-                  <div class="invalid-feedback" id="phoneerrMsg">전화번호를 입력 해 주세요.</div>
-            </div>
-
-            <div class="form-group">
-               <button type="submit" id ="chkBT" class="btn btn-block create-account" >계정
-                  생성</button>
-            </div>
-
-         </form>
--->
-							</div>
-							
-							
-							<div class="row px-2 mb-2">
-								<div class="line"></div>
-								<small class="text-muted or text-center">OR</small>
-								<div class="line"></div>
-							</div>
-							
-						 <!-- 
-							<div class="row text-center" id = "socialbtn">
-								<div class="col-sm-5">
-									<p class="social-connect">
-										<span class="fa fa-facebook-square"></span><small
-											class="pl-3 pr-1">Sign up with facebook</small>
-									</p>
-								</div>
-								<div class="col-sm-5">
-									<p class="social-connect">
-										<span class="fa fa-google-plus"></span><small
-											class="pl-3 pr-1">Sign up with google+</small>
-									</p>
-								</div>
-							</div>
-							
-							-->
 						</div>
 					</div>
 				</div>

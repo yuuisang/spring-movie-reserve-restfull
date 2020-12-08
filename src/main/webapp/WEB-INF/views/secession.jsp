@@ -29,9 +29,8 @@
 <!-- 구글 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- 파비콘 설정-->
-<link rel="shortcut icon" href="img/movie_favicon.ico"
-	type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 	
 
 
