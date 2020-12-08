@@ -29,8 +29,6 @@ public class UserInfoDeleteCommand implements UserInfoCommand {
 			
 			// cnt 가 0 이면 Arithmetic 에러 catch
 			int chkResult = 1 / cnt;
-			int chkResult2 = 1 / cnt2;
-			int chkResult3 = 1 / cnt3;
 		} catch(Exception e) {
 			e.printStackTrace();
 			message.append("[에러: " + e.getMessage() + "]");
