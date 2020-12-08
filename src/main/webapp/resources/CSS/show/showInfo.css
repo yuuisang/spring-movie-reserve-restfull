@@ -185,7 +185,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	height: 130px;
 }
 
-.selectBox{
-	width:200px;
+select{
+	width:100%;
 }
 

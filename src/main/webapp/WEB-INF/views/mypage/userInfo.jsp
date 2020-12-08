@@ -12,7 +12,7 @@ var uid = <%= uid %>;
 var path = "${pageContext.request.contextPath }";
 </script>
 
- 
+
 <!DOCTYPE html>
 <html>
 <head>
