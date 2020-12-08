@@ -82,14 +82,14 @@
 										<div class="form-group">
 											<label class="control-label col-sm-12">장르</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_genre"
-													id="comment"></textarea>
+												<input type="text" class="form-control" rows="5" name="mov_genre"
+													id="comment">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="control-label col-sm-12">러닝타임</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_runtime"></textarea>
+												<input type="number" class="form-control" name="mov_runtime" placeholder="숫자만 입력해 주세요">
 											</div>
 										</div>
 										<div class="form-group">
@@ -101,7 +101,7 @@
 										<div class="form-group">
 											<label class="control-label col-sm-12">심의등급</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_grade"></textarea>
+												<input class="form-control" rows="5" name="mov_grade">
 											</div>
 										</div>
 										<div class="form-group">

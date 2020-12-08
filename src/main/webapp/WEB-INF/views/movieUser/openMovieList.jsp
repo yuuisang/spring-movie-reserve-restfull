@@ -42,10 +42,11 @@
 <body>
    <!-- 메뉴바  -->
    <jsp:include page="../theme.jsp" />
+   <!-- 
    <button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
+	-->
 
-
-
+<!-- 
 <div class="container gallery-container">
 
     <h1>Bootstrap 3 Gallery</h1>
@@ -115,12 +116,11 @@
     </div>
     </div>
    
-
+ -->
         
         <div class="container gallery-container">
-           <h1>Bootstrap 3 Gallery</h1>
+           <h1>현재 상영작</h1>
 
-    <p class="text-center">Grid Layout With Zoom Effect</p>
     <div class="tz-gallery">
     
         <div class="row">
@@ -132,13 +132,19 @@
             <c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
               <div class="col-sm-6 col-md-4">
                        <a class="lightbox" href="${path }/resources/upload/${dto.mov_poster}">
-                    <img src="${path }/resources/upload/${dto.mov_poster}" style="width:300px; height:300px;" alt="Bridge">
-                    </a>
-               <span>${dto.mov_title }</span>                              
+                    <img src="${path }/resources/upload/${dto.mov_poster}" style="height:500px;" alt="Bridge">
+                    </a><br>
+               <span>제목 : ${dto.mov_title }</span><br>
+               <c:if test="${dto.mov_totalStar/dto.mov_countStar == 'NaN'}">
+               <span>평점 : 0</span>
+               </c:if>
+               <c:if test="${dto.mov_totalStar/dto.mov_countStar != 'NaN'}">
+               <span>평점 : ${dto.mov_totalStar/dto.mov_countStar }</span>
+               </c:if>
                <form action="../reserve/reserveuser" name="frm1">
                <input type="hidden" name="mov_num" value="${dto.mov_num }">
                <input type="hidden" name="mov_poster" value="${dto.mov_poster }">
-               <button onclick="location.href='${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1'" class="btn btn-outline-secondary">상세보기</button>
+               <button type="button" onclick="location.href='${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1'" class="btn btn-outline-secondary">상세보기</button>
                <button class = "btn btn-outline-secondary" type="submit" id="aa">예매하기</button>
                <!-- <h2><a href="javascript:frm1.submit();" class="glyphicon glyphicon-search">예약</a></h2> -->
                </form>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.goldspoon.koreabox.user.beans.UserDAO;
 
-public class IdChkCommand{
+public class idChkCommand{
 
 
 }

@@ -29,17 +29,20 @@
    </select>
    
    <select id="openMovieNum" resultType="com.goldspoon.koreabox.movie.beans.ShowInfoDTO">
+      <![CDATA[
       SELECT shw_movieNum 
       FROM tb_showinfo 
-      WHERE shw_expireFlag = 0
+      WHERE shw_date > TO_CHAR(sysdate, 'YYYY-MM-DD')
       ORDER BY shw_movieNum DESC
+             ]]>   
    </select>
    
    <select id="openMovieList" 
    resultType="com.goldspoon.koreabox.movie.beans.MovieUserDTO" 
    parameterType="java.util.ArrayList">
       SELECT mov_num mov_num, mov_title mov_title,
-         mov_poster mov_poster, mov_openDate mov_openDate
+         mov_poster mov_poster, mov_openDate mov_openDate, 
+         mov_totalStar mov_totalStar, mov_countStar mov_countStar
          FROM tb_movie
       WHERE mov_num IN (
          <foreach collection="array" item="item" index="index" separator=",">

@@ -207,7 +207,7 @@ CREATE TABLE tb_showinfo
    PRIMARY KEY (shw_num)
 );
 
-INSERT INTO tb_showinfo values(1,6,'asd',1,'asdasd','2020-11-11',123,1,1,1,sysdate,0);
+INSERT INTO tb_showinfo values(9,4,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
 
 /* Comments */
 
@@ -278,6 +278,7 @@ COMMENT ON COLUMN tb_showinfo.shw_expireFlag IS '상영 만료 플래그(1이면
 
 SELECT * FROM tabs;
 SELECT * FROM TB_MOVIE;
+SELECT * FROM TB_MOVIE WHERE MOV_NUM = 3;
 SELECT * FROM TB_RESERVE;
 SELECT * FROM TB_SHOWINFO;
 SELECT * FROM TB_SCREENINFO;
@@ -286,7 +287,7 @@ SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_COMMENT;
 
 INSERT INTO TB_MEMBER values(0,'admin','1234','관리자','1993-10-03','010-1111-1111','admin@naver.com',sysdate);
-INSERT INTO tb_showinfo values(8,6,'asd',1,'asdasd','2020-11-11',123,1,1,1,sysdate,0);
+INSERT INTO tb_showinfo values(6,38,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
 
 DELETE FROM TB_RESERVE;
 DELETE FROM TB_SHOWINFO;

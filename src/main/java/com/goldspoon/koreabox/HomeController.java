@@ -33,7 +33,6 @@ import com.goldspoon.koreabox.user.beans.UserDTO;
 import com.goldspoon.koreabox.user.command.IdSearchCommand;
 import com.goldspoon.koreabox.user.command.LoginCommand;
 import com.goldspoon.koreabox.user.command.SignUpCommand;
-import com.goldspoon.koreabox.user.command.IdChkCommand;
 import com.goldspoon.koreabox.email.Email;
 import com.goldspoon.koreabox.email.EmailSender;
 
