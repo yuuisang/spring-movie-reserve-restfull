@@ -34,6 +34,7 @@
 
 				<div id="navbarSupportedContent" class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto">
+
 						<li class="nav-item active"><a href="${pageContext.request.contextPath }/movieAdmin/managementMovie"
 							class="nav-link text-uppercase font-weight-bold">영화 관리 <span
 								class="sr-only">(current)</span></a></li>
@@ -62,7 +63,9 @@
 	</div>
 
 
+
 	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/JS/main/theme.js"></script>
+
 
 </body>
 </html>

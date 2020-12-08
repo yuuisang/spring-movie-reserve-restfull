@@ -6,7 +6,11 @@
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
 		int uid = (int)session.getAttribute("mem_uid"); 		
-%><script>var uid = <%= uid %>;</script>
+%>
+<script>
+var uid = <%= uid %>;
+var path = "${pageContext.request.contextPath }";
+</script>
 
  
 <!DOCTYPE html>

@@ -3,33 +3,19 @@ var pageRows = 10;
 var viewItem = undefined;   //  가장 최근에 view 한 글의 데이터
 
 
-// 페이지 최초 로딩되면 게시글 목록 첫페이지분 로딩
-// [이전] 버튼 눌렀을때 -> 이전 페이지 게시글목록 로딩
-// [다음] 버튼 눌렀을때 -> 다음 페이지 게시글목록 로딩
-
 $(document).ready(function(){
-    // 페이지 최초 로딩되면 1페이지 분량 읽어오기
     loadPage(page);
-    
-
-    
 });
 
 
 //page번째 목록 읽어오기
 function loadPage(page){
     $.ajax({
-        //   /reserve/{page}/{pageRows}
-        //   현재  /reserve/reserveinfo
         url : "../reserveinfo/" + page + "/" + window.pageRows,
         type : "GET",
         cache : false,
         success : function(data, status){
             if(status == "success"){
-                //alert("정상적으로 받았쥬?");
-            	
-//            	viewItem = data.data[0];
-
                 if(updateList(data)){
                     // 화면 업데이트 후, 페이지 정보 업데이트 
                     // 업데이트된 list 의 이벤트 동작...
@@ -51,8 +37,6 @@ function updateList(jsonObj){
 
         var items = jsonObj.data;  // 글 배열
 
-
-
         var i;
         for(i = 0; i < count; i++){
             var date = new Date(items[i].res_paytime);
@@ -71,7 +55,6 @@ function updateList(jsonObj){
             result += "<td>" + "<div class='d01'>"+"<div class='left'>"+"<button type='button' class='btnCancel btn danger'>"+"취소"+"</button>"+"</div>"+"</div>" + "</td>"
             result += "</tr>\n";
         }
-        
 
         $("#list tbody").html(result);   // 글 목록 업데이트
 
@@ -147,7 +130,6 @@ function buildPagination(writePages, totalPage, curPage, pageRows){
 function addViewEvent(){
 	// 취소 버튼을 눌렀을때 event
 	 $(".btnCancel").click(function(){
-		 alert('활동하고잇니')
 	 		var res_num = $(this).parent().parent().parent().parent().children(".res_num").text();
 	 		deleteUid(res_num);
 	 });

@@ -31,28 +31,10 @@
 <body>
 <jsp:include page="../admin/managerTheme.jsp" />
 	
-
 	<h2>예매 관리 목록</h2>
 
-	
-	
-	예매 목록 
 	<div id="list">
-		<!-- <div class="d01">
-			<div class="left" id="pageinfo"></div>
-			<div class="right" id="pageRows"></div>	
-		</div> -->
 		<div class="clear"></div>
-		
-	<!-- 아이디로 찾기 -->
-	<form name="search" onsubmit="return false">
-		예매아이디
-		<input type="text" name="res_memberId">
-		<button>찾기</button>
-	</form>
-		
-		
-	
 		<form id="frmList" name="frmList">
 			<table id="reserveTable">
 				<thead>
@@ -80,30 +62,11 @@
 	
 	<div class="clear"></div>
 	
-	페이징
+	
 	<div class="center">
 		<ul class="pagination" id="pagination">
 		</ul>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-<%-- 	<div class="modal" id="cancelChk">
-		<div class="modal-content">
-			<div class="container">
-				예매를 취소하시겠습니까?
-				<button type="button" id="viewDelete">예</button>
-				<button type="button">아니요</button>
-				<input type="hidden" name="res_num" value="${list.res_num }"/> 삭제나 수정을 위해 필요
-			</div>
-		</div>
-		
-	</div> --%>
-	
 
 
 </body>
