@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<c:set var="path" value="${pageContext.request.contextPath}" />
     <!-- 상영 예정작 -->
 <c:choose>
 	<c:when test="${result == 0 }">
@@ -30,38 +31,52 @@
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 	
 	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="CSS/.css">
+	<link rel="stylesheet" type="text/css" href="${path }/resources/CSS/main/openMovieList.css">
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
 <body>
 
-<section>
+<jsp:include page="../theme.jsp"/>
+
+
+
+<!-- 
 <button onclick="location.href='${pageContext.request.contextPath }/movieUser/openMovieList'">현재 상영작</button>
+ -->
+    <div class="container gallery-container">
+           <h1>상영 예정작</h1>
 
-
+    <div class="tz-gallery">
+    
+        <div class="row">
 		<c:choose>
 			<c:when test="${empty list || fn:length(list) == 0 }">
 			</c:when>
 
 			<c:otherwise>
 				<c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
-					<div id="openMovieListDiv">
-						<div><img class="card-img-top" src="../resources/upload/${dto.mov_poster}" style="width:300px; height:300px;"></div>
-						<span>${dto.mov_title }</span>										
-					<button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedViewMovie?mov_num=${dto.mov_num }'">상세보기</button>
+					<div class="col-sm-6 col-md-4">
+                       <a class="lightbox" href="${path }/resources/upload/${dto.mov_poster}">
+                    <img src="${path }/resources/upload/${dto.mov_poster}" style="height:500px;" alt="Bridge">
+                    </a><br>
+               		<span>제목 : ${dto.mov_title }</span><br>									
+					<button class="btn btn-outline-secondary" onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedViewMovie?mov_num=${dto.mov_num }'">상세보기</button>
 					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-</section>
+		</div>
+		</div>
+		</div>
 
 
 
 
+   <jsp:include page="../footer.jsp" />
 
 
 

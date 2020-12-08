@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
     
     <!-- 관리자 영화 등록 페이지 -->
 <!DOCTYPE html>
@@ -16,12 +19,12 @@
 	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
-	<!-- CSS파일 -->
+	<!-- CSS파일 
 	<link rel="stylesheet" type="text/css" href="CSS/.css">
+	-->
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
-
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 <title>KOREA BOX</title>
 </head>
 <body>
@@ -80,14 +83,14 @@
 										<div class="form-group">
 											<label class="control-label col-sm-12">장르</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_genre"
-													id="comment"></textarea>
+												<input type="text" class="form-control" rows="5" name="mov_genre"
+													id="comment">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="control-label col-sm-12">러닝타임</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_runtime"></textarea>
+												<input type="number" class="form-control" name="mov_runtime" placeholder="숫자만 입력해 주세요">
 											</div>
 										</div>
 										<div class="form-group">
@@ -99,7 +102,7 @@
 										<div class="form-group">
 											<label class="control-label col-sm-12">심의등급</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_grade"></textarea>
+												<input class="form-control" rows="5" name="mov_grade">
 											</div>
 										</div>
 										<div class="form-group">

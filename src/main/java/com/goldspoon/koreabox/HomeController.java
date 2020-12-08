@@ -33,7 +33,6 @@ import com.goldspoon.koreabox.user.beans.UserDTO;
 import com.goldspoon.koreabox.user.command.IdSearchCommand;
 import com.goldspoon.koreabox.user.command.LoginCommand;
 import com.goldspoon.koreabox.user.command.SignUpCommand;
-import com.goldspoon.koreabox.user.command.idChkCommand;
 import com.goldspoon.koreabox.email.Email;
 import com.goldspoon.koreabox.email.EmailSender;
 
@@ -43,141 +42,141 @@ import com.goldspoon.koreabox.email.EmailSender;
  */
 @Controller
 public class HomeController {
-	
-	// MyBatis
-	private SqlSession sqlSession;
-	
-	   @Autowired
-	    private EmailSender emailSender;
-	    @Autowired
-	    private Email email;
-	
-	@Autowired
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-		Common.sqlSession = sqlSession;
-	}
-	    
+   
+   // MyBatis
+   private SqlSession sqlSession;
+   
+      @Autowired
+       private EmailSender emailSender;
+       @Autowired
+       private Email email;
+   
+   @Autowired
+   public void setSqlSession(SqlSession sqlSession) {
+      this.sqlSession = sqlSession;
+      Common.sqlSession = sqlSession;
+   }
+       
 
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "index";
-	}
-	
-
-
-	
+   
+   private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+   
+   /**
+    * Simply selects the home view to render by returning its name.
+    */
+   @RequestMapping(value = "/", method = RequestMethod.GET)
+   public String home(Locale locale, Model model) {
+      logger.info("Welcome home! The client locale is {}.", locale);
+      
+      Date date = new Date();
+      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+      
+      String formattedDate = dateFormat.format(date);
+      
+      model.addAttribute("serverTime", formattedDate );
+      
+      return "index";
+   }
+   
 
 
-	@RequestMapping("/login")
-	public void login() {
-		
-	}
-	
-	@RequestMapping("/loginOk")
-	public void loginOk(HttpServletRequest request, Model model, String mem_id, String mem_pw) {
-		model.addAttribute("mem_id", mem_id);
-		model.addAttribute("mem_pw", mem_pw);
-//		new LoginCommand().execute(model);
-		new LoginCommand().loginSession(request, model);
-	}
-	
-	@RequestMapping("/logOut")
-	public void logOut() {
-		
-	}
-	
-	@RequestMapping("/signUp")
-	public void signUp() {
-	}
-	
-	@RequestMapping("/signUpOk")
-	public void signUpOk(Model model, UserDTO dto, String pwOk) {
-		model.addAttribute("dto", dto);	//command 파일로 dto 보내기
-		model.addAttribute("pwOk", pwOk);
-		new SignUpCommand().execute(model);
-	}
-	
-	
-	@RequestMapping("/idpwSearch")
-	public void idpwSearch() {
-		
-		
-	}
-	
-	@RequestMapping("/idSearchOk")
-	public void idSearchOk(Model model, String mem_name, String mem_phone) {
-		model.addAttribute("mem_name", mem_name);
-		model.addAttribute("mem_phone", mem_phone);
-		new IdSearchCommand().execute(model);
-		
-	}
-	
-//	@RequestMapping("/pwSearchOk")
-//	public void idSearchOk(Model model, String mem_id, String mem_name, String mem_email) {
-//		model.addAttribute("mem_id", mem_id);
-//		model.addAttribute("mem_name", mem_name);
-//		model.addAttribute("mem_email", mem_email);
-//		new PwSearchCommand().execute(model);
-//		String mem_pw = (String)model.getAttribute("mem_pw");
-//		
-//		
-//	}
-	
+   
+
+
+   @RequestMapping("/login")
+   public void login() {
+      
+   }
+   
+   @RequestMapping("/loginOk")
+   public void loginOk(HttpServletRequest request, Model model, String mem_id, String mem_pw) {
+      model.addAttribute("mem_id", mem_id);
+      model.addAttribute("mem_pw", mem_pw);
+//      new LoginCommand().execute(model);
+      new LoginCommand().loginSession(request, model);
+   }
+   
+   @RequestMapping("/logOut")
+   public void logOut() {
+      
+   }
+   
+   @RequestMapping("/signUp")
+   public void signUp() {
+   }
+   
+   @RequestMapping("/signUpOkPage")
+   public void signUpOkPage(Model model, UserDTO dto, String pwOk) {
+      model.addAttribute("dto", dto);   //command 파일로 dto 보내기
+      model.addAttribute("pwOk", pwOk);
+      new SignUpCommand().execute(model);
+   }
+   
+   
+   @RequestMapping("/idpwSearch")
+   public void idpwSearch() {
+      
+      
+   }
+   
+   @RequestMapping("/idSearchOk")
+   public void idSearchOk(Model model, String mem_name, String mem_phone) {
+      model.addAttribute("mem_name", mem_name);
+      model.addAttribute("mem_phone", mem_phone);
+      new IdSearchCommand().execute(model);
+      
+   }
+   
+//   @RequestMapping("/pwSearchOk")
+//   public void idSearchOk(Model model, String mem_id, String mem_name, String mem_email) {
+//      model.addAttribute("mem_id", mem_id);
+//      model.addAttribute("mem_name", mem_name);
+//      model.addAttribute("mem_email", mem_email);
+//      new PwSearchCommand().execute(model);
+//      String mem_pw = (String)model.getAttribute("mem_pw");
+//      
+//      
+//   }
+   
     @RequestMapping("/pwSearchFail")
     public void pwSearchOk() {
-    	
+       
     }
     
     @RequestMapping("/pwSearchPage")
     public void pwSearchPage() {
-    	
+       
     }
 
-	
+   
     @RequestMapping("/pwSearchOk")
     public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
-    	ModelAndView mav;
-    	
-		String id = (String) paramMap.get("mem_id");
-		String name = (String) paramMap.get("mem_name");
-		String mem_email = (String) paramMap.get("mem_email");
-		String mem_pw = "";
-		int result = 0;
-		
-		System.out.println("id : " + id);
-		System.out.println("name : " + name);
-		System.out.println("mem_email : " + mem_email);
-		UserDAO dao = Common.sqlSession.getMapper(UserDAO.class);
-		
-		mem_pw = dao.pwSearch(id, name, mem_email);
-		if(mem_pw==null) {
-			result = 0;
-			System.out.println("mem_pw : " + mem_pw);
-			System.out.println("result : " + result);
-		}else {
-			result = 1;
-			System.out.println("result : " + result);
-		}
-		
-    	
-		String pw = mem_pw;
-		
+       ModelAndView mav;
+       
+      String id = (String) paramMap.get("mem_id");
+      String name = (String) paramMap.get("mem_name");
+      String mem_email = (String) paramMap.get("mem_email");
+      String mem_pw = "";
+      int result = 0;
+      
+      System.out.println("id : " + id);
+      System.out.println("name : " + name);
+      System.out.println("mem_email : " + mem_email);
+      UserDAO dao = Common.sqlSession.getMapper(UserDAO.class);
+      
+      mem_pw = dao.pwSearch(id, name, mem_email);
+      if(mem_pw==null) {
+         result = 0;
+         System.out.println("mem_pw : " + mem_pw);
+         System.out.println("result : " + result);
+      }else {
+         result = 1;
+         System.out.println("result : " + result);
+      }
+      
+       
+      String pw = mem_pw;
+      
         System.out.println(pw);
         
         if(pw!=null) {
@@ -195,11 +194,14 @@ public class HomeController {
             return mav;
         }
     }
-	
+   
+    @RequestMapping("/secession")
+    public void secession() {
+       
+    }
     
 
-
-	
+   
 //    @RequestMapping("/pwSearchOk")
 //    public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
 //        ModelAndView mav;
@@ -223,5 +225,4 @@ public class HomeController {
     
 
 }
-
 

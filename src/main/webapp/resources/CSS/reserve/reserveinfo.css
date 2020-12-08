@@ -13,10 +13,35 @@
 .danger:hover {background: #da190b;}
 
 
+#listHeader{
+
+	
+	margin-top: 60px;
+	padding-bottom: 10%;
+}
+
+#table{
+	
+	
+	
+	width: 100%;
+	table-layout: fixed;
+	
+}
+
+#table tr td{
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+
 /* 글 목록 */
 #list table { width: 100%;}
 #list table, #list th, #list td {
-	border: 1px solid black;
+
 	border-collapse: collapse;
 }
 

@@ -38,136 +38,264 @@
 
 <jsp:include page="theme.jsp" />
 
+
 <section id= "idSearch">
 
 
-<div class = "container" >
-<hr>
+		<div class="container">
+			<hr>
+			sdfsdfsdf
+			<hr>
 
-<hr>
+		</div>
+		<div class="container" align="center" id="searchTab">
+			<div class="p-5 bg-white mb-5">
 
-</div>
-<div class = "container" align="center" id = "searchTab">
-  <div class="p-5 bg-white mb-5">
-  
-  <!-- tab -->
-    <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav" >
-      <li class="nav-item flex-sm-fill" >
-        <a id="home-tab"  data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">아이디 찾기</a>
-        
-      </li>
-      <li class="nav-item flex-sm-fill">
-        <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">비밀번호 찾기</a>
-      </li>
+				<!-- tab -->
+				<ul id="myTab" role="tablist"
+					class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+					<li class="nav-item flex-sm-fill"><a id="home-tab"
+						data-toggle="tab" href="#home" role="tab" aria-controls="home"
+						aria-selected="true"
+						class="nav-link border-0 text-uppercase font-weight-bold active">아이디
+							찾기</a></li>
+					<li class="nav-item flex-sm-fill"><a id="profile-tab"
+						data-toggle="tab" href="#profile" role="tab"
+						aria-controls="profile" aria-selected="false"
+						class="nav-link border-0 text-uppercase font-weight-bold">비밀번호
+							찾기</a></li>
 
-    </ul>
-    <div id="myTabContent" class="tab-content">
+				</ul>
+				<div id="myTabContent" class="tab-content">
+
+					<!-- id 찾기 -->
+					<div id="home" role="tabpanel" aria-labelledby="home-tab"
+						class="tab-pane fade px-4 py-5 show active">
+						<div class="container" align="center">
+							<div class="wrap-login100">
+								<form class="login100-form validate-form flex-sb flex-w"
+									action="idSearchOk">
+									<span class="login100-form-title p-b-32"> 아이디 찾기 </span> <span
+										class="txt1 p-b-11"> 이름 </span>
+									<div class="wrap-input100 validate-input m-b-36"
+										data-validate="Username is required">
+										<input class="input100" type="text" name="mem_name">
+										<span class="focus-input100"></span>
+									</div>
+
+									<span class="txt1 p-b-11"> 전화번호 </span>
+									<div class="wrap-input100 validate-input m-b-12"
+										data-validate="Password is required">
+
+										<input class="input100 " type="tel" name="mem_phone"
+											id="phone-number"> <span class="focus-input100"></span>
+									</div>
+
+									<div class="flex-sb-m w-full p-b-48"></div>
+
+									<div class="container-login100-form-btn" align="center">
+										<button type="submit" class="login100-form-btn"
+											data-toggle="modal" data-target="#exampleModal">아이디
+											찾기</button>
+
+
+									</div>
+
+								</form>
+							</div>
+						</div>
+
+					</div>
+					<div id="profile" role="tabpanel" aria-labelledby="profile-tab"
+						class="tab-pane fade px-4 py-5">
+						<!-- pw 찾기 -->
+						<div class="container" align="center" id="search">
+							<div class="wrap-login100">
+								<form class="login100-form validate-form flex-sb flex-w"
+									action="pwSearchOk">
+									<span class="login100-form-title p-b-32"> 비밀번호 찾기 </span> <span
+										class="txt1 p-b-11"> 아이디 </span>
+									<div class="wrap-input100 validate-input m-b-36"
+										data-validate="Username is required">
+										<input class="input100" type="text" name="mem_id"> <span
+											class="focus-input100"></span>
+									</div>
+									<span class="txt1 p-b-11"> 이름 </span>
+									<div class="wrap-input100 validate-input m-b-36"
+										data-validate="Username is required">
+										<input class="input100" type="text" name="mem_name">
+										<span class="focus-input100"></span>
+									</div>
+
+									<span class="txt1 p-b-11"> 이메일 </span>
+									<div class="wrap-input100 validate-input m-b-12"
+										data-validate="Password is required">
+
+										<input class="input100" type="email" name="mem_email">
+										<span class="focus-input100"></span>
+									</div>
+
+									<div class="flex-sb-m w-full p-b-48"></div>
+
+									<div class="container-login100-form-btn" align="center">
+										<button type="submit" class="login100-form-btn">비밀번호
+											찾기</button>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+	</section>
+	
+	     <div class="container">
+    <h2>제목제목</h2>
     
-    <!-- id 찾기 -->
-      <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-4 py-5 show active">
-		<div class = "container" align="center">
-			<div class="wrap-login100" >
-       				<form class="login100-form validate-form flex-sb flex-w" action="idSearchOk">
-					<span class="login100-form-title p-b-32">
-						아이디 찾기
-					</span>
+    <span>내용내용</span>
+    <hr>
+    <div class="row text-center" >
+    <div class="col-sm-12">
+    <div class="col-sm-3"></div>
+     
+    <div class="col-sm-6" id = "form1">
+    <form action="" method="post">
+        <table class="table table-boardered">
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" class="form-control" name="id" ></td>        
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" class="form-control" name="name" ></td>      
+            </tr>
+             
+            <tr>
+                <th>생년월일</th>
+                <td><input type="number" class="form-control" name="birth"></td>        
+            </tr>
+             
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" class="form-control" name="email"></td>       
+            </tr>
+             
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" class="form-control" name="password1"></td>       
+            </tr>
+            
+            <tr>
+                <th>비밀번호 확인</th>
+                <td><input type="password" class="form-control" name="password2"></td>       
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td><input type="number" class="form-control" name="tel"></td>       
+            </tr>
+            <tr>
+            <th></th>
+            <td>
+            <div align="right">
+              <button type="button" class="btn btn-info btn-sm" onclick="location.href='${path}/user/secession.jsp'">탈퇴하기</button>     
+              </div>      
+             </td>
+             </tr>
+            <tr>
+                <td colspan="2">
+                <input type="reset" class="btn btn-danger" value="취소">
+                <input type="submit" class="btn btn-primary" value="변경">
+                </td>
+            </tr>
+             
+             
+        </table>
 
-					<span class="txt1 p-b-11">
-						이름
-					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="mem_name" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<span class="txt1 p-b-11">
-						전화번호
-					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-						<span class="btn-show-pass">
-							<i class="fa fa-eye"></i>
-						</span>
-						<input class="input100" type="tel" name="mem_phone" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="flex-sb-m w-full p-b-48">
-
-					</div>
-
-					<div class="container-login100-form-btn"  align="center">
-						<button type = "submit" class = "login100-form-btn"
-						 data-toggle="modal" data-target="#exampleModal">
-							아이디 찾기
-						</button>
-						
-						
-					</div>
-
-				</form>
-				</div>
-				</div>
-	
-      </div>
-      <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
-        <!-- pw 찾기 -->
-      		<div class = "container" align="center" id = "search">
-			<div class="wrap-login100" >
-       				<form class="login100-form validate-form flex-sb flex-w" action="pwSearchOk">
-					<span class="login100-form-title p-b-32">
-						비밀번호 찾기
-					</span>
-
-					<span class="txt1 p-b-11">
-						아이디
-					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="mem_id" >
-						<span class="focus-input100"></span>
-					</div>
-					<span class="txt1 p-b-11">
-						이름
-					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="mem_name" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<span class="txt1 p-b-11">
-						이메일
-					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-						<span class="btn-show-pass">
-							<i class="fa fa-eye"></i>
-						</span>
-						<input class="input100" type="email" name="mem_email" >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="flex-sb-m w-full p-b-48">
-
-					</div>
-
-					<div class="container-login100-form-btn"  align="center">
-						<button type = "submit" class="login100-form-btn">
-							비밀번호 찾기
-						</button>
-					</div>
-
-				</form>
-				</div>
-				</div>
-      </div>
-
+     
+    </form>
     </div>
-
-  </div>
+     
+    </div>
+    </div>
 </div>
 
+<div class="container">
+    <h2>제목제목</h2>
+    
+    <span>내용내용</span>
+    <hr>
+    <div class="row text-center" >
+    <div class="col-sm-12">
+    <div class="col-sm-3"></div>
+     
+    <div class="col-sm-6" id = "form1">
+    <form action="updateUserDataOk">
+        <input type="hidden" name="mem_uid" value="${list.mem_uid }"/>
+        <table class="table table-boardered">
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" class="form-control" name="mem_id"  value=""></td>        
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" class="form-control" name="mem_name" value=""></td>      
+            </tr>
+             
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="text" class="form-control" name="mem_pw" value=""></td>        
+            </tr>
+             
+            <tr>
+                <th>생년월일</th>
+                <td><input type="date" class="form-control" name="mem_birth" value=""></td>       
+            </tr>
+             
+            <tr>
+                <th>전화번호</th>
+                <td><input type="text" class="form-control" name="mem_phone" value=""></td>       
+            </tr>
+            
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" class="form-control" name="mem_email" value=""></td>       
+            </tr>
+            <tr>
+                <th>가입일자</th>
+                <td><p>${list.mem_regDate }</p></td>       
+            </tr>
+            <tr>
+            <th></th>
+            <td>
+                
+             </td>
+             </tr>
+            <tr>
+                <td colspan="2">
+                <input type="submit" class="btn btn-primary" value="수정">
+                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
+                </td>
+            </tr>
+             
+             
+        </table>
 
+     
+    </form>
+    </div>
+     
+    </div>
+    </div>
+</div>
 
-	
-</section>
 
 <jsp:include page="footer.jsp" />
 

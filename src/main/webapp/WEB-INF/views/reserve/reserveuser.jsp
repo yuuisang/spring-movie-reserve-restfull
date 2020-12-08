@@ -9,14 +9,19 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 
-<%
-	int uid = (int) session.getAttribute("mem_uid");
-	String id = (String) session.getAttribute("mem_id");
-	int mov_num = Integer.parseInt(request.getParameter("mov_num"));
-	String mov_poster = request.getParameter("mov_poster");
+<!--  예매 (사용자) -->
+<% 
+	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
+		int uid = (int) session.getAttribute("mem_uid");
+		String id = (String) session.getAttribute("mem_id");
+		int mov_num = Integer.parseInt(request.getParameter("mov_num"));
+		String mov_poster = request.getParameter("mov_poster");
+		
 %>
+
 
 	<script>
 	var mem_uid = <%=uid%>;
@@ -30,11 +35,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예매(사용자)</title>
+<title>KOREA BOX</title>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/reserve/reserveuser.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveuser.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/reserve/reserveuser.css"/>
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+
+
 
 </head>
 <body>
@@ -124,9 +133,13 @@
 	</div>
 	<div id="successbtn"></div>
 	
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="${path}/resources/JS/reserve/reserveuser.js"></script>
 
 </body>
 </html>
-
+<% } else{%>
+	<script>alert("로그인이 필요합니다"); location.href="../login"</script>
+	<%}
+%>
 

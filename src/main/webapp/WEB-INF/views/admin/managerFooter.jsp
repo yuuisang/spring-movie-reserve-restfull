@@ -22,7 +22,7 @@
 
 
 		<!-- CSS파일 -->
-		<link rel="stylesheet" href="${path}/resources/CSS/front/footer.css">
+		<link rel="stylesheet" href="${path}/resources/CSS/main/footer.css">
 		
 <title>KOREA BOX</title>
 </head>

@@ -29,9 +29,8 @@
 <!-- 구글 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- 파비콘 설정-->
-<link rel="shortcut icon" href="img/movie_favicon.ico"
-	type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 	
 
 
@@ -134,9 +133,8 @@
 	<!-- Latest compiled JavaScript -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-						<script type="text/javascript" src="JS/ss.js"></script>
+<!-- 
+		<script type="text/javascript" src="JS/ss.js"></script>
+		-->
 </body>
 </html>

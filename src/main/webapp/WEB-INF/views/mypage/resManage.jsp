@@ -2,10 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
-<%
-	int uid = (int) session.getAttribute("mem_uid");
-	String id = (String) session.getAttribute("mem_id");
+
+
+<!--  예매 확인/ 취소 -->
+<% 
+	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
+		int uid = (int) session.getAttribute("mem_uid");
+		String id = (String) session.getAttribute("mem_id");	
 %>
 
 	<script>
@@ -17,7 +22,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예매확인/취소</title>
+<title>KOREA BOX</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/mypage/resManage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/JS/mypage/resManage.js"></script>
@@ -36,12 +41,16 @@
 	<!-- 구글폰트 -->
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 </head>
+
+
+
 <body>
 	<jsp:include page="../theme.jsp" />
-	
+
+
 	<h3>현재 예매 정보 목록</h3>
 	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
 
@@ -84,6 +93,11 @@
 		</ul>
 	</div>
 
+	<jsp:include page="../footer.jsp" />
 
 </body>
 </html>
+<% } else{%>
+	<script>alert("로그인이 필요합니다"); location.href="../login"</script>
+	<%}
+%>
