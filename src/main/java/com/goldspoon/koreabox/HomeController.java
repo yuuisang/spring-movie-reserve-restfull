@@ -105,8 +105,8 @@ public class HomeController {
    public void signUp() {
    }
    
-   @RequestMapping("/signUpOk")
-   public void signUpOk(Model model, UserDTO dto, String pwOk) {
+   @RequestMapping("/signUpOkPage")
+   public void signUpOkPage(Model model, UserDTO dto, String pwOk) {
       model.addAttribute("dto", dto);   //command 파일로 dto 보내기
       model.addAttribute("pwOk", pwOk);
       new SignUpCommand().execute(model);

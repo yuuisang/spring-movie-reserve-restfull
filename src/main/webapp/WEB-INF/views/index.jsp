@@ -423,7 +423,8 @@
 
 <!-- 컨텐츠 4-->
 
-    <!-- Testimonials Section -->
+    <!-- 진행중 -->
+    <p>진행중입니당</p>
     <section id="testimonial">
         <div class="container">
             <div class="row">
@@ -452,7 +453,7 @@
                             <!-- Slide 2 -->
                             <div class="carousel-item">
                                 <div class="carousel-content">
-                                    <div class="client-img"><img src="images/user-img-2.jpg" alt="Testimonial Slider" /></div>
+                                    <div class="client-img"><img src="${path }/resources/img/boxOfficeImg2.jpg" alt="Testimonial Slider" /></div>
                                     <p><i>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. There are many variations of passages of Lorem Ipsum available. Lorem Ipsum is simply dummy text of the printing and typesetting industry</i></p>
                                     <h4><span>-</span> Mukesh Kumar <span>-</span></h4>
                                 </div>
@@ -460,7 +461,7 @@
                             <!-- Slide 3 -->
                             <div class="carousel-item">
                                 <div class="carousel-content">
-                                    <div class="client-img"><img src="images/user-img-3.jpg" alt="Testimonial Slider" /></div>
+                                    <div class="client-img"><img src="${path }/resources/img/boxOfficeImg3.jpg" alt="Testimonial Slider" /></div>
                                     <p><i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form. There are many variations of passages of Lorem Ipsum available. Lorem Ipsum is simply dummy text of the printing and typesetting industry</i></p>
                                     <h4><span>-</span> Rajnish Kumar <span>-</span></h4>
                                 </div>
