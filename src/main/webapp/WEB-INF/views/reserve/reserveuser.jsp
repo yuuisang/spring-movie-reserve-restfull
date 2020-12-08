@@ -9,6 +9,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
@@ -34,9 +35,9 @@
 <meta charset="UTF-8">
 <title>예매(사용자)</title>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/reserve/reserveuser.css"/>
+<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/reserve/reserveuser.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath }/resources/JS/reserve/reserveuser.js"></script>
+<script src="${path}/resources/JS/reserve/reserveuser.js"></script>
 
 </head>
 <body>
