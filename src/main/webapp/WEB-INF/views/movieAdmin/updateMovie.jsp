@@ -19,8 +19,9 @@
 	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
-	<!-- CSS파일 -->
+	<!-- CSS파일
 	<link rel="stylesheet" type="text/css" href="CSS/.css">
+	 -->
 	
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">

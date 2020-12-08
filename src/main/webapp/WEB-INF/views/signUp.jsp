@@ -166,7 +166,7 @@
 								<!-- 회원가입 입력 폼 -->
 									<div class="registration-form" id="formDiv"
 										align="center">
-										<form action="signUpOk" id = "formTable" class = "needs-validation" method="post" novalidate>
+										<form action="signUpOkPage" id = "formTable" class = "needs-validation" method="post" novalidate>
 											<table class="table table-borderless " >
 
 											<tr>
@@ -263,7 +263,7 @@
 												
 												<div class = "signUpBtn" align="right" >
 												<td></td>
-													<td><button class="btn btn-blue mb-1 py-2" type="submit">회원가입
+													<td><button class="btn btn-blue mb-1 py-2">회원가입
 														하기</button></td>
 												</div>
 												

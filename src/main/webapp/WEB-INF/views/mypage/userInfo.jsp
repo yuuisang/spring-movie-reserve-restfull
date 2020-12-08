@@ -43,9 +43,9 @@ var path = "${pageContext.request.contextPath }";
 
 </head>
 <body>
-
+<!-- 
 <jsp:include page="../theme.jsp" />
-
+-->
 <div class="container">
    
    <div id="userUpdate">
@@ -74,8 +74,9 @@ var path = "${pageContext.request.contextPath }";
 <script src="${path}/resources/JS/mypage/userInfo.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 
-
+<!--  
 <jsp:include page="../footer.jsp" />
+-->
 </body>
 </html>
 

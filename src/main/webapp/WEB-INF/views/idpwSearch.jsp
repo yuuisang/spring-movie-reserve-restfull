@@ -156,6 +156,145 @@
 
 
 	</section>
+	
+	     <div class="container">
+    <h2>제목제목</h2>
+    
+    <span>내용내용</span>
+    <hr>
+    <div class="row text-center" >
+    <div class="col-sm-12">
+    <div class="col-sm-3"></div>
+     
+    <div class="col-sm-6" id = "form1">
+    <form action="" method="post">
+        <table class="table table-boardered">
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" class="form-control" name="id" ></td>        
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" class="form-control" name="name" ></td>      
+            </tr>
+             
+            <tr>
+                <th>생년월일</th>
+                <td><input type="number" class="form-control" name="birth"></td>        
+            </tr>
+             
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" class="form-control" name="email"></td>       
+            </tr>
+             
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" class="form-control" name="password1"></td>       
+            </tr>
+            
+            <tr>
+                <th>비밀번호 확인</th>
+                <td><input type="password" class="form-control" name="password2"></td>       
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td><input type="number" class="form-control" name="tel"></td>       
+            </tr>
+            <tr>
+            <th></th>
+            <td>
+            <div align="right">
+              <button type="button" class="btn btn-info btn-sm" onclick="location.href='${path}/user/secession.jsp'">탈퇴하기</button>     
+              </div>      
+             </td>
+             </tr>
+            <tr>
+                <td colspan="2">
+                <input type="reset" class="btn btn-danger" value="취소">
+                <input type="submit" class="btn btn-primary" value="변경">
+                </td>
+            </tr>
+             
+             
+        </table>
+
+     
+    </form>
+    </div>
+     
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>제목제목</h2>
+    
+    <span>내용내용</span>
+    <hr>
+    <div class="row text-center" >
+    <div class="col-sm-12">
+    <div class="col-sm-3"></div>
+     
+    <div class="col-sm-6" id = "form1">
+    <form action="updateUserDataOk">
+        <input type="hidden" name="mem_uid" value="${list.mem_uid }"/>
+        <table class="table table-boardered">
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" class="form-control" name="mem_id"  value=""></td>        
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" class="form-control" name="mem_name" value=""></td>      
+            </tr>
+             
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="text" class="form-control" name="mem_pw" value=""></td>        
+            </tr>
+             
+            <tr>
+                <th>생년월일</th>
+                <td><input type="date" class="form-control" name="mem_birth" value=""></td>       
+            </tr>
+             
+            <tr>
+                <th>전화번호</th>
+                <td><input type="text" class="form-control" name="mem_phone" value=""></td>       
+            </tr>
+            
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" class="form-control" name="mem_email" value=""></td>       
+            </tr>
+            <tr>
+                <th>가입일자</th>
+                <td><p>${list.mem_regDate }</p></td>       
+            </tr>
+            <tr>
+            <th></th>
+            <td>
+                
+             </td>
+             </tr>
+            <tr>
+                <td colspan="2">
+                <input type="submit" class="btn btn-primary" value="수정">
+                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
+                </td>
+            </tr>
+             
+             
+        </table>
+
+     
+    </form>
+    </div>
+     
+    </div>
+    </div>
+</div>
 
 
 <jsp:include page="footer.jsp" />
