@@ -37,14 +37,19 @@
 	<!-- CSS파일 -->
 	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/.css">
 	
-   <!-- 파비콘 설정-->
-   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+	<!-- 파비콘 설정-->
+	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
 <body>
 	<jsp:include page="theme.jsp" />
+	
+	
+	
 ${mem_id }
+	
+
 	
 	<c:choose>
 	<c:when test="${result == 0 }">
@@ -90,8 +95,6 @@ ${mem_id }
 
 
 
-
-
 	<jsp:include page="footer.jsp" />
 
 	<!-- JS파일 -->
@@ -100,10 +103,8 @@ ${mem_id }
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
 	<!-- Latest compiled JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${path}/resources/JS/main/
-.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${path}/resources/JS/main/.js"></script>
 </body>
 </html>
 

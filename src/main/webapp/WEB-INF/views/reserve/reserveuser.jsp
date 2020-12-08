@@ -11,6 +11,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
+
+<!--  예매 (사용자) -->
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
 		int uid = (int) session.getAttribute("mem_uid");
@@ -33,11 +35,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예매(사용자)</title>
+<title>KOREA BOX</title>
 
-<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/reserve/reserveuser.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="${path}/resources/JS/reserve/reserveuser.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/reserve/reserveuser.css"/>
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+
+
 
 </head>
 <body>
@@ -127,7 +133,8 @@
 	</div>
 	<div id="successbtn"></div>
 	
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="${path}/resources/JS/reserve/reserveuser.js"></script>
 
 </body>
 </html>

@@ -94,10 +94,10 @@ KOREA BOX  관리자 회원 관리
                   <td>${dto.mem_regDate }</td>
                   <form action="updateUserData">
                   <input type="hidden" name="mem_uid" value="${dto.mem_uid }"/>
-                  <td><button  type="submit" class="btn btn-primary">수정</button>
+                  <td><button  type="submit" class="btn btn-outline-secondary btn-sm">수정</button>
                   </form>
                   &nbsp;
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop${status.index }">삭제</button></td>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#staticBackdrop${status.index }">삭제</button></td>
                   
                   
                   

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
-
+<!--  개인정보 수정  -->
 <% 
    if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
       int uid = (int)session.getAttribute("mem_uid");       
@@ -19,11 +19,13 @@ var path = "${pageContext.request.contextPath }";
 <html>
 <head>
 <meta charset="UTF-8">
-<title>개인정보수정</title>
+<title>KOREA BOX</title>
+ <!-- 파비콘 설정-->
+<link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+<!--  CSS  -->
 <link rel="stylesheet" type="text/css" href="${path}/resources/CSS/mypage/userInfo.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="${path}/resources/JS/mypage/userInfo.js"></script>
-<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+
+
 </head>
 <body>
 
@@ -51,6 +53,10 @@ var path = "${pageContext.request.contextPath }";
    </div>
       
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="${path}/resources/JS/mypage/userInfo.js"></script>
+<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 
 </body>
 </html>

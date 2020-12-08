@@ -4,6 +4,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
+
+
+<!--  예매 확인/ 취소 -->
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
 		int uid = (int) session.getAttribute("mem_uid");
@@ -19,7 +22,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예매확인/취소</title>
+<title>KOREA BOX</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/CSS/mypage/resManage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/JS/mypage/resManage.js"></script>
@@ -46,29 +49,8 @@
 
 <body>
 	<jsp:include page="../admin/managerTheme.jsp" />
-	
-	
-		<!-- 메뉴바 밑 컨테이너 -->
-<div class = "container-fluid" >
-<hr>
-<div class = "container">
-KOREA BOX  관리자 회원 관리
-</div>
-<hr>
-</div>
 
 
-
-<div class = "container">
-		<div class="row" id = "list">
-			<div class="col-sm-12">
-				<h2>영화 리스트</h2>
-				<br>
-			</div>
-		</div>
-	</div>
-	
-	
 	<h3>현재 예매 정보 목록</h3>
 	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
 
