@@ -11,11 +11,11 @@ body{
 	width: 1200px;
 	display: block;
 	justify-content: center;
-	border : 1px solid #333;
+
 }
 #title{
 	margin-bottom: 50px;
-	border : 1px solid #333;
+
 }
 #title h2{
 	text-align: center;
@@ -24,7 +24,7 @@ body{
 #screenRegist{
 	width: 100%;
 	height: 20vh;
-	border : 1px solid #333;
+
 }
 #screenRegist h3, th,td{
 	text-align: center;
@@ -36,18 +36,18 @@ body{
 #screenList{
 	width: 100%;
 	height: 60vh;
-	border : 1px solid #333;
-}
+
+	}
 #screenList h3{
 	text-align: center;
 }
 #screenTable{
 	width: 100%;
-	border: 1px solid #333;
+
 	border-collapse: collapse;
 }
 #screenTable th, td{
-	border: 1px solid #333;
+
 	border-collapse: collapse;
 	width: 20%;
 	text-align: center;

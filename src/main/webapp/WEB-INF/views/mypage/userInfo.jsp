@@ -29,6 +29,7 @@ var path = "${pageContext.request.contextPath }";
 </head>
 <body>
 
+	<jsp:include page="../theme.jsp" />
 
 <div class="container">
    
@@ -57,6 +58,8 @@ var path = "${pageContext.request.contextPath }";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${path}/resources/JS/mypage/userInfo.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+
+<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

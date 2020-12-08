@@ -110,5 +110,7 @@
 </div>
 <%--글작성 대화상자 --%>
 
+<jsp:include page="../admin/managerFooter.jsp" />
+
 </body>
 </html>

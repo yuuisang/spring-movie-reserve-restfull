@@ -36,19 +36,26 @@
 <body>
 <jsp:include page="../admin/managerTheme.jsp" />
 	
-
+	
+	<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX 관리자 예매 관리
+</div>
+<hr>
+</div>
 
 <div class = "container">
-		<div class="row" id = "list">
+		<div class="row" id = "listHeader">
 			<div class="col-sm-12">
 				<h2>예매 목록 리스트</h2>
 				<br>
 			</div>
 		</div>
-	</div>
 
-<div class = "container">
-
+		<div class="row" >
+	<div class="col-sm-12">
 	<div id="list">
 		<div class="clear"></div>
 		<form id="frmList" name="frmList">
@@ -72,6 +79,8 @@
 			</table>
 		</form>
 		</div>
+	</div>
+	</div>
 	</div>
 	
 	<div class="clear"></div>

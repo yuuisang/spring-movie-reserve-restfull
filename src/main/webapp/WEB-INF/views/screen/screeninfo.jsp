@@ -49,18 +49,18 @@ KOREA BOX  관리자 상영관 관리
 
 <div class="container">
 
-	<div id="title">
-		<h2>상영관 관리</h2>	
-	</div>
-
-	<div id="screenRegist">
+<div class="row">
+   <div class="col-sm-12">
+	<div id="screenRegist" >
 		<h3>상영관 등록</h3>
 		<form id="frmRegist" name="frmRegist" method="POST" onsubmit="return false">
 			<table id="screenInfo">
 				<tr>
-					<th>상영관 명</th>
-					<th>좌석 행</th>
-					<th>좌석 열</th>
+					 <th>상영관 명</th>
+				     <th>좌석 행</th>
+				     <th>좌석 열</th>
+					
+					
 				</tr>
 				<tr>
 					<td><input type="text" name="scr_name"></td>
@@ -71,8 +71,10 @@ KOREA BOX  관리자 상영관 관리
 			</table>
 		</form>
 	</div>
-
-
+</div>
+</div>
+<div class="row">
+   <div class="col-sm-12">
 	<div class="d01">
 		<div class="left" id="pageinfo"></div>
 		<div class="right" id="pageRows"></div>	
@@ -81,8 +83,8 @@ KOREA BOX  관리자 상영관 관리
 	<div id="screenList">
 		<h3>상영관 리스트</h3>
 		<form id="frmDelete" name="frmDelete">
-			<table id="screenTable">
-				<thead>
+			<table id="screenTable" class = "table">
+				<thead class = "thead-dark">
 					<th>상영관 고유번호</th>
 					<th>상영관명</th>
 					<th>좌석 행</th>
@@ -96,6 +98,8 @@ KOREA BOX  관리자 상영관 관리
 			</table>
 		</form>
 	</div>
+	</div>
+	</div>
 	
 	
 	<div class="center">
@@ -103,11 +107,9 @@ KOREA BOX  관리자 상영관 관리
 		</ul>
 	</div>
 	
-		
-		
 </div>
 
-
+<jsp:include page="../admin/managerFooter.jsp" />
 
 </body>
 </html>

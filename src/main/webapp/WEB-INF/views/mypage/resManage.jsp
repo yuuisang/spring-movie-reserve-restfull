@@ -48,7 +48,7 @@
 
 
 <body>
-	<jsp:include page="../admin/managerTheme.jsp" />
+	<jsp:include page="../theme.jsp" />
 
 
 	<h3>현재 예매 정보 목록</h3>
@@ -93,7 +93,7 @@
 		</ul>
 	</div>
 
-	<jsp:include page="../admin/managerFooter.jsp" />
+	<jsp:include page="../footer.jsp" />
 
 </body>
 </html>

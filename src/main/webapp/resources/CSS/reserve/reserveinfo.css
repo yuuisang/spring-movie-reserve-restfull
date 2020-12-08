@@ -12,24 +12,24 @@
 .danger {background-color: #f44336;} /* Red */ 
 .danger:hover {background: #da190b;}
 
-#list{
+
+#listHeader{
 
 	
 	margin-top: 60px;
 	padding-bottom: 10%;
 }
 
-
-#listTable{
-
-		width: 100%;
+#table{
+	
+	
+	
+	width: 100%;
 	table-layout: fixed;
-
-
 	
 }
 
-#listTable tr td{
+#table tr td{
 
 	text-overflow: ellipsis;
 	overflow: hidden;

@@ -56,14 +56,14 @@ KOREA BOX  관리자 회원 관리
 <div class = "container">
 		<div class="row" id = "list">
 			<div class="col-sm-12">
-				<h2>영화 리스트</h2>
+				<h2>회원 리스트</h2>
 				<br>
 			</div>
 		</div>
 
 <div class="col-sm-12">
 <div class = "tableDiv">
-<table id="table" class="table table-hover " style = "width: 110%">
+<table id="table" class="table table-hover " style = "width: 100%">
  <thead class="thead-dark">
   <tr class="header">
 

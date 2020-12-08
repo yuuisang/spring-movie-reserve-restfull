@@ -27,6 +27,7 @@ public class UserOpenListMovie implements Service{
 		}
 		if(showInfoListArr.length>0) {
 		list = dao.openMovieList(showInfoListArr);
+		System.out.println(list.toString());
 		}else {
 			model.addAttribute("result", 0);
 		}
