@@ -255,8 +255,6 @@
 
 									</tr>
 
-
-		
 									<tr><td></td></tr>
 									<tr><td></td></tr>
 									<tr><td></td></tr>
@@ -276,73 +274,6 @@
 									</form>
 									</div>
 								
-									
-					<!-- 			
-								         <form action="signupOk.do" class = "needs-validation" method="post" novalidate>
-
-            <div class="form-icon" style="background-color: #C8C7ED">
-               <span><i class="icon icon-user"></i></span>
-
-            </div>
-            <div class="form-group">
-               <input type="text" class="form-control item" id="userID" minlength="5" maxlength="15"
-                placeholder="UserID" name="user_id" required>
-                  <div class="invalid-feedback" id="iderrMsg">아이디를 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="password" class="form-control item" id="password" minlength="5" maxlength="15"
-               placeholder="Password" name="user_pw" required>
-                  <div class="invalid-feedback" id="pwerrMsg">비밀번호를 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="text" class="form-control item" id="username" minlength="2" maxlength="10"
-               placeholder="UserName" name="user_name" required>
-                  <div class="invalid-feedback" id="nameerrMsg">이름을 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="email" class="form-control item" id="email"
-               placeholder="Email" name="user_email" required>
-                  <div class="invalid-feedback" id="emailerrMsg">이메일을 입력 해 주세요.</div>
-            </div>
-            <div class="form-group">
-               <input type="tel" class="form-control item" id="phone-number" 
-               placeholder="Phone Number" name="user_phone" required>
-                  <div class="invalid-feedback" id="phoneerrMsg">전화번호를 입력 해 주세요.</div>
-            </div>
-
-            <div class="form-group">
-               <button type="submit" id ="chkBT" class="btn btn-block create-account" >계정
-                  생성</button>
-            </div>
-
-         </form>
--->
-							</div>
-							
-							
-							<div class="row px-2 mb-2">
-								<div class="line"></div>
-								<small class="text-muted or text-center">OR</small>
-								<div class="line"></div>
-							</div>
-							
-						 <!-- 
-							<div class="row text-center" id = "socialbtn">
-								<div class="col-sm-5">
-									<p class="social-connect">
-										<span class="fa fa-facebook-square"></span><small
-											class="pl-3 pr-1">Sign up with facebook</small>
-									</p>
-								</div>
-								<div class="col-sm-5">
-									<p class="social-connect">
-										<span class="fa fa-google-plus"></span><small
-											class="pl-3 pr-1">Sign up with google+</small>
-									</p>
-								</div>
-							</div>
-							
-							-->
 						</div>
 					</div>
 				</div>

@@ -41,8 +41,33 @@
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 </head>
+
+
+
 <body>
-	<jsp:include page="../theme.jsp" />
+	<jsp:include page="../admin/managerTheme.jsp" />
+	
+	
+		<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX  관리자 회원 관리
+</div>
+<hr>
+</div>
+
+
+
+<div class = "container">
+		<div class="row" id = "list">
+			<div class="col-sm-12">
+				<h2>영화 리스트</h2>
+				<br>
+			</div>
+		</div>
+	</div>
+	
 	
 	<h3>현재 예매 정보 목록</h3>
 	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
@@ -86,6 +111,7 @@
 		</ul>
 	</div>
 
+	<jsp:include page="../admin/managerFooter.jsp" />
 
 </body>
 </html>

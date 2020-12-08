@@ -21,9 +21,12 @@
 	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
+   <!-- 구글 폰트 -->
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">	
+	
 	<!-- CSS파일-->
 
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/main/managerIndex.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/movie/managementMovie.css">
 
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
@@ -41,6 +44,7 @@
 	-->
 	<jsp:include page="../admin/managerTheme.jsp" />
 	
+	
 	<!-- 메뉴바 밑 컨테이너 -->
 <div class = "container-fluid" >
 <hr>
@@ -57,13 +61,13 @@
 				<br>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" >
 			<div class="col-sm-12">
 			<div align="right">
 			<button type="button" class="btn btn-secondary"  id = "movieBtn" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/writeMovie'">영화 등록</button>
 			</div>
 			<br>
-				<table class="table table-striped" id = "listTable">
+				<table class="table table-hover" id = "listTable" style = "width: 100%">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">등록일</th>
