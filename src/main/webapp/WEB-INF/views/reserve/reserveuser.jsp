@@ -10,13 +10,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
-<%
-	int uid = (int) session.getAttribute("mem_uid");
-	String id = (String) session.getAttribute("mem_id");
-	int mov_num = Integer.parseInt(request.getParameter("mov_num"));
-	String mov_poster = request.getParameter("mov_poster");
+<% 
+	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
+		int uid = (int) session.getAttribute("mem_uid");
+		String id = (String) session.getAttribute("mem_id");
+		int mov_num = Integer.parseInt(request.getParameter("mov_num"));
+		String mov_poster = request.getParameter("mov_poster");
+		
 %>
+
 
 	<script>
 	var mem_uid = <%=uid%>;
@@ -128,5 +130,8 @@
 
 </body>
 </html>
-
+<% } else{%>
+	<script>alert("로그인이 필요합니다"); location.href="../login"</script>
+	<%}
+%>
 
