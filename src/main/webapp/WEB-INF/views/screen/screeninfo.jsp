@@ -38,78 +38,83 @@
 <jsp:include page="../admin/managerTheme.jsp" />
 
 	<!-- 메뉴바 밑 컨테이너 -->
-<div class = "container-fluid" >
-<hr>
-<div class = "container">
-KOREA BOX  관리자 상영관 관리
-</div>
-<hr>
-</div>
+	<div class="container-fluid">
+		<hr>
+		<div class="container">KOREA BOX 관리자 상영관 관리</div>
+		<hr>
+	</div>
+
+	<div class="container">
 
 
-<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="screenRegist">
+					<h3>상영관 등록</h3>
+					<div class="formDiv">
+						<form id="frmRegist" name="frmRegist" method="POST"
+							onsubmit="return false">
+							<table id="screenInfo" class="table">
+								<tr>
+									<th>상영관 명</th>
+									<th>좌석 행</th>
+									<th>좌석 열</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="scr_name"
+										class="form-control-lg"></td>
+									<td><input type="text" name="scr_seatRow"
+										class="form-control-lg"></td>
+									<td><input type="text" name="scr_seatLine"
+										class="form-control-lg"></td>
+								</tr>
 
-<div class="row">
-   <div class="col-sm-12">
-	<div id="screenRegist" >
-		<h3>상영관 등록</h3>
-		<form id="frmRegist" name="frmRegist" method="POST" onsubmit="return false">
-			<table id="screenInfo">
-				<tr>
-					 <th>상영관 명</th>
-				     <th>좌석 행</th>
-				     <th>좌석 열</th>
-					
-					
-				</tr>
-				<tr>
-					<td><input type="text" name="scr_name"></td>
-					<td><input type="text" name="scr_seatRow"></td>
-					<td><input type="text" name="scr_seatLine"></td>
-					<td><button class="btn btn-secondary btn-sm" type="submit" id="btnRegist">상영관 등록</button>
-				</tr>
-			</table>
-		</form>
+							</table>
+							<div class = "btnDiv" >
+								<button class="btn btn-secondary btn-md" type="submit"
+									id="btnRegist">상영관 등록</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div id="screenList">
+					<h3>상영관 리스트</h3>
+					<div class="d01">
+						<div class="left" id="pageinfo"></div>
+						<div class="right" id="pageRows"></div>
+					</div>
+					<form id="frmDelete" name="frmDelete">
+						<table id="screenTable" class="table table-hover">
+							<thead class="thead-dark">
+								<th>상영관 고유번호</th>
+								<th>상영관명</th>
+								<th>좌석 행</th>
+								<th>좌석 열</th>
+								<th>관리</th>
+							</thead>
+							<tbody>JS에서 채울예정
+							</tbody>
+
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-</div>
-<div class="row">
-   <div class="col-sm-12">
-	<div class="d01">
-		<div class="left" id="pageinfo"></div>
-		<div class="right" id="pageRows"></div>	
-	</div>
-	
-	<div id="screenList">
-		<h3>상영관 리스트</h3>
-		<form id="frmDelete" name="frmDelete">
-			<table id="screenTable" class = "table">
-				<thead class = "thead-dark">
-					<th>상영관 고유번호</th>
-					<th>상영관명</th>
-					<th>좌석 행</th>
-					<th>좌석 열</th>
-					<th>관리</th>
-				</thead>
-				<tbody>
-					JS에서 채울예정
-				</tbody>
-				
-			</table>
-		</form>
-	</div>
-	</div>
-	</div>
-	
-	
+
 	<div class="center">
 		<ul class="pagination" id="pagination">
 		</ul>
 	</div>
-	
-</div>
 
-<jsp:include page="../admin/managerFooter.jsp" />
+
+	<jsp:include page="../admin/managerFooter.jsp" />
 
 </body>
 </html>

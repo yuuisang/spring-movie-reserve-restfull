@@ -41,7 +41,7 @@
 /* 글 목록 */
 #list table { width: 100%;}
 #list table, #list th, #list td {
-	border: 1px solid black;
+
 	border-collapse: collapse;
 }
 

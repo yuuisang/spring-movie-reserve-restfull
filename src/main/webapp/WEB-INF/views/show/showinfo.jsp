@@ -33,12 +33,24 @@
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 <script src="${path}/resources/JS/show/showInfo.js"></script>
 </head>
+
 <body>
 	
 <jsp:include page="../admin/managerTheme.jsp" />
 
-<div class="container">
+<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX  관리자 상영스케줄 관리
+</div>
+<hr>
+</div>
 
+
+<div class="container">
+<div class="row">
+   <div class="col-sm-12">
 	<div id="title">
 		<h2>상영 스케줄 관리</h2>
 	</div>
@@ -54,8 +66,8 @@
 	</div>
 	
 	<div id="showScheduleList">
-			<table id="showScheduleTable">
-				<thead>
+			<table id="showScheduleTable" class = "table table-hover">
+				<thead class = "thead-dark">
 					<th>상영 고유번호</th>
 					<th>영화명</th>
 					<th>상영관</th>
@@ -67,6 +79,8 @@
 				</tbody>
 				
 			</table>
+	</div>
+	</div>
 	</div>
 	
 	
