@@ -5,61 +5,68 @@
     <c:set var="path" value="${pageContext.request.contextPath}" />
     <!-- 현재 상영작  -->
 <c:choose>
-	<c:when test="${result == 0 }">
-		<script>
-			alert("현재 상영작이 없습니다.");
-			history.back();
-		</script>
-	</c:when>
+   <c:when test="${result == 0 }">
+      <script>
+         alert("현재 상영작이 없습니다.");
+         history.back();
+      </script>
+   </c:when>
 
-	<c:otherwise>
+   <c:otherwise>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-	<!-- 아이콘 -->
-	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-	
-	<!-- 구글폰트 -->
-	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
-	
-	
-	<!-- CSS파일 -->
-	<link rel="stylesheet" href="${path }/resources/CSS/main/openMovieList.css">
-	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   <!-- 아이콘 -->
+   <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   
+   <!-- 구글폰트 -->
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+   
+   
+   <!-- CSS파일 -->
+   <link rel="stylesheet" href="${path }/resources/CSS/main/openMovieList.css">
+   
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
 <body>
-	<!-- 메뉴바  -->
-	<jsp:include page="../theme.jsp" />
-<button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
+   <!-- 메뉴바  -->
+   <jsp:include page="../theme.jsp" />
+   <button onclick="location.href='${pageContext.request.contextPath }/movieUser/expectedMovieList'">상영 예정작</button>
 
         
         
-      	<c:choose>
-			<c:when test="${empty list || fn:length(list) == 0 }">
-			</c:when>
+         <c:choose>
+         <c:when test="${empty list || fn:length(list) == 0 }">
+         </c:when>
 
-			<c:otherwise>
-				<c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
-					<div class="col-xs-6 col-sm-3 hover-mask">
-					<img class="card-img-top" src="../resources/upload/${dto.mov_poster}" alt="" style="width:300px; height:300px;"/><br>
-					<span>${dto.mov_title }</span>										
-					<h2><a href="${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1" class="glyphicon glyphicon-search">상세보기</a></h2>
-					</div>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+         <c:otherwise>
+            <c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
+               <div class="col-xs-6 col-sm-3 hover-mask">
+               <img class="card-img-top" src="../resources/upload/${dto.mov_poster}" alt="" style="width:300px; height:300px;"/><br>
+               <span>${dto.mov_title }</span>                              
+               <h2><a href="${pageContext.request.contextPath }/movieUser/openViewMovie?mov_num=${dto.mov_num }&page=1" class="glyphicon glyphicon-search">상세보기</a></h2>
+               <form action="../reserve/reserveuser" name="frm1">
+               <input type="hidden" name="mov_num" value="${dto.mov_num }">
+               <input type="hidden" name="mov_poster" value="${dto.mov_poster }">
+               <button type="submit" id="aa">예매하기</button>
+               <!-- <h2><a href="javascript:frm1.submit();" class="glyphicon glyphicon-search">예약</a></h2> -->
+               </form>
+               
+               </div>
+            </c:forEach>
+         </c:otherwise>
+      </c:choose>
 
 
 
@@ -178,23 +185,23 @@
 
     </div>
     </div>
-	
-	
-	<jsp:include page="../footer.jsp" />
+   
+   
+   <jsp:include page="../footer.jsp" />
 
-	<!-- JS파일 -->
-	<!-- Popper JS -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- JS파일 -->
+   <!-- Popper JS -->
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- Latest compiled JavaScript -->
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
 
 </body>
 </html>
-	</c:otherwise>
+   </c:otherwise>
 </c:choose>

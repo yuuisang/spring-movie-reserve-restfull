@@ -120,12 +120,19 @@
 									</div>
 								</div>
 							</div>
+
+									</div>
+								</div>
+							</div>
 							<div
 								class="row px-3 text-center justify-content-center mb-0 social">
-
+								<span class="fa fa-facebook-square mx-2"></span> <span
+									class="fa fa-twitter mx-2"></span> <span
+									class="fa fa-instagram mx-2"></span> <span
+									class="fa fa-youtube-play mx-2"></span>
 							</div>
 						</div>
-					</div>
+
 
 					<!-- input 창 -->
  

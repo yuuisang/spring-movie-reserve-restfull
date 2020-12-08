@@ -21,7 +21,9 @@
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
 	<!-- CSS파일-->
-	<link rel="stylesheet" type="text/css" href="../resources/CSS/front/managerIndex.css">
+
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/CSS/main/managerIndex.css">
+
 	<!-- 파비콘 설정-->
 	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 	

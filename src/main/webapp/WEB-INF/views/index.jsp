@@ -1,34 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-	
+   
 <!-- 메인페이지 -->
 
 <!DOCTYPE html>
 <html >
 <head>
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-	<!-- 아이콘 -->
-	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-	
-	<!-- 구글 폰트 -->
-	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
-	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
-	
-	<!-- CSS파일 -->
-	<link rel="stylesheet" href="${path }/resources/CSS/main/index.css">
+   <!-- 아이콘 -->
+   <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   
+   <!-- 구글 폰트 -->
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+   
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+   
+   <!-- CSS파일 -->
+   <link rel="stylesheet" href="${path }/resources/CSS/main/index.css">
 
 
 
@@ -38,9 +38,9 @@
 <body>
 
 <%
-	// 현재 로그인 상태인지 확인
-	if(session.getAttribute("mem_id") != null){
-	String mem_id = (String)session.getAttribute("mem_id");
+   // 현재 로그인 상태인지 확인
+   if(session.getAttribute("mem_id") != null){
+   String mem_id = (String)session.getAttribute("mem_id");
 %>
 <header class="header">
     <nav class="navbar navbar-expand-lg fixed-top ">
@@ -52,34 +52,41 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active dropdown"><a class="nav-link dropdown-toggle font-weight-bold"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> MOVIE </a>
-							<div class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="${path }/movieUser/openMovieList"">현재 상영작</a> <a
-									class="dropdown-item" href="${path }/movieUser/expectedMovieList">상영 예정작</a>
-							</div></li>
+                     aria-haspopup="true" aria-expanded="false"> MOVIE </a>
+                     <div class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="${path }/movieUser/openMovieList"">현재 상영작</a> <a
+                           class="dropdown-item" href="${path }/movieUser/expectedMovieList">상영 예정작</a>
+                     </div></li>
                     <li class="nav-item"><a href="${path }/movieUser/openMovieList" class="nav-link text-uppercase font-weight-bold">Ticketing</a></li>
                     <li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle font-weight-bold" 
-							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> MY PAGE </a>
-							<div class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="${path }/mypage/resManage">예매 확인/취소</a> <a
-									class="dropdown-item" href="${path }/mypage/userInfo">회원 정보수정 /탈퇴</a>
-							</div></li>
-						<button type = "button" class="btn btn-secondary btn-sm">${mem_id }</button>&nbsp;
-						<button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>
+                     class="nav-link dropdown-toggle font-weight-bold" 
+                     id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false"> MY PAGE </a>
+                     <div class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="${path }/mypage/resManage">예매 확인/취소</a> <a
+                           class="dropdown-item" href="${path }/mypage/userInfo">회원 정보수정 /탈퇴</a>
+                     </div></li>
+                  <button type = "button" class="btn btn-secondary btn-sm">${mem_id }</button>&nbsp;
+                  <button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/logOut'">로그아웃</button>&nbsp;
+                  <%
+                  if(session.getAttribute("mem_id").equals("admin")){
+                  %>
+                  <button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/movieAdmin/managementMovie'">관리자 페이지</button>
+                  <%
+                  }
+                  %>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-		
+      
 <%
-	} else {
-		
-%>		<!-- 로그인 실패했을 경우 -->		
+   } else {
+      
+%>      <!-- 로그인 실패했을 경우 -->      
 <header class="header">
     <nav class="navbar navbar-expand-lg fixed-top ">
         <div class="container">
@@ -90,31 +97,31 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active dropdown"><a class="nav-link dropdown-toggle font-weight-bold" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> MOVIE </a>
-							<div class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="${path }/movieUser/openMovieList">현재 상영작</a> <a
-									class="dropdown-item" href="${path }/movieUser/expectedMovieList">상영 예정작</a>
-							</div></li>
+                     aria-haspopup="true" aria-expanded="false"> MOVIE </a>
+                     <div class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="${path }/movieUser/openMovieList">현재 상영작</a> <a
+                           class="dropdown-item" href="${path }/movieUser/expectedMovieList">상영 예정작</a>
+                     </div></li>
                     <li class="nav-item"><a href="${path }/movieUser/openMovieList" class="nav-link text-uppercase font-weight-bold">Ticketing</a></li>
                     <li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle font-weight-bold" 
-							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"> MY PAGE </a>
-							<div class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="${path }/mypage/resManage">예매 확인/취소</a> <a
-									class="dropdown-item" href="${path }/mypage/userInfo">회원 정보수정 /탈퇴</a>
-							</div></li>
-						<button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/login'">로그인</button>&nbsp;
-						<button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/signUp'">회원가입</button>
+                     class="nav-link dropdown-toggle font-weight-bold" 
+                     id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false"> MY PAGE </a>
+                     <div class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="${path }/mypage/resManage">예매 확인/취소</a> <a
+                           class="dropdown-item" href="${path }/mypage/userInfo">회원 정보수정 /탈퇴</a>
+                     </div></li>
+                  <button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/login'">로그인</button>&nbsp;
+                  <button type = "button" class="btn btn-secondary btn-sm" onclick="location.href='${path}/signUp'">회원가입</button>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<%				} %>
-	   <!-- ======= 슬라이드 사진 ======= -->
+<%            } %>
+      <!-- ======= 슬라이드 사진 ======= -->
     <header id="header">
         <div id="headerCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
@@ -127,81 +134,81 @@
 
             <div class="carousel-inner" role="listbox">
               <!-- Slide 1 -->
-				<div class="carousel-item active">
-					<div class="carousel-background">
-						<img src="${path}/resources/img/run.jpg" alt="">
-					</div>
-					<div class="carousel-container">
-						<div class="carousel-content">
-							<h2>
-								<!-- <span>The Note Book </span>  -->
-							</h2>
-							<!-- 
-							<p>It is a long established fact that a reader will be
-								distracted by the readable content of a page when looking at its
-								layout. The point of using Lorem Ipsum is that it has a
-								more-or-less normal distribution of letters, as opposed to using
-								‘Content here, content here’, making it look like readable
-								English.</p>
-								<a href="#" class="contactus-btn" data-toggle="modal"
-								data-target="#videoModal"
-								data-theVideo="https://www.youtube.com/embed/loFtozxZG0s">VIDEO</a>
-							
-							 -->
-							 <a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
+            <div class="carousel-item active">
+               <div class="carousel-background">
+                  <img src="${path}/resources/img/run.jpg" alt="">
+               </div>
+               <div class="carousel-container">
+                  <div class="carousel-content">
+                     <h2>
+                        <!-- <span>The Note Book </span>  -->
+                     </h2>
+                     <!-- 
+                     <p>It is a long established fact that a reader will be
+                        distracted by the readable content of a page when looking at its
+                        layout. The point of using Lorem Ipsum is that it has a
+                        more-or-less normal distribution of letters, as opposed to using
+                        ‘Content here, content here’, making it look like readable
+                        English.</p>
+                        <a href="#" class="contactus-btn" data-toggle="modal"
+                        data-target="#videoModal"
+                        data-theVideo="https://www.youtube.com/embed/loFtozxZG0s">VIDEO</a>
+                     
+                      -->
+                      <a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
 
 
-						</div>
-									</div>
-									
-								</div>
+                  </div>
+                           </div>
+                           
+                        </div>
 
-								<!-- Slide 2 -->
-								<div class="carousel-item">
-									<div class="carousel-background">
-										<img src="${path}/resources/img/Joje.jpg" alt="">
-									</div>
-									<div class="carousel-container">
-										<div class="carousel-content">
-											<!-- 
-											<h2>Where does it come from</h2>
-											<p>It is a long established fact that a reader will be
-												distracted by the readable content of a page when looking at
-												its layout. The point of using Lorem Ipsum is that it has a
-												more-or-less normal distribution of letters, as opposed to
-												using ‘Content here, content here’, making it look like
-												readable English.</p>
-											
-											 -->
-											 <a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
-										</div>
-									</div>
-								</div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                           <div class="carousel-background">
+                              <img src="${path}/resources/img/Joje.jpg" alt="">
+                           </div>
+                           <div class="carousel-container">
+                              <div class="carousel-content">
+                                 <!-- 
+                                 <h2>Where does it come from</h2>
+                                 <p>It is a long established fact that a reader will be
+                                    distracted by the readable content of a page when looking at
+                                    its layout. The point of using Lorem Ipsum is that it has a
+                                    more-or-less normal distribution of letters, as opposed to
+                                    using ‘Content here, content here’, making it look like
+                                    readable English.</p>
+                                 
+                                  -->
+                                  <a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
+                              </div>
+                           </div>
+                        </div>
 
-								<!-- Slide 3 -->
-								<div class="carousel-item">
-									<div class="carousel-background">
-										<img src="${path}/resources/img/TheFrom.jpg" alt="">
-									</div>
-									<div class="carousel-container">
-										<div class="carousel-content">
-										<!-- 
-											<h2>Why do we use it</h2>
-											<p>There are many variations of passages of Lorem Ipsum
-												available, but the majority have suffered alteration in some
-												form, by injected humour, or randomised words which don’t
-												look even slightly believable. If you are going to use a
-												passage of Lorem Ipsum, you need to be sure there isn’t
-												anything embarrassing hidden in the middle of text.</p>
-											<a href="#" class="contactus-btn">상세정보</a>
-										-->
-										<a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
-										</div>
-									</div>
-								</div>
-							</div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                           <div class="carousel-background">
+                              <img src="${path}/resources/img/TheFrom.jpg" alt="">
+                           </div>
+                           <div class="carousel-container">
+                              <div class="carousel-content">
+                              <!-- 
+                                 <h2>Why do we use it</h2>
+                                 <p>There are many variations of passages of Lorem Ipsum
+                                    available, but the majority have suffered alteration in some
+                                    form, by injected humour, or randomised words which don’t
+                                    look even slightly believable. If you are going to use a
+                                    passage of Lorem Ipsum, you need to be sure there isn’t
+                                    anything embarrassing hidden in the middle of text.</p>
+                                 <a href="#" class="contactus-btn">상세정보</a>
+                              -->
+                              <a href="${path }/movieUser/openMovieList"" class="contactus-btn">상세정보</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
 
-							<!-- Carousel pre and next arrow -->
+                     <!-- Carousel pre and next arrow -->
             <a class="carousel-control-prev" href="#headerCarousel" role="button" data-slide="prev">
           
             </a>
@@ -211,73 +218,71 @@
             </a>
         </div>
     </header>
-	
-	<!-- 박스오피스 -->
+   
+   <!-- 박스오피스 -->
 
-	<section class="conA">
-		<div class=box1>
-			<div class="container">
-				<h3 class="text-center" id = "boxName">BOX OFFICE</h3>
-				<div class="movieplus">
-					<a href="${path }/movieUser/openMovieList" id ="plus"><i class="fa fa-search-plus"></i> 더 많은 영화 보기</a>
-				</div>
-				<br>
-				<div class="row mt-30">
-					<div class="col-md-3 col-sm-6">
-						<div class="boxMovie">
-							<img src="${path}/resources/img/boxOfficeImg.jpg" alt="">
-							<div class="box-content">
-								<h3 class="title">관람평 4.0</h3>
-								<ul class="icon">
-									<li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
-									<li><a href="#"><i class="fa fa-link"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="boxMovie">
-							<img src="${path}/resources/img/boxOfficeImg2.jpg" alt="">
-							<div class="box-content">
-								<h3 class="title">관람평 3.0</h3>
-								<ul class="icon">
-									<li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
-									<li><a href="#"><i class="fa fa-link"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="boxMovie">
-							<img src="${path}/resources/img/boxOfficeImg3.jpg" alt="">
-							<div class="box-content">
-								<h3 class="title">관람평 2.0</h3>
-								<ul class="icon">
-									<li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
-									<li><a href="#"><i class="fa fa-link"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="boxMovie">
-							<img src="${path}/resources/img/boxOfficeImg4.jpg" alt="">
-							<div class="box-content">
-								<h3 class="title">관람평 5.0</h3>
-								<ul class="icon">
-									<li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
-									<li><a href="#"><i class="fa fa-link"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+   <section class="conA">
+      <div class=box1>
+         <div class="container">
+            <h3 class="text-center" id = "boxName">BOX OFFICE</h3>
+            <div class="movieplus">
+               <a href="${path }/movieUser/openMovieList" id ="plus"><i class="fa fa-search-plus"></i> 더 많은 영화 보기</a>
+            </div>
+            <br>
+            <div class="row mt-30">
+               <div class="col-md-3 col-sm-6">
+                  <div class="boxMovie">
+                     <img src="${path}/resources/img/boxOfficeImg.jpg" alt="">
+                     <div class="box-content">
+                        <h3 class="title">관람평 4.0</h3>
+                        <ul class="icon">
+                           <li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
+                           <li><a href="#"><i class="fa fa-link"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <div class="boxMovie">
+                     <img src="${path}/resources/img/boxOfficeImg2.jpg" alt="">
+                     <div class="box-content">
+                        <h3 class="title">관람평 3.0</h3>
+                        <ul class="icon">
+                           <li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
+                           <li><a href="#"><i class="fa fa-link"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <div class="boxMovie">
+                     <img src="${path}/resources/img/boxOfficeImg3.jpg" alt="">
+                     <div class="box-content">
+                        <h3 class="title">관람평 2.0</h3>
+                        <ul class="icon">
+                           <li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
+                           <li><a href="#"><i class="fa fa-link"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6">
+                  <div class="boxMovie">
+                     <img src="${path}/resources/img/boxOfficeImg4.jpg" alt="">
+                     <div class="box-content">
+                        <h3 class="title">관람평 5.0</h3>
+                        <ul class="icon">
+                           <li><a href="${path }/movieUser/openMovieList"><i class="fa fa-search"></i></a></li>
+                           <li><a href="#"><i class="fa fa-link"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
 
-
-	
 	<!-- MOVIE SELECTION( 유투브 영상 + 포스터) -->
 	<section class="conB">
 			<h3 class="text-center" id = "boxName">MOVIE SELECTION</h3>
@@ -291,78 +296,8 @@
 			</div>
 
 	</section>
-	
 
- 
-		
-		<!-- 이벤트  -->
 
-<!-- 
-    <section id="photo-gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2 class="text-center">Photo Gallery</h2>
-                        <p class="col-md-8 offset-md-2 text-center mb-5"><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</i></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="${path }/resources/img/indexImg7.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Perth</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="images/image-two.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Melbourne</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="images/image-three.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Sydney</a></h4>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="images/image-four.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Tasmania</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="images/image-five.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Brisbane</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="photo-frame">
-                        <div class="state-thumb">
-                            <img src="images/image-six.jpg" class="img-fluid">
-                        </div>
-                        <h4><a href="#">Adelaide</a></h4>
-                    </div>
-                </div>
-            </div>            
-	-->	
-	
-	
 <div class="container">
     <header class="text-center">
         <h1>Mesonry Image gallery</h1>
@@ -411,8 +346,7 @@
 	</div>
 	<br/>
 </div>
-        </div>
-    </section>
+
     <!-- End Photo Gallery -->
 		
 		
@@ -585,8 +519,6 @@ $(window).scroll(function() {
 
 		<script type="text/javascript" src="${path }/resources/JS/main/index.js"></script>
 
-
 </body>
 
 </html>
-

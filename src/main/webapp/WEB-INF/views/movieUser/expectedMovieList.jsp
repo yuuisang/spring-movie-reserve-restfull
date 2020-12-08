@@ -41,6 +41,7 @@
 
 <jsp:include page="../theme.jsp"/>
 
+
 <section>
 <button onclick="location.href='${pageContext.request.contextPath }/movieUser/openMovieList'">현재 상영작</button>
 

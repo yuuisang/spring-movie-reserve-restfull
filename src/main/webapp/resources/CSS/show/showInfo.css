@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
 body{
-	padding: 0;
-	margin : 0;
 	width: 100%;
 	height: 900px;
-	display: flex;
+	display: block;
 	justify-content: center;
 }
 
-#container{
+.container{
 	width: 1200px;
+	display : block;
 	justify-content: center;
 	border : 1px solid #333;
 }
@@ -127,6 +126,7 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 	height : 100%;
 	/* padding: 15px; */
 	position: relative;  /* 이래야 안에 있는 absolute 들이 동작 */
+	border : none;
 } 
 
 .modal .close {  /* close 버튼 */
@@ -175,6 +175,10 @@ ul.pagination a:hover:not(.active) {background-color: #ddd;}
 
 #showScheduleTitle{
 	text-align: center;
+}
+#showScheduleTitle span{
+	font-size: 20px;
+	font-weight: bold;
 }
 
 #showScheduleTableModal tbody td{

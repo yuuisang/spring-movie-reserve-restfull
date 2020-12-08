@@ -9,34 +9,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-	<!-- 아이콘 -->
-	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   <!-- 아이콘 -->
+   <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-	<!-- 구글 폰트 -->
-	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+   <!-- 구글 폰트 -->
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
 
-	
-	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="CSS/.css">
-	
-	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+   
+   
+   <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
 <body>
 
-	<jsp:include page="managerTheme.jsp" />
+   <jsp:include page="managerTheme.jsp" />
 
-		     <div class="container">
+           <div class="container">
     <h2>회원 정보 수정</h2>
     
     <span>* 회원님의 정보를 정확히 수정해 주세요.</span>
@@ -84,15 +82,13 @@
             <tr>
             <th></th>
             <td>
-            <div align="right">
-              <button type="button" class="btn btn-info btn-sm">탈퇴하기</button>     
-              </div>      
+                
              </td>
              </tr>
             <tr>
                 <td colspan="2">
-                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
                 <input type="submit" class="btn btn-primary" value="수정">
+                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
                 </td>
             </tr>
              
@@ -107,16 +103,16 @@
     </div>
 </div>
 
-	<jsp:include page="managerFooter.jsp" />
+   <jsp:include page="managerFooter.jsp" />
 
-	<!-- JS파일 -->
-	<!-- Popper JS -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- JS파일 -->
+   <!-- Popper JS -->
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- Latest compiled JavaScript -->
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

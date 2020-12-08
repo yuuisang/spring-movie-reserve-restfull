@@ -4,9 +4,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% 
-	if(session.getAttribute("mem_uid") != null){
-		int uid = (int)session.getAttribute("mem_uid"); 		
-		%><script>var uid = <%= uid %>; alert(uid);</script>
+   if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
+      int uid = (int)session.getAttribute("mem_uid");       
+%>
+<script>
+var uid = <%= uid %>;
+var path = "${pageContext.request.contextPath }";
+</script>
 
  
 <!DOCTYPE html>
@@ -21,34 +25,35 @@
 </head>
 <body>
 
+
 <div class="container">
-	
-	<div id="userUpdate">
-		<div id="title1">
-			<h2>회원정보수정</h2>
-		</div>
-		<div id="initUpdate">
-			<!-- JS에서처리 -->
-		</div>
-		
-	</div>
-	
-	<div id="userDelete">
-		<div id="title2">
-			<h2>회원탈퇴</h2>
-		</div>
-		<div id="initDelete">
-			<!-- JS에서처리 -->
-		</div>
-		
-	</div>
-		
+   
+   <div id="userUpdate">
+      <div id="title1">
+         <h2>회원정보수정</h2>
+      </div>
+      <div id="initUpdate">
+         <!-- JS에서처리 -->
+      </div>
+      
+   </div>
+   
+   <div id="userDelete">
+      <div id="title2">
+         <h2>회원탈퇴</h2>
+      </div>
+      <div id="initDelete">
+         <!-- JS에서처리 -->
+      </div>
+      
+   </div>
+      
 </div>
 
 </body>
 </html>
 
 <% } else{%>
-	<script>alert("로그인이 필요합니다"); location.href="../login"</script>
-	<%}
+   <script>alert("로그인이 필요합니다"); location.href="../login"</script>
+   <%}
 %>
