@@ -206,7 +206,7 @@ CREATE TABLE tb_showinfo
    shw_expireFlag number DEFAULT 0,
    PRIMARY KEY (shw_num)
 );
-
+INSERT INTO tb_showinfo values(4, 1,'asd', 1, 'asd', '2020-11-11' , 1, 1, 1, 1, sysdate, 0);
 
 
 /* Comments */
@@ -286,6 +286,7 @@ SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_COMMENT;
 
 INSERT INTO TB_MEMBER values(0,'admin','1234','관리자','1993-10-03','010-1111-1111','admin@naver.com',sysdate);
+
 
 DELETE FROM TB_RESERVE;
 DELETE FROM TB_SHOWINFO;

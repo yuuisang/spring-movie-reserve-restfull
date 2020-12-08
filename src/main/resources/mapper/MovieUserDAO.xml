@@ -31,6 +31,7 @@
    <select id="openMovieNum" resultType="com.goldspoon.koreabox.movie.beans.ShowInfoDTO">
       SELECT shw_movieNum 
       FROM tb_showinfo 
+      WHERE shw_expireFlag = 0
       ORDER BY shw_movieNum DESC
    </select>
    
