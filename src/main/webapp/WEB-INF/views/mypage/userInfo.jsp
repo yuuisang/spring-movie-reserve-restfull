@@ -14,7 +14,7 @@ var uid = <%= uid %>;
 var path = "${pageContext.request.contextPath }";
 </script>
 
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +34,10 @@ var path = "${pageContext.request.contextPath }";
    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
 
-	 <!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
-	<!--  CSS  -->
-	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/mypage/userInfo.css">
+    <!-- 파비콘 설정-->
+   <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
+   <!--  CSS  -->
+   <link rel="stylesheet" type="text/css" href="${path}/resources/CSS/mypage/userInfo.css">
 
 <title>KOREA BOX</title>
 
@@ -46,7 +46,7 @@ var path = "${pageContext.request.contextPath }";
 
 <jsp:include page="../theme.jsp" />
 
-<div class="container">
+<div class="container2">
    
    <div id="userUpdate">
       <div id="title1">
@@ -76,6 +76,7 @@ var path = "${pageContext.request.contextPath }";
 
 
 <jsp:include page="../footer.jsp" />
+
 </body>
 </html>
 
