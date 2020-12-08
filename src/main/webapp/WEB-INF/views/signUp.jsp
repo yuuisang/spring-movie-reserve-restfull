@@ -57,7 +57,7 @@
 										<!-- 슬라이드 1 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="https://i.imgur.com/IjkibdE.jpg"
+												<img src="${path }/resources/img/boxOfficeImg.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">John Paul</h6>
@@ -74,7 +74,7 @@
 										<!-- 슬라이드 2 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="https://i.imgur.com/oW8Wpwi.jpg"
+												<img src="${path }/resources/img/boxOfficeImg.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Ximena Vegara</h6>
@@ -91,7 +91,7 @@
 										<!-- 슬라이드 3 -->
 										<div class="carousel-item active card border-0 card-0">
 											<div class="text-center">
-												<img src="https://i.imgur.com/EUYNvE1.jpg"
+												<img src="${path }/resources/img/boxOfficeImg.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Lena Maria</h6>
@@ -108,7 +108,7 @@
 										<!-- 슬라이드 4 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="https://i.imgur.com/ndQx2Rg.jpg"
+												<img src="${path }/resources/img/boxOfficeImg.jpg"
 													class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Richard Finch</h6>
@@ -125,7 +125,7 @@
 										<!-- 슬라이드 5 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="img/img1.jpg" class="img-fluid profile-pic">
+												<img src="${path }/resources/img/boxOfficeImg.jpg" class="img-fluid profile-pic">
 											</div>
 											<h6 class="font-weight-bold mt-5">Marielle Haag</h6>
 											<small class="mb-2">Backend Developer</small>
@@ -279,6 +279,7 @@
 				</div>
 			</div>
 		</div>
+</div>
 
 	</section>
 
