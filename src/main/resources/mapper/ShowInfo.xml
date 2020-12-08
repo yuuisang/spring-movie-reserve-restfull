@@ -41,7 +41,8 @@
 	<select id="selectAllMovieNumTitle" resultType="com.goldspoon.koreabox.showinfo.beans.MovieInfoDTO">
 		SELECT
 			mov_num,
-			mov_title 
+			mov_title,
+			mov_openDate
 		FROM tb_movie
 	</select>
 	

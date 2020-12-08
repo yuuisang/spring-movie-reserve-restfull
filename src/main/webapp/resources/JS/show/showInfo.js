@@ -43,6 +43,11 @@ $(document).ready(function(){
     // 모달 대화상자 close 버튼 눌리면
     $(".modal .close").click(function(){
     	//loadPage(1);
+    	todayTemp = new Date();
+    	let yearTemp = todayTemp.getFullYear(); // 년도
+    	let monthTemp = todayTemp.getMonth() + 1;  // 월
+    	let dateTemp = todayTemp.getDate();  // 날짜
+    	date = dateTemp;
         $(this).parents(".modal").hide();
     });
     
@@ -51,13 +56,13 @@ $(document).ready(function(){
 
     // 이전날
     $(document).on("click","#btnBack",function(event){
-    	$(".modal .close").trigger("click");
+    	//$(".modal .close").trigger("click");
     	
     	// 비교할 실제로컬 날짜
     	todayChk = new Date();
-    	let yearChk = today.getFullYear(); // 년도
-    	let monthChk = today.getMonth() + 1;  // 월
-    	let dateChk = today.getDate();  // 날짜
+    	let yearChk = todayChk.getFullYear(); // 년도
+    	let monthChk = todayChk.getMonth() + 1;  // 월
+    	let dateChk = todayChk.getDate();  // 날짜
     	var tempdate = date * 1; // date 넘버타입으로 바꿈
     	
     	if(date > dateChk){
@@ -75,16 +80,16 @@ $(document).ready(function(){
     
     // 다음날
     $(document).on("click","#btnNext",function(event){
-    	$(".modal .close").trigger("click");
+    	//$(".modal .close").trigger("click");
     	
     	// 비교할 실제로컬 날짜
     	todayChk = new Date();
-    	let yearChk = today.getFullYear(); // 년도
-    	let monthChk = today.getMonth() + 1;  // 월
-    	let dateChk = today.getDate();  // 날짜 기본 넘버타입
+    	let yearChk = todayChk.getFullYear(); // 년도
+    	let monthChk = todayChk.getMonth() + 1;  // 월
+    	let dateChk = todayChk.getDate();  // 날짜 기본 넘버타입
     	var tempdate = date * 1; // date 넘버타입으로 바꿈
     	
-    	if(tempdate <= dateChk + 2){
+    	if(tempdate <= dateChk + 1){
     		tempdate = tempdate + 1;
     		date = tempdate;
     		setPopup(data_shw);    		
@@ -198,9 +203,16 @@ $(document).ready(function(){
 		var result = "<br><br><br><select id='selectBox"+ k +"' class='selectClassOk' value='selectBox" + k + "'>";
 		result += "<option value='noChoice'>영화선택</option>";
 		
+		var chk_today = year+"-"+month+"-"+date;
+		
 		for(var p=0;p<data.mov_numTitle.length;p++){
-			result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
-						+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";
+			if(data.mov_numTitle[p].mov_openDate.split("-")[0] <= chk_today.split("-")[0]
+			&&data.mov_numTitle[p].mov_openDate.split("-")[1] <= chk_today.split("-")[1]
+			&&data.mov_numTitle[p].mov_openDate.split("-")[2] <= chk_today.split("-")[2]
+			){
+				result += "<option value1='" + data.mov_numTitle[p].mov_num + "' value2='" + data.mov_numTitle[p].mov_title + "'>" 
+				+ "번호 : " + data.mov_numTitle[p].mov_num + " / 제목 : " + data.mov_numTitle[p].mov_title + "</option>";				
+			}
 		}
 		
 		result += "</select><br><br><br>";
@@ -331,9 +343,16 @@ $(document).ready(function(){
 									
 					    			result += "<option value='noChoice'>영화선택</option>";
 					    			
+					    			var chk_today = year+"-"+month+"-"+date;
+					    			
 									for(var q=0; q<data2.mov_numTitle.length; q++){
-										result += "<option value1='" + data2.mov_numTitle[q].mov_num + "' value2='" + data2.mov_numTitle[q].mov_title + "'>" 
-										+ "번호 : " +data2.mov_numTitle[q].mov_num + " / 제목 : " + data2.mov_numTitle[q].mov_title + "</option>";
+										if(data2.mov_numTitle[q].mov_openDate.split("-")[0] <= chk_today.split("-")[0]
+										&&data2.mov_numTitle[q].mov_openDate.split("-")[1] <= chk_today.split("-")[1]	
+										&&data2.mov_numTitle[q].mov_openDate.split("-")[2] <= chk_today.split("-")[2]	
+										){
+											result += "<option value1='" + data2.mov_numTitle[q].mov_num + "' value2='" + data2.mov_numTitle[q].mov_title + "'>" 
+											+ "번호 : " +data2.mov_numTitle[q].mov_num + " / 제목 : " + data2.mov_numTitle[q].mov_title + "</option>";										
+										}
 									}
 									
 									result += "</select>"
@@ -547,7 +566,7 @@ function setPopup(jsonObj){
 			        	alert('등록된 상영관이 없어 상영 스케줄을 설정할 수 없습니다.');
 			        	return;
 			        }else{
-			        	
+			        	// mov_num, mov_title, mov_openDate 포함
 			        	data_scr_mov = data;
 			        	
 			        	var topResult = "";
@@ -557,7 +576,7 @@ function setPopup(jsonObj){
 
 			        	
 						$("#showScheduleTitle").html(topResult);
-						makeDefTable();
+						makeDefTable(chk_today);
 						
 						if(data.scr_shwInfo.length != 0){
 							for(var aa=0; aa<data.scr_shwInfo.length; aa++){
@@ -670,7 +689,7 @@ function initReload(i, j, mov_num, mov_name, scr_num, scr_name, shw_date, shw_ti
 
 
 // 함수화해야 ajax() 동작순서 안꼬임
-function makeDefTable(){	// 디폴트로 넣어주는 div들
+function makeDefTable(chk_today){	// 디폴트로 넣어주는 div들
 	
 	var k = 0;
 
@@ -697,9 +716,16 @@ function makeDefTable(){	// 디폴트로 넣어주는 div들
     			resultDef += "<option value='noChoice'>영화선택</option>";
     			
 				for(var aa=0;aa<data_scr_mov.mov_numTitle.length;aa++){
-					// 영화제목이 같은데 다른영화일수있으니, mov_num도있어야함 value1 = movnum value2 = movtitle
-					resultDef += "<option value1='" + data_scr_mov.mov_numTitle[aa].mov_num + "' value2='" + data_scr_mov.mov_numTitle[aa].mov_title + "'>" 
-								+ "번호 : " + data_scr_mov.mov_numTitle[aa].mov_num + " / 제목 : " + data_scr_mov.mov_numTitle[aa].mov_title + "</option>";
+					// 팝업창에 현재 해당날짜까지 이미 개봉된 것만
+					if(data_scr_mov.mov_numTitle[aa].mov_openDate.split("-")[0] <= chk_today.split("-")[0]
+						&& data_scr_mov.mov_numTitle[aa].mov_openDate.split("-")[1] <= chk_today.split("-")[1]
+						&& data_scr_mov.mov_numTitle[aa].mov_openDate.split("-")[2] <= chk_today.split("-")[2]
+					){
+						// 영화제목이 같은데 다른영화일수있으니, mov_num도있어야함 value1 = movnum value2 = movtitle
+						resultDef += "<option value1='" + data_scr_mov.mov_numTitle[aa].mov_num + "' value2='" + data_scr_mov.mov_numTitle[aa].mov_title + "'>" 
+									+ "번호 : " + data_scr_mov.mov_numTitle[aa].mov_num + " / 제목 : " + data_scr_mov.mov_numTitle[aa].mov_title + "</option>";
+					}
+					
 				}
     			
 				resultDef += "</select>"
