@@ -19,18 +19,14 @@ public class UserInfoDeleteCommand implements UserInfoCommand {
 		String status = "FAIL";
 		
 		int cnt = 0;
-		int cnt2 = 0;
-		int cnt3 = 0;
 		try {		
 			cnt = dao.deleteByNum(dto);
-			cnt2 = dao.deleteResByNum(dto);
-			cnt3 = dao.deleteCommByNum(dto);
+			dao.deleteResByNum(dto);
+			dao.deleteCommByNum(dto);
 			status = "OK";
 			
 			// cnt 가 0 이면 Arithmetic 에러 catch
 			int chkResult = 1 / cnt;
-			int chkResult2 = 1 / cnt2;
-			int chkResult3 = 1 / cnt3;
 		} catch(Exception e) {
 			e.printStackTrace();
 			message.append("[에러: " + e.getMessage() + "]");
