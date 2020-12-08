@@ -2,77 +2,83 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goldspoon.koreabox.movie.beans.MovieAdminDAO">
 
-	<!-- /list.ajax  
-		parameter : page, pageRows
-	 -->
+   <!-- /list.ajax  
+      parameter : page, pageRows
+    -->
 
-	<select id="selectFromRow"
-		resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
-		<![CDATA[
-		SELECT
-			mov_num mov_num, mov_title mov_title, mov_director mov_director, 
-			mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
-			mov_openDate mov_openDate, mov_grade mov_grade
-		FROM 
-			(SELECT ROWNUM AS RNUM, T.* FROM 
-				(SELECT * FROM tb_movie ORDER BY mov_num DESC) T) 
-		WHERE 
-			RNUM >= #{from} AND RNUM < (#{from} + 10)
-		]]>	
-	</select>
-	
-	<!-- SELECT 쿼리문에서 단일값 받고 싶을때
-		resultType="int"
-		resultType="java.lang.Integer"
-	 -->
-	<select id="countAll" resultType="int">
-		SELECT count(*) FROM tb_movie
-	</select>
 
-	<select id="select" resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
-		SELECT
-			mov_num mov_num, mov_title mov_title, mov_director mov_director, 
-			mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
-			mov_openDate mov_openDate, mov_grade mov_grade
-		FROM tb_movie ORDER 
-		BY mov_num DESC
-	</select>
-	
-	
-	<select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
-			SELECT mov_num mov_num, mov_title mov_title, 
-			mov_director mov_director, mov_actors mov_actors, mov_genre mov_genre, 
-			mov_runtime mov_runtime, mov_openDate mov_openDate, mov_grade mov_grade,
-			mov_intro mov_intro, mov_poster mov_poster
-			FROM tb_movie WHERE mov_num= #{mov_num}
-	</select>
+   
 
- 	<insert id="insert" flushCache="true"
- 	 		>
- 		 INSERT INTO tb_movie
-			(mov_num, mov_title, mov_director, mov_actors, mov_genre,
-			mov_runtime, mov_openDate, mov_grade, mov_intro, 
-			mov_regDate, mov_poster, mov_still1,
-			mov_still2, mov_still3)
-		VALUES
-			(SEQ_tb_movie_mov_num.nextval, #{param1}, #{param2}, #{param3}, #{param4}, 
-			#{param5}, #{param6}, #{param7}, #{param8},
-			SYSDATE, #{param9}, #{param10}, 
-			#{param11}, #{param12})
- 	</insert>
- 	
- 	<update id="update" flushCache="true">
- 		UPDATE tb_movie SET mov_title = #{updateDto.mov_title}, mov_director = #{updateDto.mov_director},
- 			mov_actors = #{updateDto.mov_actors}, mov_genre = #{updateDto.mov_genre}, mov_runtime = #{updateDto.mov_runtime}, 
- 			mov_openDate = #{updateDto.mov_openDate}, mov_grade = #{updateDto.mov_grade}, mov_intro = #{updateDto.mov_intro} 
-		WHERE mov_num = #{updateDto.mov_num}
- 	</update>
- 	
- 		<delete id="delete" flushCache="true">
-		DELETE FROM tb_movie WHERE mov_num = #{param1}
-	</delete>
+   <select id="select" resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
+      SELECT
+         mov_num mov_num, mov_title mov_title, mov_director mov_director, 
+         mov_actors mov_actors, mov_genre mov_genre, mov_runtime mov_runtime,
+         mov_openDate mov_openDate, mov_grade mov_grade, mov_regDate mov_regDate
+      FROM tb_movie ORDER 
+      BY mov_regDate DESC
+   </select>
+   
+   <select id="read" resultType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
+         SELECT mov_num mov_num, mov_title mov_title, 
+         mov_director mov_director, mov_actors mov_actors, mov_genre mov_genre, 
+         mov_runtime mov_runtime, mov_openDate mov_openDate, mov_grade mov_grade,
+         mov_intro mov_intro, mov_poster mov_poster, mov_still1 mov_still1, 
+         mov_still2 mov_still2, mov_still3 mov_still3
+         FROM tb_movie WHERE mov_num= #{mov_num}
+   </select>
+
+    <insert id="insert" flushCache="true"
+           parameterType="com.goldspoon.koreabox.movie.beans.MovieAdminDTO">
+        INSERT INTO tb_movie
+         (mov_num, mov_title, mov_director, mov_actors, mov_genre,
+         mov_runtime, mov_openDate, mov_grade, mov_intro, 
+         mov_regDate, mov_poster, mov_still1,
+         mov_still2, mov_still3)
+      VALUES
+         (SEQ_tb_movie_mov_num.nextval, #{param1}, #{param2}, #{param3}, #{param4}, 
+         #{param5}, #{param6}, #{param7}, #{param8},
+         SYSDATE, #{param9}, #{param10}, 
+         #{param11}, #{param12})
+    </insert>
+    
+    <select id="showInfoList" resultType="int">
+       SELECT
+         shw_movieNum shw_movieNum
+      FROM tb_showinfo
+    </select>
+    
+    <select id="reserveList" resultType="int">
+       SELECT
+         res_movieNum res_movieNum
+      FROM tb_reserve
+    </select>
+    
+    <update id="update" flushCache="true">
+       UPDATE tb_movie SET mov_title = #{updateDto.mov_title}, mov_director = #{updateDto.mov_director},
+          mov_actors = #{updateDto.mov_actors}, mov_genre = #{updateDto.mov_genre}, mov_runtime = #{updateDto.mov_runtime}, 
+          mov_openDate = #{updateDto.mov_openDate}, mov_grade = #{updateDto.mov_grade}, mov_intro = #{updateDto.mov_intro}, 
+          mov_poster = #{poster}, mov_still1 = #{still1}, mov_still2 = #{still2}, 
+          mov_still3 = #{still3} 
+      WHERE mov_num = #{updateDto.mov_num}
+    </update>
+    
+    <update id="updateShowInfo" flushCache="true">
+       UPDATE tb_showinfo SET shw_movieName = #{param2}
+      WHERE shw_movieNum = #{param1}
+    </update>
+    
+    <update id="updateReserve" flushCache="true">
+       UPDATE tb_reserve SET res_movieName = #{param2}
+      WHERE res_movieNum = #{param1}
+    </update>
+    
+    
+    
+       <delete id="delete" flushCache="true">
+      DELETE FROM tb_movie WHERE mov_num = #{param1}
+   </delete>
  
 
- 	 
- 	 
+     
+     
 </mapper>

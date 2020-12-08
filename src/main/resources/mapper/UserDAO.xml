@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goldspoon.koreabox.user.beans.UserDAO">
+
+	<insert id="signUpInsert"  flushCache="true"
+		parameterType="com.goldspoon.koreabox.user.beans.UserDTO">
+		 INSERT INTO tb_member
+			(mem_uid, mem_id, mem_pw, mem_name, mem_birth,
+			mem_phone, mem_email, mem_regDate)
+		VALUES
+			(SEQ_tb_member_mem_uid.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, 
+			#{mem_birth}, #{mem_phone}, #{mem_email}, SYSDATE)
+	</insert>
+	
+	<select id="login"
+		resultType="com.goldspoon.koreabox.user.beans.UserDTO">
+			SELECT *FROM tb_member 
+			WHERE mem_id= #{id} AND mem_pw= #{pw}
+	</select>
+	
+	<select id="idSearch" resultType="String">
+		SELECT mem_id FROM tb_member 
+		WHERE mem_name= #{param1} AND mem_phone= #{param2}
+	</select>
+	
+	<select id="pwSearch" resultType="String">
+		SELECT mem_pw FROM tb_member 
+		WHERE mem_id=#{param1} AND mem_name= #{param2} AND mem_email= #{param3}
+	</select>
+
+	<select id="idCheck" resultType="String">
+		SELECT mem_id FROM tb_member
+		WHERE mem_id=#{param1}
+	</select>
+	
+	<select id="phoneCheck" resultType="String">
+		SELECT mem_phone FROM tb_member
+		WHERE mem_phone=#{param1}
+	</select>
+	
+	<select id="emailCheck" resultType="String">
+		SELECT mem_email FROM tb_member
+		WHERE mem_email=#{param1}
+	</select>
+	
+</mapper>

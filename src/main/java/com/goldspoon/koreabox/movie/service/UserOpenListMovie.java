@@ -25,8 +25,11 @@ public class UserOpenListMovie implements Service{
 			showInfoListArr[i] += showInfoList.get(i).getShw_movieNum();
 			
 		}
+		if(showInfoListArr.length>0) {
 		list = dao.openMovieList(showInfoListArr);
-		
+		}else {
+			model.addAttribute("result", 0);
+		}
 		
 		model.addAttribute("list", list);
 	}

@@ -199,6 +199,35 @@
 	</dependency>
 
 
+	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>javax.mail-api</artifactId>
+		<version>1.5.5</version>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>5.2.1.RELEASE</version>
+	</dependency>
+
+
+
+
+
+
+
+
+
+
+
             
    </dependencies>
     <build>

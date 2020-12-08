@@ -2,41 +2,79 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <%
 	int writePages = 10;
 %>
+    <!-- 관리자 메인 페이지 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../resources/css/managementMovie.css" rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- 아이콘 -->
+	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	
+	<!-- CSS파일-->
+	<link rel="stylesheet" type="text/css" href="../resources/CSS/front/managerIndex.css">
+	<!-- 파비콘 설정-->
+	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	
+
+<title>KOREA BOX</title>
 </head>
 <body>
 
-<div id="allDiv">
-	<h1>영화관리</h1>
-	<br><br><br><br><br>
-	<h2>영화 리스트</h2>
-	<br>
-	<button id="movieWrite" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/writeMovie'">영화 등록</button>
-	<br>
-	<table id="movieListTable">
-		<tr>
-			<td>번호</td>
-			<td>영화제목</td>
-			<td>감독</td>
-			<td>배우</td>
-			<td>장르</td>
-			<td>러닝타임</td>
-			<td>개봉일</td>
-			<td>나이등급</td>
-			<td>수정</td>
-			<td>삭제</td>
-		</tr>
+<!-- 
+
+	-->
+	<jsp:include page="../admin/managerTheme.jsp" />
+	
+	<!-- 메뉴바 밑 컨테이너 -->
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+관리자 영화 관리
+</div>
+<hr>
+</div>
+
+	<div class="container">
+		<div class="row" id = "list">
+			<div class="col-sm-12">
+				<h2>영화 리스트</h2>
+				<br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+			<div align="right">
+			<button type="button" class="btn btn-secondary"  id = "movieBtn" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/writeMovie'">영화 등록</button>
+			</div>
+			<br>
+				<table class="table table-striped" id = "listTable">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">등록일</th>
+							<th scope="col">영화제목</th>
+							<th scope="col">감독</th>
+							<th scope="col">배우</th>
+							<th scope="col">장르</th>
+							<th scope="col">러닝타임</th>
+							<th scope="col">개봉일</th>
+							<th scope="col">영화등급</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
 		<c:choose>
 			<c:when test="${empty list || fn:length(list) == 0 }">
 			</c:when>
@@ -44,7 +82,7 @@
 			<c:otherwise>
 				<c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
 					<tr>
-						<td>${dto.mov_num }</td>
+						<td>${dto.mov_regDate }</td>
 						<td>${dto.mov_title }</td>
 						<td>${dto.mov_director }</td>
 						<td>${dto.mov_actors }</td>
@@ -52,31 +90,48 @@
 						<td>${dto.mov_runtime }</td>
 						<td>${dto.mov_openDate }</td>
 						<td>${dto.mov_grade }</td>
-						<td><button onclick="location.href='${pageContext.request.contextPath }/movieAdmin/updateMovie?mov_num=${dto.mov_num }'">수정</button></td>
-						<td><button onclick="location.href='${pageContext.request.contextPath }/movieAdmin/deleteMovieOk?mov_num=${dto.mov_num }'">삭제</button></td>				
+						<td><button class="btn btn-outline-secondary btn-sm" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/updateMovie?mov_num=${dto.mov_num }'">수정</button>
+						<button class="btn btn-outline-secondary btn-sm" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/deleteMovieOk?mov_num=${dto.mov_num }'">삭제</button></td>				
 					</tr>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-			
-	</table>
-	
-	<%--페이징 --%>
-	<!-- 
-<div class="center">
-	<ul class="pagination" id="pagination">
-	</ul>
-</div>
- -->
- 
- 		<%--페이징 --%>
- 		<jsp:include page="pagination.jsp">
-			<jsp:param value="<%= writePages %>" name="writePages"/>
-			<jsp:param value="${totalPage }" name="totalPage"/>
-			<jsp:param value="${curPage }" name="curPage"/>
-		</jsp:include>
-	
-</div>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<jsp:include page="../footer.jsp" />
+
+	<!-- JS파일 -->
+	<!-- Popper JS -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
 </body>
+
+<script>
+/**
+ * 
+ */
+
+$(document).ready(function () {
+  $('#listTable').DataTable({
+     "pagingType": "simple_numbers"
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
+
 </html>

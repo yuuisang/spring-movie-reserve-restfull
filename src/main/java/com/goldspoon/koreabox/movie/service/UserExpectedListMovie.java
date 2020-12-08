@@ -39,7 +39,12 @@ public class UserExpectedListMovie implements Service{
 //		}
 		
 		AfterList = dao.openBeforeList();
-		
+		System.out.println(AfterList.size());
+		if(AfterList.size()>0) {
+			model.addAttribute("result", 1);
+		}else {
+			model.addAttribute("result", 0);
+		}
 
 		
 		model.addAttribute("list", AfterList);
