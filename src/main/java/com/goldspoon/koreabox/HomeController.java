@@ -195,8 +195,11 @@ public class HomeController {
         }
     }
    
+    @RequestMapping("/secession")
+    public void secession() {
+       
+    }
     
-
 
    
 //    @RequestMapping("/pwSearchOk")
