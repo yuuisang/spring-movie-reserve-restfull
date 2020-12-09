@@ -132,7 +132,7 @@
             <c:forEach var="dto" items="${list }">  <%-- request.getAttribute("list") --%>
               <div class="col-sm-6 col-md-4">
                        <a class="lightbox" href="${path }/resources/upload/${dto.mov_poster}">
-                    <img src="${path }/resources/upload/${dto.mov_poster}" style="height:500px;" alt="Bridge">
+                    <img src="${path }/resources/upload/${dto.mov_poster}" style="height:400px;" alt="Bridge">
                     </a><br>
                <span>제목 : ${dto.mov_title }</span><br>
                <c:if test="${dto.mov_totalStar/dto.mov_countStar == 'NaN'}">

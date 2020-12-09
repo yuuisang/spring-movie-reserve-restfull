@@ -209,6 +209,7 @@ CREATE TABLE tb_showinfo
 
 INSERT INTO tb_showinfo values(12,42,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
 INSERT INTO tb_showinfo values(15,40,'asd',1,'asdasd','2020-12-09',123,1,1,1,sysdate,0);
+INSERT INTO tb_showinfo values(9, 8,'asd',1,'asdasd','2020-12-09',123,1,1,1,sysdate,0);
 
 /* Comments */
 

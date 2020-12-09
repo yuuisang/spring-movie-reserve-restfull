@@ -156,10 +156,7 @@ public class MovieAdminController {
 
    @RequestMapping("/updateMovieOk")
    public void updateMovieOk(MovieAdminDTO dto, Model model) {
-
-      
       model.addAttribute("dto", dto);
-
       new AdminUpdateMovie().execute(model);
    }
 

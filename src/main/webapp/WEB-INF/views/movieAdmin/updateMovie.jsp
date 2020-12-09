@@ -46,118 +46,73 @@
 	<div class="container">
 		<h2>영화 수정</h2>
 
-		<span></span>
+		<span>모든 항목은 필수 입력입니다.</span><br><br><br><br>
 		<div class="row text-center">
-			<div class="col-sm-12">
-				<div class="col-sm-3"></div>
-
-				<div class="col-sm-6" id="form1">
-					<div class="container contact">
-						<div class="row">
-							<div class="col-md-3">
-								<div class="contact-info">
-								</div>
-							</div>
-							<div class="col-md-9">
-								<form action="updateMovieOk">
-								<input type="hidden" name="mov_num" value="${list.mov_num}"/>
-									<div class="contact-form">
-										<div id="message"
-											class="alert alert-danger alert-dismissible fade"></div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">제목</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="fname" name="mov_title" value="${list.mov_title }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">감독</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="lname" name="mov_director" value="${list.mov_director }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">배우</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="email" name="mov_actors" value="${list.mov_actors }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">장르</label>
-											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_genre"
-													id="comment">${list.mov_genre }</textarea>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">러닝타임</label>
-											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_runtime">${list.mov_runtime }</textarea>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">개봉일</label>
-											<div class="col-sm-10">
-												<input type="date" class="form-control" name="mov_openDate" value="${list.mov_openDate }"/>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">심의등급</label>
-											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_grade">${list.mov_grade }</textarea>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">소개</label>
-											<div class="col-sm-10">
-												<textarea class="form-control" rows="5" name="mov_intro">${list.mov_intro }</textarea>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">포스터</label>
-											<div class="col-sm-10">
-												<input type="file" class="form-control" name="mov_poster" value="${list.mov_poster }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">스틸컷1</label>
-											<div class="col-sm-10">
-												<input type="file" class="form-control" name="mov_still1" value="${list.mov_still1 }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">스틸컷2</label>
-											<div class="col-sm-10">
-												<input type="file" class="form-control" name="mov_still2" value="${list.mov_still2 }">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-12">스틸컷3</label>
-											<div class="col-sm-10">
-												<input type="file" class="form-control" name="mov_still3" value="${list.mov_still3 }">
-											</div>
-										</div>
-										<img class="card-img-top" src="../resources/upload/${list.mov_poster}" style="width:300px; height:300px;">
-										<img class="card-img-top" src="../resources/upload/${list.mov_still1}" style="width:300px; height:300px;">
-										<img class="card-img-top" src="../resources/upload/${list.mov_still2}" style="width:300px; height:300px;">
-										<img class="card-img-top" src="../resources/upload/${list.mov_still3}" style="width:300px; height:300px;"><br>
-										
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/managementMovie'">취소</button>
-												<button type="submit" class="btn btn-default">수정</button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+			<div class="col-sm-12" align="center">
+			<form action="updateMovieOk">
+			<input type="hidden" name="mov_num" value="${list.mov_num}"/>
+			<table class="table col-sm-12">
+				<tr>
+					<td><label class="control-label col-sm-12">제목</label></td>
+					<td><input type="text" class="form-control" id="fname" name="mov_title" value="${list.mov_title }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">감독</label></td>
+					<td><input type="text" class="form-control" id="lname" name="mov_director" value="${list.mov_director }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">배우</label></td>
+					<td><input type="text" class="form-control" id="email" name="mov_actors" value="${list.mov_actors }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">장르</label></td>
+					<td><input type="text" class="form-control" name="mov_genre" id="comment" value="${list.mov_genre }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">러닝타임</label></td>
+					<td><input type="number" class="form-control" name="mov_runtime" placeholder="숫자만 입력해 주세요" value="${list.mov_runtime }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">개봉일</label></td>
+					<td><input type="date" class="form-control" name="mov_openDate" value="${list.mov_openDate }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">심의등급</label></td>
+					<td><input class="form-control" name="mov_grade" value="${list.mov_grade }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">소개</label></td>
+					<td><textarea class="form-control" rows="5" name="mov_intro">${list.mov_intro }</textarea></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">포스터</label></td>
+					<td><input type="file" class="form-control" name="mov_poster" value="${list.mov_poster }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">스틸컷1</label></td>
+					<td><input type="file" class="form-control" name="mov_still1" value="${list.mov_still1 }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">스틸컷2</label></td>
+					<td><input type="file" class="form-control" name="mov_still2" value="${list.mov_still2 }"></td>
+				</tr>
+				<tr>
+					<td><label class="control-label col-sm-12">스틸컷3</label></td>
+					<td><input type="file" class="form-control" name="mov_still3" value="${list.mov_still3 }"></td>
+				</tr>
+			</table>
+			<!-- 
+			<img class="card-img-top" src="../resources/upload/${list.mov_poster}" style="width:300px; height:300px;">
+			<img class="card-img-top" src="../resources/upload/${list.mov_still1}" style="width:300px; height:300px;">
+			<img class="card-img-top" src="../resources/upload/${list.mov_still2}" style="width:300px; height:300px;">
+			<img class="card-img-top" src="../resources/upload/${list.mov_still3}" style="width:300px; height:300px;"><br>
+			 -->
+			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/managementMovie'">취소</button>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
 	</div>
+	</div>
+</div>
 		
 
 	<jsp:include page="../footer.jsp" />
