@@ -34,6 +34,8 @@
 
 	<!-- 구글폰트 -->
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+	
+	
 	<!-- CSS파일 -->
 	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/idSearchOk.css">
 
