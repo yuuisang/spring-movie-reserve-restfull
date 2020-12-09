@@ -57,84 +57,89 @@
 										<!-- 슬라이드 1 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/boxOfficeImg.jpg"
+												<img src="${path }/resources/img/signUpImg4.jpg"
 													class="img-fluid profile-pic">
 											</div>
-											<h6 class="font-weight-bold mt-5">John Paul</h6>
-											<small class="mb-2">UI/UX Designer</small>
+											<h6 class="font-weight-bold mt-5">존 윅 3: 파라벨룸</h6>
+											<small class="mb-2">출연 : 키아누 리브스, 할리 베리, 로렌스 피시번, 이안 맥쉐인, 제이슨 맨트조카스</small>
 											<hr width="50%">
 											<p class="content mt-2 mb-0">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
-												aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur.
-											</p>
+												전설이 된 킬러 ‘존 윅’ (키아누 리브스). 룰을 어긴 죄로 그에게 현상금 1,400만 불이 붙고,전 세계 모든 킬러의 총구가 그를 향한다.
+												국제암살자연맹의 파문 조치가 내려진 그는 아무런 보호도 받지 못한 채 시시각각 위험에 직면하고
+												결국, 마지막 전쟁을 위해 ‘소피아’(할리 베리)를 찾아가는데…
+												 <br>
+												출구는 없다! 평화를 원한다면, 전쟁을 준비하라!
 										</div>
 
 										<!-- 슬라이드 2 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/boxOfficeImg.jpg"
+												<img src="${path }/resources/img/signUpImg6.jpg"
 													class="img-fluid profile-pic">
 											</div>
-											<h6 class="font-weight-bold mt-5">Ximena Vegara</h6>
-											<small class="mb-2">UI/UX Designer</small>
+											<h6 class="font-weight-bold mt-5">가나의 혼인잔치: 언약</h6>
+											<small class="mb-2">출연 : 장광, 케빈 소보, 션 알다란, 잭 힙스, J.D 파락</small>
 											<hr width="50%">
 											<p class="content mt-2 mb-0">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
-												aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur.
+												우리는 소망을 잃어버렸다.예수의 언약을 잊어버렸다.하지만 최근 연구를 통해 숨겨둔 언약의 비밀이 드러나게 되는데…
+												예수는 무엇을 약속하셨는가!역사를 통해 드러난 충격적인 비밀이
+												우리의 영성을 두드린다.가장 안전하고 정확하게 언약 속 비밀을 맞이하라!
+													
+
 											</p>
 										</div>
 
 										<!-- 슬라이드 3 -->
 										<div class="carousel-item active card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/boxOfficeImg.jpg"
+												<img src="${path }/resources/img/signUpImg7.jpg"
 													class="img-fluid profile-pic">
 											</div>
-											<h6 class="font-weight-bold mt-5">Lena Maria</h6>
-											<small class="mb-2">Backend Developer</small>
+											<h6 class="font-weight-bold mt-5">피아니스트의 마지막 인터뷰</h6>
+											<small class="mb-2">출연 : 패트릭 스튜어트, 케이티 홈즈, 지안카를로 에스포지토</small>
 											<hr width="50%">
 											<p class="content mt-2 mb-0">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
-												aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur.
+												"베토벤,바흐,쇼팽,라흐마니노프,슈베르트
+												당신의 인생은 어떤 음악을 연주하나요?"<br>
+												27곡 클래식 연주와 함께 떠나는 어느 가을날의 음악여행
+												세계적인 명성을 자랑하는 피아니스트 헨리 콜
+												뉴욕 센트럴 파크, 링컨 센터에서 프랑스 페리고르, 스위스 알프스까지
+												아름다운 도시를 여행하며 음악과 인생에 대한 깊은 대화를 나누는 두 사람.
+												그 이후 헨리 콜의 피아노 연주에 새로운 변화가 일어나는데…
 											</p>
 										</div>
 
 										<!-- 슬라이드 4 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/boxOfficeImg.jpg"
+												<img src="${path }/resources/img/signUpImg5.jpg"
 													class="img-fluid profile-pic">
 											</div>
-											<h6 class="font-weight-bold mt-5">Richard Finch</h6>
-											<small class="mb-2">UI/UX Designer</small>
+											<h6 class="font-weight-bold mt-5">미드나이트 스카이</h6>
+											<small class="mb-2">출연 : 조지 클루니, 펠리시티 존스, 데이빗 오예로위, 카일 챈들러, 데미안 비쉬어, 티파니 분</small>
 											<hr width="50%">
 											<p class="content mt-2 mb-0">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
-												aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur.
+												원인 불명의 재앙으로 종말을 맞이한 지구, 북극에 남겨진 과학자 오거스틴과
+												탐사를 마치고 귀환하던 중 지구와 연락이 끊긴 우주 비행사 설리가
+												짧은 교신에 성공하며 벌어지는 이야기를 담은 넷플릭스 영화
 											</p>
 										</div>
 
 										<!-- 슬라이드 5 -->
 										<div class="carousel-item card border-0 card-0">
 											<div class="text-center">
-												<img src="${path }/resources/img/boxOfficeImg.jpg" class="img-fluid profile-pic">
+												<img src="${path }/resources/img/signUpImg8.jpg" class="img-fluid profile-pic">
 											</div>
-											<h6 class="font-weight-bold mt-5">Marielle Haag</h6>
-											<small class="mb-2">Backend Developer</small>
+											<h6 class="font-weight-bold mt-5">장 미쉘 바스키아: 더 레이디언트 차일드</h6>
+											<small class="mb-2">출연 : 장 미쉘 바스키아, 줄리안 슈나벨, 래리 가고시안</small>
 											<hr width="50%">
 											<p class="content mt-2 mb-0">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-												sed do eiusmod incididunt ut labore et dolore magna aliqua.<br>Duis
-												aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur.
+										1980년대 뉴욕 예술계에 혜성처럼 나타나, 현재까지도 자유와 저항 정신의 대명사로 많은 사랑을 받고 있는 아티스트 장 미쉘 바스키아의 
+										인터뷰와 아카이브 영상을 수록한 다큐멘터리.
+										 바스키아 사후 10년이 지나서야 공개되었다. 
+										 감독 탐라 데이비스가 1985년에 직접 촬영한 바스키아의 인터뷰 영상을 중심으로
+										  유명 아티스트, 큐레이터, 갤러리스트, 가장 친밀했던 주변 인물들의 기억 속에 살아있는
+										   바스키아와 마치 불꽃 같았던 그의 예술혼을 생생히 묘사한다.
 											</p>
 										</div>
 									</div>
