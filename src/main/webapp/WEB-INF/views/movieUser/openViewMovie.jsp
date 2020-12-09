@@ -18,20 +18,19 @@
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-   <!-- 아이콘 -->
-   <!-- 
-   <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    -->
+   <!-- 아이콘 --> 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-   <!-- Font Awesome Icon Library -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
    
    <!-- 구글폰트 -->
    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
    
    <!-- CSS파일 -->
+
    <link rel="stylesheet" type="text/css" href="../resources/CSS/main/nowMovieInfo.css">
-   
+
+    
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
@@ -271,49 +270,49 @@
          <!-- 댓글  리스트 -->
          <div class="col-sm-12 text-left">
             <div class="card shadow" id = "reviewCard">
-              <div class="reviewName">
+              <div class="col-sm-12 text-left">
               <!-- 아이디 -->
                  <div id="commentWrite"><h5 class="h5 g-color-gray-dark-v1 mb-0">${dto.cmt_memberId }</h5></div>
-                 <div id="commentDate" align="right">${dto.cmt_regDate }</div>
+                 <div class="col-sm-12 text-rigth" id="commentDate" align="right">${dto.cmt_regDate }</div>
               </div>
                 <!-- 별점 -->
-                     <div class = "col-sm-12 text-left" id = "star1">
-                     <c:if test="${dto.cmt_star==1 }">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                     </c:if>
-                     <c:if test="${dto.cmt_star==2 }">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                     </c:if>
-                     <c:if test="${dto.cmt_star==3 }">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                     </c:if>
-                     <c:if test="${dto.cmt_star==4 }">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                     </c:if>
-                     <c:if test="${dto.cmt_star==5 }">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                     </c:if>
-               </div>
+                 <div class = "col-sm-12 text-left" id = "star1">
+                 <c:if test="${dto.cmt_star==1 }">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                    </c:if>
+                    <c:if test="${dto.cmt_star==2 }">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                    </c:if>
+                    <c:if test="${dto.cmt_star==3 }">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                    </c:if>
+                    <c:if test="${dto.cmt_star==4 }">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                    </c:if>
+                    <c:if test="${dto.cmt_star==5 }">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                    </c:if>
+              </div>
               <!-- 댓글 내용 -->
            <div class = "col-sm-12 text-left" id = "reviewContent">   
               <p>${dto.cmt_content }</p>
@@ -382,16 +381,17 @@
    <!-- Latest compiled JavaScript -->
    <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <!-- 
+<!-- 
    	<script type="text/javascript" src="${path}/resources/JS/main/nowMovieInfo.js"></script>
-    -->
+ -->
 </body>
+
 <script>
 $(document).ready(function(){
     // Check Radio-box
     $(".rating input:radio").attr("checked", false);
 
-    $('.rating input').click(function () {
+    $(".rating input").click(function () {
         $(".rating label").removeClass('fa fa-star checked');
         $(".rating label").addClass('fa fa-star');
         $(this).parent().addClass('fa fa-star checked').prevAll("label").addClass("fa fa-star checked");
@@ -403,4 +403,5 @@ $(document).ready(function(){
     }); 
 });
 </script>
+
 </html>
