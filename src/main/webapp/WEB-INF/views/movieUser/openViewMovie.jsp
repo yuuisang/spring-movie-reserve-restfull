@@ -19,8 +19,12 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
    <!-- 아이콘 -->
+   <!-- 
    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    -->
    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   <!-- Font Awesome Icon Library -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
    <!-- 구글폰트 -->
    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
@@ -224,11 +228,11 @@
                      <form action="commentWriteOk">
                         <div class = "rating" id = "star">
                            <input type="hidden" name="cmt_memberId" value="${mem_id }">
-                            <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str1" value="1"></label>
-                            <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str2" value="2"></label>
-                            <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str3" value="3"></label>
-                             <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str4" value="4"></label>
-                              <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str5" value="5"></label>
+                           <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str1" value="1"></label>
+                           <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str2" value="2"></label>
+                           <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str3" value="3"></label>
+                           <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str4" value="4"></label>
+                           <label class="fa fa-star"><input type="radio" class="custom-control-input" name="cmt_star" id="str5" value="5"></label>
                            <input type="hidden" name="cmt_movieNum" value="${list.mov_num }"/>
                            <input type="hidden" name="cmt_movieName" value="${list.mov_title }"/>
                            <input type="hidden" name="cmt_memberUid" value="${mem_uid }"/>
@@ -378,8 +382,9 @@
    <!-- Latest compiled JavaScript -->
    <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
-   
+   <!-- 
+   	<script type="text/javascript" src="${path}/resources/JS/main/nowMovieInfo.js"></script>
+    -->
 </body>
 <script>
 $(document).ready(function(){

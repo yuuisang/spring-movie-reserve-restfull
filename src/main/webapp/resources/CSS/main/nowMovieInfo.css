@@ -55,6 +55,9 @@ position: relative; /* 1:1 ratio */ overflow: hidden;
 
 }
 
+.checked {
+  color: orange;
+}
 
 /* 스틸컷 */
 

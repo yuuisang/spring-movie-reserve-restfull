@@ -207,7 +207,7 @@ CREATE TABLE tb_showinfo
    PRIMARY KEY (shw_num)
 );
 
-INSERT INTO tb_showinfo values(9,4,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
+INSERT INTO tb_showinfo values(12,42,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
 
 /* Comments */
 

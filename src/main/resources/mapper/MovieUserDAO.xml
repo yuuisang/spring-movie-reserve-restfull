@@ -32,7 +32,7 @@
       <![CDATA[
       SELECT shw_movieNum 
       FROM tb_showinfo 
-      WHERE shw_date > TO_CHAR(sysdate, 'YYYY-MM-DD')
+      WHERE shw_date >= TO_CHAR(sysdate, 'YYYY-MM-DD')
       ORDER BY shw_movieNum DESC
              ]]>   
    </select>
