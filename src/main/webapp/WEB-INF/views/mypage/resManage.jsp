@@ -51,6 +51,7 @@
 	<jsp:include page="../theme.jsp" />
 
 
+<div class = "container">
 	<h3>현재 예매 정보 목록</h3>
 	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
 
@@ -62,18 +63,18 @@
 		
 	
 		<form id="frmList" name="frmList">
-			<table id="reserveTable">
-				<thead>
-					<th>예매번호</th>
-					<th>관람일</th>
-					<th>관람시간</th>
+			<table id="reserveTable" class = "table  table-hover">
+				<thead class = "thead-dark">
+					<th scope="col" >예매번호</th>
+					<th scope="col">관람일</th>
+					<th scope="col">관람시간</th>
 					<th>영화이름</th>
 					<th>상영관</th>
 					<th>예매좌석</th>
 					<th>결제금액</th>
 					<th>예매코드</th>
 					<th>결제일</th>
-					<th></th>
+
 				</thead>
 				<tbody>
 				
@@ -84,8 +85,8 @@
 		
 	
 	</div>
-	
-	<div class="clear"></div>
+</div>
+
 	
 	<%--페이징 --%>
 	<div class="center">
