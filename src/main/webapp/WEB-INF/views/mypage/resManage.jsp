@@ -50,10 +50,23 @@
 <body>
 	<jsp:include page="../theme.jsp" />
 
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+현재 예매목록
+</div>
+<hr>
+</div>
+
 
 <div class = "container">
-	<h3>현재 예매 정보 목록</h3>
-	<h4>(관람일이 지난 영화는 취소 할 수 없습니다.)</h4>
+		<div class="row" id = "title">
+			<div class="col-sm-12">
+				<h4>나의 예매 목록</h4>
+				<h5>관람일이 지난 영화는 취소 할 수 없습니다.</h5>
+				<br>
+			</div>
+		</div>
 
 	
 	

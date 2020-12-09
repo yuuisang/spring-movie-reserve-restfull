@@ -42,12 +42,15 @@
 <section id= "idSearch">
 
 
-		<div class="container">
-			<hr>
-			sdfsdfsdf
-			<hr>
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+아이디 / 비밀번호 찾기
+</div>
+<hr>
+</div>
 
-		</div>
+
 		<div class="container" align="center" id="searchTab">
 			<div class="p-5 bg-white mb-5">
 
@@ -57,8 +60,7 @@
 					<li class="nav-item flex-sm-fill"><a id="home-tab"
 						data-toggle="tab" href="#home" role="tab" aria-controls="home"
 						aria-selected="true"
-						class="nav-link border-0 text-uppercase font-weight-bold active">아이디
-							찾기</a></li>
+						class="nav-link border-0 text-uppercase font-weight-bold active">아이디 찾기</a></li>
 					<li class="nav-item flex-sm-fill"><a id="profile-tab"
 						data-toggle="tab" href="#profile" role="tab"
 						aria-controls="profile" aria-selected="false"
@@ -75,7 +77,7 @@
 							<div class="wrap-login100">
 								<form class="login100-form validate-form flex-sb flex-w"
 									action="idSearchOk">
-									<span class="login100-form-title p-b-32"> 아이디 찾기 </span> <span
+									<small class="login100-form-title p-b-32">회원정보에 등록한 내용과 입력한내용이 같을시, 아이디를 찾으실 수 있습니다.</small> <span
 										class="txt1 p-b-11"> 이름 </span>
 									<div class="wrap-input100 validate-input m-b-36"
 										data-validate="Username is required">
@@ -83,8 +85,8 @@
 										<span class="focus-input100"></span>
 									</div>
 
-									<span class="txt1 p-b-11"> 전화번호 </span>
-									<div class="wrap-input100 validate-input m-b-12"
+									<span class="txt1 p-b-11"> 전화번호 </span> 
+									<div class="wrap-input100 validate-input m-b-12"  id = "phone-number"
 										data-validate="Password is required">
 
 										<input class="input100 " type="tel" name="mem_phone"
@@ -113,7 +115,7 @@
 							<div class="wrap-login100">
 								<form class="login100-form validate-form flex-sb flex-w"
 									action="pwSearchOk">
-									<span class="login100-form-title p-b-32"> 비밀번호 찾기 </span> <span
+									<small class="login100-form-title p-b-32"> 회원님의 이메일을 통해 비밀번호를 찾으실 수 있습니다. </small> <span
 										class="txt1 p-b-11"> 아이디 </span>
 									<div class="wrap-input100 validate-input m-b-36"
 										data-validate="Username is required">
@@ -157,144 +159,7 @@
 
 	</section>
 	
-	     <div class="container">
-    <h2>제목제목</h2>
-    
-    <span>내용내용</span>
-    <hr>
-    <div class="row text-center" >
-    <div class="col-sm-12">
-    <div class="col-sm-3"></div>
-     
-    <div class="col-sm-6" id = "form1">
-    <form action="" method="post">
-        <table class="table table-boardered">
-            <tr>
-                <th>아이디</th>
-                <td><input type="text" class="form-control" name="id" ></td>        
-            </tr>
-            <tr>
-                <th>이름</th>
-                <td><input type="text" class="form-control" name="name" ></td>      
-            </tr>
-             
-            <tr>
-                <th>생년월일</th>
-                <td><input type="number" class="form-control" name="birth"></td>        
-            </tr>
-             
-            <tr>
-                <th>이메일</th>
-                <td><input type="email" class="form-control" name="email"></td>       
-            </tr>
-             
-            <tr>
-                <th>비밀번호</th>
-                <td><input type="password" class="form-control" name="password1"></td>       
-            </tr>
-            
-            <tr>
-                <th>비밀번호 확인</th>
-                <td><input type="password" class="form-control" name="password2"></td>       
-            </tr>
-            <tr>
-                <th>전화번호</th>
-                <td><input type="number" class="form-control" name="tel"></td>       
-            </tr>
-            <tr>
-            <th></th>
-            <td>
-            <div align="right">
-              <button type="button" class="btn btn-info btn-sm" onclick="location.href='${path}/user/secession.jsp'">탈퇴하기</button>     
-              </div>      
-             </td>
-             </tr>
-            <tr>
-                <td colspan="2">
-                <input type="reset" class="btn btn-danger" value="취소">
-                <input type="submit" class="btn btn-primary" value="변경">
-                </td>
-            </tr>
-             
-             
-        </table>
 
-     
-    </form>
-    </div>
-     
-    </div>
-    </div>
-</div>
-
-<div class="container">
-    <h2>제목제목</h2>
-    
-    <span>내용내용</span>
-    <hr>
-    <div class="row text-center" >
-    <div class="col-sm-12">
-    <div class="col-sm-3"></div>
-     
-    <div class="col-sm-6" id = "form1">
-    <form action="updateUserDataOk">
-        <input type="hidden" name="mem_uid" value="${list.mem_uid }"/>
-        <table class="table table-boardered">
-            <tr>
-                <th>아이디</th>
-                <td><input type="text" class="form-control" name="mem_id"  value=""></td>        
-            </tr>
-            <tr>
-                <th>이름</th>
-                <td><input type="text" class="form-control" name="mem_name" value=""></td>      
-            </tr>
-             
-            <tr>
-                <th>비밀번호</th>
-                <td><input type="text" class="form-control" name="mem_pw" value=""></td>        
-            </tr>
-             
-            <tr>
-                <th>생년월일</th>
-                <td><input type="date" class="form-control" name="mem_birth" value=""></td>       
-            </tr>
-             
-            <tr>
-                <th>전화번호</th>
-                <td><input type="text" class="form-control" name="mem_phone" value=""></td>       
-            </tr>
-            
-            <tr>
-                <th>이메일</th>
-                <td><input type="email" class="form-control" name="mem_email" value=""></td>       
-            </tr>
-            <tr>
-                <th>가입일자</th>
-                <td><p>${list.mem_regDate }</p></td>       
-            </tr>
-            <tr>
-            <th></th>
-            <td>
-                
-             </td>
-             </tr>
-            <tr>
-                <td colspan="2">
-                <input type="submit" class="btn btn-primary" value="수정">
-                <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
-                </td>
-            </tr>
-             
-             
-        </table>
-
-     
-    </form>
-    </div>
-     
-    </div>
-    </div>
-</div>
 
 
 <jsp:include page="footer.jsp" />
@@ -308,5 +173,15 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${path }/resources/JS/main/idpwSearch.js"></script>
 
+	<script type="text/javascript">
+	
+    //휴대폰번호 입력제한 
+    $(document).on("keyup", "#phone-number", function() {
+       $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3")
+             .replace("--", "-") );
+       }
+    
+    );
+	</script>
 </body>
 </html>

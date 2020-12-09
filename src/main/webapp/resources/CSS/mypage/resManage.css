@@ -12,6 +12,19 @@
 .danger {background-color: #f44336;} /* Red */ 
 .danger:hover {background: #da190b;}
 
+#title{
+
+	
+	margin-top: 60px;
+	padding-bottom: 10%;
+}
+
+
+#reserveTable{
+	
+	margin-bottom: 80px;
+	
+}
 
 /* 글 목록 */
 #list table { width: 100%;}

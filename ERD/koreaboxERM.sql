@@ -288,7 +288,7 @@ SELECT * FROM TB_MEMBER;
 SELECT * FROM TB_COMMENT;
 
 INSERT INTO TB_MEMBER values(0,'admin','1234','관리자','1993-10-03','010-1111-1111','admin@naver.com',sysdate);
-INSERT INTO tb_showinfo values(6,38,'asd',1,'asdasd','2020-12-10',123,1,1,1,sysdate,0);
+INSERT INTO tb_showinfo values(9, 8,'asd',1,'asdasd','2020-12-09',123,1,1,1,sysdate,0);
 
 DELETE FROM TB_RESERVE;
 DELETE FROM TB_SHOWINFO;

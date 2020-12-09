@@ -83,7 +83,7 @@
       <!-- 포스터 부분 / 상세 정보 -->
       <div class="row" id="poster">
          <div class="col-md-4 text-center" id = "posterProfile">
-            <img class="card-img-top" src="../resources/upload/${list.mov_poster}" style="width:300px; height:300px;">
+            <img class="card-img-top" src="../resources/upload/${list.mov_poster}" style="width:300px; height:400px;">
          </div>
 
          <!-- 상세 내용
