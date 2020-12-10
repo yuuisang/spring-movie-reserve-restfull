@@ -40,16 +40,26 @@
 	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/idSearchOk.css">
 
 	<!-- 파비콘 설정-->
-	<link rel="shortcut icon" href="img/movie_favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
 
 <title>KOREA BOX</title>
 </head>
 <body>
 	<jsp:include page="theme.jsp" />
 	
+	<div class = "container-fluid" >
+<hr>
+<div class = "container">
+아이디 / 비밀번호 찾기
+</div>
+<hr>
+</div>
+	
+	
 	<div class="container justify-content-center align-items-center">
 	<div class = "row">
-    <div class="col-md-12">
+
+    <div class="col-md-12" id = "backimg" style="background-image: url('../../resources/img/idSearchImg.jpg');">
     	  <div class="col-md-12 text-center" id = "idDiv">
             <span class="d-block mt-3">회원님의 아이디는 </span>
             <span class="d-block mt-3"><big>${mem_id }</big> 입니다.</span>
@@ -59,12 +69,12 @@
             <br>
                 <div class="mx-5">
                     <div class="col-md-12"> 
-                     <button class="btn btn-outline-info" type="button" id = "btn" onclick="location.href='${path}/login'">로그인</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <button class="btn btn-outline-info " type="button"  id = "btn" onclick="location.href='${path}/idpwSearch'">비밀번호 찾기</button>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <button class="btn btn-outline-info " type="button"  id = "btn" onclick="location.href='${path}/'">메인화면</button>
                      </div>
                 </div>
                 </div>
+
         </div>
     </div>	
     </div>

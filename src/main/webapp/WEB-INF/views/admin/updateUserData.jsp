@@ -31,8 +31,17 @@
 <body>
 
    <jsp:include page="managerTheme.jsp" />
+   
+<div class = "container-fluid" >
+<hr>
+<div class = "container">
+KOREA BOX 관리자 영화 관리
+</div>
+<hr>
+</div>
 
-           <div class="container">
+
+ <div class="container">
     <h2>회원 정보 수정</h2>
     
     <span>* 회원님의 정보를 정확히 수정해 주세요.</span>
@@ -66,7 +75,7 @@
              
             <tr>
                 <th>전화번호</th>
-                <td><input type="text" class="form-control" name="mem_phone" value="${list.mem_phone }"></td>       
+                <td><input type="text" class="form-control" name="mem_phone" id = "phone-number" value="${list.mem_phone }"></td>       
             </tr>
             
             <tr>
@@ -75,14 +84,9 @@
             </tr>
             <tr>
                 <th>가입일자</th>
-                <td><p>${list.mem_regDate }</p></td>       
+                <td><p style="text-align: left;">${list.mem_regDate }</p></td>       
             </tr>
-            <tr>
-            <th></th>
-            <td>
-                
-             </td>
-             </tr>
+
             <tr>
                 <td colspan="2">
                 <input type="submit" class="btn btn-primary" value="수정">
@@ -112,5 +116,14 @@
    <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script>
+//휴대폰번호 입력제한 
+$(document).on("keyup", "#phone-number", function() {
+   $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3")
+         .replace("--", "-") );
+   }
+
+);
+</script>
 </body>
 </html>
