@@ -62,13 +62,7 @@
 
 <jsp:include page="../theme.jsp" />
 
-<div class = "container-fluid" >
-<hr>
-<div class = "container">
-예매하기
-</div>
-<hr>
-</div>
+
 
 
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
@@ -109,38 +103,45 @@
 		<!-- </form> -->
 	</div>
 	
-		
-	<div id="list">
-		<table class = "table">
-			<tr>
-				<td>날짜</td>
-				<td id="selectdate"></td>
-			</tr>
-			<tr>
-				<td>영화</td>
-				<td id="movieimg">
-				<span id="moviename"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>상영시간</td>
-				<td id="movietime"></td>
-			</tr>
-			<tr>
-				<td>인원선택</td>
-				<td id="peopleCnt"></td>
-			</tr>
-			<tr>
-				<td>좌석선택</td>
-				<td id="seat"></td>
-			</tr>
-			<tr>
-				<td>결제금액</td>
-				<td id="pay"></td>
-			</tr>
-		</table>
-		
-<%-- 		<div>
+		<div class = "container-fluid" >
+<hr>
+<div class = "container">
+예매하기
+</div>
+<hr>
+</div>
+	<div class="container" >
+		<div class="row text-center" id = "tableDiv">
+			<div class="col-sm-8 ">
+				<div id="list">
+					<table class="table table-hover">
+						<tr>
+							<td>날짜</td>
+							<td id="selectdate"></td>
+						</tr>
+						<tr>
+							<td>영화</td>
+							<td id="movieimg"><span id="moviename"></span></td>
+						</tr>
+						<tr>
+							<td>상영시간</td>
+							<td id="movietime"></td>
+						</tr>
+						<tr>
+							<td>인원선택</td>
+							<td id="peopleCnt"></td>
+						</tr>
+						<tr>
+							<td>좌석선택</td>
+							<td id="seat"></td>
+						</tr>
+						<tr>
+							<td>결제금액</td>
+							<td id="pay"></td>
+						</tr>
+					</table>
+
+					<%-- 		<div>
 			<div>날짜선택 <span id="selectdate"></span></div>
 		</div>
 		<hr>
@@ -150,9 +151,15 @@
 			<span id="moviename">영화이름</span>
 		</div>
 			 --%>
-		
-	
+
+
+				</div>
+			</div>
+		</div>
 	</div>
+
+
+
 	<div id="successbtn"></div>
 	
 <jsp:include page="../footer.jsp" />
