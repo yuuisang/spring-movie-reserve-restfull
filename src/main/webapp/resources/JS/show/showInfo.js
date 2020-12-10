@@ -844,8 +844,12 @@ function makeAfterTable(){
     				}
     				
     				
+    				let ttt = new Date();
+    				let year2 = ttt.getFullYear();
+    				let month2 = ttt.getMonth() + 1;  // 월
+    		    	let date2 = ttt.getDate();
     				
-    				if(items[chkDateList[t]].shw_time <= hours){ 
+    				if(items[chkDateList[t]].shw_date == year2+"-"+month2+"-"+date2 && items[chkDateList[t]].shw_time <= hours){ 
     					// && items[chkDateList[t]].shw_screenName == $("#td"+i+"행"+"0열").text()
     					// 이미 지났을때 
     					
