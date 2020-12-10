@@ -105,9 +105,13 @@ $(document).ready(function(){
     
     // 스케줄 등록버튼클릭
     $(document).on("click",".btnRegistInit",function(event){
-		//alert($(this).attr('value1'))
+		//alert($("#" + $(this).parents().attr('id')).attr('value4') <= hours);
+		let tt = new Date();
+		let year1 = tt.getFullYear(); // 년도
+		let month1 = tt.getMonth() + 1;  // 월
+		let date1 = tt.getDate();  // 날짜
 		
-		if($("#" + $(this).parents().attr('id')).attr('value4') <= hours){
+		if(($(this).attr('value1') == year1+"-"+month1+"-"+date1) && ($("#" + $(this).parents().attr('id')).attr('value4') <= hours)){
 			alert("시간이 지났으므로 스케줄 등록이 불가능합니다.");
 			return;
 		}
