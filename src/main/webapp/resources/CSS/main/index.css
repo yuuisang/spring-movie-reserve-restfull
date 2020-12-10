@@ -6,7 +6,11 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+#eventDiv{
+	
 
+	
+}
 
 #youtube {
 	position: relative;
@@ -92,9 +96,10 @@
 }
 
 #testimonial {
+	margin-top : 10%;
 	padding: 30px 0px 20px;
 	color: #fff;
-	background-color: #673AB7;
+	background-color: #8142DB;
 }
 
 #testimonial h2 {
@@ -289,11 +294,7 @@
 }
     
 }
-#navbarSupportedContent ul {
 
-
-	
-}
 
 
 /*슬라이드 사진*/
