@@ -23,7 +23,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
 	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/movie/updateUserData.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/updateUserData.css">
    
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
@@ -45,20 +45,21 @@ KOREA BOX 관리자 영화 관리
 	<div class="container">
 		<div class="row" id = "list">
 			<div class="col-sm-12">
-				<h2>영화 리스트</h2>
+				<h2 align="center">관리자용 회원정보 수정</h2>
 				<br>
 			</div>
 		</div>
+		
 	<div class="container">
-		<div class="row text-center">
+		<div class="row">
 			<div class="col-sm-12" align="center">
-    <div class="col-sm-6" id = "form1">
+    <div class="col-sm-10" id = "form1">
     <form action="updateUserDataOk">
         <input type="hidden" name="mem_uid" value="${list.mem_uid }"/>
         <table class="table table-boardered col-sm-12">
             <tr>
                 <th>아이디</th>
-                <td><input type="text" class="form-control" name="mem_id" placeholder="id를 넣으세요" value="${list.mem_id }"></td>        
+                <td><input type="text" class="form-control" name="mem_id" value="${list.mem_id }"></td>        
             </tr>
             <tr>
                 <th>이름</th>
@@ -90,7 +91,7 @@ KOREA BOX 관리자 영화 관리
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" align="right">
                 <input type="submit" class="btn btn-primary" value="수정">
                 <button type="button" class="btn btn-danger" onclick="history.back()">취소</button>
                 </td>

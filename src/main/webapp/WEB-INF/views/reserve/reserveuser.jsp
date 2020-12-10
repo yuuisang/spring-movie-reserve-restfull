@@ -38,7 +38,6 @@
 <meta charset="UTF-8">
 
 
-
 	<!-- 구글 폰트 -->
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 	
@@ -54,9 +53,6 @@
 
 </head>
 <body>
-
-
-
 
 
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
@@ -98,32 +94,39 @@
 	</div>
 	
 		
-	<div id="list">
-		<table class = "table">
-			<tr>
-				<td>날짜</td>
-				<td id="selectdate"></td>
+		<div>
+			<div><p></p></div>
+		</div>
+		
+
+		
+	<div id="list" align="center">
+			<h2>KOREA BOX 예매하기</h2>
+		<table class = "table" style="height: 300px;">
+			<tr >
+				<td width="200px" style="text-align: center;">날짜</td>
+				<td id="selectdate" width="600px;"></td>
 			</tr>
 			<tr>
-				<td>영화</td>
-				<td id="movieimg">
+				<td style="text-align: center;">영화</td>
+				<td id="movieimg" >
 				<span id="moviename"></span>
 				</td>
 			</tr>
 			<tr>
-				<td>상영시간</td>
+				<td style="text-align: center;" >상영시간</td>
 				<td id="movietime"></td>
 			</tr>
 			<tr>
-				<td>인원선택</td>
+				<td  style="text-align: center;">인원선택</td>
 				<td id="peopleCnt"></td>
 			</tr>
 			<tr>
-				<td>좌석선택</td>
+				<td style="text-align: center;">좌석선택</td>
 				<td id="seat"></td>
 			</tr>
 			<tr>
-				<td>결제금액</td>
+				<td style="text-align: center;">결제금액</td>
 				<td id="pay"></td>
 			</tr>
 		</table>
@@ -139,9 +142,11 @@
 		</div>
 			 --%>
 		
-	
-	</div>
+	<br>
+	<br>
+	<br>
 	<div id="successbtn"></div>
+	</div>
 	
 
 
