@@ -50,7 +50,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div id="screenRegist">
-					<h3>상영관 등록</h3>
+					<h2 align="center">상영관 등록</h2>
 					<div class="formDiv">
 						<form id="frmRegist" name="frmRegist" method="POST"
 							onsubmit="return false">
@@ -84,7 +84,7 @@
 			<div class="col-sm-12">
 
 				<div id="screenList">
-					<h3>상영관 리스트</h3>
+					<h2 align="center">상영관 리스트</h2>
 					<div class="d01">
 						<div class="left" id="pageinfo"></div>
 						<div class="right" id="pageRows"></div>
