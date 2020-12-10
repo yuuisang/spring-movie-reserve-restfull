@@ -46,8 +46,9 @@
 </head>
 <body>
 	<jsp:include page="theme.jsp" />
+
 	
-	<div class = "container-fluid" >
+<div class = "container-fluid" >
 <hr>
 <div class = "container">
 아이디 / 비밀번호 찾기

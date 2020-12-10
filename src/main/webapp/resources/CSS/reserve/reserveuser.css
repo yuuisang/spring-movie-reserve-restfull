@@ -19,7 +19,7 @@
 	position : fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 1050;
 	padding-top: 40px;  /* 내부여백  */
 	overflow: auto;
 }
@@ -51,10 +51,14 @@
 	cursor: pointer;
 }
 
+
+
 #list table { width: 50%;}
 #list table, #list th, #list td {
 	border: 1px solid black;
 	border-collapse: collapse;
+	margin-right: 30px;
+
 }
 
 #list td, #list th {
@@ -76,7 +80,7 @@
 	position : fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 1050;
 	padding-top: 40px;  /* 내부여백  */
 	overflow: auto;
 	text-align: center;

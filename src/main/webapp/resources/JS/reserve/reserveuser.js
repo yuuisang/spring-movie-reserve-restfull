@@ -76,7 +76,8 @@ function updateList(jsonObj){
             result += "<button class='dateChkbtn' value='"+ chk_date[i]+"'>"+chk_date[i]+"</button><br>"
             
         }
-        movieimg = "<img alt='' src='" + path + "/resources/upload/"+mov_poster+"' width='300px' height='300px'/>" +
+
+        movieimg = "<img alt='' src='" + path + "/resources/upload/"+mov_poster+"' width='350px' height='350px'/>" + "<br>"+
         		"<span>"+ items[0].shw_movieName +"</span>"
         
         $(".btn_group_write").html(result);   // 날짜 버튼 목록 업데이트
