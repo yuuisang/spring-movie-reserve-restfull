@@ -19,9 +19,12 @@
 	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
-	<!-- CSS파일
-	<link rel="stylesheet" type="text/css" href="CSS/.css">
-	 -->
+	<!-- 구글폰트 -->
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+	
+	<!-- CSS파일 -->
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/movie/updateMovie.css">
+
 	
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
@@ -107,8 +110,8 @@
 			<img class="card-img-top" src="../resources/upload/${list.mov_still2}" style="width:300px; height:300px;">
 			<img class="card-img-top" src="../resources/upload/${list.mov_still3}" style="width:300px; height:300px;"><br>
 			 -->
-			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/managementMovie'">취소</button>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="button" class="btn btn-outline-danger" onclick="location.href='${pageContext.request.contextPath }/movieAdmin/managementMovie'">취소</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="submit" class="btn btn-outline-dark">Submit</button>
 		</form>
 	</div>
 	</div>

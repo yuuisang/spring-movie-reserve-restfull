@@ -15,6 +15,9 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+	<!-- 구글 폰트 -->
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+
 	<!-- 아이콘 -->
 	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
@@ -99,7 +102,7 @@
 					<td><input type="file" class="form-control" name="mov_still3"></td>
 				</tr>
 			</table>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-outline-info">Submit</button>
 		</form>
 	</div>
 	</div>

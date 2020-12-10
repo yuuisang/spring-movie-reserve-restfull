@@ -300,9 +300,9 @@
 
 <div class="container">
     <header class="text-center">
-        <h1></h1>
+        <h1>EVENT</h1>
         </header>
-	<div class="row">
+	<div class="row" >
 	  <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
 		   <div class="row h-50">
 				  <div class="col-md-12 col-sm-12 co-xs-12 gal-item">
@@ -342,8 +342,7 @@
 				</div>
 				</div>
             </div>
-
-	</div>
+</div>
 	<br/>
 </div>
 
@@ -423,14 +422,13 @@
 
 <!-- 컨텐츠 4-->
 
-    <!-- 진행중 -->
-    <p>진행중입니당</p>
+    
     <section id="testimonial">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Client Testimonials</h2>
+                        <h2>BOUTIQUE CINEMA</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -445,25 +443,29 @@
                             <!-- Slide 1 -->
                             <div class="carousel-item active">
                                 <div class="carousel-content">
-                                    <div class="client-img"><img src="${path }/resources/img/boxOfficeImg.jpg" alt="Testimonial Slider" /></div>
-                                    <p><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</i></p>
-                                    <h4><span>-</span> Gourav Kumar <span>-</span></h4>
+                                    <div class="client-img"><img src="${path }/resources/img/indeximg14.png" alt="Testimonial Slider" /></div>
+                                    <p style="text-align: center;"><i>단지, 보고, 듣는 영화에 만족할 수 없는 당신을 위해! 드라마틱한 이미지, 입체적인 사운드,<br>
+                                     몰입에 최적화 된 공간까지! 최상의 영화를 경험하는 단 하나의 시네마, Dolby Cinema <br>국내 최초 메가박스 코엑스에서 만나보세요.</i></p>
+                                    <h4><span>-</span> KOREA BOX BOUTIQUE CINEMA <span>-</span></h4>
                                 </div>
                             </div>
                             <!-- Slide 2 -->
                             <div class="carousel-item">
                                 <div class="carousel-content">
-                                    <div class="client-img"><img src="${path }/resources/img/boxOfficeImg2.jpg" alt="Testimonial Slider" /></div>
-                                    <p><i>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. There are many variations of passages of Lorem Ipsum available. Lorem Ipsum is simply dummy text of the printing and typesetting industry</i></p>
-                                    <h4><span>-</span> Mukesh Kumar <span>-</span></h4>
+                                    <div class="client-img"><img src="${path }/resources/img/indeximg15.png" alt="Testimonial Slider" /></div>
+                                    <p style="text-align: center;"><i>상영관 내 음식 주문이 가능한 룸서비스 <br>편안한 관람을 위해 제공되는 스위트 패키지 (프리미엄 웰컴 음료, 무릎담요, 실내용 슬리퍼, 물티슈)<br>
+                                    와인 콜키지 서비스</i></p>
+                                    <h4><span>-</span> KOREA BOX BOUTIQUE CINEMA <span>-</span></h4>
                                 </div>
                             </div>
                             <!-- Slide 3 -->
                             <div class="carousel-item">
                                 <div class="carousel-content">
-                                    <div class="client-img"><img src="${path }/resources/img/boxOfficeImg3.jpg" alt="Testimonial Slider" /></div>
-                                    <p><i>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form. There are many variations of passages of Lorem Ipsum available. Lorem Ipsum is simply dummy text of the printing and typesetting industry</i></p>
-                                    <h4><span>-</span> Rajnish Kumar <span>-</span></h4>
+                                    <div class="client-img"><img src="${path }/resources/img/indeximg16.png" alt="Testimonial Slider" /></div>
+                                    <p style="text-align: center;"><i>영화 속 각각의 사운드를 개별적으로 컨트롤하는 가장 진화된 입체음향<br>
+                                    카네기홀과 오페라하우스에서 사용하는 마이어 스피커 69개 설치<br>
+                                    세계적인 사운드 디자이너 밥매카시의 튜닝을 통해 최적화된 영화 사운드 전달</i></p>
+                                    <h4><span>-</span> KOREA BOX BOUTIQUE CINEMA <span>-</span></h4>
                                 </div>
                             </div>
                             <!-- Slider pre and next arrow -->

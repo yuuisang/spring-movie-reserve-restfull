@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+	
+}
+
+#idDiv{
+margin-top: 20%;
+	
+	
+}
+
+#backimg{
+	
+	background-image: url(../resources/img/idSearchImg.jpg);
+	width: 300px;
+	height: 700px;
+	  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+
+
+}

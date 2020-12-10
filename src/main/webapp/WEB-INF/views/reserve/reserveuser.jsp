@@ -12,6 +12,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 
+
 <!--  예매 (사용자) -->
 <% 
 	if((Integer)session.getAttribute("mem_uid") != null && (int)session.getAttribute("mem_uid") != 0){
@@ -35,6 +36,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- 구글 폰트 -->
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 <title>KOREA BOX</title>
 
 
@@ -47,6 +59,10 @@
 
 </head>
 <body>
+
+<jsp:include page="../theme.jsp" />
+
+
 
 
 	<%-- 날짜 선택하는 모달창 --%><!--  가장 먼저 뜸 -->
@@ -87,38 +103,45 @@
 		<!-- </form> -->
 	</div>
 	
-		
-	<div id="list">
-		<table>
-			<tr>
-				<td>날짜</td>
-				<td id="selectdate"></td>
-			</tr>
-			<tr>
-				<td>영화</td>
-				<td id="movieimg">
-				<span id="moviename"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>상영시간</td>
-				<td id="movietime"></td>
-			</tr>
-			<tr>
-				<td>인원선택</td>
-				<td id="peopleCnt"></td>
-			</tr>
-			<tr>
-				<td>좌석선택</td>
-				<td id="seat"></td>
-			</tr>
-			<tr>
-				<td>결제금액</td>
-				<td id="pay"></td>
-			</tr>
-		</table>
-		
-<%-- 		<div>
+		<div class = "container-fluid" >
+<hr>
+<div class = "container">
+예매하기
+</div>
+<hr>
+</div>
+	<div class="container" >
+		<div class="row text-center" id = "tableDiv">
+			<div class="col-sm-8 ">
+				<div id="list">
+					<table class="table table-hover">
+						<tr>
+							<td>날짜</td>
+							<td id="selectdate"></td>
+						</tr>
+						<tr>
+							<td>영화</td>
+							<td id="movieimg"><span id="moviename"></span></td>
+						</tr>
+						<tr>
+							<td>상영시간</td>
+							<td id="movietime"></td>
+						</tr>
+						<tr>
+							<td>인원선택</td>
+							<td id="peopleCnt"></td>
+						</tr>
+						<tr>
+							<td>좌석선택</td>
+							<td id="seat"></td>
+						</tr>
+						<tr>
+							<td>결제금액</td>
+							<td id="pay"></td>
+						</tr>
+					</table>
+
+					<%-- 		<div>
 			<div>날짜선택 <span id="selectdate"></span></div>
 		</div>
 		<hr>
@@ -128,13 +151,30 @@
 			<span id="moviename">영화이름</span>
 		</div>
 			 --%>
-		
-	
+
+
+				</div>
+			</div>
+		</div>
 	</div>
+
+
+
 	<div id="successbtn"></div>
+	
+<jsp:include page="../footer.jsp" />
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${path}/resources/JS/reserve/reserveuser.js"></script>
+
+
+
 
 </body>
 </html>
