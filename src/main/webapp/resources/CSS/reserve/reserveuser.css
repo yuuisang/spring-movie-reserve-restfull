@@ -6,8 +6,6 @@
 		text-decoration: none;} /* Gray */ 
 .default:hover {background: #ddd;}
 
-
-
 /* 하단 버튼 */
 .d01 {
 	margin : 5px 0px;
@@ -53,7 +51,21 @@
 	cursor: pointer;
 }
 
+#list table { width: 50%;}
+#list table, #list th, #list td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
 
+#list td, #list th {
+	padding: 10px;	
+}
+
+#list .subject:hover {   /* 글 제목 위에 커서 올린 경우 */
+	text-decoration: underline;
+	color : orange;
+	cursor: pointer;
+}
 
 
 /* 좌석 선택 모달 팝업 */

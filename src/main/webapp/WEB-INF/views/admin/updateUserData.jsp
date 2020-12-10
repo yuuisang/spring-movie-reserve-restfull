@@ -22,7 +22,8 @@
    <!-- 구글 폰트 -->
    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bowlby+One+SC&family=Bungee&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
 
-
+	<!-- CSS파일 -->
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/movie/updateUserData.css">
    
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">
@@ -41,19 +42,20 @@ KOREA BOX 관리자 영화 관리
 </div>
 
 
- <div class="container">
-    <h2>회원 정보 수정</h2>
-    
-    <span>* 회원님의 정보를 정확히 수정해 주세요.</span>
-    <hr>
-    <div class="row text-center" >
-    <div class="col-sm-12">
-    <div class="col-sm-3"></div>
-     
+	<div class="container">
+		<div class="row" id = "list">
+			<div class="col-sm-12">
+				<h2>영화 리스트</h2>
+				<br>
+			</div>
+		</div>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-sm-12" align="center">
     <div class="col-sm-6" id = "form1">
     <form action="updateUserDataOk">
         <input type="hidden" name="mem_uid" value="${list.mem_uid }"/>
-        <table class="table table-boardered">
+        <table class="table table-boardered col-sm-12">
             <tr>
                 <th>아이디</th>
                 <td><input type="text" class="form-control" name="mem_id" placeholder="id를 넣으세요" value="${list.mem_id }"></td>        
@@ -100,7 +102,7 @@ KOREA BOX 관리자 영화 관리
      
     </form>
     </div>
-     
+     </div>
     </div>
     </div>
 </div>
