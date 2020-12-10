@@ -98,7 +98,7 @@
 								<th>좌석 열</th>
 								<th>관리</th>
 							</thead>
-							<tbody>JS에서 채울예정
+							<tbody>
 							</tbody>
 
 						</table>
