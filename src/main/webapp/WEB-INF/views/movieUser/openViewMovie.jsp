@@ -83,7 +83,7 @@
       <!-- 포스터 부분 / 상세 정보 -->
       <div class="row" id="poster">
          <div class="col-md-4 text-center" id = "posterProfile">
-            <img class="card-img-top" src="../resources/upload/${list.mov_poster}" style="width:300px; height:400px;">
+            <img class="card-img-top" src="${path }/resources/upload/${list.mov_poster}" style="width:300px; height:400px;">
          </div>
 
          <!-- 상세 내용
@@ -145,14 +145,14 @@
                            <!--사진1 -->
                            <div class="carousel-item active card-img "
                               data-slide-number="0" >
-                              <img src="../resources/upload/${list.mov_still1 }"  style="width : 1200px; height: 100% ;object-fit:contain;"
+                              <img src="${path }/resources/upload/${list.mov_still1 }"  style="width : 1200px; height: 100% ;object-fit:contain;"
                                  class="d-block img-fluid" alt="..."
                                  data-type="image" data-toggle="lightbox"
                                  data-gallery="example-gallery">
                            </div>
                            <!--사진2 -->
                            <div class="carousel-item card-img" data-slide-number="1"  >
-                              <img src="../resources/upload/${list.mov_still2 }"
+                              <img src="${path }/resources/upload/${list.mov_still2 }"
                                  style="width : 1200px; height: 100% ;object-fit:contain;"
                                  class=" d-block img-fluid" alt="..."
                                  data-type="image" data-toggle="lightbox"
@@ -160,7 +160,7 @@
                            </div>
                            <!--사진3 -->
                            <div class="carousel-item card-img" data-slide-number="2">
-                              <img src="../resources/upload/${list.mov_still3 }"
+                              <img src="${path }/resources/upload/${list.mov_still3 }"
                                  style="width : 1200px; height: 100% ;object-fit:contain;"
                                  class="d-block img-fluid" alt="..."
                                  data-type="image" data-toggle="lightbox"
@@ -179,21 +179,21 @@
                                  <div id="carousel-selector-0 card-img"
                                     class="d-block img-fluid col-4 col-sm-2 px-1 py-2 card-img"
                                     data-target="#myCarousel" data-slide-to="0">
-                                    <img src="../resources/upload/${list.mov_still1 }" style="width: 200px; height: 100%;"
+                                    <img src="${path }/resources/upload/${list.mov_still1 }" style="width: 200px; height: 100%;"
                                        class="img-fluid" alt="...">
                                  </div>
                                  <!--사진2 -->
                                  <div id="carousel-selector-1 card-img"
                                     class="d-block img-fluid col-4 col-sm-2 px-1 py-2"
                                     data-target="#myCarousel" data-slide-to="1">
-                                    <img src="../resources/upload/${list.mov_still2 }" style="width: 200px; height: 100%;"
+                                    <img src="${path }/resources/upload/${list.mov_still2 }" style="width: 200px; height: 100%;"
                                        class="img-fluid" alt="...">
                                  </div>
                                  <!--사진3 -->
                                  <div id="carousel-selector-2 card-img"
                                     class="d-block img-fluid col-4 col-sm-2 px-1 py-2"
                                     data-target="#myCarousel" data-slide-to="2">
-                                    <img src="../resources/upload/${list.mov_still3 }" style="width: 200px; height: 100%;"
+                                    <img src="${path }/resources/upload/${list.mov_still3 }" style="width: 200px; height: 100%;"
                                        class="img-fluid" alt="...">
                                  </div>
                               </div>
