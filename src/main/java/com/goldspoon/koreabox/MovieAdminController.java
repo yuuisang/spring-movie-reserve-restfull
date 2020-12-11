@@ -68,11 +68,11 @@ public class MovieAdminController {
 //      String resourcePath="C:\\koreabox_workspace\\koreabox\\upload";
 //      String resourcePath = servletContext.getRealPath("/resources")+"/upload";
 //      String resourcePath = request.getSession().getServletContext().getRealPath("upload");
-      String resourcePath = "C:\\koreabox_workspace\\koreabox\\src\\main\\webapp\\resources\\upload";
+//      String resourcePath = "C:\\koreabox_workspace\\koreabox\\src\\main\\webapp\\resources\\upload";
 //      String resourcePath = request.getSession().getServletContext().getRealPath("/resources/upload");
 //      String resourcePath = servletContext.getRealPath("/resources/upload");
-//      String resourcePath = request.getSession().getServletContext().getRealPath("/")
-//    		  					+ "resources/upload/";
+      String resourcePath = request.getSession().getServletContext().getRealPath("/")
+    		  					+ "resources/upload/";
 //      String resourcePath = getServletContext().getRealPath("upload");
       System.out.println(resourcePath);
       int maxPostSize = 5 * 1024 * 1024; // POST 받기, 최대 5M byte
