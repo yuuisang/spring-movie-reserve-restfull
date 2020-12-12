@@ -60,11 +60,6 @@ KOREA BOX  관리자 상영스케줄 관리
 	</div>
 	
 	
-	<div class="d01">
-		<div class="left" id="pageinfo"></div>
-		<div class="right" id="pageRows"></div>	
-	</div>
-	
 	<div id="showScheduleList">
 			<table id="showScheduleTable" class = "table table-hover">
 				<thead class = "thead-dark">
