@@ -19,7 +19,7 @@
 	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
 	<!-- CSS파일 -->
-	<link rel="stylesheet" type="text/css" href="../resources/CSS/front/nextMovieInfo.css">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/nextMovieInfo.css">
 	
    <!-- 파비콘 설정-->
    <link rel="shortcut icon" href="${path}/resources/img/movie_favicon.ico" type="image/x-icon">

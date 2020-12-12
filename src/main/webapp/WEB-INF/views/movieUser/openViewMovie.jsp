@@ -28,7 +28,7 @@
    
    <!-- CSS파일 -->
 
-   <link rel="stylesheet" type="text/css" href="../resources/CSS/main/nowMovieInfo.css">
+   <link rel="stylesheet" type="text/css" href="${path}/resources/CSS/main/nowMovieInfo.css">
 
     
    <!-- 파비콘 설정-->
