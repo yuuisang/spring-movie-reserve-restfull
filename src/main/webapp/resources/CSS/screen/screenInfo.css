@@ -114,8 +114,5 @@ ul.pagination a.active {
 ul.pagination a:hover:not(.active) {background-color: #ddd;}
 
 
-/* 하단 버튼 */
-.d01 {
-	margin : 5px 0px;
-}
+
 
