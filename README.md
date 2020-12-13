@@ -30,6 +30,7 @@
 ***
 
 ### GIF
+* 전체화면은 밑에 유튜브 URL 주소가 있습니다.
 * 본인이 개발한 파트
 
 * 상영스케줄 및 상영관 관리_1<br>
@@ -49,7 +50,7 @@
 ***
 
 ### Video URL
-* https://www.youtube.com/watch?v=I8lGndO-Z8Q&feature=youtu.be
+* https://youtu.be/5jA6s4vAgXU
 
 ***
 
