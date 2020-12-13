@@ -33,19 +33,19 @@
 * 풀영상은 밑에 URL에 있습니다
 * 본인이 개발한 파트
 <br>
-* 상영스케줄 및 상영관 관리_1<br>
-![상영스케줄,상영관관리_1](https://user-images.githubusercontent.com/58925978/102002606-6fa22d00-3d41-11eb-8555-594af4083d8c.gif)<br>
-* 상영스케줄 및 상영관 관리_2<br>
-![상영스케줄,상영관관리_2](https://user-images.githubusercontent.com/58925978/102002610-7df04900-3d41-11eb-9aa1-dc8df899d6a2.gif)<br>
-* 상영스케줄 및 상영관 관리_3<br>
-![상영스케줄,상영관관리_3](https://user-images.githubusercontent.com/58925978/102002611-82b4fd00-3d41-11eb-8735-2c38da30279d.gif)<br>
-* 상영스케줄 및 상영관 관리_4<br>
-![상영스케줄,상영관관리_4](https://user-images.githubusercontent.com/58925978/102002615-89437480-3d41-11eb-975f-33f9abec39b1.gif)<br>
+* 상영스케줄 및 상영관 관리_1
+![상영스케줄,상영관관리_1](https://user-images.githubusercontent.com/58925978/102002606-6fa22d00-3d41-11eb-8555-594af4083d8c.gif)
+* 상영스케줄 및 상영관 관리_2
+![상영스케줄,상영관관리_2](https://user-images.githubusercontent.com/58925978/102002610-7df04900-3d41-11eb-9aa1-dc8df899d6a2.gif)
+* 상영스케줄 및 상영관 관리_3
+![상영스케줄,상영관관리_3](https://user-images.githubusercontent.com/58925978/102002611-82b4fd00-3d41-11eb-8735-2c38da30279d.gif)
+* 상영스케줄 및 상영관 관리_4
+![상영스케줄,상영관관리_4](https://user-images.githubusercontent.com/58925978/102002615-89437480-3d41-11eb-975f-33f9abec39b1.gif)
 <br><br>
-* 마이페이지_개인정보수정 및 탈퇴_1<br>
-![마이페이지_개인정보수정및탈퇴_1](https://user-images.githubusercontent.com/58925978/102002618-8ea0bf00-3d41-11eb-929a-9a7723e629f7.gif)<br>
-* 마이페이지_개인정보수정 및 탈퇴_2<br>
-![마이페이지_개인정보수정및탈퇴_2](https://user-images.githubusercontent.com/58925978/102002620-93fe0980-3d41-11eb-9239-1af307cb81ae.gif)<br>
+* 마이페이지_개인정보수정 및 탈퇴_1
+![마이페이지_개인정보수정및탈퇴_1](https://user-images.githubusercontent.com/58925978/102002618-8ea0bf00-3d41-11eb-929a-9a7723e629f7.gif)
+* 마이페이지_개인정보수정 및 탈퇴_2
+![마이페이지_개인정보수정및탈퇴_2](https://user-images.githubusercontent.com/58925978/102002620-93fe0980-3d41-11eb-9239-1af307cb81ae.gif)
 
 ***
 
