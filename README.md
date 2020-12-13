@@ -31,7 +31,7 @@
 
 ### GIF
 * 전체화면은 밑에 유튜브 URL 주소가 있습니다.
-* 본인이 개발한 파트
+* 본인이 개발한 파트만 나머지는 하단에 캡처.
 
 * 상영스케줄 및 상영관 관리_1<br>
 ![상영스케줄,상영관관리_1](https://user-images.githubusercontent.com/58925978/102002606-6fa22d00-3d41-11eb-8555-594af4083d8c.gif)
@@ -51,6 +51,12 @@
 
 ### Video URL
 * https://youtu.be/5jA6s4vAgXU
+
+***
+
+### Capture
+* 프로젝트 전체 캡처
+
 
 ***
 
