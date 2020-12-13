@@ -111,8 +111,6 @@ function updateUserInfo(){
 
 
 function deleteUserInfo(){
-   alert($("#deleteChk").val())
-   alert(dataSave.data[0].mem_pw) //ok
    
    if($("#deleteChk").val() == null || $("#deleteChk").val() == ""  || $("#deleteChk").val() != dataSave.data[0].mem_pw){
       alert('정확한 비밀번호를 입력해주세요');
