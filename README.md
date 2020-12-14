@@ -58,36 +58,57 @@
 * 프로젝트 전체 캡처
 
 * 일반사용자 파트
-메인페이지_1<br>
+<br>메인페이지_1<br>
 ![00 메인페이지](https://user-images.githubusercontent.com/58925978/102003396-476afc00-3d4a-11eb-8331-ea73828d9ca6.PNG)<br>
-메인페이지_2<br>
+<br>메인페이지_2<br>
 ![00 메인페이지_2](https://user-images.githubusercontent.com/58925978/102003401-64073400-3d4a-11eb-9bce-cd24df0aa5b3.PNG)<br>
-메인페이지_3<br>
+<br>메인페이지_3<br>
 ![00 메인페이지_3](https://user-images.githubusercontent.com/58925978/102003402-69647e80-3d4a-11eb-9eb2-0dec4fb3ff4c.PNG)<br>
+<br>메인페이지_4<br>
 ![00 메인페이지_4_하단부분](https://user-images.githubusercontent.com/58925978/102003403-708b8c80-3d4a-11eb-87c7-bb2c88dcee2f.PNG)<br>
+<br>회원가입_1<br>
 ![01 회원가입](https://user-images.githubusercontent.com/58925978/102003405-75504080-3d4a-11eb-93cd-718790cbe606.PNG)<br>
+<br>회원가입_2<br>
 ![01 회원가입완료페이지](https://user-images.githubusercontent.com/58925978/102003408-7a14f480-3d4a-11eb-8ebb-05e44fa3c217.PNG)<br>
+<br>로그인<br>
 ![02 로그인](https://user-images.githubusercontent.com/58925978/102003409-7da87b80-3d4a-11eb-8610-b1e032cda0f4.PNG)<br>
+<br>마이페이지 - 개인정보 수정 및 탈퇴<br>
 ![03 개인정보수정탈퇴](https://user-images.githubusercontent.com/58925978/102003412-813c0280-3d4a-11eb-899a-0df57dc18470.PNG)<br>
+<br>마이페이지 - 나의 예매 목록<br>
 ![04 나의예매목록(회원)](https://user-images.githubusercontent.com/58925978/102003413-8436f300-3d4a-11eb-9d47-8111fa89320d.PNG)<br>
+<br>현재상영작<br>
 ![05 현재상영작](https://user-images.githubusercontent.com/58925978/102003414-88631080-3d4a-11eb-8554-afe0d3e672ea.PNG)<br>
+<br>상영예정작<br>
 ![06 상영예정작](https://user-images.githubusercontent.com/58925978/102003415-8d27c480-3d4a-11eb-9445-7fe15f47c5e6.PNG)<br>
+<br>영화 상세보기_1<br>
 ![07 영화 상세보기_1](https://user-images.githubusercontent.com/58925978/102003416-94e76900-3d4a-11eb-923c-23b801177d27.PNG)<br>
+<br>영화 상세보기_2<br>
 ![07 영화 상세보기_2_스틸컷](https://user-images.githubusercontent.com/58925978/102003417-99138680-3d4a-11eb-9a53-bfbc3a58f0c1.PNG)<br>
+<br>영화 상세보기_3<br>
 ![07 영화 상세보기_3_리뷰](https://user-images.githubusercontent.com/58925978/102003418-9e70d100-3d4a-11eb-9452-fbed12fbf131.PNG)<br>
+<br>예매하기_1<br>
 ![08 예매하기_1_날짜선택](https://user-images.githubusercontent.com/58925978/102003425-a4ff4880-3d4a-11eb-9822-d3676f6ba88b.PNG)<br>
+<br>예매하기_2<br>
 ![08 예매하기_2_시간인원선택](https://user-images.githubusercontent.com/58925978/102003426-aaf52980-3d4a-11eb-88f3-90218d36a2fa.PNG)<br>
+<br>예매하기_3<br>
 ![08 예매하기_3_좌석선택](https://user-images.githubusercontent.com/58925978/102003427-b0527400-3d4a-11eb-81d6-d53e3d2e510f.PNG)<br>
 
 <hr>
 
 * 관리자
+<br>관리자 영화관리<br>
 ![09 영화관리](https://user-images.githubusercontent.com/58925978/102003430-bc3e3600-3d4a-11eb-9be2-5095ecdfffad.PNG)<br>
+<br>관리자 영화등록<br>
 ![09 영화등록](https://user-images.githubusercontent.com/58925978/102003431-bd6f6300-3d4a-11eb-8aa4-0b6eaed3d113.PNG)<br><br>
+<br>관리자 예매관리<br>
 ![10 예매관리](https://user-images.githubusercontent.com/58925978/102003433-c4967100-3d4a-11eb-9aa9-c08092bf0660.PNG)<br>
+<br>관리자 상영스케줄관리_1<br>
 ![11 상영스케줄관리_1](https://user-images.githubusercontent.com/58925978/102003435-c5c79e00-3d4a-11eb-801b-4acda02d096d.PNG)<br>
+<br>관리자 상영스케줄관리_2<br>
 ![11 상영스케줄관리_2_모달창](https://user-images.githubusercontent.com/58925978/102003436-c5c79e00-3d4a-11eb-884a-25b43cac337f.PNG)<br>
+<br>관리자 상영관관리<br>
 ![12 상영관관리](https://user-images.githubusercontent.com/58925978/102003437-c6603480-3d4a-11eb-94ab-6df46a15421d.PNG)<br>
+<br>관리자 <br>
 ![13 회원관리](https://user-images.githubusercontent.com/58925978/102003438-c6603480-3d4a-11eb-8787-efff7385d576.PNG)<br>
 
 
