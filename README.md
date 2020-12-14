@@ -10,7 +10,7 @@
 
 ### Maintainer
 * 유의상 (devYoooo) :crown:(팀장)
-* 이지연 (dev-Ji) :Santa Claus:
+* 이지연 (dev-Ji)
 * 안신혁 (hyuk0912)
 * 이슬아 (seulAh0729)
 
