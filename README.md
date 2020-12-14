@@ -58,8 +58,11 @@
 * 프로젝트 전체 캡처
 
 * 일반사용자 파트
+메인페이지_1<br>
 ![00 메인페이지](https://user-images.githubusercontent.com/58925978/102003396-476afc00-3d4a-11eb-8331-ea73828d9ca6.PNG)<br>
+메인페이지_2<br>
 ![00 메인페이지_2](https://user-images.githubusercontent.com/58925978/102003401-64073400-3d4a-11eb-9bce-cd24df0aa5b3.PNG)<br>
+메인페이지_3<br>
 ![00 메인페이지_3](https://user-images.githubusercontent.com/58925978/102003402-69647e80-3d4a-11eb-9eb2-0dec4fb3ff4c.PNG)<br>
 ![00 메인페이지_4_하단부분](https://user-images.githubusercontent.com/58925978/102003403-708b8c80-3d4a-11eb-87c7-bb2c88dcee2f.PNG)<br>
 ![01 회원가입](https://user-images.githubusercontent.com/58925978/102003405-75504080-3d4a-11eb-93cd-718790cbe606.PNG)<br>
@@ -76,6 +79,7 @@
 ![08 예매하기_2_시간인원선택](https://user-images.githubusercontent.com/58925978/102003426-aaf52980-3d4a-11eb-88f3-90218d36a2fa.PNG)<br>
 ![08 예매하기_3_좌석선택](https://user-images.githubusercontent.com/58925978/102003427-b0527400-3d4a-11eb-81d6-d53e3d2e510f.PNG)<br>
 
+<hr>
 
 * 관리자
 ![09 영화관리](https://user-images.githubusercontent.com/58925978/102003430-bc3e3600-3d4a-11eb-9be2-5095ecdfffad.PNG)<br>
