@@ -1,4 +1,4 @@
-<h2 align="center">KOREABOX(수정중)</h2>
+<h2 align="center">KOREABOX</h2>
 <p align="center">
   🙍‍♂️Korea IT Academy Project in 2020🙍‍♀️
 </p>
