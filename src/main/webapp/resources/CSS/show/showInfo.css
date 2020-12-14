@@ -94,11 +94,6 @@ ul.pagination a.active {
 ul.pagination a:hover:not(.active) {background-color: #ddd;}
 
 
-/* 하단 버튼 */
-.d01 {
-	margin : 5px 0px;
-}
-
 
 
 /* 모달 팝업 */
@@ -191,3 +186,7 @@ select{
 	width:100%;
 }
 
+#regist{
+	justify-content: center;
+	margin-bottom: 40px;
+}

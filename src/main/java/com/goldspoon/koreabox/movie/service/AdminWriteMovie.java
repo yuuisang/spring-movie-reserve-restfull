@@ -120,7 +120,8 @@ public class AdminWriteMovie implements Service{
 	public void upload(HttpServletRequest request) {
 		MovieAdminDAO dao = Common.sqlSession.getMapper(MovieAdminDAO.class);
 //		String resourcePath=session.getServletContext().getRealPath("/upload");
-		String resourcePath = servletContext.getRealPath("/resources")+"/upload";
+		String resourcePath = request.getSession().getServletContext().getRealPath("/")
+					+ "resources/upload/";
 //		------------------------------------------------------------------------------------------------------
 //		String resourcePath="C:\\koreabox_workspace\\koreabox\\upload";
 		System.out.println(resourcePath);

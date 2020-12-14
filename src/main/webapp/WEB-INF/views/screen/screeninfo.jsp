@@ -85,10 +85,7 @@
 
 				<div id="screenList">
 					<h2 align="center">상영관 리스트</h2>
-					<div class="d01">
-						<div class="left" id="pageinfo"></div>
-						<div class="right" id="pageRows"></div>
-					</div>
+					
 					<form id="frmDelete" name="frmDelete">
 						<table id="screenTable" class="table table-hover">
 							<thead class="thead-dark">

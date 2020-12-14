@@ -28,15 +28,12 @@ position: relative; /* 1:1 ratio */ overflow: hidden;
 
 }
 
-#box1{
-	
-	background-color: pink;
-}
 #box2{
 	margin-top : 30px;
 	padding : 20px;
 
 }
+
 #box3{
 		margin-top : 30px;
 	padding : 20px;
