@@ -26,7 +26,7 @@ public class ExpectedViewMovie implements Service{
 		
 		
 		dto = dao.read(mov_num);
-
+		
 		
 		model.addAttribute("list", dto);
 

@@ -87,7 +87,7 @@
 					<th>결제금액</th>
 					<th>예매코드</th>
 					<th>결제일</th>
-
+					<th> </th>
 				</thead>
 				<tbody>
 				

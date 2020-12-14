@@ -21,11 +21,8 @@
 }
 
 #table{
-	
-	
-	
 	width: 100%;
-	table-layout: fixed;
+	table-layout: auto;
 	
 }
 
@@ -41,11 +38,11 @@
 /* 글 목록 */
 #list table { width: 100%;}
 #list table, #list th, #list td {
-
 	border-collapse: collapse;
 }
 
 #list td, #list th {
+	/* font-size : 13px; */
 	padding: 10px;	
 }
 
