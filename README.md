@@ -50,14 +50,14 @@
 <br><br>
 
 ***
-<br><br>
+<br>
 
 ### Video URL
 * https://youtu.be/5jA6s4vAgXU
 
-<br><br>
+<br>
 ***
-<br><br>
+
 ### Capture
 * 프로젝트 전체 캡처
 
