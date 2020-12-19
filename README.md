@@ -47,13 +47,17 @@
 * 마이페이지_개인정보수정 및 탈퇴_2<br>
 ![마이페이지_개인정보수정및탈퇴_2](https://user-images.githubusercontent.com/58925978/102002620-93fe0980-3d41-11eb-9239-1af307cb81ae.gif)
 
+<br><br>
+
 ***
+<br><br>
 
 ### Video URL
 * https://youtu.be/5jA6s4vAgXU
 
+<br><br>
 ***
-
+<br><br>
 ### Capture
 * 프로젝트 전체 캡처
 
