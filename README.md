@@ -3,7 +3,7 @@
   🙍‍♂️Korea IT Academy Project in 2020🙍‍♀️
 </p>
 <br><br>
-<div style="float:right;">
+<div style="border:1px solid black;">
 [Portfolio (포트폴리오 바로가기)](https://github.com/devYoooo/Portfolio)
 </div>
 
