@@ -23,7 +23,7 @@
 
 ### Stack
 * Language : JAVA, JSP, HTML, CSS, Javascript
-* Library : cos, JQuery, Lombok
+* Library : cos, JQuery, Lombok, jstl, el
 * Framework : Spring3.0 MVC
 * Database : ORACLE(MyBatis)
 
