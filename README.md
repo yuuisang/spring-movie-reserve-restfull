@@ -3,9 +3,7 @@
   🙍‍♂️Korea IT Academy Project in 2020🙍‍♀️
 </p>
 <br><br>
-<span align=right>
-  [Portfolio (포트폴리오 바로가기)](https://github.com/devYoooo/Portfolio)
-</span>
+
 
 ### Description
 * 영화 예매를 위한 스프링3.0 MVC 기반 사이트입니다.
