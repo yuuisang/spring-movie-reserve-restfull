@@ -26,6 +26,7 @@
 * Library : cos, JQuery, Lombok, jstl, el
 * Framework : Spring3.0 MVC
 * Database : ORACLE(MyBatis)
+* Restfull API
 
 ***
 
