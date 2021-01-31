@@ -27,6 +27,7 @@
 * Framework : Spring3.0 MVC
 * Database : ORACLE(MyBatis)
 * Restfull API(상영스케줄관리, 상영관관리, 마이페이지)
+* SPA 페이지 
 
 ***
 
